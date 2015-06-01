@@ -15,6 +15,7 @@
 		B206316C1B1BF4C000C02FA6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B206316B1B1BF4C000C02FA6 /* Images.xcassets */; };
 		B206316F1B1BF4C000C02FA6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B206316D1B1BF4C000C02FA6 /* LaunchScreen.xib */; };
 		B206317B1B1BF4C000C02FA6 /* NTLoveStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B206317A1B1BF4C000C02FA6 /* NTLoveStoreTests.m */; };
+		B20631851B1C0ED300C02FA6 /* libPods-MBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B20631841B1C0ED300C02FA6 /* libPods-MBProgressHUD.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		B20631741B1BF4C000C02FA6 /* NTLoveStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NTLoveStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20631791B1BF4C000C02FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B206317A1B1BF4C000C02FA6 /* NTLoveStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTLoveStoreTests.m; sourceTree = "<group>"; };
+		B20631841B1C0ED300C02FA6 /* libPods-MBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MBProgressHUD.a"; path = "Pods/../build/Debug-iphoneos/libPods-MBProgressHUD.a"; sourceTree = "<group>"; };
 		C07F5D2EA0F4239420C95EAA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EE460C36E7E38FBAFD5DF810 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B20631851B1C0ED300C02FA6 /* libPods-MBProgressHUD.a in Frameworks */,
 				5C920C477F57CFF21BB9C469 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +141,7 @@
 		DE4FC04F3EED67CCC56B28E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B20631841B1C0ED300C02FA6 /* libPods-MBProgressHUD.a */,
 				02CB0EAAE541F33ECEC254AF /* libPods.a */,
 			);
 			name = Frameworks;
@@ -411,6 +415,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NTLoveStore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -422,6 +430,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NTLoveStore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
