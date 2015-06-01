@@ -1,0 +1,496 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5C920C477F57CFF21BB9C469 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CB0EAAE541F33ECEC254AF /* libPods.a */; };
+		B20631611B1BF4C000C02FA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B20631601B1BF4C000C02FA6 /* main.m */; };
+		B20631641B1BF4C000C02FA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B20631631B1BF4C000C02FA6 /* AppDelegate.m */; };
+		B20631671B1BF4C000C02FA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B20631661B1BF4C000C02FA6 /* ViewController.m */; };
+		B206316A1B1BF4C000C02FA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20631681B1BF4C000C02FA6 /* Main.storyboard */; };
+		B206316C1B1BF4C000C02FA6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B206316B1B1BF4C000C02FA6 /* Images.xcassets */; };
+		B206316F1B1BF4C000C02FA6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B206316D1B1BF4C000C02FA6 /* LaunchScreen.xib */; };
+		B206317B1B1BF4C000C02FA6 /* NTLoveStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B206317A1B1BF4C000C02FA6 /* NTLoveStoreTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B20631751B1BF4C000C02FA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B20631531B1BF4C000C02FA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B206315A1B1BF4C000C02FA6;
+			remoteInfo = NTLoveStore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02CB0EAAE541F33ECEC254AF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B206315B1B1BF4C000C02FA6 /* NTLoveStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NTLoveStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B206315F1B1BF4C000C02FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B20631601B1BF4C000C02FA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B20631621B1BF4C000C02FA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B20631631B1BF4C000C02FA6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B20631651B1BF4C000C02FA6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B20631661B1BF4C000C02FA6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B20631691B1BF4C000C02FA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B206316B1B1BF4C000C02FA6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B206316E1B1BF4C000C02FA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		B20631741B1BF4C000C02FA6 /* NTLoveStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NTLoveStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B20631791B1BF4C000C02FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B206317A1B1BF4C000C02FA6 /* NTLoveStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTLoveStoreTests.m; sourceTree = "<group>"; };
+		C07F5D2EA0F4239420C95EAA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		EE460C36E7E38FBAFD5DF810 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B20631581B1BF4C000C02FA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C920C477F57CFF21BB9C469 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B20631711B1BF4C000C02FA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A4453A658D3B751C0E19904 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE460C36E7E38FBAFD5DF810 /* Pods.debug.xcconfig */,
+				C07F5D2EA0F4239420C95EAA /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B20631521B1BF4C000C02FA6 = {
+			isa = PBXGroup;
+			children = (
+				B206315D1B1BF4C000C02FA6 /* NTLoveStore */,
+				B20631771B1BF4C000C02FA6 /* NTLoveStoreTests */,
+				B206315C1B1BF4C000C02FA6 /* Products */,
+				1A4453A658D3B751C0E19904 /* Pods */,
+				DE4FC04F3EED67CCC56B28E7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B206315C1B1BF4C000C02FA6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B206315B1B1BF4C000C02FA6 /* NTLoveStore.app */,
+				B20631741B1BF4C000C02FA6 /* NTLoveStoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B206315D1B1BF4C000C02FA6 /* NTLoveStore */ = {
+			isa = PBXGroup;
+			children = (
+				B20631621B1BF4C000C02FA6 /* AppDelegate.h */,
+				B20631631B1BF4C000C02FA6 /* AppDelegate.m */,
+				B20631651B1BF4C000C02FA6 /* ViewController.h */,
+				B20631661B1BF4C000C02FA6 /* ViewController.m */,
+				B20631681B1BF4C000C02FA6 /* Main.storyboard */,
+				B206316B1B1BF4C000C02FA6 /* Images.xcassets */,
+				B206316D1B1BF4C000C02FA6 /* LaunchScreen.xib */,
+				B206315E1B1BF4C000C02FA6 /* Supporting Files */,
+			);
+			path = NTLoveStore;
+			sourceTree = "<group>";
+		};
+		B206315E1B1BF4C000C02FA6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B206315F1B1BF4C000C02FA6 /* Info.plist */,
+				B20631601B1BF4C000C02FA6 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B20631771B1BF4C000C02FA6 /* NTLoveStoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				B206317A1B1BF4C000C02FA6 /* NTLoveStoreTests.m */,
+				B20631781B1BF4C000C02FA6 /* Supporting Files */,
+			);
+			path = NTLoveStoreTests;
+			sourceTree = "<group>";
+		};
+		B20631781B1BF4C000C02FA6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B20631791B1BF4C000C02FA6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DE4FC04F3EED67CCC56B28E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02CB0EAAE541F33ECEC254AF /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B206315A1B1BF4C000C02FA6 /* NTLoveStore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B206317E1B1BF4C000C02FA6 /* Build configuration list for PBXNativeTarget "NTLoveStore" */;
+			buildPhases = (
+				19961D913EBD3137E7D4F025 /* Check Pods Manifest.lock */,
+				B20631571B1BF4C000C02FA6 /* Sources */,
+				B20631581B1BF4C000C02FA6 /* Frameworks */,
+				B20631591B1BF4C000C02FA6 /* Resources */,
+				79257D11C8963834CF554F30 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NTLoveStore;
+			productName = NTLoveStore;
+			productReference = B206315B1B1BF4C000C02FA6 /* NTLoveStore.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B20631731B1BF4C000C02FA6 /* NTLoveStoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B20631811B1BF4C000C02FA6 /* Build configuration list for PBXNativeTarget "NTLoveStoreTests" */;
+			buildPhases = (
+				B20631701B1BF4C000C02FA6 /* Sources */,
+				B20631711B1BF4C000C02FA6 /* Frameworks */,
+				B20631721B1BF4C000C02FA6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B20631761B1BF4C000C02FA6 /* PBXTargetDependency */,
+			);
+			name = NTLoveStoreTests;
+			productName = NTLoveStoreTests;
+			productReference = B20631741B1BF4C000C02FA6 /* NTLoveStoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B20631531B1BF4C000C02FA6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = liying;
+				TargetAttributes = {
+					B206315A1B1BF4C000C02FA6 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					B20631731B1BF4C000C02FA6 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = B206315A1B1BF4C000C02FA6;
+					};
+				};
+			};
+			buildConfigurationList = B20631561B1BF4C000C02FA6 /* Build configuration list for PBXProject "NTLoveStore" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B20631521B1BF4C000C02FA6;
+			productRefGroup = B206315C1B1BF4C000C02FA6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B206315A1B1BF4C000C02FA6 /* NTLoveStore */,
+				B20631731B1BF4C000C02FA6 /* NTLoveStoreTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B20631591B1BF4C000C02FA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B206316A1B1BF4C000C02FA6 /* Main.storyboard in Resources */,
+				B206316F1B1BF4C000C02FA6 /* LaunchScreen.xib in Resources */,
+				B206316C1B1BF4C000C02FA6 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B20631721B1BF4C000C02FA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19961D913EBD3137E7D4F025 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		79257D11C8963834CF554F30 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B20631571B1BF4C000C02FA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B20631671B1BF4C000C02FA6 /* ViewController.m in Sources */,
+				B20631641B1BF4C000C02FA6 /* AppDelegate.m in Sources */,
+				B20631611B1BF4C000C02FA6 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B20631701B1BF4C000C02FA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B206317B1B1BF4C000C02FA6 /* NTLoveStoreTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B20631761B1BF4C000C02FA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B206315A1B1BF4C000C02FA6 /* NTLoveStore */;
+			targetProxy = B20631751B1BF4C000C02FA6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B20631681B1BF4C000C02FA6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B20631691B1BF4C000C02FA6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B206316D1B1BF4C000C02FA6 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B206316E1B1BF4C000C02FA6 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B206317C1B1BF4C000C02FA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		B206317D1B1BF4C000C02FA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B206317F1B1BF4C000C02FA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE460C36E7E38FBAFD5DF810 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NTLoveStore/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B20631801B1BF4C000C02FA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C07F5D2EA0F4239420C95EAA /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NTLoveStore/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B20631821B1BF4C000C02FA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NTLoveStoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NTLoveStore.app/NTLoveStore";
+			};
+			name = Debug;
+		};
+		B20631831B1BF4C000C02FA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NTLoveStoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NTLoveStore.app/NTLoveStore";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B20631561B1BF4C000C02FA6 /* Build configuration list for PBXProject "NTLoveStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B206317C1B1BF4C000C02FA6 /* Debug */,
+				B206317D1B1BF4C000C02FA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B206317E1B1BF4C000C02FA6 /* Build configuration list for PBXNativeTarget "NTLoveStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B206317F1B1BF4C000C02FA6 /* Debug */,
+				B20631801B1BF4C000C02FA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B20631811B1BF4C000C02FA6 /* Build configuration list for PBXNativeTarget "NTLoveStoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B20631821B1BF4C000C02FA6 /* Debug */,
+				B20631831B1BF4C000C02FA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B20631531B1BF4C000C02FA6 /* Project object */;
+}
