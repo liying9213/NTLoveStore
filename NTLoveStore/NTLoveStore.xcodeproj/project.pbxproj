@@ -16,6 +16,7 @@
 		B206316F1B1BF4C000C02FA6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B206316D1B1BF4C000C02FA6 /* LaunchScreen.xib */; };
 		B206317B1B1BF4C000C02FA6 /* NTLoveStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B206317A1B1BF4C000C02FA6 /* NTLoveStoreTests.m */; };
 		B20631851B1C0ED300C02FA6 /* libPods-MBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B20631841B1C0ED300C02FA6 /* libPods-MBProgressHUD.a */; };
+		B28842191B1DE76E00C972CF /* NTUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B28842181B1DE76E00C972CF /* NTUserDefaults.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		B20631791B1BF4C000C02FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B206317A1B1BF4C000C02FA6 /* NTLoveStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTLoveStoreTests.m; sourceTree = "<group>"; };
 		B20631841B1C0ED300C02FA6 /* libPods-MBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MBProgressHUD.a"; path = "Pods/../build/Debug-iphoneos/libPods-MBProgressHUD.a"; sourceTree = "<group>"; };
+		B28842171B1DE76E00C972CF /* NTUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTUserDefaults.h; sourceTree = "<group>"; };
+		B28842181B1DE76E00C972CF /* NTUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTUserDefaults.m; sourceTree = "<group>"; };
 		C07F5D2EA0F4239420C95EAA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EE460C36E7E38FBAFD5DF810 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +103,7 @@
 		B206315D1B1BF4C000C02FA6 /* NTLoveStore */ = {
 			isa = PBXGroup;
 			children = (
+				B28842161B1DE75000C972CF /* NTUserDefaults */,
 				B20631621B1BF4C000C02FA6 /* AppDelegate.h */,
 				B20631631B1BF4C000C02FA6 /* AppDelegate.m */,
 				B20631651B1BF4C000C02FA6 /* ViewController.h */,
@@ -136,6 +140,15 @@
 				B20631791B1BF4C000C02FA6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B28842161B1DE75000C972CF /* NTUserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				B28842171B1DE76E00C972CF /* NTUserDefaults.h */,
+				B28842181B1DE76E00C972CF /* NTUserDefaults.m */,
+			);
+			path = NTUserDefaults;
 			sourceTree = "<group>";
 		};
 		DE4FC04F3EED67CCC56B28E7 /* Frameworks */ = {
@@ -282,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B28842191B1DE76E00C972CF /* NTUserDefaults.m in Sources */,
 				B20631671B1BF4C000C02FA6 /* ViewController.m in Sources */,
 				B20631641B1BF4C000C02FA6 /* AppDelegate.m in Sources */,
 				B20631611B1BF4C000C02FA6 /* main.m in Sources */,
