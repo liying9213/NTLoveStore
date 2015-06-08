@@ -4,6 +4,21 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-EGOCache.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-EGOImageLoading.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>A142019049EDDDFBA91FD354</key>
+		<key>0898CDDFACFE2002CB773E66</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EC8B4498B63E8B544382F914</key>
+		<key>0E8341D561C4BB5C3A6BA33B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>30E9DAAE8EB7A7972E5A2E43</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>319E977153CB3984A93C4F43</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5988B68EE8F4C294F5E5A511</key>
 		<dict>
 			<key>primary</key>
 			<true/>
