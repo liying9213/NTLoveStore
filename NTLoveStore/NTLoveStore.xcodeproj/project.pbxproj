@@ -67,6 +67,7 @@
 		B213C0C41B259D210023D6B5 /* NTAsynService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTAsynService.m; sourceTree = "<group>"; };
 		B28842171B1DE76E00C972CF /* NTUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTUserDefaults.h; sourceTree = "<group>"; };
 		B28842181B1DE76E00C972CF /* NTUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTUserDefaults.m; sourceTree = "<group>"; };
+		B2F905D11B25E0B8008A2D63 /* NTFunctionData.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = NTFunctionData.geojson; sourceTree = "<group>"; };
 		C07F5D2EA0F4239420C95EAA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EE460C36E7E38FBAFD5DF810 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				B20631791B1BF4C000C02FA6 /* Info.plist */,
+				B2F905D11B25E0B8008A2D63 /* NTFunctionData.geojson */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

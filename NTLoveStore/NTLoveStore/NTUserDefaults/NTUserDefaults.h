@@ -10,8 +10,8 @@
 
 @interface NTUserDefaults : NSObject
 
-+(void)WriteTheData:(id)data ForKey:(NSString *)key;
++ (void)WriteTheData:(id)data ForKey:(NSString *)key;
 
-+(id)ReadTheDataForKey:(NSString *)key;
++ (id)GetTheDataForKey:(NSString *)key;
 
 @end

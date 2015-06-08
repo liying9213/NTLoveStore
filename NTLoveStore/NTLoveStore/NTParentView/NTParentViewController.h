@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NTNormalHead.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 
 @interface NTParentViewController : UIViewController
