@@ -8,7 +8,7 @@
 #import "NTColor.h"
 
 @implementation NTColor
-+ (UIColor *) colorWithHexString: (NSString *) stringToConvert{
++ (UIColor *)colorWithHexString: (NSString *) stringToConvert{
     
     NSString *cString = [[stringToConvert stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString]; //去掉前后空格换行符
     

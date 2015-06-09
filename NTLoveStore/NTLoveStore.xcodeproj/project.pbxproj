@@ -23,6 +23,8 @@
 		B213C0C21B259D010023D6B5 /* NTAsynConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B213C0C11B259D010023D6B5 /* NTAsynConnection.m */; };
 		B213C0C51B259D210023D6B5 /* NTAsynService.m in Sources */ = {isa = PBXBuildFile; fileRef = B213C0C41B259D210023D6B5 /* NTAsynService.m */; };
 		B28842191B1DE76E00C972CF /* NTUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B28842181B1DE76E00C972CF /* NTUserDefaults.m */; };
+		B2C71E651B26818500682AEB /* NTConfigurationFile.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2C71E641B26818500682AEB /* NTConfigurationFile.plist */; };
+		B2C71E681B26871600682AEB /* NTReadConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C71E671B26871600682AEB /* NTReadConfiguration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +69,9 @@
 		B213C0C41B259D210023D6B5 /* NTAsynService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTAsynService.m; sourceTree = "<group>"; };
 		B28842171B1DE76E00C972CF /* NTUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTUserDefaults.h; sourceTree = "<group>"; };
 		B28842181B1DE76E00C972CF /* NTUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTUserDefaults.m; sourceTree = "<group>"; };
-		B2F905D11B25E0B8008A2D63 /* NTFunctionData.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = NTFunctionData.geojson; sourceTree = "<group>"; };
+		B2C71E641B26818500682AEB /* NTConfigurationFile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NTConfigurationFile.plist; sourceTree = "<group>"; };
+		B2C71E661B26871600682AEB /* NTReadConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTReadConfiguration.h; sourceTree = "<group>"; };
+		B2C71E671B26871600682AEB /* NTReadConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTReadConfiguration.m; sourceTree = "<group>"; };
 		C07F5D2EA0F4239420C95EAA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EE460C36E7E38FBAFD5DF810 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +150,7 @@
 		B206315E1B1BF4C000C02FA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B2C71E641B26818500682AEB /* NTConfigurationFile.plist */,
 				B206315F1B1BF4C000C02FA6 /* Info.plist */,
 				B20631601B1BF4C000C02FA6 /* main.m */,
 			);
@@ -165,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				B20631791B1BF4C000C02FA6 /* Info.plist */,
-				B2F905D11B25E0B8008A2D63 /* NTFunctionData.geojson */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -215,6 +219,8 @@
 			children = (
 				B28842171B1DE76E00C972CF /* NTUserDefaults.h */,
 				B28842181B1DE76E00C972CF /* NTUserDefaults.m */,
+				B2C71E661B26871600682AEB /* NTReadConfiguration.h */,
+				B2C71E671B26871600682AEB /* NTReadConfiguration.m */,
 			);
 			path = NTUserDefaults;
 			sourceTree = "<group>";
@@ -311,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B206316A1B1BF4C000C02FA6 /* Main.storyboard in Resources */,
+				B2C71E651B26818500682AEB /* NTConfigurationFile.plist in Resources */,
 				B206316F1B1BF4C000C02FA6 /* LaunchScreen.xib in Resources */,
 				B206316C1B1BF4C000C02FA6 /* Images.xcassets in Resources */,
 			);
@@ -373,6 +380,7 @@
 				B20631611B1BF4C000C02FA6 /* main.m in Sources */,
 				B21037EC1B2578F800ED732B /* NTParentViewController.m in Sources */,
 				B21037E51B2541C200ED732B /* NTColor.m in Sources */,
+				B2C71E681B26871600682AEB /* NTReadConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

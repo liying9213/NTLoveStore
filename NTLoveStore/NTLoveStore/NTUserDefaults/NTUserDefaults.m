@@ -11,12 +11,12 @@
 @implementation NTUserDefaults
 
 
-+ (void)WriteTheData:(id)data ForKey:(NSString *)key{
++ (void)writeTheData:(id)data ForKey:(NSString *)key{
     NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
     [defaults setObject:data forKey:key];
 }
 
-+ (id)GetTheDataForKey:(NSString *)key{
++ (id)getTheDataForKey:(NSString *)key{
     NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
     id data = [defaults valueForKey:key];
     return data;

@@ -12,6 +12,7 @@
 #define ScreenHeight [[UIScreen mainScreen] bounds].size.height
 #define ScreenWidth [[UIScreen mainScreen] bounds].size.width
 
+#define LOCAL_PATH_PUBLIC [[NSBundle mainBundle] bundlePath]
 
 
 #endif

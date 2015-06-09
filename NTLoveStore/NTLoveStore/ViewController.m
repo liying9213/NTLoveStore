@@ -7,8 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "NTUserDefaults.h"
 #import "NTLoginViewController.h"
+#import "NTReadConfiguration.h"
+#import "NTUserDefaults.h"
+
 @interface ViewController ()
 
 @end
@@ -26,7 +28,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if (![NTUserDefaults GetTheDataForKey:@"login"])
+    if (![NTUserDefaults getTheDataForKey:@"login"])
     {
         NTLoginViewController *viewController=[[NTLoginViewController alloc] init];
         [self presentViewController:viewController animated:YES completion:nil];
@@ -40,16 +42,22 @@
 }
 
 - (void)ResetFunctionView{
-    
+    NSArray *functionArray=[NTReadConfiguration getConfigurationWithKey:@"functionData"];
+    if (!functionArray)
+    {
+        for (NSDictionary *dic in functionArray) {
+            [self ResetFunctionButtonWithData:dic];
+        }
+    }
 }
 
 - (void)ResetFunctionButtonWithData:(NSDictionary *)data{
+    float width=(ScreenWidth-20)/6;
     UIButton *funButton=[UIButton buttonWithType:UIButtonTypeCustom];
     funButton.backgroundColor=[UIColor clearColor];
     funButton.tag=[[data objectForKey:@"id"] integerValue];
-//    funButton.frame=CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>);
+//    funButton.frame=CGRectMake(<#CGFloat x#>, <#CGFloat y#>, width*[[data objectForKey:@"width"] integerValue], 100);
     [self.view addSubview:funButton];
 }
-
 
 @end

@@ -8,5 +8,5 @@
 #import <UIKit/UIKit.h>
 
 @interface NTColor : UIColor
-+ (UIColor *) colorWithHexString: (NSString *) stringToConvert;
++ (UIColor *)colorWithHexString: (NSString *) stringToConvert;
 @end

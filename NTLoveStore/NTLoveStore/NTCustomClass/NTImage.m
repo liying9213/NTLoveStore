@@ -6,13 +6,12 @@
 //
 
 #import "NTImage.h"
-#define IMAGE_PATH_PUBLIC [[NSBundle mainBundle] bundlePath]
-
+#import "NTdefine.h"
 @implementation NTImage
 
 + (UIImage *)imageWithFileName:(NSString *)name{
     
-    UIImage *image=[UIImage imageWithContentsOfFile:[IMAGE_PATH_PUBLIC stringByAppendingPathComponent:name]];
+    UIImage *image=[UIImage imageWithContentsOfFile:[LOCAL_PATH_PUBLIC stringByAppendingPathComponent:name]];
     return image;
     
 }
