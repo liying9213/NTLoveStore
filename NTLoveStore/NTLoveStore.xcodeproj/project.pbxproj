@@ -25,6 +25,9 @@
 		B28842191B1DE76E00C972CF /* NTUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B28842181B1DE76E00C972CF /* NTUserDefaults.m */; };
 		B2C71E651B26818500682AEB /* NTConfigurationFile.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2C71E641B26818500682AEB /* NTConfigurationFile.plist */; };
 		B2C71E681B26871600682AEB /* NTReadConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C71E671B26871600682AEB /* NTReadConfiguration.m */; };
+		B2EAB19C1B273B7B00BB419A /* libPods-EGOImageLoading.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19B1B273B7B00BB419A /* libPods-EGOImageLoading.a */; };
+		B2EAB19F1B273B8100BB419A /* libPods-AFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19D1B273B8100BB419A /* libPods-AFNetworking.a */; };
+		B2EAB1A01B273B8100BB419A /* libPods-EGOCache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19E1B273B8100BB419A /* libPods-EGOCache.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,9 @@
 		B2C71E641B26818500682AEB /* NTConfigurationFile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NTConfigurationFile.plist; sourceTree = "<group>"; };
 		B2C71E661B26871600682AEB /* NTReadConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTReadConfiguration.h; sourceTree = "<group>"; };
 		B2C71E671B26871600682AEB /* NTReadConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTReadConfiguration.m; sourceTree = "<group>"; };
+		B2EAB19B1B273B7B00BB419A /* libPods-EGOImageLoading.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-EGOImageLoading.a"; path = "Pods/../build/Debug-iphoneos/libPods-EGOImageLoading.a"; sourceTree = "<group>"; };
+		B2EAB19D1B273B8100BB419A /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
+		B2EAB19E1B273B8100BB419A /* libPods-EGOCache.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-EGOCache.a"; path = "Pods/../build/Debug-iphoneos/libPods-EGOCache.a"; sourceTree = "<group>"; };
 		C07F5D2EA0F4239420C95EAA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EE460C36E7E38FBAFD5DF810 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +87,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2EAB19F1B273B8100BB419A /* libPods-AFNetworking.a in Frameworks */,
+				B2EAB1A01B273B8100BB419A /* libPods-EGOCache.a in Frameworks */,
+				B2EAB19C1B273B7B00BB419A /* libPods-EGOImageLoading.a in Frameworks */,
 				B20631851B1C0ED300C02FA6 /* libPods-MBProgressHUD.a in Frameworks */,
 				5C920C477F57CFF21BB9C469 /* libPods.a in Frameworks */,
 			);
@@ -228,6 +237,9 @@
 		DE4FC04F3EED67CCC56B28E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B2EAB19D1B273B8100BB419A /* libPods-AFNetworking.a */,
+				B2EAB19E1B273B8100BB419A /* libPods-EGOCache.a */,
+				B2EAB19B1B273B7B00BB419A /* libPods-EGOImageLoading.a */,
 				B20631841B1C0ED300C02FA6 /* libPods-MBProgressHUD.a */,
 				02CB0EAAE541F33ECEC254AF /* libPods.a */,
 			);

@@ -11,6 +11,8 @@
 			<string>婚礼人员</string>
 			<key>width</key>
 			<integer>2</integer>
+			<key>color</key>
+			<string>#bbddcc</string>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -19,6 +21,8 @@
 			<string></string>
 			<key>width</key>
 			<integer>2</integer>
+			<key>color</key>
+			<string>#eeccbb</string>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -27,6 +31,8 @@
 			<string>花艺设计</string>
 			<key>width</key>
 			<integer>1</integer>
+			<key>color</key>
+			<string>#837221</string>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -35,6 +41,8 @@
 			<string></string>
 			<key>width</key>
 			<integer>1</integer>
+			<key>color</key>
+			<string>#765432</string>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -43,6 +51,8 @@
 			<string></string>
 			<key>width</key>
 			<integer>2</integer>
+			<key>color</key>
+			<string>#897654</string>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -51,6 +61,8 @@
 			<string>场地搭建</string>
 			<key>width</key>
 			<integer>2</integer>
+			<key>color</key>
+			<string>#678543</string>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -59,6 +71,8 @@
 			<string></string>
 			<key>width</key>
 			<integer>1</integer>
+			<key>color</key>
+			<string>#567321</string>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -67,6 +81,8 @@
 			<string>舞美灯光</string>
 			<key>width</key>
 			<integer>1</integer>
+			<key>color</key>
+			<string>#456321</string>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -75,6 +91,8 @@
 			<string>婚礼道具</string>
 			<key>width</key>
 			<integer>1</integer>
+			<key>color</key>
+			<string>#324562</string>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -83,6 +101,8 @@
 			<string></string>
 			<key>width</key>
 			<integer>1</integer>
+			<key>color</key>
+			<string>#245679</string>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -91,6 +111,8 @@
 			<string></string>
 			<key>width</key>
 			<integer>2</integer>
+			<key>color</key>
+			<string>#293848</string>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -99,6 +121,8 @@
 			<string>套餐定制</string>
 			<key>width</key>
 			<integer>2</integer>
+			<key>color</key>
+			<string>#837476</string>
 		</dict>
 	</array>
 </dict>

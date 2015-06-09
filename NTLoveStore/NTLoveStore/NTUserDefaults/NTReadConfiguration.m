@@ -11,7 +11,7 @@
 @implementation NTReadConfiguration
 
 + (id)getConfigurationWithKey:(NSString *)key{
-    NSString *path=[LOCAL_PATH_PUBLIC stringByAppendingPathComponent:@"applicationConfig.plist"];
+    NSString *path=[LOCAL_PATH_PUBLIC stringByAppendingPathComponent:@"NTConfigurationFile.plist"];
     __autoreleasing NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithContentsOfFile:path];
     return [dic objectForKey:key];
 }
