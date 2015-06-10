@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "NTParentViewController.h"
 @interface ViewController : NTParentViewController
-
+{
+    float functionBtnXValue;
+    float functionBtnYValue;
+}
 
 @end
 

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NTNormalHead.h"
 #import <MBProgressHUD/MBProgressHUD.h>
-
+#import <EGOImageLoading/EGOImageView.h>
 @interface NTParentViewController : UIViewController
 
 @property (nonatomic, strong) MBProgressHUD *waitingView;
