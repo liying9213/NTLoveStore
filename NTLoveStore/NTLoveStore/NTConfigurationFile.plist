@@ -2,11 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>functionData</key>
+	<key>homeViewData</key>
 	<array>
 		<dict>
 			<key>id</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>name</key>
 			<string>婚礼人员</string>
 			<key>width</key>
@@ -26,7 +26,7 @@
 		</dict>
 		<dict>
 			<key>id</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>name</key>
 			<string>花艺设计</string>
 			<key>width</key>
@@ -56,7 +56,7 @@
 		</dict>
 		<dict>
 			<key>id</key>
-			<integer>0</integer>
+			<integer>3</integer>
 			<key>name</key>
 			<string>场地搭建</string>
 			<key>width</key>
@@ -76,7 +76,7 @@
 		</dict>
 		<dict>
 			<key>id</key>
-			<integer>0</integer>
+			<integer>4</integer>
 			<key>name</key>
 			<string>舞美灯光</string>
 			<key>width</key>
@@ -86,7 +86,7 @@
 		</dict>
 		<dict>
 			<key>id</key>
-			<integer>0</integer>
+			<integer>5</integer>
 			<key>name</key>
 			<string>婚礼道具</string>
 			<key>width</key>
@@ -116,13 +116,227 @@
 		</dict>
 		<dict>
 			<key>id</key>
-			<integer>0</integer>
+			<integer>6</integer>
 			<key>name</key>
 			<string>套餐定制</string>
 			<key>width</key>
 			<integer>2</integer>
 			<key>color</key>
 			<string>#837476</string>
+		</dict>
+	</array>
+	<key>functionData</key>
+	<array>
+		<dict>
+			<key>id</key>
+			<integer>1</integer>
+			<key>name</key>
+			<string>婚礼人员</string>
+			<key>color</key>
+			<string>#bbddcc</string>
+			<key>key</key>
+			<string>personData</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>2</integer>
+			<key>name</key>
+			<string>花艺设计</string>
+			<key>color</key>
+			<string>#837221</string>
+			<key>key</key>
+			<string>flowerData</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>3</integer>
+			<key>name</key>
+			<string>场地搭建</string>
+			<key>color</key>
+			<string>#678543</string>
+			<key>key</key>
+			<string>placeData</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>4</integer>
+			<key>name</key>
+			<string>舞美灯光</string>
+			<key>color</key>
+			<string>#456321</string>
+			<key>key</key>
+			<string>lamplightData</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>5</integer>
+			<key>name</key>
+			<string>婚礼道具</string>
+			<key>color</key>
+			<string>#324562</string>
+			<key>key</key>
+			<string>propData</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>6</integer>
+			<key>name</key>
+			<string>套餐定制</string>
+			<key>color</key>
+			<string>#837476</string>
+		</dict>
+	</array>
+	<key>personData</key>
+	<array>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>主持人</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>化妆师</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>摄影师</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>摄像师</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>表演人员</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>DJ师</string>
+		</dict>
+	</array>
+	<key>flowerData</key>
+	<array>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>车头花</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>花门</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>路引花</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>签到台</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>花门</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>桌花</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>胸花</string>
+		</dict>
+	</array>
+	<key>placeData</key>
+	<array>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>舞台/T台</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>背景</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>地毯</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>演讲台</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>签到台</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>truss架</string>
+		</dict>
+	</array>
+	<key>lamplightData</key>
+	<array>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>舞台效果</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>灯光特效</string>
+		</dict>
+	</array>
+	<key>propData</key>
+	<array>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>仪式区</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>0</string>
+			<key>name</key>
+			<string>宴会区</string>
 		</dict>
 	</array>
 </dict>

@@ -7,7 +7,7 @@
 //
 
 #import "NTParentViewController.h"
-#import "NTNormalHead.h"
+
 @implementation NTParentViewController
 
 - (void)viewDidLoad {
@@ -21,8 +21,7 @@
 
 #pragma mark - waitingView
 
-- (void)showWaitingViewWithText:(NSString *)text
-{
+- (void)showWaitingViewWithText:(NSString *)text{
     if (!_waitingView)
     {
         _waitingView =[[MBProgressHUD alloc] initWithView:self.view];
@@ -37,8 +36,7 @@
     [_waitingView show:YES];
 }
 
-- (void)showEndViewWithText:(NSString *)text
-{
+- (void)showEndViewWithText:(NSString *)text{
     if (!_waitingView)
     {
         _waitingView =[[MBProgressHUD alloc] initWithView:self.view];
@@ -50,8 +48,7 @@
     [_waitingView hide:YES afterDelay:1.0];
 }
 
-- (void)hideWaitingView
-{
+- (void)hideWaitingView{
     [_waitingView hide:YES];
 }
 
