@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>functionData</key>
+	<key>homeViewData</key>
 	<array>
 		<dict>
 			<key>id</key>
@@ -121,6 +121,57 @@
 			<string>套餐定制</string>
 			<key>width</key>
 			<integer>2</integer>
+			<key>color</key>
+			<string>#837476</string>
+		</dict>
+	</array>
+	<key>functionData</key>
+	<array>
+		<dict>
+			<key>id</key>
+			<integer>0</integer>
+			<key>name</key>
+			<string>婚礼人员</string>
+			<key>color</key>
+			<string>#bbddcc</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>0</integer>
+			<key>name</key>
+			<string>花艺设计</string>
+			<key>color</key>
+			<string>#837221</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>0</integer>
+			<key>name</key>
+			<string>场地搭建</string>
+			<key>color</key>
+			<string>#678543</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>0</integer>
+			<key>name</key>
+			<string>舞美灯光</string>
+			<key>color</key>
+			<string>#456321</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>0</integer>
+			<key>name</key>
+			<string>婚礼道具</string>
+			<key>color</key>
+			<string>#324562</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>0</integer>
+			<key>name</key>
+			<string>套餐定制</string>
 			<key>color</key>
 			<string>#837476</string>
 		</dict>

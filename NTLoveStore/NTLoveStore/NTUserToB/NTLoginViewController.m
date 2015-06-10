@@ -7,7 +7,7 @@
 //
 
 #import "NTLoginViewController.h"
-#import "NTNormalHead.h"
+
 @interface NTLoginViewController ()
 
 @end
@@ -16,17 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self ResetView];
+    [self resetView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - ResetView
+#pragma mark - resetView
 
-- (void)ResetView{
-    
+- (void)resetView{
     UILabel *titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 100, ScreenWidth, 100)];
     titleLabel.backgroundColor=[NTColor clearColor];
     titleLabel.textAlignment=NSTextAlignmentCenter;

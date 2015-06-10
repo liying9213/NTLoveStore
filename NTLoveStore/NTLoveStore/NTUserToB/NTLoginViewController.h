@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 liying. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "NTParentViewController.h"
 
 @interface NTLoginViewController : NTParentViewController

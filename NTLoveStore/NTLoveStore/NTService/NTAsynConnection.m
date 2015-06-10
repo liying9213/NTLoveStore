@@ -10,7 +10,7 @@
 
 @implementation NTAsynConnection
 
-+ (void)RequestWithHead:(NSString *)head WithBody:(NSDictionary *)bodyDic{
++ (void)requestWithHead:(NSString *)head WithBody:(NSDictionary *)bodyDic{
     
 }
 

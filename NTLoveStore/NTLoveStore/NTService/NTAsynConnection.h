@@ -11,10 +11,10 @@
 @protocol NTAsynConnectionDelegate <NSObject>
 
 @optional
-- (void)RequestSuccessWithData:(NSDictionary *)dic;
+- (void)requestSuccessWithData:(NSDictionary *)dic;
 
 @optional
-- (void)RequestFailWithData:(NSDictionary *)dic;
+- (void)requestFailWithData:(NSDictionary *)dic;
 
 @end
 
@@ -22,6 +22,6 @@
 
 @property (nonatomic, assign)id delegate;
 
-+ (void)RequestWithHead:(NSString *)head WithBody:(NSDictionary *)bodyDic;
++ (void)requestWithHead:(NSString *)head WithBody:(NSDictionary *)bodyDic;
 
 @end
