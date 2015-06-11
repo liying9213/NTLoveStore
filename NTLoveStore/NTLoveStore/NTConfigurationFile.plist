@@ -8,9 +8,11 @@
 			<key>id</key>
 			<integer>1</integer>
 			<key>name</key>
-			<string>婚礼人员</string>
+			<string>场地搭建</string>
 			<key>width</key>
 			<integer>2</integer>
+			<key>height</key>
+			<integer>1</integer>
 			<key>color</key>
 			<string>#bbddcc</string>
 		</dict>
@@ -20,7 +22,9 @@
 			<key>name</key>
 			<string></string>
 			<key>width</key>
-			<integer>2</integer>
+			<integer>3</integer>
+			<key>height</key>
+			<integer>1</integer>
 			<key>color</key>
 			<string>#eeccbb</string>
 		</dict>
@@ -31,6 +35,8 @@
 			<string>花艺设计</string>
 			<key>width</key>
 			<integer>1</integer>
+			<key>height</key>
+			<integer>1</integer>
 			<key>color</key>
 			<string>#837221</string>
 		</dict>
@@ -40,7 +46,9 @@
 			<key>name</key>
 			<string></string>
 			<key>width</key>
-			<integer>1</integer>
+			<integer>2</integer>
+			<key>height</key>
+			<integer>2</integer>
 			<key>color</key>
 			<string>#765432</string>
 		</dict>
@@ -48,9 +56,11 @@
 			<key>id</key>
 			<integer>0</integer>
 			<key>name</key>
-			<string></string>
+			<string>舞美灯光</string>
 			<key>width</key>
-			<integer>2</integer>
+			<integer>1</integer>
+			<key>height</key>
+			<integer>1</integer>
 			<key>color</key>
 			<string>#897654</string>
 		</dict>
@@ -58,9 +68,11 @@
 			<key>id</key>
 			<integer>3</integer>
 			<key>name</key>
-			<string>场地搭建</string>
+			<string></string>
 			<key>width</key>
 			<integer>2</integer>
+			<key>height</key>
+			<integer>1</integer>
 			<key>color</key>
 			<string>#678543</string>
 		</dict>
@@ -68,8 +80,10 @@
 			<key>id</key>
 			<integer>0</integer>
 			<key>name</key>
-			<string></string>
+			<string>婚礼道具</string>
 			<key>width</key>
+			<integer>1</integer>
+			<key>height</key>
 			<integer>1</integer>
 			<key>color</key>
 			<string>#567321</string>
@@ -78,8 +92,10 @@
 			<key>id</key>
 			<integer>4</integer>
 			<key>name</key>
-			<string>舞美灯光</string>
+			<string>婚礼人员</string>
 			<key>width</key>
+			<integer>1</integer>
+			<key>height</key>
 			<integer>1</integer>
 			<key>color</key>
 			<string>#456321</string>
@@ -88,45 +104,27 @@
 			<key>id</key>
 			<integer>5</integer>
 			<key>name</key>
-			<string>婚礼道具</string>
+			<string></string>
 			<key>width</key>
+			<integer>3</integer>
+			<key>height</key>
 			<integer>1</integer>
 			<key>color</key>
 			<string>#324562</string>
 		</dict>
-		<dict>
-			<key>id</key>
-			<integer>0</integer>
-			<key>name</key>
-			<string></string>
-			<key>width</key>
-			<integer>1</integer>
-			<key>color</key>
-			<string>#245679</string>
-		</dict>
-		<dict>
-			<key>id</key>
-			<integer>0</integer>
-			<key>name</key>
-			<string></string>
-			<key>width</key>
-			<integer>2</integer>
-			<key>color</key>
-			<string>#293848</string>
-		</dict>
-		<dict>
-			<key>id</key>
-			<integer>6</integer>
-			<key>name</key>
-			<string>套餐定制</string>
-			<key>width</key>
-			<integer>2</integer>
-			<key>color</key>
-			<string>#837476</string>
-		</dict>
 	</array>
 	<key>functionData</key>
 	<array>
+		<dict>
+			<key>id</key>
+			<integer>0</integer>
+			<key>name</key>
+			<string>首页</string>
+			<key>color</key>
+			<string>#bb3311</string>
+			<key>key</key>
+			<string>personData</string>
+		</dict>
 		<dict>
 			<key>id</key>
 			<integer>1</integer>

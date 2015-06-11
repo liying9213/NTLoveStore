@@ -7,12 +7,15 @@
 //
 
 #import "NTParentViewController.h"
-
-@interface ViewController : NTParentViewController
+#import "NTHeadSelectView.h"
+#import "NTHomeView.h"
+@interface ViewController : NTParentViewController<NTHeadSelectViewDelegate,NTHomeViewDelegate>
 {
     float functionBtnXValue;
     float functionBtnYValue;
 }
+
+@property (nonatomic, strong) NTHomeView *homeView;
 
 @end
 

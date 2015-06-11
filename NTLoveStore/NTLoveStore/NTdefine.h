@@ -14,5 +14,10 @@
 
 #define LOCAL_PATH_PUBLIC [[NSBundle mainBundle] bundlePath]
 
+#define NTWhiteColor @"#FFFFFF"
+#define NTBlueColor @"#00BFFF"
+#define NTPinkColor @"#FF69B4"
+
+
 
 #endif

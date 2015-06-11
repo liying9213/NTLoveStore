@@ -27,5 +27,4 @@
 @property (nonatomic, assign)NSInteger selectTag;
 - (id)initWithFrame:(CGRect)frame;
 - (void)creatHeadSelectView;
-- (void)selectAction:(int)tag;
 @end

@@ -5,13 +5,14 @@
 //  Created by 李莹 on 15/6/1.
 //  Copyright (c) 2015年 liying. All rights reserved.
 //
-//view
+//viewController
 #import "ViewController.h"
 #import "NTLoginViewController.h"
 #import "NTFunctionViewController.h"
 //getData
 #import "NTReadConfiguration.h"
 #import "NTUserDefaults.h"
+
 @interface ViewController ()
 
 @end
@@ -21,11 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self resetView];
-    if (![NTUserDefaults getTheDataForKey:@"login"])
-    {
-        NTLoginViewController *viewController=[[NTLoginViewController alloc] init];
-        [self presentViewController:viewController animated:YES completion:nil];
-    }
+//    if (![NTUserDefaults getTheDataForKey:@"login"])
+//    {
+//        NTLoginViewController *viewController=[[NTLoginViewController alloc] init];
+//        [self presentViewController:viewController animated:YES completion:nil];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,12 +40,71 @@
 #pragma mark - resetView
 
 - (void)resetView{
-    functionBtnXValue=0;
-    functionBtnYValue=ScreenHeight-(ScreenWidth/6*3+64);
-    [self resetScrollImageView];
-    [self resetFunctionView];
+    
+    [self resetHeadSelectView];
 }
 
+- (void)resetHeadSelectView{
+    NTHeadSelectView *headSelectView=[[NTHeadSelectView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 50)];
+    headSelectView.selectData=[NTReadConfiguration getConfigurationWithKey:@"functionData"];
+    headSelectView.delegate=self;
+    headSelectView.selectTag=0;
+    [headSelectView creatHeadSelectView];
+    [self.view addSubview:headSelectView];
+}
+
+- (void)resetHomeView{
+    if (!_homeView){
+        _homeView=[[NTHomeView alloc] initWithFrame:CGRectMake(0, 60, ScreenWidth, CGRectGetHeight(self.view.frame)-60)];
+        _homeView.delegate=self;
+        [_homeView  resetHomeView];
+        [self.view addSubview:_homeView];
+    }
+    else{
+        _homeView.hidden=NO;
+    }
+}
+
+- (void)resetFunctionView{
+    
+}
+
+
+#pragma mark - headSelectViewDelegate
+
+- (void)headSelectAction:(id)sender{
+    NTButton *btn=(NTButton *)sender;
+    if (btn.tag==0) {
+        [self resetHomeView];
+    }
+    else{
+        _homeView.hidden=YES;
+    }
+}
+
+#pragma mark - headSelectViewDelegate
+
+- (void)homeSelectAction:(id)sender{
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 - (void)resetScrollImageView{
     EGOImageView *imageView=[[EGOImageView alloc] initWithPlaceholderImage:nil];
     imageView.frame=CGRectMake(0, 0, ScreenWidth, functionBtnYValue);
@@ -93,5 +153,5 @@
     viewController.currentID=btn.tag;
     [self.navigationController pushViewController:viewController animated:YES];
 }
-
+*/
 @end
