@@ -31,6 +31,9 @@
 		B2EAB19C1B273B7B00BB419A /* libPods-EGOImageLoading.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19B1B273B7B00BB419A /* libPods-EGOImageLoading.a */; };
 		B2EAB19F1B273B8100BB419A /* libPods-AFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19D1B273B8100BB419A /* libPods-AFNetworking.a */; };
 		B2EAB1A01B273B8100BB419A /* libPods-EGOCache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19E1B273B8100BB419A /* libPods-EGOCache.a */; };
+		B2F1F6D71B2ACFF000B6BCA8 /* NTMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1F6D61B2ACFF000B6BCA8 /* NTMemberView.m */; };
+		B2F1F6DC1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1F6DB1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m */; };
+		B2F1F6E01B2AE79E00B6BCA8 /* NTFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1F6DF1B2AE79E00B6BCA8 /* NTFunctionView.m */; };
 		B2F3A1651B28919A00B1FCA1 /* NTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F3A1641B28919A00B1FCA1 /* NTButton.m */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +91,12 @@
 		B2EAB19B1B273B7B00BB419A /* libPods-EGOImageLoading.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-EGOImageLoading.a"; path = "Pods/../build/Debug-iphoneos/libPods-EGOImageLoading.a"; sourceTree = "<group>"; };
 		B2EAB19D1B273B8100BB419A /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
 		B2EAB19E1B273B8100BB419A /* libPods-EGOCache.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-EGOCache.a"; path = "Pods/../build/Debug-iphoneos/libPods-EGOCache.a"; sourceTree = "<group>"; };
+		B2F1F6D51B2ACFF000B6BCA8 /* NTMemberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTMemberView.h; sourceTree = "<group>"; };
+		B2F1F6D61B2ACFF000B6BCA8 /* NTMemberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTMemberView.m; sourceTree = "<group>"; };
+		B2F1F6DA1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTFunctionTableViewCell.h; sourceTree = "<group>"; };
+		B2F1F6DB1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTFunctionTableViewCell.m; sourceTree = "<group>"; };
+		B2F1F6DE1B2AE79E00B6BCA8 /* NTFunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTFunctionView.h; sourceTree = "<group>"; };
+		B2F1F6DF1B2AE79E00B6BCA8 /* NTFunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTFunctionView.m; sourceTree = "<group>"; };
 		B2F3A1631B28919A00B1FCA1 /* NTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTButton.h; sourceTree = "<group>"; };
 		B2F3A1641B28919A00B1FCA1 /* NTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTButton.m; sourceTree = "<group>"; };
 		C07F5D2EA0F4239420C95EAA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -259,6 +268,12 @@
 				B2A0463D1B27DD1800B260EF /* NTHeadSelectView.m */,
 				B23B3A391B29C5CA00328AD9 /* NTHomeView.h */,
 				B23B3A3A1B29C5CA00328AD9 /* NTHomeView.m */,
+				B2F1F6D51B2ACFF000B6BCA8 /* NTMemberView.h */,
+				B2F1F6D61B2ACFF000B6BCA8 /* NTMemberView.m */,
+				B2F1F6DA1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.h */,
+				B2F1F6DB1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m */,
+				B2F1F6DE1B2AE79E00B6BCA8 /* NTFunctionView.h */,
+				B2F1F6DF1B2AE79E00B6BCA8 /* NTFunctionView.m */,
 			);
 			path = NTFunctionView;
 			sourceTree = "<group>";
@@ -417,14 +432,17 @@
 				B213C0C51B259D210023D6B5 /* NTAsynService.m in Sources */,
 				B23B3A3B1B29C5CA00328AD9 /* NTHomeView.m in Sources */,
 				B21037DC1B253DE300ED732B /* NTLoginViewController.m in Sources */,
+				B2F1F6E01B2AE79E00B6BCA8 /* NTFunctionView.m in Sources */,
 				B20631671B1BF4C000C02FA6 /* ViewController.m in Sources */,
 				B21037E61B2541C200ED732B /* NTImage.m in Sources */,
 				B20631641B1BF4C000C02FA6 /* AppDelegate.m in Sources */,
 				B20631611B1BF4C000C02FA6 /* main.m in Sources */,
 				B2A0463B1B27CE8700B260EF /* NTFunctionViewController.m in Sources */,
 				B21037EC1B2578F800ED732B /* NTParentViewController.m in Sources */,
+				B2F1F6DC1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m in Sources */,
 				B21037E51B2541C200ED732B /* NTColor.m in Sources */,
 				B2C71E681B26871600682AEB /* NTReadConfiguration.m in Sources */,
+				B2F1F6D71B2ACFF000B6BCA8 /* NTMemberView.m in Sources */,
 				B2F3A1651B28919A00B1FCA1 /* NTButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
