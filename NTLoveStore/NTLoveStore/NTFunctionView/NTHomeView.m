@@ -84,8 +84,8 @@
 
 #pragma mark - homeSelectAction
 
-- (void)functionAction:(id)sender{
+- (void)homeSelectAction:(id)sender{
     UIButton *btn=(UIButton *)sender;
-    [_delegate functionAction:btn];
+    [_delegate homeSelectAction:btn];
 }
 @end

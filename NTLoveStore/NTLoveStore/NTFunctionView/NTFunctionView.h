@@ -8,6 +8,37 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NTFunctionView : UIView
+@class NTFunctionView;
+
+@protocol NTFunctionViewDelegate <NSObject>
+
+@required
+
+- (void)leftViewActionWithID:(int)keyID;
+
+@required
+
+- (void)memberSelectAction:(id)sender;
+
+@end
+
+@interface NTFunctionView : UIView <UITableViewDataSource,UITableViewDelegate>
+
+@property (nonatomic, assign) id delegate;
+
+@property (nonatomic, strong) NSArray *leftAry;
+
+@property (nonatomic, strong) NSArray *functionAry;
+
+@property (nonatomic, strong) UITableView *leftView;
+
+@property (nonatomic, strong) UITableView *tableView;
+
+
+- (void)resetView;
+
+- (void)reloadLeftViewWithData:(NSArray *)leftAry;
+
+- (void)reloadFunctionViewWithData:(NSArray *)functionAry;
 
 @end

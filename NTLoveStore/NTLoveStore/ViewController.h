@@ -8,14 +8,17 @@
 
 #import "NTParentViewController.h"
 #import "NTHeadSelectView.h"
+#import "NTFunctionView.h"
 #import "NTHomeView.h"
-@interface ViewController : NTParentViewController<NTHeadSelectViewDelegate,NTHomeViewDelegate>
+@interface ViewController : NTParentViewController<NTHeadSelectViewDelegate,NTHomeViewDelegate,NTFunctionViewDelegate>
 {
     float functionBtnXValue;
     float functionBtnYValue;
 }
 
 @property (nonatomic, strong) NTHomeView *homeView;
+
+@property (nonatomic, strong) NTFunctionView *functionView;
 
 @end
 

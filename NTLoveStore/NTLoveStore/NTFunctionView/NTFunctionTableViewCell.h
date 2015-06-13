@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NTMemberView.h"
+@interface NTFunctionTableViewCell : UITableViewCell <NTMemberViewDelegate>
 
-@interface NTFunctionTableViewCell : UITableViewCell
+@property (nonatomic, assign) id delegate;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithMenberNum:(int)num WithWidth:(float)width;
+
+- (void)reloadTheTableCellWithData:(NSArray *)cellAray;
 
 @end

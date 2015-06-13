@@ -8,7 +8,7 @@
 //viewController
 #import "ViewController.h"
 #import "NTLoginViewController.h"
-#import "NTFunctionViewController.h"
+#import "NTContentViewController.h"
 //getData
 #import "NTReadConfiguration.h"
 #import "NTUserDefaults.h"
@@ -22,11 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self resetView];
-//    if (![NTUserDefaults getTheDataForKey:@"login"])
-//    {
-//        NTLoginViewController *viewController=[[NTLoginViewController alloc] init];
-//        [self presentViewController:viewController animated:YES completion:nil];
-//    }
+    if (![NTUserDefaults getTheDataForKey:@"login"])
+    {
+        NTLoginViewController *viewController=[[NTLoginViewController alloc] init];
+        [self presentViewController:viewController animated:YES completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,6 +54,7 @@
 }
 
 - (void)resetHomeView{
+    _functionView.hidden=YES;
     if (!_homeView){
         _homeView=[[NTHomeView alloc] initWithFrame:CGRectMake(0, 60, ScreenWidth, CGRectGetHeight(self.view.frame)-60)];
         _homeView.delegate=self;
@@ -66,9 +67,31 @@
 }
 
 - (void)resetFunctionView{
+    _homeView.hidden=YES;
+    if (!_functionView) {
+        _functionView=[[NTFunctionView alloc] initWithFrame:CGRectMake(0, 60, ScreenWidth, CGRectGetHeight(self.view.frame)-60)];
+        _functionView.delegate=self;
+        [_functionView resetView];
+        [self.view addSubview:_functionView];
+    }
+    else{
+        _functionView.hidden=NO;
+    }
+}
+
+#pragma mark - getTheData
+
+- (void)getHomeViewData{
     
 }
 
+- (void)getFunctionLeftData{
+    
+}
+
+- (void)getFunctionData{
+    
+}
 
 #pragma mark - headSelectViewDelegate
 
@@ -78,80 +101,26 @@
         [self resetHomeView];
     }
     else{
-        _homeView.hidden=YES;
+        [self resetFunctionView];
+        [_functionView reloadLeftViewWithData:[NTReadConfiguration getConfigurationWithKey:btn.keyWord]];
     }
 }
 
-#pragma mark - headSelectViewDelegate
+#pragma mark - homeSelectDelegate
 
 - (void)homeSelectAction:(id)sender{
     
 }
 
+#pragma mark - functionViewDelgate
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-- (void)resetScrollImageView{
-    EGOImageView *imageView=[[EGOImageView alloc] initWithPlaceholderImage:nil];
-    imageView.frame=CGRectMake(0, 0, ScreenWidth, functionBtnYValue);
-    imageView.backgroundColor=[NTColor yellowColor];
-    [imageView setImageURL:[NSURL URLWithString:@"http://hunhuiwang.xmbt21.com/uploadfile/2015/0113/20150113094734766.jpg"]];
-    [self.view addSubview:imageView];
+- (void)leftViewActionWithID:(int)keyID{
+    [_functionView reloadFunctionViewWithData:[NTReadConfiguration getConfigurationWithKey:@"contentData"]];
 }
 
-- (void)resetFunctionView{
-    NSArray *functionArray=[NTReadConfiguration getConfigurationWithKey:@"homeViewData"];
-    if (functionArray)
-    {
-        for (NSDictionary *dic in functionArray) {
-            [self resetFunctionButtonWithData:dic];
-        }
-    }
-}
-
-- (void)resetFunctionButtonWithData:(NSDictionary *)data{
-    float width=ScreenWidth/6;
-    UIButton *funButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    funButton.backgroundColor=[UIColor clearColor];
-    funButton.tag=[[data objectForKey:@"id"] integerValue];
-    [funButton setTitle:[data objectForKey:@"name"] forState:UIControlStateNormal];
-    funButton.frame=CGRectMake(functionBtnXValue, functionBtnYValue, width*[[data objectForKey:@"width"] integerValue], width);
-    [funButton setBackgroundColor:[NTColor colorWithHexString:[data objectForKey:@"color"]]];
-    [funButton addTarget:self action:@selector(functionAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:funButton];
-    if (functionBtnXValue+funButton.frame.size.width<ScreenWidth) {
-        functionBtnXValue+=funButton.frame.size.width;
-    }
-    else{
-        functionBtnXValue=0;
-        functionBtnYValue+=width;
-    }
-    if (funButton.tag==0) {
-        funButton.enabled=NO;
-    }
-}
-
-#pragma mark - functionAction
-
-- (void)functionAction:(id)sender{
-    UIButton *btn=(UIButton *)sender;
-    NTFunctionViewController *viewController=[[NTFunctionViewController alloc] init];
-    viewController.currentID=btn.tag;
+- (void)memberSelectAction:(id)sender{
+    NTContentViewController *viewController=[[NTContentViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
 }
-*/
+
 @end

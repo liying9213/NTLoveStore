@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NTNormalHead.h"
+#import <EGOImageLoading/EGOImageView.h>
 
 @class NTMemberView;
 
@@ -23,10 +25,23 @@
 
 @property (nonatomic, assign) id delegate;
 
-@property (nonatomic, strong) NSDictionary *memberDic;
+//@property (nonatomic, strong) NSDictionary *memberDic;
+
+@property (nonatomic, strong) EGOImageView *imageView;
+
+@property (nonatomic, strong) UILabel *titleLabel;
+
+@property (nonatomic, strong) UILabel *priceLabel;
+
+@property (nonatomic, strong) UILabel *finishNumLabel;
+
+@property (nonatomic, strong) UILabel *commentNumLabel;
+
+@property (nonatomic, strong) UIButton *selectBtn;
 
 - (id)initWithFrame:(CGRect)frame;
 
 - (void)resetView;
 
+- (void)reloadTheViewWithData:(NSDictionary *)dic;
 @end

@@ -7,8 +7,6 @@
 //
 
 #import "NTMemberView.h"
-#import "NTNormalHead.h"
-#import <EGOImageLoading/EGOImageView.h>
 
 @implementation NTMemberView
 
@@ -23,41 +21,45 @@
 #pragma mark - resetView
 
 - (void)resetView{
-    EGOImageView *imageView=[[EGOImageView alloc] initWithPlaceholderImage:nil];
-    imageView.frame=CGRectMake(0, 0, CGRectGetWidth(self.frame),  CGRectGetHeight(self.frame)-40);
-    imageView.imageURL=[NSURL URLWithString:[_memberDic objectForKey:@"imagePath"]];
-    [self addSubview:imageView];
+    _imageView=[[EGOImageView alloc] initWithPlaceholderImage:nil];
+    _imageView.frame=CGRectMake(0, 0, CGRectGetWidth(self.frame),  CGRectGetHeight(self.frame)-40);
+    [self addSubview:_imageView];
     
-    UILabel *titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(imageView.frame), CGRectGetWidth(self.frame)/2, 20)];
-    titleLabel.backgroundColor=[NTColor clearColor];
-    titleLabel.text=[_memberDic objectForKey:@"name"];
-    titleLabel.textAlignment=NSTextAlignmentLeft;
-    [self addSubview:titleLabel];
+    _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(_imageView.frame), CGRectGetWidth(self.frame)/2, 20)];
+    _titleLabel.font=[UIFont systemFontOfSize:15];
+    _titleLabel.backgroundColor=[NTColor clearColor];
+    _titleLabel.textAlignment=NSTextAlignmentLeft;
+    [self addSubview:_titleLabel];
     
-    UILabel *priceLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(imageView.frame), CGRectGetHeight(imageView.frame), CGRectGetWidth(self.frame)/2, 20)];
-    priceLabel.backgroundColor=[NTColor clearColor];
-    priceLabel.text=[_memberDic objectForKey:@"price"];
-    priceLabel.textAlignment=NSTextAlignmentRight;
-    [self addSubview:priceLabel];
+    _priceLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(_titleLabel.frame), CGRectGetHeight(_imageView.frame), CGRectGetWidth(self.frame)/2, 20)];
+    _priceLabel.backgroundColor=[NTColor clearColor];
+    _priceLabel.textAlignment=NSTextAlignmentRight;
+    [self addSubview:_priceLabel];
     
-    UILabel *finishNumLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(imageView.frame)+CGRectGetHeight(titleLabel.frame), CGRectGetWidth(self.frame)/2, 20)];
-    finishNumLabel.backgroundColor=[NTColor clearColor];
-    finishNumLabel.text=[_memberDic objectForKey:@"num"];
-    finishNumLabel.textAlignment=NSTextAlignmentLeft;
-    [self addSubview:finishNumLabel];
+    _finishNumLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(_imageView.frame)+CGRectGetHeight(_titleLabel.frame), CGRectGetWidth(self.frame)/2, 20)];
+    _finishNumLabel.backgroundColor=[NTColor clearColor];
+    _finishNumLabel.textAlignment=NSTextAlignmentLeft;
+    [self addSubview:_finishNumLabel];
     
-    UILabel *commentNumLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(finishNumLabel.frame), CGRectGetHeight(imageView.frame)+CGRectGetHeight(titleLabel.frame), CGRectGetWidth(self.frame)/2, 20)];
-    commentNumLabel.backgroundColor=[NTColor clearColor];
-    commentNumLabel.text=[_memberDic objectForKey:@"ComNum"];
-    commentNumLabel.textAlignment=NSTextAlignmentRight;
-    [self addSubview:commentNumLabel];
+    _commentNumLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(_finishNumLabel.frame), CGRectGetHeight(_imageView.frame)+CGRectGetHeight(_titleLabel.frame), CGRectGetWidth(self.frame)/2, 20)];
+    _commentNumLabel.backgroundColor=[NTColor clearColor];
+    _commentNumLabel.textAlignment=NSTextAlignmentRight;
+    [self addSubview:_commentNumLabel];
     
-    UIButton *selectBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    selectBtn.frame=CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
-    [selectBtn addTarget:self action:@selector(memberSelectAction:) forControlEvents:UIControlEventTouchUpInside];
-    selectBtn.backgroundColor=[NTColor clearColor];
-    selectBtn.tag=[[_memberDic objectForKey:@"id"] integerValue];
-    [self addSubview:selectBtn];
+    _selectBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    _selectBtn.frame=CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
+    [_selectBtn addTarget:self action:@selector(memberSelectAction:) forControlEvents:UIControlEventTouchUpInside];
+    _selectBtn.backgroundColor=[NTColor clearColor];
+    [self addSubview:_selectBtn];
+}
+
+- (void)reloadTheViewWithData:(NSDictionary *)dic{
+    _imageView.imageURL=[NSURL URLWithString:[dic objectForKey:@"imagePath"]];
+    _titleLabel.text=[dic objectForKey:@"name"];
+    _priceLabel.text=[dic objectForKey:@"price"];
+    _finishNumLabel.text=[dic objectForKey:@"num"];
+    _commentNumLabel.text=[dic objectForKey:@"ComNum"];
+    _selectBtn.tag=[[dic objectForKey:@"id"] integerValue];
 }
 
 #pragma mark - memberAction

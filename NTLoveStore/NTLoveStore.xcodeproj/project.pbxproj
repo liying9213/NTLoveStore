@@ -24,10 +24,11 @@
 		B213C0C51B259D210023D6B5 /* NTAsynService.m in Sources */ = {isa = PBXBuildFile; fileRef = B213C0C41B259D210023D6B5 /* NTAsynService.m */; };
 		B23B3A3B1B29C5CA00328AD9 /* NTHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B23B3A3A1B29C5CA00328AD9 /* NTHomeView.m */; };
 		B28842191B1DE76E00C972CF /* NTUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B28842181B1DE76E00C972CF /* NTUserDefaults.m */; };
-		B2A0463B1B27CE8700B260EF /* NTFunctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A0463A1B27CE8700B260EF /* NTFunctionViewController.m */; };
 		B2A0463E1B27DD1800B260EF /* NTHeadSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A0463D1B27DD1800B260EF /* NTHeadSelectView.m */; };
 		B2C71E651B26818500682AEB /* NTConfigurationFile.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2C71E641B26818500682AEB /* NTConfigurationFile.plist */; };
 		B2C71E681B26871600682AEB /* NTReadConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C71E671B26871600682AEB /* NTReadConfiguration.m */; };
+		B2D999051B2C10C20068DE87 /* NTLeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D999041B2C10C20068DE87 /* NTLeftTableViewCell.m */; };
+		B2D999091B2C35E70068DE87 /* NTContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D999081B2C35E70068DE87 /* NTContentViewController.m */; };
 		B2EAB19C1B273B7B00BB419A /* libPods-EGOImageLoading.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19B1B273B7B00BB419A /* libPods-EGOImageLoading.a */; };
 		B2EAB19F1B273B8100BB419A /* libPods-AFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19D1B273B8100BB419A /* libPods-AFNetworking.a */; };
 		B2EAB1A01B273B8100BB419A /* libPods-EGOCache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19E1B273B8100BB419A /* libPods-EGOCache.a */; };
@@ -81,13 +82,15 @@
 		B23B3A3A1B29C5CA00328AD9 /* NTHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTHomeView.m; sourceTree = "<group>"; };
 		B28842171B1DE76E00C972CF /* NTUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTUserDefaults.h; sourceTree = "<group>"; };
 		B28842181B1DE76E00C972CF /* NTUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTUserDefaults.m; sourceTree = "<group>"; };
-		B2A046391B27CE8700B260EF /* NTFunctionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTFunctionViewController.h; sourceTree = "<group>"; };
-		B2A0463A1B27CE8700B260EF /* NTFunctionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTFunctionViewController.m; sourceTree = "<group>"; };
 		B2A0463C1B27DD1800B260EF /* NTHeadSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTHeadSelectView.h; sourceTree = "<group>"; };
 		B2A0463D1B27DD1800B260EF /* NTHeadSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTHeadSelectView.m; sourceTree = "<group>"; };
 		B2C71E641B26818500682AEB /* NTConfigurationFile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NTConfigurationFile.plist; sourceTree = "<group>"; };
 		B2C71E661B26871600682AEB /* NTReadConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTReadConfiguration.h; sourceTree = "<group>"; };
 		B2C71E671B26871600682AEB /* NTReadConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTReadConfiguration.m; sourceTree = "<group>"; };
+		B2D999031B2C10C20068DE87 /* NTLeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTLeftTableViewCell.h; sourceTree = "<group>"; };
+		B2D999041B2C10C20068DE87 /* NTLeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTLeftTableViewCell.m; sourceTree = "<group>"; };
+		B2D999071B2C35E70068DE87 /* NTContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTContentViewController.h; sourceTree = "<group>"; };
+		B2D999081B2C35E70068DE87 /* NTContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTContentViewController.m; sourceTree = "<group>"; };
 		B2EAB19B1B273B7B00BB419A /* libPods-EGOImageLoading.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-EGOImageLoading.a"; path = "Pods/../build/Debug-iphoneos/libPods-EGOImageLoading.a"; sourceTree = "<group>"; };
 		B2EAB19D1B273B8100BB419A /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
 		B2EAB19E1B273B8100BB419A /* libPods-EGOCache.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-EGOCache.a"; path = "Pods/../build/Debug-iphoneos/libPods-EGOCache.a"; sourceTree = "<group>"; };
@@ -167,6 +170,7 @@
 				B206316D1B1BF4C000C02FA6 /* LaunchScreen.xib */,
 				B21037E91B2578DD00ED732B /* NTParentView */,
 				B2A046381B27CDD200B260EF /* NTFunctionView */,
+				B2D999061B2C35C60068DE87 /* NTContentView */,
 				B21037D91B253DB700ED732B /* NTUserToBVIew */,
 				B28842161B1DE75000C972CF /* NTUserDefaults */,
 				B21037E01B25418800ED732B /* NTCustomClass */,
@@ -262,8 +266,6 @@
 		B2A046381B27CDD200B260EF /* NTFunctionView */ = {
 			isa = PBXGroup;
 			children = (
-				B2A046391B27CE8700B260EF /* NTFunctionViewController.h */,
-				B2A0463A1B27CE8700B260EF /* NTFunctionViewController.m */,
 				B2A0463C1B27DD1800B260EF /* NTHeadSelectView.h */,
 				B2A0463D1B27DD1800B260EF /* NTHeadSelectView.m */,
 				B23B3A391B29C5CA00328AD9 /* NTHomeView.h */,
@@ -272,10 +274,21 @@
 				B2F1F6D61B2ACFF000B6BCA8 /* NTMemberView.m */,
 				B2F1F6DA1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.h */,
 				B2F1F6DB1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m */,
+				B2D999031B2C10C20068DE87 /* NTLeftTableViewCell.h */,
+				B2D999041B2C10C20068DE87 /* NTLeftTableViewCell.m */,
 				B2F1F6DE1B2AE79E00B6BCA8 /* NTFunctionView.h */,
 				B2F1F6DF1B2AE79E00B6BCA8 /* NTFunctionView.m */,
 			);
 			path = NTFunctionView;
+			sourceTree = "<group>";
+		};
+		B2D999061B2C35C60068DE87 /* NTContentView */ = {
+			isa = PBXGroup;
+			children = (
+				B2D999071B2C35E70068DE87 /* NTContentViewController.h */,
+				B2D999081B2C35E70068DE87 /* NTContentViewController.m */,
+			);
+			path = NTContentView;
 			sourceTree = "<group>";
 		};
 		DE4FC04F3EED67CCC56B28E7 /* Frameworks */ = {
@@ -433,16 +446,17 @@
 				B23B3A3B1B29C5CA00328AD9 /* NTHomeView.m in Sources */,
 				B21037DC1B253DE300ED732B /* NTLoginViewController.m in Sources */,
 				B2F1F6E01B2AE79E00B6BCA8 /* NTFunctionView.m in Sources */,
+				B2D999091B2C35E70068DE87 /* NTContentViewController.m in Sources */,
 				B20631671B1BF4C000C02FA6 /* ViewController.m in Sources */,
 				B21037E61B2541C200ED732B /* NTImage.m in Sources */,
 				B20631641B1BF4C000C02FA6 /* AppDelegate.m in Sources */,
 				B20631611B1BF4C000C02FA6 /* main.m in Sources */,
-				B2A0463B1B27CE8700B260EF /* NTFunctionViewController.m in Sources */,
 				B21037EC1B2578F800ED732B /* NTParentViewController.m in Sources */,
 				B2F1F6DC1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m in Sources */,
 				B21037E51B2541C200ED732B /* NTColor.m in Sources */,
 				B2C71E681B26871600682AEB /* NTReadConfiguration.m in Sources */,
 				B2F1F6D71B2ACFF000B6BCA8 /* NTMemberView.m in Sources */,
+				B2D999051B2C10C20068DE87 /* NTLeftTableViewCell.m in Sources */,
 				B2F3A1651B28919A00B1FCA1 /* NTButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
