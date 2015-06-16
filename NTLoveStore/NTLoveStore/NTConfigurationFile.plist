@@ -106,7 +106,19 @@
 			<key>name</key>
 			<string></string>
 			<key>width</key>
-			<integer>3</integer>
+			<integer>2</integer>
+			<key>height</key>
+			<integer>1</integer>
+			<key>color</key>
+			<string>#324562</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>5</integer>
+			<key>name</key>
+			<string></string>
+			<key>width</key>
+			<integer>1</integer>
 			<key>height</key>
 			<integer>1</integer>
 			<key>color</key>
