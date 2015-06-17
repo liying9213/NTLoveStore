@@ -55,8 +55,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        //默认滚动式3.0s
-        _adMoveTime = 3.0;
+        //默认滚动式10.0s
+        _adMoveTime = 10.0;
         _adScrollView = [[UIScrollView alloc]initWithFrame:self.bounds];
         _adScrollView.bounces = NO;
         _adScrollView.showsHorizontalScrollIndicator = NO;
@@ -140,7 +140,7 @@
         NSURL * imageURL = [NSURL URLWithString:imageName];
         [imagePaths addObject:imageURL];
     }
-    NTScrollImageView * scrollImageView = [NTScrollImageView adScrollViewWithFrame:frame imageLinkURL:imageLinkURL   pageControlShowStyle:PageControlShowStyle];
+    NTScrollImageView * scrollImageView = [NTScrollImageView adScrollViewWithFrame:frame imageLinkURL:imagePaths   pageControlShowStyle:PageControlShowStyle];
     scrollImageView.placeHoldImage = [UIImage imageNamed:imageName];
     return scrollImageView;
 }
@@ -237,7 +237,7 @@
     else if (PageControlShowStyle == UIPageControlShowStyleCenter)
     {
         _pageControl.frame = CGRectMake(0, 0, 20*_pageControl.numberOfPages, 20);
-        _pageControl.center = CGPointMake(kAdViewWidth/2.0, kAdViewHeight - 30);
+        _pageControl.center = CGPointMake(kAdViewWidth/2.0, kAdViewHeight - 10);
     }
     else
     {

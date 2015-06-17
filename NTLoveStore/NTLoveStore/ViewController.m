@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "NTLoginViewController.h"
 #import "NTContentViewController.h"
+#import "NTWebViewController.h"
+#import "NTShoppingCarViewController.h"
 //getData
 #import "NTReadConfiguration.h"
 #import "NTUserDefaults.h"
@@ -22,11 +24,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self resetView];
-    if (![NTUserDefaults getTheDataForKey:@"login"])
-    {
-        NTLoginViewController *viewController=[[NTLoginViewController alloc] init];
-        [self presentViewController:viewController animated:YES completion:nil];
-    }
+//    if (![NTUserDefaults getTheDataForKey:@"login"])
+//    {
+//        NTLoginViewController *viewController=[[NTLoginViewController alloc] init];
+//        [self presentViewController:viewController animated:YES completion:nil];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,8 +42,52 @@
 #pragma mark - resetView
 
 - (void)resetView{
-    
+    [self resetNavView];
     [self resetHeadSelectView];
+}
+
+- (void)resetNavView{
+    UIView * leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+    leftView.backgroundColor = [UIColor yellowColor];
+    
+    UIImageView *logoImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 150, 44)];
+    logoImageView.backgroundColor=[UIColor lightGrayColor];
+    [leftView addSubview:logoImageView];
+
+    UIBarButtonItem * _leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftView];
+    self.navigationItem.leftBarButtonItem = _leftBarButtonItem;
+    
+    
+    UIView * titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 44)];
+    titleView.backgroundColor = [UIColor yellowColor];
+
+    UISearchBar *searchBar=[[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 400, 44)];
+    searchBar.backgroundColor=[UIColor lightGrayColor];
+    [titleView addSubview:searchBar];
+    
+    self.navigationItem.titleView=titleView;
+    
+    
+    UIView * rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+    rightView.backgroundColor = [UIColor yellowColor];
+    
+    UIButton *shoppingBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    shoppingBtn.frame=CGRectMake(0, 0, 80, 44);
+    [shoppingBtn setImage:[NTImage imageWithContentsOfFile:nil] forState:UIControlStateNormal];
+    shoppingBtn.backgroundColor=[NTColor lightGrayColor];
+    [shoppingBtn addTarget:self action:@selector(shoppingCarAction) forControlEvents:UIControlEventTouchUpInside];
+    [rightView addSubview:shoppingBtn];
+    
+    UIButton *userBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    userBtn.frame=CGRectMake(120, 0, 80, 44);
+    [userBtn setImage:[NTImage imageWithContentsOfFile:nil] forState:UIControlStateNormal];
+    userBtn.backgroundColor=[NTColor lightGrayColor];
+    [userBtn addTarget:self action:@selector(userInfoAction) forControlEvents:UIControlEventTouchUpInside];
+    [rightView addSubview:userBtn];
+    
+    UIBarButtonItem * _rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightView];
+    self.navigationItem.rightBarButtonItem = _rightBarButtonItem;
+
 }
 
 - (void)resetHeadSelectView{
@@ -112,6 +158,13 @@
     
 }
 
+- (void)homeWebSelectAction:(NSString *)path{
+    NSLog(@"====%@",path);
+    NTWebViewController *webView=[[NTWebViewController alloc] init];
+    webView.urlPath=path;
+    [self.navigationController pushViewController:webView animated:YES];
+}
+
 #pragma mark - functionViewDelgate
 
 - (void)leftViewActionWithID:(int)keyID{
@@ -121,6 +174,17 @@
 - (void)memberSelectAction:(id)sender{
     NTContentViewController *viewController=[[NTContentViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+#pragma  mark - navAction
+
+- (void)shoppingCarAction{
+    NTShoppingCarViewController *shoppingCar=[[NTShoppingCarViewController alloc] init];
+    [self.navigationController pushViewController:shoppingCar animated:YES];
+}
+
+- (void)userInfoAction{
+    
 }
 
 @end
