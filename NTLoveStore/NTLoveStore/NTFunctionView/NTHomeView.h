@@ -14,6 +14,10 @@
 
 - (void)homeSelectAction:(id)sender;
 
+@optional
+
+- (void)homeWebSelectAction:(NSString *)path;
+
 @end
 
 @interface NTHomeView : UIView

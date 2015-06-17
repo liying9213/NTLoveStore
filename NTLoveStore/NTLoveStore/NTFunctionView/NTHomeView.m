@@ -10,6 +10,7 @@
 #import <EGOImageLoading/EGOImageView.h>
 #import <EGOImageLoading/EGOImageButton.h>
 #import "NTReadConfiguration.h"
+#import "NTScrollImageView.h"
 @implementation NTHomeView
 
 - (id)initWithFrame:(CGRect)frame{
@@ -30,11 +31,19 @@
 }
 
 - (void)resetScrollImageView{
-    EGOImageView *imageView=[[EGOImageView alloc] initWithPlaceholderImage:nil];
-    imageView.frame=CGRectMake(0, 0, ScreenWidth, 127);
-    imageView.backgroundColor=[NTColor yellowColor];
-    [imageView setImageURL:[NSURL URLWithString:@"http://hunhuiwang.xmbt21.com/uploadfile/2015/0113/20150113094734766.jpg"]];
-    [self addSubview:imageView];
+    
+    NSArray *imagesURL = @[
+                           @"https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/super/whfpf%3D425%2C260%2C50/sign=a41eb338dd33c895a62bcb3bb72e47c2/5fdf8db1cb134954a2192ccb524e9258d1094a1e.jpg",
+                           @"http://c.hiphotos.baidu.com/image/w%3D400/sign=c2318ff84334970a4773112fa5c8d1c0/b7fd5266d0160924c1fae5ccd60735fae7cd340d.jpg",
+                           @"http://www.5858baypgs.com/img/aHR0cDovL3BpYzE4Lm5pcGljLmNvbS8yMDEyMDEwNS8xMDkyOTU0XzA5MzE1MTMzOTExNF8yLmpwZw==.jpg"
+                           ];
+    
+    NTScrollImageView *scrollImageView = [NTScrollImageView adScrollViewWithFrame:CGRectMake(0, 0, ScreenWidth, 127)    imageLinkURL:imagesURL placeHoderImageName:nil   pageControlShowStyle:UIPageControlShowStyleLeft];
+    scrollImageView.callBack = ^(NSInteger index,NSString * imageURL)
+    {
+        [_delegate homeWebSelectAction:imageURL];
+    };
+    [self addSubview:scrollImageView];
 }
 
 - (void)resetFunctionView{
@@ -86,6 +95,11 @@
 
 - (void)homeSelectAction:(id)sender{
     UIButton *btn=(UIButton *)sender;
-    [_delegate homeSelectAction:btn];
+    if (btn.tag) {
+         [_delegate homeWebSelectAction:nil];
+    }
+    else{
+      [_delegate homeSelectAction:btn];
+    }
 }
 @end
