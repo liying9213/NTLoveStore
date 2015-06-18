@@ -132,11 +132,19 @@
 
 #pragma mark - searchBarDelegate
 
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    
+}
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
 }
 
 #pragma mark - searchDisplayDelegate
+
+- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller{
+    _searchDisplayView.searchResultsTableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
+}
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption{
     return YES;
@@ -145,6 +153,27 @@
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
     return YES;
 }
+
+#pragma mark - tableViewDelegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return 0;
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
 
 #pragma mark - getTheData
 
