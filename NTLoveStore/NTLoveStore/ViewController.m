@@ -63,9 +63,14 @@
 
     UISearchBar *searchBar=[[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 400, 44)];
     searchBar.backgroundColor=[UIColor lightGrayColor];
+    searchBar.delegate=self;
     [titleView addSubview:searchBar];
-    
     self.navigationItem.titleView=titleView;
+    
+    _searchDisplayView=[[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+    _searchDisplayView.delegate=self;
+    _searchDisplayView.searchResultsDataSource=self;
+    _searchDisplayView.searchResultsDelegate=self;
     
     
     UIView * rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
@@ -123,6 +128,22 @@
     else{
         _functionView.hidden=NO;
     }
+}
+
+#pragma mark - searchBarDelegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+}
+
+#pragma mark - searchDisplayDelegate
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption{
+    return YES;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
+    return YES;
 }
 
 #pragma mark - getTheData

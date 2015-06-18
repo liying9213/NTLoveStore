@@ -10,11 +10,13 @@
 #import "NTHeadSelectView.h"
 #import "NTFunctionView.h"
 #import "NTHomeView.h"
-@interface ViewController : NTParentViewController<NTHeadSelectViewDelegate,NTHomeViewDelegate,NTFunctionViewDelegate>
+@interface ViewController : NTParentViewController<NTHeadSelectViewDelegate,NTHomeViewDelegate,NTFunctionViewDelegate,UISearchBarDelegate,UISearchDisplayDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     float functionBtnXValue;
     float functionBtnYValue;
 }
+
+@property (nonatomic, strong) UISearchDisplayController * searchDisplayView;
 
 @property (nonatomic, strong) NTHomeView *homeView;
 
