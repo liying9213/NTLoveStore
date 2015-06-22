@@ -14,4 +14,12 @@
 
 @property (nonatomic, strong)UIScrollView *scrollView;
 
+@property (nonatomic, strong)UIView *contenInfoView;
+
+@property (nonatomic, strong)UIView *imageInfoView;
+
+@property (nonatomic, strong)UIView *videoInfoView;
+
+@property (nonatomic, strong)UIView *commentInfoView;
+
 @end

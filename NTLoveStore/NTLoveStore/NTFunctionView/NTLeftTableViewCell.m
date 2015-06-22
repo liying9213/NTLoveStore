@@ -23,19 +23,23 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self){
-        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 80)];
+        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth/5-30, 50)];
         _titleLabel.backgroundColor=[NTColor clearColor];
+        _titleLabel.textAlignment=NSTextAlignmentCenter;
         [self.contentView addSubview:_titleLabel];
         
-        UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth(_titleLabel.frame), 0, 40, 80)];
+        UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth(_titleLabel.frame), 20, 10 , 11)];
         imageView.backgroundColor=[NTColor clearColor];
-        imageView.image=[NTImage imageWithFileName:nil];
+        imageView.image=[NTImage imageWithFileName:@"moreicon.png"];
         [self.contentView addSubview:imageView];
         
         self.contentView.layer.masksToBounds=YES;
         self.contentView.layer.cornerRadius=0.2;
         self.contentView.layer.borderWidth=0.5;
         self.contentView.layer.borderColor=[[NTColor lightGrayColor] CGColor];
+        
+        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
+        self.selectedBackgroundView.backgroundColor = [NTColor colorWithHexString:NTBlueColor];
         
     }
     return self;

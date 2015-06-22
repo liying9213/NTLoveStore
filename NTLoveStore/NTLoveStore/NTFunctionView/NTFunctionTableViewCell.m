@@ -34,6 +34,8 @@
             xValue+=theWidth+10;
         }
     }
+    self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
+    self.selectedBackgroundView.backgroundColor = [NTColor clearColor];
     return self;
 }
 

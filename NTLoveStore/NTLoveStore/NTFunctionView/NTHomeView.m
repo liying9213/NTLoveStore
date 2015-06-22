@@ -31,12 +31,12 @@
 - (void)resetScrollImageView{
     
     NSArray *imagesURL = @[
-                           @"http://hunhuiwang.xmbt21.com/uploadfile/2015/0113/20150113094734766.jpg",
-                           @"http://hunhuiwang.xmbt21.com/uploadfile/2015/0113/20150113094946473.jpg",
-                           @"http://hunhuiwang.xmbt21.com/uploadfile/2015/0116/20150116012703220.jpg"
+                           @"http://b.hiphotos.baidu.com/image/pic/item/2934349b033b5bb5085486f834d3d539b600bc31.jpg",
+                           @"http://h.hiphotos.baidu.com/image/pic/item/37d3d539b6003af3fd397a66372ac65c1038b631.jpg",
+                           @"http://d.hiphotos.baidu.com/image/pic/item/3b87e950352ac65cdb86c075f9f2b21193138a31.jpg"
                            ];
     
-    NTScrollImageView *scrollImageView = [NTScrollImageView adScrollViewWithFrame:CGRectMake(0, 0, ScreenWidth, 127)    imageLinkURL:imagesURL placeHoderImageName:nil   pageControlShowStyle:UIPageControlShowStyleCenter];
+    NTScrollImageView *scrollImageView = [NTScrollImageView adScrollViewWithFrame:CGRectMake(0, 0, ScreenWidth, 132)    imageLinkURL:imagesURL placeHoderImageName:nil   pageControlShowStyle:UIPageControlShowStyleCenter];
     scrollImageView.callBack = ^(NSInteger index,NSString * imageURL)
     {
         [_delegate homeWebSelectAction:imageURL];
@@ -47,7 +47,7 @@
 - (void)resetFunctionView{
     NSArray *functionArray=[NTReadConfiguration getConfigurationWithKey:@"homeViewData"];
     functionBtnXValue=10;
-    functionBtnYValue=137;
+    functionBtnYValue=142;
     functionBtnHeight=159;
     if (functionArray)
     {

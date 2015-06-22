@@ -32,17 +32,23 @@
     [self addSubview:_titleLabel];
     
     _priceLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(_titleLabel.frame), CGRectGetHeight(_imageView.frame), CGRectGetWidth(self.frame)/2, 20)];
+    _priceLabel.font=[UIFont systemFontOfSize:14];
     _priceLabel.backgroundColor=[NTColor clearColor];
+    _priceLabel.textColor=[NTColor redColor];
     _priceLabel.textAlignment=NSTextAlignmentRight;
     [self addSubview:_priceLabel];
     
     _finishNumLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(_imageView.frame)+CGRectGetHeight(_titleLabel.frame), CGRectGetWidth(self.frame)/2, 20)];
+    _finishNumLabel.font=[UIFont systemFontOfSize:13];
     _finishNumLabel.backgroundColor=[NTColor clearColor];
+    _finishNumLabel.textColor=[NTColor lightGrayColor];
     _finishNumLabel.textAlignment=NSTextAlignmentLeft;
     [self addSubview:_finishNumLabel];
     
     _commentNumLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(_finishNumLabel.frame), CGRectGetHeight(_imageView.frame)+CGRectGetHeight(_titleLabel.frame), CGRectGetWidth(self.frame)/2, 20)];
+    _commentNumLabel.font=[UIFont systemFontOfSize:13];
     _commentNumLabel.backgroundColor=[NTColor clearColor];
+    _commentNumLabel.textColor=[NTColor lightGrayColor];
     _commentNumLabel.textAlignment=NSTextAlignmentRight;
     [self addSubview:_commentNumLabel];
     
@@ -56,10 +62,14 @@
 - (void)reloadTheViewWithData:(NSDictionary *)dic{
     _imageView.imageURL=[NSURL URLWithString:[dic objectForKey:@"imagePath"]];
     _titleLabel.text=[dic objectForKey:@"name"];
-    _priceLabel.text=[dic objectForKey:@"price"];
-    _finishNumLabel.text=[dic objectForKey:@"num"];
-    _commentNumLabel.text=[dic objectForKey:@"ComNum"];
+    _priceLabel.text=[NSString stringWithFormat:@"￥%@",[dic objectForKey:@"price"]];
     _selectBtn.tag=[[dic objectForKey:@"id"] integerValue];
+    NSMutableAttributedString *finishNum=[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"已服务%@人",[dic objectForKey:@"num"]]];
+    [finishNum addAttribute:NSForegroundColorAttributeName value:[NTColor colorWithHexString:NTBlueColor] range:NSMakeRange(3,finishNum.length-4)];
+    NSMutableAttributedString *commentNum=[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"好评数%@条",[dic objectForKey:@"ComNum"]]];
+    [commentNum addAttribute:NSForegroundColorAttributeName value:[NTColor colorWithHexString:NTBlueColor] range:NSMakeRange(3,commentNum.length-4)];
+    _finishNumLabel.attributedText=finishNum;
+    _commentNumLabel.attributedText=commentNum;
 }
 
 #pragma mark - memberAction

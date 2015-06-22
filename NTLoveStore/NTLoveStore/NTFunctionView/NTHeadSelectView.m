@@ -27,13 +27,21 @@
     float currentXValue=100;
     float currentWidth=(CGRectGetWidth(self.frame)-200)/_selectData.count;
     
-    _selcetBackGroundView=[[UIView alloc] initWithFrame:CGRectMake(currentXValue, CGRectGetHeight(self.frame)-3, currentWidth, 3)];
+    _selcetBackGroundView=[[UIView alloc] initWithFrame:CGRectMake(currentXValue+5, CGRectGetHeight(self.frame)-3, currentWidth-10, 3)];
     _selcetBackGroundView.backgroundColor=[NTColor colorWithHexString:NTPinkColor];
     [scrollView addSubview:_selcetBackGroundView];
     
+    int i=0;
     for (NSDictionary *dic in _selectData) {
+        i++;
         [self resetSelectBtnWithData:dic WithXValue:currentXValue WithWidthValue:currentWidth WithParentView:scrollView];
         currentXValue+=currentWidth;
+        if (i!=_selectData.count) {
+            UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(currentXValue-2, (CGRectGetHeight(self.frame)-28)/2, 2, 28)];
+            imageView.backgroundColor=[NTColor clearColor];
+            imageView.image=[NTImage imageWithFileName:@"separate.jpg"];
+            [scrollView addSubview:imageView];
+        }
     }
 }
 
@@ -57,8 +65,10 @@
 - (void)headSelectAction:(id)sender{
     NTButton *btn=(NTButton *)sender;
     CGRect rect=btn.frame;
+    rect.origin.x=CGRectGetMinX(btn.frame)+15;
     rect.origin.y=CGRectGetHeight(btn.frame)-3;
     rect.size.height=3;
+    rect.size.width=CGRectGetWidth(btn.frame)-30;
     [UIView animateWithDuration:0.25 animations:^{_selcetBackGroundView.frame=rect;}];
     [_delegate headSelectAction:btn];
 }

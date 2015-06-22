@@ -11,6 +11,7 @@
 #import "NTContentViewController.h"
 #import "NTWebViewController.h"
 #import "NTShoppingCarViewController.h"
+
 //getData
 #import "NTReadConfiguration.h"
 #import "NTUserDefaults.h"
@@ -47,16 +48,16 @@
 }
 
 - (void)resetNavView{
-    UIView * leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
-    leftView.backgroundColor = [UIColor yellowColor];
+    UIView * leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 45)];
+    leftView.backgroundColor = [NTColor  clearColor];
     
-    UIImageView *logoImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 150, 44)];
-    logoImageView.backgroundColor=[UIColor lightGrayColor];
+    UIImageView *logoImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 125, 45)];
+    logoImageView.backgroundColor=[NTColor clearColor];
+    logoImageView.image=[NTImage imageWithFileName:@"logo.png"];
     [leftView addSubview:logoImageView];
 
     UIBarButtonItem * _leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftView];
     self.navigationItem.leftBarButtonItem = _leftBarButtonItem;
-    
     
     UIView * titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 44)];
     titleView.backgroundColor = [UIColor yellowColor];
@@ -73,21 +74,31 @@
     _searchDisplayView.searchResultsDelegate=self;
     
     
-    UIView * rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
-    rightView.backgroundColor = [UIColor yellowColor];
+    UIView * rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 240, 44)];
+    rightView.backgroundColor = [NTColor clearColor];
     
     UIButton *shoppingBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    shoppingBtn.frame=CGRectMake(0, 0, 80, 44);
+    shoppingBtn.frame=CGRectMake(0, 0, 120, 44);
     [shoppingBtn setImage:[NTImage imageWithContentsOfFile:nil] forState:UIControlStateNormal];
-    shoppingBtn.backgroundColor=[NTColor lightGrayColor];
+    shoppingBtn.backgroundColor=[NTColor clearColor];
     [shoppingBtn addTarget:self action:@selector(shoppingCarAction) forControlEvents:UIControlEventTouchUpInside];
+    [shoppingBtn setImage:[NTImage imageWithFileName:@"shopping.png"] forState:UIControlStateNormal];
+    [shoppingBtn setTitle:@"我的购物车" forState:UIControlStateNormal];
+    [shoppingBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
+    shoppingBtn.titleLabel.font=[UIFont systemFontOfSize:14];
+    shoppingBtn.titleEdgeInsets=UIEdgeInsetsMake(0, 10, 0, -10);
     [rightView addSubview:shoppingBtn];
     
     UIButton *userBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    userBtn.frame=CGRectMake(120, 0, 80, 44);
+    userBtn.frame=CGRectMake(130, 0, 110, 44);
     [userBtn setImage:[NTImage imageWithContentsOfFile:nil] forState:UIControlStateNormal];
-    userBtn.backgroundColor=[NTColor lightGrayColor];
-    [userBtn addTarget:self action:@selector(userInfoAction) forControlEvents:UIControlEventTouchUpInside];
+    userBtn.backgroundColor=[NTColor clearColor];
+    [userBtn addTarget:self action:@selector(userInfoAction:) forControlEvents:UIControlEventTouchUpInside];
+    [userBtn setImage:[NTImage imageWithFileName:@"user.png"] forState:UIControlStateNormal];
+    [userBtn setTitle:@"个人中心" forState:UIControlStateNormal];
+    [userBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
+    userBtn.titleLabel.font=[UIFont systemFontOfSize:14];
+    userBtn.titleEdgeInsets=UIEdgeInsetsMake(0, 10, 0, -10);
     [rightView addSubview:userBtn];
     
     UIBarButtonItem * _rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightView];
@@ -96,7 +107,7 @@
 }
 
 - (void)resetHeadSelectView{
-    NTHeadSelectView *headSelectView=[[NTHeadSelectView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 50)];
+    NTHeadSelectView *headSelectView=[[NTHeadSelectView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 45)];
     headSelectView.selectData=[NTReadConfiguration getConfigurationWithKey:@"functionData"];
     headSelectView.delegate=self;
     headSelectView.selectTag=0;
@@ -107,7 +118,7 @@
 - (void)resetHomeView{
     _functionView.hidden=YES;
     if (!_homeView){
-        _homeView=[[NTHomeView alloc] initWithFrame:CGRectMake(0, 60, ScreenWidth, CGRectGetHeight(self.view.frame)-60)];
+        _homeView=[[NTHomeView alloc] initWithFrame:CGRectMake(0, 55, ScreenWidth, CGRectGetHeight(self.view.frame)-55)];
         _homeView.delegate=self;
         [_homeView  resetHomeView];
         [self.view addSubview:_homeView];
@@ -233,8 +244,7 @@
     [self.navigationController pushViewController:shoppingCar animated:YES];
 }
 
-- (void)userInfoAction{
-    
+- (void)userInfoAction:(id)sender {
 }
 
 @end
