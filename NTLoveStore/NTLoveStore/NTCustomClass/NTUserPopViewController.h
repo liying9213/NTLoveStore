@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class NTUserPopViewController;
+
+@protocol NTUserPopViewControllerDelegate <NSObject>
+
+@required
+
+- (void)userInfoSelect:(id)sender;
+
+@end
+
 @interface NTUserPopViewController : UIViewController
+
+@property (nonatomic, assign)id delegate;
 
 @end

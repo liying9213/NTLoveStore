@@ -11,7 +11,7 @@
 #import "NTContentViewController.h"
 #import "NTWebViewController.h"
 #import "NTShoppingCarViewController.h"
-
+#import "NTUserInfoViewController.h"
 //getData
 #import "NTReadConfiguration.h"
 #import "NTUserDefaults.h"
@@ -245,6 +245,31 @@
 }
 
 - (void)userInfoAction:(id)sender {
+    UIButton *btn=(UIButton *)sender;
+    _popoverContent=[[NTUserPopViewController alloc] init];
+    _popoverContent.delegate=self;
+    _popoverView=[[UIPopoverController alloc] initWithContentViewController:_popoverContent];
+    _popoverView.popoverContentSize = CGSizeMake(320, 160);
+    _popoverView.delegate=self;
+    [_popoverView presentPopoverFromRect:btn.bounds inView:btn permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
+
+#pragma mark - popoverViewDelegate
+
+- (void)userInfoSelect:(id)sender{
+    if ([(UIButton *)sender tag]==0) {
+        NTUserInfoViewController *userInfoView=[[NTUserInfoViewController alloc] init];
+        [self.navigationController pushViewController:userInfoView animated:YES];
+    }
+    else if ([(UIButton *)sender tag]==1){
+        
+    }
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController{
+    _popoverView=nil;
+    _popoverContent=nil;
+}
+
 
 @end

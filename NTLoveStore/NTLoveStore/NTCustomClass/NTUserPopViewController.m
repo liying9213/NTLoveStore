@@ -27,16 +27,24 @@
 - (void)resetView{
     UIButton *userInfo=[UIButton buttonWithType:UIButtonTypeCustom];
     userInfo.backgroundColor=[NTColor clearColor];
+    userInfo.tag=0;
     [userInfo setTitle:@"个人中心" forState:UIControlStateNormal];
     userInfo.frame=CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 60);
+    [userInfo addTarget:self action:@selector(userInfoSelect:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:userInfo];
     
     UIButton *logout=[UIButton buttonWithType:UIButtonTypeCustom];
     logout.backgroundColor=[NTColor clearColor];
+    logout.tag=1;
     [logout setTitle:@"退出" forState:UIControlStateNormal];
     logout.frame=CGRectMake(0, CGRectGetHeight(userInfo.frame), CGRectGetWidth(self.view.frame), 60);
+    [logout addTarget:self action:@selector(userInfoSelect:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:userInfo];
     
+}
+
+- (void)userInfoSelect:(id)sender{
+    [_delegate userInfoSelect:sender];
 }
 
 @end

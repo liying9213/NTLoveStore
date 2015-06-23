@@ -11,7 +11,7 @@
 #import "NTHeadSelectView.h"
 #import "NTFunctionView.h"
 #import "NTHomeView.h"
-@interface ViewController : NTParentViewController<NTHeadSelectViewDelegate,NTHomeViewDelegate,NTFunctionViewDelegate,UISearchBarDelegate,UISearchDisplayDelegate,UITableViewDelegate,UITableViewDataSource,UIPopoverControllerDelegate>
+@interface ViewController : NTParentViewController<NTHeadSelectViewDelegate,NTHomeViewDelegate,NTFunctionViewDelegate,UISearchBarDelegate,UISearchDisplayDelegate,UITableViewDelegate,UITableViewDataSource,UIPopoverControllerDelegate,NTUserPopViewControllerDelegate>
 {
     float functionBtnXValue;
     float functionBtnYValue;

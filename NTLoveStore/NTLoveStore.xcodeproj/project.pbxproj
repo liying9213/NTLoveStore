@@ -42,6 +42,7 @@
 		B2EAB19C1B273B7B00BB419A /* libPods-EGOImageLoading.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19B1B273B7B00BB419A /* libPods-EGOImageLoading.a */; };
 		B2EAB19F1B273B8100BB419A /* libPods-AFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19D1B273B8100BB419A /* libPods-AFNetworking.a */; };
 		B2EAB1A01B273B8100BB419A /* libPods-EGOCache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19E1B273B8100BB419A /* libPods-EGOCache.a */; };
+		B2EF0B881B394126008B40ED /* NTUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EF0B871B394126008B40ED /* NTUserInfoViewController.m */; };
 		B2F1F6D71B2ACFF000B6BCA8 /* NTMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1F6D61B2ACFF000B6BCA8 /* NTMemberView.m */; };
 		B2F1F6DC1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1F6DB1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m */; };
 		B2F1F6E01B2AE79E00B6BCA8 /* NTFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1F6DF1B2AE79E00B6BCA8 /* NTFunctionView.m */; };
@@ -118,6 +119,8 @@
 		B2EAB19B1B273B7B00BB419A /* libPods-EGOImageLoading.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-EGOImageLoading.a"; path = "Pods/../build/Debug-iphoneos/libPods-EGOImageLoading.a"; sourceTree = "<group>"; };
 		B2EAB19D1B273B8100BB419A /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
 		B2EAB19E1B273B8100BB419A /* libPods-EGOCache.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-EGOCache.a"; path = "Pods/../build/Debug-iphoneos/libPods-EGOCache.a"; sourceTree = "<group>"; };
+		B2EF0B861B394126008B40ED /* NTUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTUserInfoViewController.h; sourceTree = "<group>"; };
+		B2EF0B871B394126008B40ED /* NTUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTUserInfoViewController.m; sourceTree = "<group>"; };
 		B2F1F6D51B2ACFF000B6BCA8 /* NTMemberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTMemberView.h; sourceTree = "<group>"; };
 		B2F1F6D61B2ACFF000B6BCA8 /* NTMemberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTMemberView.m; sourceTree = "<group>"; };
 		B2F1F6DA1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTFunctionTableViewCell.h; sourceTree = "<group>"; };
@@ -242,6 +245,8 @@
 			children = (
 				B21037DA1B253DE300ED732B /* NTLoginViewController.h */,
 				B21037DB1B253DE300ED732B /* NTLoginViewController.m */,
+				B2EF0B861B394126008B40ED /* NTUserInfoViewController.h */,
+				B2EF0B871B394126008B40ED /* NTUserInfoViewController.m */,
 			);
 			name = NTUserToBVIew;
 			path = NTUserToB;
@@ -517,6 +522,7 @@
 				B21037DC1B253DE300ED732B /* NTLoginViewController.m in Sources */,
 				B251A25A1B37F1FE00B537A1 /* NTUserPopViewController.m in Sources */,
 				B2F1F6E01B2AE79E00B6BCA8 /* NTFunctionView.m in Sources */,
+				B2EF0B881B394126008B40ED /* NTUserInfoViewController.m in Sources */,
 				B283E05E1B31BC8F0001D6F1 /* NTWebViewController.m in Sources */,
 				B2D999091B2C35E70068DE87 /* NTContentViewController.m in Sources */,
 				B20631671B1BF4C000C02FA6 /* ViewController.m in Sources */,
