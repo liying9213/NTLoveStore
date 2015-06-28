@@ -10,4 +10,6 @@
 
 @interface NTAsynService : NSObject
 
++ (void)requestWithHead:(NSString *)head WithBody:(NSDictionary *)bodyDic completionHandler:(void (^)(BOOL success, NSDictionary *finishDic, NSError* connectionError)) handler;
+
 @end

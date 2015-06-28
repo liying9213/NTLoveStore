@@ -7,7 +7,7 @@
 //
 
 #import "NTLoginViewController.h"
-
+#import "NTAsynService.h"
 @interface NTLoginViewController ()
 
 @end
@@ -81,7 +81,25 @@
 
 - (void)submitAction:(id)sender{
     [self showWaitingViewWithText:nil];
-    [self performSelector:@selector(closeAction) withObject:nil afterDelay:1];
+    NSDictionary *dic=@{@"user":_userName.text,
+                        @"pass":_userPassWord.text};
+    [NTAsynService requestWithHead:loginBaseURL WithBody:dic completionHandler:^(BOOL success, NSDictionary *finishDic, NSError *connectionError) {
+        if (success) {
+            if ([[finishDic objectForKey:@"status"] intValue]==1) {
+                [NTUserDefaults writeTheData:[finishDic objectForKey:@"status"] ForKey:@"status"];
+                [NTUserDefaults writeTheData:[finishDic objectForKey:@"uid"] ForKey:@"uid"];
+                [NTUserDefaults writeTheData:[finishDic objectForKey:@"token"] ForKey:@"token"];
+                [self performSelector:@selector(closeAction) withObject:nil afterDelay:1];
+            }
+            else{
+                [self showEndViewWithText:@"登陆失败，请联系客服"];
+            }
+        }
+        else{
+            [self showEndViewWithText:connectionError.localizedDescription];
+        }
+    }];
+    dic=nil;
 }
 
 #pragma mark - closeAction

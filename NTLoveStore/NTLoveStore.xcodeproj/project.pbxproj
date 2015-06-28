@@ -20,7 +20,6 @@
 		B21037E51B2541C200ED732B /* NTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B21037E21B2541C200ED732B /* NTColor.m */; };
 		B21037E61B2541C200ED732B /* NTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B21037E41B2541C200ED732B /* NTImage.m */; };
 		B21037EC1B2578F800ED732B /* NTParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21037EB1B2578F800ED732B /* NTParentViewController.m */; };
-		B213C0C21B259D010023D6B5 /* NTAsynConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B213C0C11B259D010023D6B5 /* NTAsynConnection.m */; };
 		B213C0C51B259D210023D6B5 /* NTAsynService.m in Sources */ = {isa = PBXBuildFile; fileRef = B213C0C41B259D210023D6B5 /* NTAsynService.m */; };
 		B23B3A3B1B29C5CA00328AD9 /* NTHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B23B3A3A1B29C5CA00328AD9 /* NTHomeView.m */; };
 		B251A2511B37E34D00B537A1 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B251A2501B37E34D00B537A1 /* logo.png */; };
@@ -85,12 +84,11 @@
 		B21037E71B25432400ED732B /* NTNormalHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTNormalHead.h; sourceTree = "<group>"; };
 		B21037EA1B2578F800ED732B /* NTParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTParentViewController.h; sourceTree = "<group>"; };
 		B21037EB1B2578F800ED732B /* NTParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTParentViewController.m; sourceTree = "<group>"; };
-		B213C0C01B259D010023D6B5 /* NTAsynConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTAsynConnection.h; sourceTree = "<group>"; };
-		B213C0C11B259D010023D6B5 /* NTAsynConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTAsynConnection.m; sourceTree = "<group>"; };
 		B213C0C31B259D210023D6B5 /* NTAsynService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTAsynService.h; sourceTree = "<group>"; };
 		B213C0C41B259D210023D6B5 /* NTAsynService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTAsynService.m; sourceTree = "<group>"; };
 		B23B3A391B29C5CA00328AD9 /* NTHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTHomeView.h; sourceTree = "<group>"; };
 		B23B3A3A1B29C5CA00328AD9 /* NTHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTHomeView.m; sourceTree = "<group>"; };
+		B23F7F541B4022CF000B7C6F /* NTShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTShare.h; sourceTree = "<group>"; };
 		B251A2501B37E34D00B537A1 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		B251A2521B37E45C00B537A1 /* shopping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopping.png; sourceTree = "<group>"; };
 		B251A2541B37E59200B537A1 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
@@ -208,6 +206,7 @@
 				B251A24F1B37E2CB00B537A1 /* NTSource */,
 				B206315E1B1BF4C000C02FA6 /* Supporting Files */,
 				B21037DF1B253F8600ED732B /* NTdefine.h */,
+				B23F7F541B4022CF000B7C6F /* NTShare.h */,
 				B21037E71B25432400ED732B /* NTNormalHead.h */,
 			);
 			path = NTLoveStore;
@@ -283,8 +282,6 @@
 			children = (
 				B213C0C31B259D210023D6B5 /* NTAsynService.h */,
 				B213C0C41B259D210023D6B5 /* NTAsynService.m */,
-				B213C0C01B259D010023D6B5 /* NTAsynConnection.h */,
-				B213C0C11B259D010023D6B5 /* NTAsynConnection.m */,
 			);
 			path = NTService;
 			sourceTree = "<group>";
@@ -515,7 +512,6 @@
 			files = (
 				B28842191B1DE76E00C972CF /* NTUserDefaults.m in Sources */,
 				B2A0463E1B27DD1800B260EF /* NTHeadSelectView.m in Sources */,
-				B213C0C21B259D010023D6B5 /* NTAsynConnection.m in Sources */,
 				B213C0C51B259D210023D6B5 /* NTAsynService.m in Sources */,
 				B23B3A3B1B29C5CA00328AD9 /* NTHomeView.m in Sources */,
 				B2A4CED11B317BF00058DE58 /* NTScrollImageView.m in Sources */,

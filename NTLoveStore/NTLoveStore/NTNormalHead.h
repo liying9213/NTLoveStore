@@ -10,3 +10,5 @@
 #import "NTColor.h"
 #import "NTImage.h"
 #import "NTButton.h"
+#import "NTShare.h"
+#import "NTUserDefaults.h"

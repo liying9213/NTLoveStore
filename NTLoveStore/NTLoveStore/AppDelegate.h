@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+#import "NTShare.h"
+#import "NTUserDefaults.h"
+@interface AppDelegate : UIResponder <UIApplicationDelegate,NTShare>
 
 @property (strong, nonatomic) UIWindow *window;
 

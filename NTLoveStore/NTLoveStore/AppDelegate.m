@@ -8,6 +8,13 @@
 
 #import "AppDelegate.h"
 
+static id<NTShare> _share = nil;
+
+id<NTShare> share(void)
+{
+    return _share;
+}
+
 @interface AppDelegate ()
 
 @end
@@ -40,6 +47,18 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - NTShare
+
+- (BOOL)userIsLogin{
+    BOOL login=[[NTUserDefaults getTheDataForKey:@"status"] boolValue];
+    return login;
+}
+
+- (NSString *)userToken{
+    NSString * token=[NTUserDefaults getTheDataForKey:@"token"];
+    return token;
 }
 
 @end

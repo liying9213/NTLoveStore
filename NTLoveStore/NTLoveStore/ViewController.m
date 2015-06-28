@@ -13,9 +13,10 @@
 #import "NTShoppingCarViewController.h"
 #import "NTUserInfoViewController.h"
 //getData
+#import "NTAsynService.h"
 #import "NTReadConfiguration.h"
 #import "NTUserDefaults.h"
-
+#import "NTShare.h"
 @interface ViewController ()
 
 @end
@@ -25,11 +26,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self resetView];
-//    if (![NTUserDefaults getTheDataForKey:@"login"])
-//    {
-//        NTLoginViewController *viewController=[[NTLoginViewController alloc] init];
-//        [self presentViewController:viewController animated:YES completion:nil];
-//    }
+    if (![share()userIsLogin])
+    {
+        NTLoginViewController *viewController=[[NTLoginViewController alloc] init];
+        [self presentViewController:viewController animated:YES completion:nil];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -103,7 +105,7 @@
     
     UIBarButtonItem * _rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightView];
     self.navigationItem.rightBarButtonItem = _rightBarButtonItem;
-
+    
 }
 
 - (void)resetHeadSelectView{
@@ -194,6 +196,19 @@
 
 - (void)getFunctionLeftData{
     
+    NSDictionary *dic=@{@"user":@"",
+                        @"pass":@""};
+    [NTAsynService requestWithHead:loginBaseURL WithBody:dic completionHandler:^(BOOL success, NSDictionary *finishDic, NSError *connectionError) {
+        if (success) {
+        }
+        else{
+            [self showEndViewWithText:connectionError.localizedDescription];
+        }
+    }];
+    dic=nil;
+    
+    
+    
 }
 
 - (void)getFunctionData{
@@ -220,7 +235,6 @@
 }
 
 - (void)homeWebSelectAction:(NSString *)path{
-    NSLog(@"====%@",path);
     NTWebViewController *webView=[[NTWebViewController alloc] init];
     webView.urlPath=path;
     [self.navigationController pushViewController:webView animated:YES];
