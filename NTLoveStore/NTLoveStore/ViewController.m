@@ -26,11 +26,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self resetView];
-    if (![share()userIsLogin])
-    {
-        NTLoginViewController *viewController=[[NTLoginViewController alloc] init];
-        [self presentViewController:viewController animated:YES completion:nil];
-    }
+//    if (![share()userIsLogin])
+//    {
+//        NTLoginViewController *viewController=[[NTLoginViewController alloc] init];
+//        [self presentViewController:viewController animated:YES completion:nil];
+//    }
     
 }
 
@@ -75,7 +75,6 @@
     _searchDisplayView.searchResultsDataSource=self;
     _searchDisplayView.searchResultsDelegate=self;
     
-    
     UIView * rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 240, 44)];
     rightView.backgroundColor = [NTColor clearColor];
     
@@ -105,16 +104,15 @@
     
     UIBarButtonItem * _rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightView];
     self.navigationItem.rightBarButtonItem = _rightBarButtonItem;
-    
 }
 
 - (void)resetHeadSelectView{
-    NTHeadSelectView *headSelectView=[[NTHeadSelectView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 45)];
-    headSelectView.selectData=[NTReadConfiguration getConfigurationWithKey:@"functionData"];
-    headSelectView.delegate=self;
-    headSelectView.selectTag=0;
-    [headSelectView creatHeadSelectView];
-    [self.view addSubview:headSelectView];
+    _headSelectView=[[NTHeadSelectView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 45)];
+    _headSelectView.selectData=[NTReadConfiguration getConfigurationWithKey:@"functionData"];
+    _headSelectView.delegate=self;
+    _headSelectView.selectTag=0;
+    [_headSelectView creatHeadSelectView];
+    [self.view addSubview:_headSelectView];
 }
 
 - (void)resetHomeView{
@@ -192,9 +190,23 @@
 
 - (void)getHomeViewData{
     
+    NSDictionary *dic=@{@"user":@"",
+                        @"pass":@""};
+    [NTAsynService requestWithHead:loginBaseURL WithBody:dic completionHandler:^(BOOL success, NSDictionary *finishDic, NSError *connectionError) {
+        if (success) {
+        }
+        else{
+            [self showEndViewWithText:connectionError.localizedDescription];
+        }
+    }];
+    dic=nil;
 }
 
 - (void)getFunctionLeftData{
+    
+}
+
+- (void)getFunctionData{
     
     NSDictionary *dic=@{@"user":@"",
                         @"pass":@""};
@@ -206,12 +218,6 @@
         }
     }];
     dic=nil;
-    
-    
-    
-}
-
-- (void)getFunctionData{
     
 }
 
@@ -231,7 +237,8 @@
 #pragma mark - homeSelectDelegate
 
 - (void)homeSelectAction:(id)sender{
-    
+    EGOImageButton *btn=(EGOImageButton *)sender;
+    [_headSelectView selectTheTag:btn.tag];
 }
 
 - (void)homeWebSelectAction:(NSString *)path{

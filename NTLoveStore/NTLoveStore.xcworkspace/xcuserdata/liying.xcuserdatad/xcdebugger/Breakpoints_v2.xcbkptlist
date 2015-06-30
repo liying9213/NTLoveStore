@@ -6,32 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/NTFunctionView/NTHomeView.m"
-            timestampString = "456242854.920338"
+            filePath = "NTLoveStore/ViewController.m"
+            timestampString = "457356480.078224"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "-resetFunctionView"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/NTFunctionView/NTHomeView.m"
-            timestampString = "456242854.920338"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "-resetFunctionView"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "-getHomeViewData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/NTWebView/NTWebViewController.m"
-            timestampString = "456245259.467108"
+            filePath = "NTLoveStore/ViewController.m"
+            timestampString = "457358525.2003"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "-resetView"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "-getFunctionLeftData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/NTWebView/NTWebViewController.m"
-            timestampString = "456245348.857896"
+            filePath = "NTLoveStore/ViewController.m"
+            timestampString = "457358525.2003"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "-getFunctionData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

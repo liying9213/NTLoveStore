@@ -23,6 +23,8 @@
 
 @property (nonatomic, strong) NTFunctionView *functionView;
 
+@property (nonatomic, strong) NTHeadSelectView *headSelectView;
+
 @property (nonatomic, strong) UIPopoverController *popoverView;
 
 @property (nonatomic, strong) NTUserPopViewController *popoverContent;

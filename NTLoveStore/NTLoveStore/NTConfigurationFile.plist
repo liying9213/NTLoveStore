@@ -6,15 +6,17 @@
 	<array>
 		<dict>
 			<key>id</key>
-			<integer>1</integer>
+			<integer>3</integer>
 			<key>name</key>
 			<string>场地搭建</string>
 			<key>width</key>
 			<integer>2</integer>
 			<key>height</key>
 			<integer>1</integer>
-			<key>color</key>
-			<string>#bbddcc</string>
+			<key>imageName</key>
+			<string>site.jpg</string>
+			<key>type</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -27,10 +29,14 @@
 			<integer>1</integer>
 			<key>color</key>
 			<string>#eeccbb</string>
+			<key>imageName</key>
+			<string></string>
+			<key>type</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>id</key>
-			<integer>2</integer>
+			<integer>4</integer>
 			<key>name</key>
 			<string>花艺设计</string>
 			<key>width</key>
@@ -39,6 +45,10 @@
 			<integer>1</integer>
 			<key>color</key>
 			<string>#837221</string>
+			<key>imageName</key>
+			<string>floar.jpg</string>
+			<key>type</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -51,46 +61,14 @@
 			<integer>2</integer>
 			<key>color</key>
 			<string>#765432</string>
-		</dict>
-		<dict>
-			<key>id</key>
-			<integer>0</integer>
-			<key>name</key>
-			<string>舞美灯光</string>
-			<key>width</key>
-			<integer>1</integer>
-			<key>height</key>
-			<integer>1</integer>
-			<key>color</key>
-			<string>#897654</string>
-		</dict>
-		<dict>
-			<key>id</key>
-			<integer>3</integer>
-			<key>name</key>
+			<key>imageName</key>
 			<string></string>
-			<key>width</key>
+			<key>type</key>
 			<integer>2</integer>
-			<key>height</key>
-			<integer>1</integer>
-			<key>color</key>
-			<string>#678543</string>
 		</dict>
 		<dict>
 			<key>id</key>
-			<integer>0</integer>
-			<key>name</key>
-			<string>婚礼道具</string>
-			<key>width</key>
-			<integer>1</integer>
-			<key>height</key>
-			<integer>1</integer>
-			<key>color</key>
-			<string>#567321</string>
-		</dict>
-		<dict>
-			<key>id</key>
-			<integer>4</integer>
+			<integer>2</integer>
 			<key>name</key>
 			<string>婚礼人员</string>
 			<key>width</key>
@@ -98,7 +76,59 @@
 			<key>height</key>
 			<integer>1</integer>
 			<key>color</key>
+			<string>#897654</string>
+			<key>imageName</key>
+			<string>staff.jpg</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>3</integer>
+			<key>name</key>
+			<string>宴会酒店</string>
+			<key>width</key>
+			<real>1.5</real>
+			<key>height</key>
+			<integer>1</integer>
+			<key>color</key>
+			<string>#678543</string>
+			<key>imageName</key>
+			<string>hotel.jpg</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>0</integer>
+			<key>name</key>
+			<string>咨询单</string>
+			<key>width</key>
+			<real>1.5</real>
+			<key>height</key>
+			<integer>1</integer>
+			<key>color</key>
+			<string>#567321</string>
+			<key>imageName</key>
+			<string>form.jpg</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>6</integer>
+			<key>name</key>
+			<string>舞美灯光</string>
+			<key>width</key>
+			<integer>1</integer>
+			<key>height</key>
+			<integer>1</integer>
+			<key>color</key>
 			<string>#456321</string>
+			<key>imageName</key>
+			<string>light.jpg</string>
+			<key>type</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -111,18 +141,26 @@
 			<integer>1</integer>
 			<key>color</key>
 			<string>#324562</string>
+			<key>imageName</key>
+			<string></string>
+			<key>type</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>id</key>
 			<integer>5</integer>
 			<key>name</key>
-			<string></string>
+			<string>婚礼道具</string>
 			<key>width</key>
 			<integer>1</integer>
 			<key>height</key>
 			<integer>1</integer>
 			<key>color</key>
 			<string>#324562</string>
+			<key>imageName</key>
+			<string>props.jpg</string>
+			<key>type</key>
+			<integer>1</integer>
 		</dict>
 	</array>
 	<key>functionData</key>
@@ -132,68 +170,42 @@
 			<integer>0</integer>
 			<key>name</key>
 			<string>首页</string>
-			<key>color</key>
-			<string>#bb3311</string>
-			<key>key</key>
-			<string>personData</string>
 		</dict>
 		<dict>
 			<key>id</key>
 			<integer>1</integer>
 			<key>name</key>
-			<string>婚礼人员</string>
-			<key>color</key>
-			<string>#bbddcc</string>
-			<key>key</key>
-			<string>personData</string>
+			<string>定制套餐</string>
 		</dict>
 		<dict>
 			<key>id</key>
 			<integer>2</integer>
 			<key>name</key>
-			<string>花艺设计</string>
-			<key>color</key>
-			<string>#837221</string>
-			<key>key</key>
-			<string>flowerData</string>
+			<string>婚礼人员</string>
 		</dict>
 		<dict>
 			<key>id</key>
 			<integer>3</integer>
 			<key>name</key>
 			<string>场地搭建</string>
-			<key>color</key>
-			<string>#678543</string>
-			<key>key</key>
-			<string>placeData</string>
 		</dict>
 		<dict>
 			<key>id</key>
 			<integer>4</integer>
 			<key>name</key>
-			<string>舞美灯光</string>
-			<key>color</key>
-			<string>#456321</string>
-			<key>key</key>
-			<string>lamplightData</string>
+			<string>花艺设计</string>
 		</dict>
 		<dict>
 			<key>id</key>
 			<integer>5</integer>
 			<key>name</key>
 			<string>婚礼道具</string>
-			<key>color</key>
-			<string>#324562</string>
-			<key>key</key>
-			<string>propData</string>
 		</dict>
 		<dict>
 			<key>id</key>
 			<integer>6</integer>
 			<key>name</key>
-			<string>套餐定制</string>
-			<key>color</key>
-			<string>#837476</string>
+			<string>舞美灯光</string>
 		</dict>
 	</array>
 	<key>personData</key>

@@ -10,9 +10,12 @@
 @implementation NTImage
 
 + (UIImage *)imageWithFileName:(NSString *)name{
-    
-    UIImage *image=[UIImage imageWithContentsOfFile:[LOCAL_PATH_PUBLIC stringByAppendingPathComponent:name]];
-    return image;
+    if (name) {
+        UIImage *image=[UIImage imageWithContentsOfFile:[LOCAL_PATH_PUBLIC stringByAppendingPathComponent:name]];
+        return image;
+    }
+    else
+        return nil;
     
 }
 

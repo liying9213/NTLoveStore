@@ -22,9 +22,12 @@
 @interface NTHeadSelectView : UIView
 
 @property (nonatomic, assign)id delegate;
+@property (nonatomic, strong)UIScrollView *scrollView;
 @property (nonatomic, strong)NSArray *selectData;
 @property (nonatomic, strong)UIView *selcetBackGroundView;
 @property (nonatomic, assign)NSInteger selectTag;
 - (id)initWithFrame:(CGRect)frame;
 - (void)creatHeadSelectView;
+- (void)selectTheTag:(NSInteger)tag;
+
 @end

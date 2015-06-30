@@ -42,6 +42,7 @@
 
 @property(nonatomic,retain) NSURL* imageURL;
 @property(nonatomic,retain) UIImage* placeholderImage;
+@property(nonatomic,strong) NSString* contentPath;
 @property(nonatomic,assign) id<EGOImageButtonDelegate> delegate;
 @end
 

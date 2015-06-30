@@ -20,27 +20,27 @@
 
 #pragma mark - resetSelectView
 - (void)creatHeadSelectView{
-    UIScrollView *scrollView=[[UIScrollView alloc] initWithFrame:self.frame];
-    scrollView.backgroundColor=[NTColor colorWithHexString:NTBlueColor];
-    [self addSubview:scrollView];
+    _scrollView=[[UIScrollView alloc] initWithFrame:self.frame];
+    _scrollView.backgroundColor=[NTColor colorWithHexString:NTBlueColor];
+    [self addSubview:_scrollView];
     
     float currentXValue=100;
     float currentWidth=(CGRectGetWidth(self.frame)-200)/_selectData.count;
     
     _selcetBackGroundView=[[UIView alloc] initWithFrame:CGRectMake(currentXValue+5, CGRectGetHeight(self.frame)-3, currentWidth-10, 3)];
     _selcetBackGroundView.backgroundColor=[NTColor colorWithHexString:NTPinkColor];
-    [scrollView addSubview:_selcetBackGroundView];
+    [_scrollView addSubview:_selcetBackGroundView];
     
     int i=0;
     for (NSDictionary *dic in _selectData) {
         i++;
-        [self resetSelectBtnWithData:dic WithXValue:currentXValue WithWidthValue:currentWidth WithParentView:scrollView];
+        [self resetSelectBtnWithData:dic WithXValue:currentXValue WithWidthValue:currentWidth WithParentView:_scrollView];
         currentXValue+=currentWidth;
         if (i!=_selectData.count) {
             UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(currentXValue-2, (CGRectGetHeight(self.frame)-28)/2, 2, 28)];
             imageView.backgroundColor=[NTColor clearColor];
             imageView.image=[NTImage imageWithFileName:@"separate.jpg"];
-            [scrollView addSubview:imageView];
+            [_scrollView addSubview:imageView];
         }
     }
 }
@@ -62,6 +62,16 @@
 
 #pragma mark - selectAction
 
+- (void)selectTheTag:(NSInteger)tag{
+    for (id body in _scrollView.subviews) {
+        if ([[body class] isSubclassOfClass:[NTButton class]]) {
+            if ([(NTButton *)body tag]==tag) {
+                [self headSelectAction:body];
+            }
+        }
+    }
+}
+
 - (void)headSelectAction:(id)sender{
     NTButton *btn=(NTButton *)sender;
     CGRect rect=btn.frame;
@@ -69,7 +79,9 @@
     rect.origin.y=CGRectGetHeight(btn.frame)-3;
     rect.size.height=3;
     rect.size.width=CGRectGetWidth(btn.frame)-30;
-    [UIView animateWithDuration:0.25 animations:^{_selcetBackGroundView.frame=rect;}];
+    [UIView animateWithDuration:0.25 animations:^{
+        _selcetBackGroundView.frame=rect;
+    }];
     [_delegate headSelectAction:btn];
 }
 

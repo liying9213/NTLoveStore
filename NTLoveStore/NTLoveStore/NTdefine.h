@@ -18,6 +18,8 @@
 #define NTBlueColor @"#00BFFF"
 #define NTPinkColor @"#FF69B4"
 
+#define thePlaceholderImage [[UIImage imageNamed:@"logo.png"] stretchableImageWithLeftCapWidth:2 topCapHeight:2]
+
 static NSString * loginBaseURL=@"http://aihunhui.kfrig.net/home/app/login";
 
 static NSString * catalogBaseURL=@"http://aihunhui.kfrig.net/home/app/getallcat";

@@ -31,9 +31,9 @@
 - (void)resetScrollImageView{
     
     NSArray *imagesURL = @[
-                           @"http://b.hiphotos.baidu.com/image/pic/item/2934349b033b5bb5085486f834d3d539b600bc31.jpg",
-                           @"http://h.hiphotos.baidu.com/image/pic/item/37d3d539b6003af3fd397a66372ac65c1038b631.jpg",
-                           @"http://d.hiphotos.baidu.com/image/pic/item/3b87e950352ac65cdb86c075f9f2b21193138a31.jpg"
+                           @"http://b.hiphotos.baidu.com/image/pic/item/2934349b033b5bb5085486f834d3d539b600bc312.jpg",
+                           @"http://h.hiphotos.baidu.com/image/pic/item/37d3d539b6003af3fd397a66372ac65c1038b6312.jpg",
+                           @"http://d.hiphotos.baidu.com/image/pic/item/3b87e950352ac65cdb86c075f9f2b21193138a313.jpg"
                            ];
     
     NTScrollImageView *scrollImageView = [NTScrollImageView adScrollViewWithFrame:CGRectMake(0, 0, ScreenWidth, 132)    imageLinkURL:imagesURL placeHoderImageName:nil   pageControlShowStyle:UIPageControlShowStyleCenter];
@@ -58,16 +58,23 @@
 }
 
 - (void)resetFunctionButtonWithData:(NSDictionary *)data{
-    int widthValue=[[data objectForKey:@"width"] intValue];
+    float widthValue=[[data objectForKey:@"width"] floatValue];
     int heightValue=[[data objectForKey:@"height"] intValue];
+    int typeValue=[[data objectForKey:@"type"] intValue];
     float width=functionBtnHeight*widthValue+(widthValue-1)*10;
     float height=functionBtnHeight*heightValue+(heightValue-1)*10;
-    EGOImageButton *funButton=[[EGOImageButton alloc] initWithPlaceholderImage:nil];
+    EGOImageButton *funButton;
+    if (typeValue==2) {
+        funButton=[[EGOImageButton alloc] initWithPlaceholderImage:thePlaceholderImage];
+        funButton.tag=0;
+        funButton.contentPath=[data objectForKey:@"imageName"];
+    }
+    else{
+        funButton=[[EGOImageButton alloc] initWithPlaceholderImage:[NTImage imageWithFileName:[data objectForKey:@"imageName"]]];
+        funButton.tag=[[data objectForKey:@"id"] integerValue];
+    }
     funButton.backgroundColor=[UIColor clearColor];
-    funButton.tag=[[data objectForKey:@"id"] integerValue];
-    [funButton setTitle:[data objectForKey:@"name"] forState:UIControlStateNormal];
     funButton.frame=CGRectMake(functionBtnXValue, functionBtnYValue, width, height);
-    [funButton setBackgroundColor:[NTColor colorWithHexString:[data objectForKey:@"color"]]];
     [funButton addTarget:self action:@selector(homeSelectAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:funButton];
     if (heightValue>1) {
@@ -84,20 +91,20 @@
         functionBtnXValue=10;
         functionBtnYValue+=height+10;
     }
-    if (funButton.tag==0) {
-        funButton.enabled=NO;
-    }
+//    if (funButton.tag==0) {
+//        funButton.enabled=NO;
+//    }
 }
 
 #pragma mark - homeSelectAction
 
 - (void)homeSelectAction:(id)sender{
-    UIButton *btn=(UIButton *)sender;
-    if (btn.tag) {
-         [_delegate homeWebSelectAction:nil];
+    EGOImageButton *btn=(EGOImageButton *)sender;
+    if (btn.tag==0) {
+         [_delegate homeWebSelectAction:btn.contentPath];
     }
     else{
-      [_delegate homeSelectAction:btn];
+      [_delegate homeSelectAction:sender];
     }
 }
 @end

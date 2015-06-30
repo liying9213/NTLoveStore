@@ -8,6 +8,7 @@
 
 #import "NTScrollImageView.h"
 #import "UIImageView+WebCache.h"
+#import "NTdefine.h"
 //广告的宽度
 #define kAdViewWidth  _adScrollView.bounds.size.width
 //广告的高度
@@ -141,7 +142,7 @@
         [imagePaths addObject:imageURL];
     }
     NTScrollImageView * scrollImageView = [NTScrollImageView adScrollViewWithFrame:frame imageLinkURL:imagePaths   pageControlShowStyle:PageControlShowStyle];
-    scrollImageView.placeHoldImage = [UIImage imageNamed:imageName];
+    scrollImageView.placeHoldImage = thePlaceholderImage;
     return scrollImageView;
 }
 

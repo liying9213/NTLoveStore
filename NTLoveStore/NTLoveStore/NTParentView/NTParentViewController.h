@@ -10,6 +10,7 @@
 #import "NTNormalHead.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <EGOImageLoading/EGOImageView.h>
+#import <EGOImageLoading/EGOImageButton.h>
 
 @interface NTParentViewController : UIViewController
 

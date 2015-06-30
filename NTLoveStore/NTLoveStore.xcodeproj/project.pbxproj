@@ -21,11 +21,18 @@
 		B21037E61B2541C200ED732B /* NTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B21037E41B2541C200ED732B /* NTImage.m */; };
 		B21037EC1B2578F800ED732B /* NTParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21037EB1B2578F800ED732B /* NTParentViewController.m */; };
 		B213C0C51B259D210023D6B5 /* NTAsynService.m in Sources */ = {isa = PBXBuildFile; fileRef = B213C0C41B259D210023D6B5 /* NTAsynService.m */; };
+		B22F99EA1B418B500027EB40 /* floar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E31B418B500027EB40 /* floar.jpg */; };
+		B22F99EB1B418B500027EB40 /* form.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E41B418B500027EB40 /* form.jpg */; };
+		B22F99EC1B418B500027EB40 /* hotel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E51B418B500027EB40 /* hotel.jpg */; };
+		B22F99ED1B418B500027EB40 /* light.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E61B418B500027EB40 /* light.jpg */; };
+		B22F99EE1B418B500027EB40 /* props.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E71B418B500027EB40 /* props.jpg */; };
+		B22F99EF1B418B500027EB40 /* site.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E81B418B500027EB40 /* site.jpg */; };
+		B22F99F01B418B500027EB40 /* staff.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E91B418B500027EB40 /* staff.jpg */; };
 		B23B3A3B1B29C5CA00328AD9 /* NTHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B23B3A3A1B29C5CA00328AD9 /* NTHomeView.m */; };
 		B251A2511B37E34D00B537A1 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B251A2501B37E34D00B537A1 /* logo.png */; };
 		B251A2531B37E45C00B537A1 /* shopping.png in Resources */ = {isa = PBXBuildFile; fileRef = B251A2521B37E45C00B537A1 /* shopping.png */; };
 		B251A2551B37E59200B537A1 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = B251A2541B37E59200B537A1 /* user.png */; };
-		B251A2571B37EBED00B537A1 /* separate.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B251A2561B37EBED00B537A1 /* separate.JPG */; };
+		B251A2571B37EBED00B537A1 /* separate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B251A2561B37EBED00B537A1 /* separate.jpg */; };
 		B251A25A1B37F1FE00B537A1 /* NTUserPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B251A2591B37F1FE00B537A1 /* NTUserPopViewController.m */; };
 		B283E05E1B31BC8F0001D6F1 /* NTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B283E05D1B31BC8F0001D6F1 /* NTWebViewController.m */; };
 		B283E0621B31C9960001D6F1 /* NTShoppingCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B283E0611B31C9960001D6F1 /* NTShoppingCarViewController.m */; };
@@ -45,6 +52,8 @@
 		B2F1F6D71B2ACFF000B6BCA8 /* NTMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1F6D61B2ACFF000B6BCA8 /* NTMemberView.m */; };
 		B2F1F6DC1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1F6DB1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m */; };
 		B2F1F6E01B2AE79E00B6BCA8 /* NTFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1F6DF1B2AE79E00B6BCA8 /* NTFunctionView.m */; };
+		B2F2D1081B42BB4900231782 /* picple.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2F2D1071B42BB4900231782 /* picple.jpg */; };
+		B2F2D1111B42D0FE00231782 /* NTShowDetailVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F2D1101B42D0FE00231782 /* NTShowDetailVIew.m */; };
 		B2F3A1651B28919A00B1FCA1 /* NTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F3A1641B28919A00B1FCA1 /* NTButton.m */; };
 /* End PBXBuildFile section */
 
@@ -86,13 +95,20 @@
 		B21037EB1B2578F800ED732B /* NTParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTParentViewController.m; sourceTree = "<group>"; };
 		B213C0C31B259D210023D6B5 /* NTAsynService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTAsynService.h; sourceTree = "<group>"; };
 		B213C0C41B259D210023D6B5 /* NTAsynService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTAsynService.m; sourceTree = "<group>"; };
+		B22F99E31B418B500027EB40 /* floar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = floar.jpg; sourceTree = "<group>"; };
+		B22F99E41B418B500027EB40 /* form.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = form.jpg; sourceTree = "<group>"; };
+		B22F99E51B418B500027EB40 /* hotel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hotel.jpg; sourceTree = "<group>"; };
+		B22F99E61B418B500027EB40 /* light.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = light.jpg; sourceTree = "<group>"; };
+		B22F99E71B418B500027EB40 /* props.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = props.jpg; sourceTree = "<group>"; };
+		B22F99E81B418B500027EB40 /* site.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = site.jpg; sourceTree = "<group>"; };
+		B22F99E91B418B500027EB40 /* staff.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = staff.jpg; sourceTree = "<group>"; };
 		B23B3A391B29C5CA00328AD9 /* NTHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTHomeView.h; sourceTree = "<group>"; };
 		B23B3A3A1B29C5CA00328AD9 /* NTHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTHomeView.m; sourceTree = "<group>"; };
 		B23F7F541B4022CF000B7C6F /* NTShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTShare.h; sourceTree = "<group>"; };
 		B251A2501B37E34D00B537A1 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		B251A2521B37E45C00B537A1 /* shopping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopping.png; sourceTree = "<group>"; };
 		B251A2541B37E59200B537A1 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
-		B251A2561B37EBED00B537A1 /* separate.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = separate.JPG; sourceTree = "<group>"; };
+		B251A2561B37EBED00B537A1 /* separate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = separate.jpg; sourceTree = "<group>"; };
 		B251A2581B37F1FE00B537A1 /* NTUserPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTUserPopViewController.h; sourceTree = "<group>"; };
 		B251A2591B37F1FE00B537A1 /* NTUserPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTUserPopViewController.m; sourceTree = "<group>"; };
 		B283E05C1B31BC8F0001D6F1 /* NTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTWebViewController.h; sourceTree = "<group>"; };
@@ -125,6 +141,9 @@
 		B2F1F6DB1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTFunctionTableViewCell.m; sourceTree = "<group>"; };
 		B2F1F6DE1B2AE79E00B6BCA8 /* NTFunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTFunctionView.h; sourceTree = "<group>"; };
 		B2F1F6DF1B2AE79E00B6BCA8 /* NTFunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTFunctionView.m; sourceTree = "<group>"; };
+		B2F2D1071B42BB4900231782 /* picple.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = picple.jpg; sourceTree = "<group>"; };
+		B2F2D10F1B42D0FE00231782 /* NTShowDetailVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTShowDetailVIew.h; sourceTree = "<group>"; };
+		B2F2D1101B42D0FE00231782 /* NTShowDetailVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTShowDetailVIew.m; sourceTree = "<group>"; };
 		B2F3A1631B28919A00B1FCA1 /* NTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTButton.h; sourceTree = "<group>"; };
 		B2F3A1641B28919A00B1FCA1 /* NTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTButton.m; sourceTree = "<group>"; };
 		C07F5D2EA0F4239420C95EAA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -264,6 +283,8 @@
 				B2A4CED01B317BF00058DE58 /* NTScrollImageView.m */,
 				B251A2581B37F1FE00B537A1 /* NTUserPopViewController.h */,
 				B251A2591B37F1FE00B537A1 /* NTUserPopViewController.m */,
+				B2F2D10F1B42D0FE00231782 /* NTShowDetailVIew.h */,
+				B2F2D1101B42D0FE00231782 /* NTShowDetailVIew.m */,
 			);
 			path = NTCustomClass;
 			sourceTree = "<group>";
@@ -289,8 +310,16 @@
 		B251A24F1B37E2CB00B537A1 /* NTSource */ = {
 			isa = PBXGroup;
 			children = (
+				B2F2D1071B42BB4900231782 /* picple.jpg */,
+				B22F99E31B418B500027EB40 /* floar.jpg */,
+				B22F99E41B418B500027EB40 /* form.jpg */,
+				B22F99E51B418B500027EB40 /* hotel.jpg */,
+				B22F99E61B418B500027EB40 /* light.jpg */,
+				B22F99E71B418B500027EB40 /* props.jpg */,
+				B22F99E81B418B500027EB40 /* site.jpg */,
+				B22F99E91B418B500027EB40 /* staff.jpg */,
 				B2E5C8AE1B37FBC40011A95F /* moreicon.png */,
-				B251A2561B37EBED00B537A1 /* separate.JPG */,
+				B251A2561B37EBED00B537A1 /* separate.jpg */,
 				B251A2521B37E45C00B537A1 /* shopping.png */,
 				B251A2501B37E34D00B537A1 /* logo.png */,
 				B251A2541B37E59200B537A1 /* user.png */,
@@ -451,14 +480,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B251A2571B37EBED00B537A1 /* separate.JPG in Resources */,
+				B251A2571B37EBED00B537A1 /* separate.jpg in Resources */,
+				B22F99EF1B418B500027EB40 /* site.jpg in Resources */,
 				B206316A1B1BF4C000C02FA6 /* Main.storyboard in Resources */,
 				B251A2511B37E34D00B537A1 /* logo.png in Resources */,
+				B2F2D1081B42BB4900231782 /* picple.jpg in Resources */,
 				B2E5C8AF1B37FBC40011A95F /* moreicon.png in Resources */,
+				B22F99EC1B418B500027EB40 /* hotel.jpg in Resources */,
 				B2C71E651B26818500682AEB /* NTConfigurationFile.plist in Resources */,
 				B206316F1B1BF4C000C02FA6 /* LaunchScreen.xib in Resources */,
+				B22F99EB1B418B500027EB40 /* form.jpg in Resources */,
 				B251A2551B37E59200B537A1 /* user.png in Resources */,
+				B22F99ED1B418B500027EB40 /* light.jpg in Resources */,
+				B22F99EE1B418B500027EB40 /* props.jpg in Resources */,
+				B22F99F01B418B500027EB40 /* staff.jpg in Resources */,
 				B206316C1B1BF4C000C02FA6 /* Images.xcassets in Resources */,
+				B22F99EA1B418B500027EB40 /* floar.jpg in Resources */,
 				B251A2531B37E45C00B537A1 /* shopping.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,6 +553,7 @@
 				B23B3A3B1B29C5CA00328AD9 /* NTHomeView.m in Sources */,
 				B2A4CED11B317BF00058DE58 /* NTScrollImageView.m in Sources */,
 				B21037DC1B253DE300ED732B /* NTLoginViewController.m in Sources */,
+				B2F2D1111B42D0FE00231782 /* NTShowDetailVIew.m in Sources */,
 				B251A25A1B37F1FE00B537A1 /* NTUserPopViewController.m in Sources */,
 				B2F1F6E01B2AE79E00B6BCA8 /* NTFunctionView.m in Sources */,
 				B2EF0B881B394126008B40ED /* NTUserInfoViewController.m in Sources */,
