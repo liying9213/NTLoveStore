@@ -7,7 +7,7 @@
 //
 
 #import "NTContentViewController.h"
-
+#import "NTAsynService.h"
 @interface NTContentViewController ()
 
 @end
@@ -26,8 +26,20 @@
 #pragma mark - getContentData
 
 - (void)getTheContentData{
-    [self resetView];
-    [self resetContentView];
+    NSDictionary *dic=@{@"uid":[share()userUid],
+                        @"token":[share()userToken],
+                        @"id":[NSNumber numberWithInt:_productID]};
+    [NTAsynService requestWithHead:detileBaseURL WithBody:dic completionHandler:^(BOOL success, NSDictionary *finishDic, NSError *connectionError) {
+        if (success) {
+            [self resetView];
+            [self resetContentView];
+        }
+        else{
+            [self showEndViewWithText:connectionError.localizedDescription];
+        }
+    }];
+    dic=nil;
+    
 }
 
 #pragma mark - resetView

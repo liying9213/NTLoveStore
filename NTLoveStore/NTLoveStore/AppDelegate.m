@@ -20,7 +20,14 @@ id<NTShare> share(void)
 @end
 
 @implementation AppDelegate
-
+-(id)init
+{
+    self = [super init];
+    if (self) {
+        _share = self;
+    }
+    return  self;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -60,5 +67,11 @@ id<NTShare> share(void)
     NSString * token=[NTUserDefaults getTheDataForKey:@"token"];
     return token;
 }
+
+- (NSString *)userUid{
+    NSString * token=[NTUserDefaults getTheDataForKey:@"uid"];
+    return token;
+}
+
 
 @end

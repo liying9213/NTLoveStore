@@ -35,5 +35,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleDisplayName</key>
+	<string>LOVE婚汇</string>
 </dict>
 </plist>

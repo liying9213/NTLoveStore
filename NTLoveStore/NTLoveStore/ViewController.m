@@ -27,11 +27,10 @@
     [super viewDidLoad];
     [self resetView];
 //    if (![share()userIsLogin])
-//    {
-//        NTLoginViewController *viewController=[[NTLoginViewController alloc] init];
-//        [self presentViewController:viewController animated:YES completion:nil];
-//    }
-    
+    {
+        NTLoginViewController *viewController=[[NTLoginViewController alloc] init];
+        [self presentViewController:viewController animated:YES completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,6 +115,9 @@
 }
 
 - (void)resetHomeView{
+//    [self getHomeViewData];
+    
+    
     _functionView.hidden=YES;
     if (!_homeView){
         _homeView=[[NTHomeView alloc] initWithFrame:CGRectMake(0, 55, ScreenWidth, CGRectGetHeight(self.view.frame)-55)];
@@ -190,24 +192,29 @@
 
 - (void)getHomeViewData{
     
-    NSDictionary *dic=@{@"user":@"",
-                        @"pass":@""};
-    [NTAsynService requestWithHead:loginBaseURL WithBody:dic completionHandler:^(BOOL success, NSDictionary *finishDic, NSError *connectionError) {
+    [NTAsynService requestWithHead:loginBaseURL WithBody:nil completionHandler:^(BOOL success, NSDictionary *finishDic, NSError *connectionError) {
         if (success) {
         }
         else{
-            [self showEndViewWithText:connectionError.localizedDescription];
         }
     }];
-    dic=nil;
 }
 
 - (void)getFunctionLeftData{
     
+    NSDictionary *dic=@{@"uid":[share()userUid],
+                        @"token":[share()userToken]};
+    
+    [NTAsynService requestWithHead:catalogBaseURL WithBody:dic completionHandler:^(BOOL success, NSDictionary *finishDic, NSError *connectionError) {
+        if (success) {
+        }
+        else{
+        }
+    }];
+
 }
 
 - (void)getFunctionData{
-    
     NSDictionary *dic=@{@"user":@"",
                         @"pass":@""};
     [NTAsynService requestWithHead:loginBaseURL WithBody:dic completionHandler:^(BOOL success, NSDictionary *finishDic, NSError *connectionError) {
@@ -250,11 +257,28 @@
 #pragma mark - functionViewDelgate
 
 - (void)leftViewActionWithID:(int)keyID{
-    [_functionView reloadFunctionViewWithData:[NTReadConfiguration getConfigurationWithKey:@"contentData"]];
+    NSDictionary *dic=@{@"uid":[share()userUid],
+                        @"token":[share()userToken],
+                        @"category":@"",
+                        @"order":@"1",
+                        @"sort":@"asc"};
+    [NTAsynService requestWithHead:listBaseURL WithBody:dic completionHandler:^(BOOL success, NSDictionary *finishDic, NSError *connectionError) {
+        if (success) {
+        }
+        else{
+            [self showEndViewWithText:connectionError.localizedDescription];
+        }
+    }];
+    dic=nil;
+    
+    
+    
+//    [_functionView reloadFunctionViewWithData:[NTReadConfiguration getConfigurationWithKey:@"contentData"]];
 }
 
 - (void)memberSelectAction:(id)sender{
     NTContentViewController *viewController=[[NTContentViewController alloc] init];
+    viewController.productID=0;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

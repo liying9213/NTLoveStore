@@ -26,15 +26,14 @@
 #pragma mark - resetView
 
 - (void)resetView{
-    UILabel *titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 100, ScreenWidth, 100)];
-    titleLabel.backgroundColor=[NTColor clearColor];
-    titleLabel.textAlignment=NSTextAlignmentCenter;
-    titleLabel.font=[UIFont systemFontOfSize:24];
-    titleLabel.text=@"爱婚汇";
-    [self.view addSubview:titleLabel];
     
-    _userName=[[UITextField alloc] initWithFrame:CGRectMake(100, titleLabel.frame.size.height+titleLabel.frame.origin.y+30, 200, 50)];
-    _userName.center=CGPointMake(ScreenWidth/2, titleLabel.frame.size.height+titleLabel.frame.origin.y+20+50/2);
+    UIImageView *imageview=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth,ScreenHeight )];
+    imageview.image=[NTImage imageWithFileName:@"login.png"];
+    [self.view addSubview:imageview];
+    
+    
+    _userName=[[UITextField alloc] initWithFrame:CGRectMake(100, 350+30, 200, 50)];
+    _userName.center=CGPointMake(ScreenWidth/2, 350+50/2);
     _userName.backgroundColor=[NTColor clearColor];
     _userName.placeholder=@"账号";
     _userName.layer.masksToBounds=YES;
