@@ -40,6 +40,19 @@
     }];
     dic=nil;
     
+    /*
+     {
+     "id": "95",
+     "title": "订制套餐",
+     "content": "订制套餐",
+     "price": "100.00",
+     "cover_id": "120",
+     "pics": "126,127",
+     "sale": "0",
+     "comment": "0"
+     }
+     */
+    
 }
 
 #pragma mark - resetView

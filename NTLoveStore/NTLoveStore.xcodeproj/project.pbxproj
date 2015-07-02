@@ -43,6 +43,7 @@
 		B2A4CED31B317DAA0058DE58 /* libPods-SDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A4CED21B317DAA0058DE58 /* libPods-SDWebImage.a */; };
 		B2C71E651B26818500682AEB /* NTConfigurationFile.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2C71E641B26818500682AEB /* NTConfigurationFile.plist */; };
 		B2C71E681B26871600682AEB /* NTReadConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C71E671B26871600682AEB /* NTReadConfiguration.m */; };
+		B2CB93021B4516BC003385D7 /* NTFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CB93011B4516BC003385D7 /* NTFunction.m */; };
 		B2D999051B2C10C20068DE87 /* NTLeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D999041B2C10C20068DE87 /* NTLeftTableViewCell.m */; };
 		B2D999091B2C35E70068DE87 /* NTContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D999081B2C35E70068DE87 /* NTContentViewController.m */; };
 		B2E5C8AF1B37FBC40011A95F /* moreicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E5C8AE1B37FBC40011A95F /* moreicon.png */; };
@@ -127,6 +128,8 @@
 		B2C71E641B26818500682AEB /* NTConfigurationFile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NTConfigurationFile.plist; sourceTree = "<group>"; };
 		B2C71E661B26871600682AEB /* NTReadConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTReadConfiguration.h; sourceTree = "<group>"; };
 		B2C71E671B26871600682AEB /* NTReadConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTReadConfiguration.m; sourceTree = "<group>"; };
+		B2CB93001B4516BC003385D7 /* NTFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTFunction.h; sourceTree = "<group>"; };
+		B2CB93011B4516BC003385D7 /* NTFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTFunction.m; sourceTree = "<group>"; };
 		B2D999031B2C10C20068DE87 /* NTLeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTLeftTableViewCell.h; sourceTree = "<group>"; };
 		B2D999041B2C10C20068DE87 /* NTLeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTLeftTableViewCell.m; sourceTree = "<group>"; };
 		B2D999071B2C35E70068DE87 /* NTContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTContentViewController.h; sourceTree = "<group>"; };
@@ -355,6 +358,8 @@
 				B28842181B1DE76E00C972CF /* NTUserDefaults.m */,
 				B2C71E661B26871600682AEB /* NTReadConfiguration.h */,
 				B2C71E671B26871600682AEB /* NTReadConfiguration.m */,
+				B2CB93001B4516BC003385D7 /* NTFunction.h */,
+				B2CB93011B4516BC003385D7 /* NTFunction.m */,
 			);
 			path = NTUserDefaults;
 			sourceTree = "<group>";
@@ -562,6 +567,7 @@
 				B2F1F6E01B2AE79E00B6BCA8 /* NTFunctionView.m in Sources */,
 				B2EF0B881B394126008B40ED /* NTUserInfoViewController.m in Sources */,
 				B283E05E1B31BC8F0001D6F1 /* NTWebViewController.m in Sources */,
+				B2CB93021B4516BC003385D7 /* NTFunction.m in Sources */,
 				B2D999091B2C35E70068DE87 /* NTContentViewController.m in Sources */,
 				B20631671B1BF4C000C02FA6 /* ViewController.m in Sources */,
 				B283E0621B31C9960001D6F1 /* NTShoppingCarViewController.m in Sources */,

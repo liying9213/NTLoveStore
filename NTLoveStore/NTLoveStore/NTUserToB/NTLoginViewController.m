@@ -82,12 +82,12 @@
     [self showWaitingViewWithText:nil];
     NSDictionary *dic=@{@"user":_userName.text,
                         @"pass":_userPassWord.text};
-    [NTAsynService requestWithHead:loginBaseURL WithBody:dic completionHandler:^(BOOL success, NSDictionary *finishDic, NSError *connectionError) {
+    [NTAsynService requestWithHead:catalogBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
-            if ([[finishDic objectForKey:@"status"] intValue]==1) {
-                [NTUserDefaults writeTheData:[finishDic objectForKey:@"status"] ForKey:@"status"];
-                [NTUserDefaults writeTheData:[finishDic objectForKey:@"uid"] ForKey:@"uid"];
-                [NTUserDefaults writeTheData:[finishDic objectForKey:@"token"] ForKey:@"token"];
+            if ([[finishData objectForKey:@"status"] intValue]==1) {
+                [NTUserDefaults writeTheData:[finishData objectForKey:@"status"] ForKey:@"status"];
+                [NTUserDefaults writeTheData:[finishData objectForKey:@"uid"] ForKey:@"uid"];
+                [NTUserDefaults writeTheData:[finishData objectForKey:@"token"] ForKey:@"token"];
                 [self performSelector:@selector(closeAction) withObject:nil afterDelay:1];
             }
             else{

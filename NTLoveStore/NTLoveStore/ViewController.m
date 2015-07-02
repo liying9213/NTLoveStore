@@ -116,8 +116,7 @@
 
 - (void)resetHomeView{
 //    [self getHomeViewData];
-    
-    
+
     _functionView.hidden=YES;
     if (!_homeView){
         _homeView=[[NTHomeView alloc] initWithFrame:CGRectMake(0, 55, ScreenWidth, CGRectGetHeight(self.view.frame)-55)];
@@ -141,6 +140,10 @@
     else{
         _functionView.hidden=NO;
     }
+}
+
+-(void)reloadFunctionView:(NSArray *)functionAry{
+    [_functionView reloadFunctionViewWithData:functionAry];
 }
 
 #pragma mark - searchBarDelegate
@@ -191,41 +194,261 @@
 #pragma mark - getTheData
 
 - (void)getHomeViewData{
-    
-    [NTAsynService requestWithHead:loginBaseURL WithBody:nil completionHandler:^(BOOL success, NSDictionary *finishDic, NSError *connectionError) {
-        if (success) {
+    [NTAsynService requestWithHead:loginBaseURL WithBody:nil completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+        if (success){
         }
         else{
         }
     }];
-}
-
-- (void)getFunctionLeftData{
-    
-    NSDictionary *dic=@{@"uid":[share()userUid],
-                        @"token":[share()userToken]};
-    
-    [NTAsynService requestWithHead:catalogBaseURL WithBody:dic completionHandler:^(BOOL success, NSDictionary *finishDic, NSError *connectionError) {
-        if (success) {
-        }
-        else{
-        }
-    }];
-
 }
 
 - (void)getFunctionData{
-    NSDictionary *dic=@{@"user":@"",
-                        @"pass":@""};
-    [NTAsynService requestWithHead:loginBaseURL WithBody:dic completionHandler:^(BOOL success, NSDictionary *finishDic, NSError *connectionError) {
+    NSDictionary *dic=@{@"uid":[share()userUid],
+                        @"token":[share()userToken]};
+    [NTAsynService requestWithHead:catalogBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
+            [NTUserDefaults writeTheFunctionData:(NSArray *)finishData];
         }
         else{
-            [self showEndViewWithText:connectionError.localizedDescription];
         }
     }];
     dic=nil;
     
+    /*
+     [
+     {
+     "id": "52",
+     "name": "hlry",
+     "pid": "0",
+     "title": "婚礼人员",
+     "icon": "85",
+     "child": [
+     {
+     "id": "146",
+     "name": "zcr",
+     "pid": "52",
+     "title": "主持人",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "57",
+     "name": "hzs",
+     "pid": "52",
+     "title": "化妆师",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "58",
+     "name": "sys",
+     "pid": "52",
+     "title": "摄影师",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "145",
+     "name": "sxs",
+     "pid": "52",
+     "title": "摄像师",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "147",
+     "name": "byry",
+     "pid": "52",
+     "title": "表演人员",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "148",
+     "name": "djs",
+     "pid": "52",
+     "title": "DJ师",
+     "icon": "0",
+     "child": []
+     }
+     ]
+     },
+     {
+     "id": "107",
+     "name": "hysj",
+     "pid": "0",
+     "title": "花艺设计",
+     "icon": "87",
+     "child": [
+     {
+     "id": "104",
+     "name": "cht",
+     "pid": "107",
+     "title": "车头花",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "105",
+     "name": "hm",
+     "pid": "107",
+     "title": "花门",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "149",
+     "name": "lyh",
+     "pid": "107",
+     "title": "路引花",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "150",
+     "name": "qdt",
+     "pid": "107",
+     "title": "签到台",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "151",
+     "name": "zh",
+     "pid": "107",
+     "title": "桌花",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "152",
+     "name": "xh",
+     "pid": "107",
+     "title": "胸花",
+     "icon": "0",
+     "child": []
+     }
+     ]
+     },
+     {
+     "id": "75",
+     "name": "cddj",
+     "pid": "0",
+     "title": "场地搭建",
+     "icon": "88",
+     "child": [
+     {
+     "id": "115",
+     "name": "wt",
+     "pid": "75",
+     "title": "舞台/T台",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "118",
+     "name": "dt",
+     "pid": "75",
+     "title": "地毯",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "117",
+     "name": "bj",
+     "pid": "75",
+     "title": "背景",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "119",
+     "name": "yjt",
+     "pid": "75",
+     "title": "演讲台",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "154",
+     "name": "cqdt",
+     "pid": "75",
+     "title": "签到台",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "155",
+     "name": "truss",
+     "pid": "75",
+     "title": "truss架",
+     "icon": "0",
+     "child": []
+     }
+     ]
+     },
+     {
+     "id": "71",
+     "name": "wmdg",
+     "pid": "0",
+     "title": "舞美灯光",
+     "icon": "86",
+     "child": [
+     {
+     "id": "86",
+     "name": "wtxg",
+     "pid": "71",
+     "title": "舞台效果",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "81",
+     "name": "dgxg",
+     "pid": "71",
+     "title": "灯光效果",
+     "icon": "0",
+     "child": []
+     }
+     ]
+     },
+     {
+     "id": "111",
+     "name": "hldj",
+     "pid": "0",
+     "title": "婚礼道具",
+     "icon": "56",
+     "child": [
+     {
+     "id": "112",
+     "name": "ysq",
+     "pid": "111",
+     "title": "仪式区",
+     "icon": "0",
+     "child": []
+     },
+     {
+     "id": "156",
+     "name": "yhq",
+     "pid": "111",
+     "title": "宴会区",
+     "icon": "0",
+     "child": []
+     }
+     ]
+     },
+     {
+     "id": "153",
+     "name": "dztc",
+     "pid": "0",
+     "title": "订制套餐",
+     "icon": "0",
+     "child": []
+     }
+     ]
+     
+     */
+
 }
 
 #pragma mark - headSelectViewDelegate
@@ -237,7 +460,7 @@
     }
     else{
         [self resetFunctionView];
-        [_functionView reloadLeftViewWithData:[NTReadConfiguration getConfigurationWithKey:btn.keyWord]];
+        [_functionView reloadLeftViewWithData:[NTUserDefaults getTheDataForKey:btn.keyWord]];
     }
 }
 
@@ -257,21 +480,35 @@
 #pragma mark - functionViewDelgate
 
 - (void)leftViewActionWithID:(int)keyID{
+    __weak typeof(self) __weakself=self;
     NSDictionary *dic=@{@"uid":[share()userUid],
                         @"token":[share()userToken],
                         @"category":@"",
                         @"order":@"1",
                         @"sort":@"asc"};
-    [NTAsynService requestWithHead:listBaseURL WithBody:dic completionHandler:^(BOOL success, NSDictionary *finishDic, NSError *connectionError) {
+    [NTAsynService requestWithHead:listBaseURL WithBody:dic completionHandler:^(BOOL success,  id finishData, NSError *connectionError) {
         if (success) {
+            __strong typeof(self) self=__weakself;
+            [self reloadFunctionView:finishData];
         }
         else{
+            __strong typeof(self) self=__weakself;
             [self showEndViewWithText:connectionError.localizedDescription];
         }
     }];
     dic=nil;
-    
-    
+    /*
+     {
+     "95": {
+	    "id": "95",
+	    "title": "订制套餐",
+	    "price": "100.00",
+	    "cover_id": "http://aihunhui.kfrig.net/Uploads/Picture/2015-06-17/558177c96e860.jpg",
+	    "sale": "0",
+	    "comment": "0"
+     }
+     }
+     */
     
 //    [_functionView reloadFunctionViewWithData:[NTReadConfiguration getConfigurationWithKey:@"contentData"]];
 }
