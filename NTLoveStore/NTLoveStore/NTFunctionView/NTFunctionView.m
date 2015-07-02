@@ -15,6 +15,8 @@
 #pragma mark - resetView
 
 - (void)resetView{
+    _orderID=1;
+    _selectID=0;
     [self resetLeftSelectView];
     [self resetSelectTypeView];
     [self resetTableView];
@@ -36,7 +38,7 @@
     [firstBtn setTitle:@"综合排序："forState:UIControlStateNormal];
     firstBtn.frame=CGRectMake(0, 0, 100, 30);
     [firstBtn addTarget:self action:@selector(selectType:) forControlEvents:UIControlEventTouchUpInside];
-    firstBtn.tag=1;
+    firstBtn.tag=0;
     firstBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [firstBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
     firstBtn.layer.masksToBounds=YES;
@@ -49,7 +51,7 @@
     [secBtn setTitle:@"价格"forState:UIControlStateNormal];
     secBtn.frame=CGRectMake(CGRectGetWidth(firstBtn.frame), 0, 100, 30);
     [secBtn addTarget:self action:@selector(selectType:) forControlEvents:UIControlEventTouchUpInside];
-    secBtn.tag=2;
+    secBtn.tag=3;
     secBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [secBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
     secBtn.layer.masksToBounds=YES;
@@ -62,7 +64,7 @@
     [thirdBtn setTitle:@"好评数"forState:UIControlStateNormal];
     thirdBtn.frame=CGRectMake(CGRectGetWidth(secBtn.frame)+CGRectGetMinX(secBtn.frame), 0, 100, 30);
     [thirdBtn addTarget:self action:@selector(selectType:) forControlEvents:UIControlEventTouchUpInside];
-    thirdBtn.tag=3;
+    thirdBtn.tag=1;
     thirdBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [thirdBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
     thirdBtn.layer.masksToBounds=YES;
@@ -101,7 +103,7 @@
     [_leftView reloadData];
     if (_leftAry.count>0) {
         [_leftView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionBottom];
-        [self leftViewActionWithID:[[[_leftAry objectAtIndex:0] objectForKey:@"id"] intValue]];
+        [self leftViewActionWithCategory:[[_leftAry objectAtIndex:0] objectForKey:@"name"] WithOrder:_orderID];
     }
 }
 
@@ -152,14 +154,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (tableView==_leftView) {
-        [self leftViewActionWithID:[[[_leftAry objectAtIndex:indexPath.row] objectForKey:@"id"] intValue]];
+        _selectID=indexPath.row;
+        [self leftViewActionWithCategory:[[_leftAry objectAtIndex:indexPath.row] objectForKey:@"name"] WithOrder:_orderID];
     }
 }
 
 #pragma mark - leftViewSelectAction
 
-- (void)leftViewActionWithID:(int)keyID{
-    [_delegate leftViewActionWithID:keyID];
+- (void)leftViewActionWithCategory:(NSString *)category WithOrder:(NSInteger)orderID{
+    [_delegate leftViewActionWithCategory:category WithOrder:orderID];
 }
 
 #pragma mark - memberSelectAction
@@ -171,7 +174,9 @@
 #pragma mark - selectTypeAction
 
 - (void)selectType:(id)sender{
-    
+    UIButton *btn=(UIButton *)sender;
+    _orderID=btn.tag;
+    [self leftViewActionWithCategory:[[_leftAry objectAtIndex:_selectID] objectForKey:@"name"] WithOrder:_orderID];
 }
 
 @end

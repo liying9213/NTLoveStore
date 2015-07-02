@@ -46,7 +46,7 @@
 }
 
 - (void)reloadTheTableCellWithData:(NSDictionary *)cellDic{
-    _titleLabel.text=[cellDic objectForKey:@"name"];
+    _titleLabel.text=[cellDic objectForKey:@"title"];
 }
 
 @end

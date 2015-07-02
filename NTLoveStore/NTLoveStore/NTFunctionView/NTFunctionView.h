@@ -14,7 +14,7 @@
 
 @required
 
-- (void)leftViewActionWithID:(int)keyID;
+- (void)leftViewActionWithCategory:(NSString *)category WithOrder:(NSInteger)orderID;
 
 @required
 
@@ -34,6 +34,9 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
+@property (nonatomic) NSInteger orderID;
+
+@property (nonatomic) NSInteger selectID;
 
 - (void)resetView;
 

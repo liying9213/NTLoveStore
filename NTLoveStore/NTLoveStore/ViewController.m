@@ -26,11 +26,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self resetView];
-//    if (![share()userIsLogin])
+    [self showWaitingViewWithText:@"正在加载..."];
+    if (![share()userIsLogin])
     {
         NTLoginViewController *viewController=[[NTLoginViewController alloc] init];
         [self presentViewController:viewController animated:YES completion:nil];
     }
+    [self getFunctionData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -143,7 +145,9 @@
 }
 
 -(void)reloadFunctionView:(NSArray *)functionAry{
+    _functionView.tableView.hidden=NO;
     [_functionView reloadFunctionViewWithData:functionAry];
+    [self hideWaitingView];
 }
 
 #pragma mark - searchBarDelegate
@@ -194,7 +198,7 @@
 #pragma mark - getTheData
 
 - (void)getHomeViewData{
-    [NTAsynService requestWithHead:loginBaseURL WithBody:nil completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+    [NTAsynService requestWithHead:adBaseURL WithBody:nil completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success){
         }
         else{
@@ -207,6 +211,7 @@
                         @"token":[share()userToken]};
     [NTAsynService requestWithHead:catalogBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
+            [self hideWaitingView];
             [NTUserDefaults writeTheFunctionData:(NSArray *)finishData];
         }
         else{
@@ -460,7 +465,7 @@
     }
     else{
         [self resetFunctionView];
-        [_functionView reloadLeftViewWithData:[NTUserDefaults getTheDataForKey:btn.keyWord]];
+        [_functionView reloadLeftViewWithData:[NTUserDefaults getTheDataForKey:[NSString stringWithFormat:@"%ld",(long)btn.tag]]];
     }
 }
 
@@ -479,17 +484,19 @@
 
 #pragma mark - functionViewDelgate
 
-- (void)leftViewActionWithID:(int)keyID{
+- (void)leftViewActionWithCategory:(NSString *)category WithOrder:(NSInteger)orderID{
+    [self showWaitingViewWithText:@"正在加载..."];
+    _functionView.tableView.hidden=YES;
     __weak typeof(self) __weakself=self;
     NSDictionary *dic=@{@"uid":[share()userUid],
                         @"token":[share()userToken],
-                        @"category":@"",
-                        @"order":@"1",
+                        @"category":category,
+                        @"order":[NSNumber numberWithInteger:orderID],
                         @"sort":@"asc"};
     [NTAsynService requestWithHead:listBaseURL WithBody:dic completionHandler:^(BOOL success,  id finishData, NSError *connectionError) {
         if (success) {
             __strong typeof(self) self=__weakself;
-            [self reloadFunctionView:finishData];
+            [self reloadFunctionView:[finishData allValues]];
         }
         else{
             __strong typeof(self) self=__weakself;
@@ -514,8 +521,10 @@
 }
 
 - (void)memberSelectAction:(id)sender{
+    UIButton *btn=(UIButton *)sender;
+    
     NTContentViewController *viewController=[[NTContentViewController alloc] init];
-    viewController.productID=0;
+    viewController.productID=btn.tag;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

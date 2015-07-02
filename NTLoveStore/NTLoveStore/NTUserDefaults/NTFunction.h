@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NTFunction : NSObject
+@interface NTFunction : NSObject <NSCoding>
 
 @property (nonatomic, strong)NSString *title;
 @property (nonatomic, strong)NSString *name;

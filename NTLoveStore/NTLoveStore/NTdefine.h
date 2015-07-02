@@ -28,5 +28,7 @@ static NSString * listBaseURL=@"http://aihunhui.kfrig.net/home/app/getcatgod";
 
 static NSString * detileBaseURL=@"http://aihunhui.kfrig.net/Home/App/detile";
 
+static NSString * adBaseURL=@"http://aihunhui.kfrig.net/home/app/indeximg";
+
 
 #endif

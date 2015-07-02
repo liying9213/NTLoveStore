@@ -22,6 +22,8 @@
 
 @property (nonatomic, strong)UIView *commentInfoView;
 
-@property (nonatomic, assign)int productID;
+@property (nonatomic, assign)NSInteger productID;
+
+@property (nonatomic, strong)NSDictionary *detailDic;
 
 @end

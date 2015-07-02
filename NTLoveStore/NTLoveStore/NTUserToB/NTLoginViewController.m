@@ -82,7 +82,7 @@
     [self showWaitingViewWithText:nil];
     NSDictionary *dic=@{@"user":_userName.text,
                         @"pass":_userPassWord.text};
-    [NTAsynService requestWithHead:catalogBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+    [NTAsynService requestWithHead:loginBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
             if ([[finishData objectForKey:@"status"] intValue]==1) {
                 [NTUserDefaults writeTheData:[finishData objectForKey:@"status"] ForKey:@"status"];

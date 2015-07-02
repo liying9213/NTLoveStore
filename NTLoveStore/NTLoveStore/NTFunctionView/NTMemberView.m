@@ -21,7 +21,7 @@
 #pragma mark - resetView
 
 - (void)resetView{
-    _imageView=[[EGOImageView alloc] initWithPlaceholderImage:nil];
+    _imageView=[[EGOImageView alloc] initWithPlaceholderImage:[NTImage imageWithFileName:@"picple.jpg"]];
     _imageView.frame=CGRectMake(0, 0, CGRectGetWidth(self.frame),  CGRectGetHeight(self.frame)-40);
     [self addSubview:_imageView];
     
@@ -60,16 +60,30 @@
 }
 
 - (void)reloadTheViewWithData:(NSDictionary *)dic{
-    _imageView.imageURL=[NSURL URLWithString:[dic objectForKey:@"imagePath"]];
-    _titleLabel.text=[dic objectForKey:@"name"];
+    _imageView.imageURL=[NSURL URLWithString:[dic objectForKey:@"cover_id"]];
+    _titleLabel.text=[dic objectForKey:@"title"];
     _priceLabel.text=[NSString stringWithFormat:@"￥%@",[dic objectForKey:@"price"]];
     _selectBtn.tag=[[dic objectForKey:@"id"] integerValue];
-    NSMutableAttributedString *finishNum=[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"已服务%@人",[dic objectForKey:@"num"]]];
+    NSMutableAttributedString *finishNum=[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"已服务%@人",[dic objectForKey:@"sale"]]];
     [finishNum addAttribute:NSForegroundColorAttributeName value:[NTColor colorWithHexString:NTBlueColor] range:NSMakeRange(3,finishNum.length-4)];
-    NSMutableAttributedString *commentNum=[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"好评数%@条",[dic objectForKey:@"ComNum"]]];
+    NSMutableAttributedString *commentNum=[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"好评数%@条",[dic objectForKey:@"comment"]]];
     [commentNum addAttribute:NSForegroundColorAttributeName value:[NTColor colorWithHexString:NTBlueColor] range:NSMakeRange(3,commentNum.length-4)];
     _finishNumLabel.attributedText=finishNum;
     _commentNumLabel.attributedText=commentNum;
+    
+    /*
+     {
+     "95": {
+	    "id": "95",
+	    "title": "订制套餐",
+	    "price": "100.00",
+	    "cover_id": "http://aihunhui.kfrig.net/Uploads/Picture/2015-06-17/558177c96e860.jpg",
+	    "sale": "0",
+	    "comment": "0"
+     }
+     }
+     */
+    
 }
 
 #pragma mark - memberAction

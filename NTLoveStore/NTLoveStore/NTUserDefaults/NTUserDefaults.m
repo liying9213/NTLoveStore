@@ -25,11 +25,11 @@
 + (void) writeTheFunctionData:(NSArray *)functionData{
     for (NSDictionary *dic in functionData) {
         if ([dic objectForKey:@"child"]) {
-            NSMutableArray *array=[[NSMutableArray alloc] init];
-            for (NSDictionary *idic in [dic objectForKey:@"child"]) {
-                [array addObject:[self getFunctionWithData:idic]];
-            }
-            [self writeTheData:array ForKey:[dic objectForKey:@"id"]];
+//            NSMutableArray *array=[[NSMutableArray alloc] init];
+//            for (NSDictionary *idic in [dic objectForKey:@"child"]) {
+//                [array addObject:[self getFunctionWithData:idic]];
+//            }
+            [self writeTheData:[dic objectForKey:@"child"] ForKey:[dic objectForKey:@"id"]];
         }
     }
 }
