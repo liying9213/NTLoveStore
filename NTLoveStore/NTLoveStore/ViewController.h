@@ -29,6 +29,7 @@
 
 @property (nonatomic, strong) NTUserPopViewController *popoverContent;
 
+@property (nonatomic) BOOL isTheme;
 
 @end
 

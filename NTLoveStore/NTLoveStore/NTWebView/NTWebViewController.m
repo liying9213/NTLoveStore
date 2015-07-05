@@ -30,7 +30,7 @@
     _webView=[[UIWebView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, CGRectGetHeight(self.view.frame))];
     _webView.delegate=self;
     _webView.scalesPageToFit=YES;
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.163.com"]]];
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlPath]]];
     [self.view addSubview:_webView];
 }
 

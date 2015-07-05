@@ -25,13 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self resetView];
     [self showWaitingViewWithText:@"正在加载..."];
-    if (![share()userIsLogin])
-    {
-        NTLoginViewController *viewController=[[NTLoginViewController alloc] init];
-        [self presentViewController:viewController animated:YES completion:nil];
-    }
+    [self getHomeViewData];
     [self getFunctionData];
 }
 
@@ -65,16 +60,16 @@
     UIView * titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 44)];
     titleView.backgroundColor = [UIColor yellowColor];
 
-    UISearchBar *searchBar=[[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 400, 44)];
-    searchBar.backgroundColor=[UIColor lightGrayColor];
-    searchBar.delegate=self;
-    [titleView addSubview:searchBar];
-    self.navigationItem.titleView=titleView;
-    
-    _searchDisplayView=[[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
-    _searchDisplayView.delegate=self;
-    _searchDisplayView.searchResultsDataSource=self;
-    _searchDisplayView.searchResultsDelegate=self;
+//    UISearchBar *searchBar=[[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 400, 44)];
+//    searchBar.backgroundColor=[UIColor lightGrayColor];
+//    searchBar.delegate=self;
+//    [titleView addSubview:searchBar];
+//    self.navigationItem.titleView=titleView;
+//    
+//    _searchDisplayView=[[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+//    _searchDisplayView.delegate=self;
+//    _searchDisplayView.searchResultsDataSource=self;
+//    _searchDisplayView.searchResultsDelegate=self;
     
     UIView * rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 240, 44)];
     rightView.backgroundColor = [NTColor clearColor];
@@ -117,8 +112,6 @@
 }
 
 - (void)resetHomeView{
-//    [self getHomeViewData];
-
     _functionView.hidden=YES;
     if (!_homeView){
         _homeView=[[NTHomeView alloc] initWithFrame:CGRectMake(0, 55, ScreenWidth, CGRectGetHeight(self.view.frame)-55)];
@@ -136,10 +129,12 @@
     if (!_functionView) {
         _functionView=[[NTFunctionView alloc] initWithFrame:CGRectMake(0, 60, ScreenWidth, CGRectGetHeight(self.view.frame)-60)];
         _functionView.delegate=self;
+        _functionView.isTheme=_isTheme;
         [_functionView resetView];
         [self.view addSubview:_functionView];
     }
     else{
+         _functionView.isTheme=_isTheme;
         _functionView.hidden=NO;
     }
 }
@@ -198,10 +193,16 @@
 #pragma mark - getTheData
 
 - (void)getHomeViewData{
+    __weak typeof(self) __weakself=self;
     [NTAsynService requestWithHead:adBaseURL WithBody:nil completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success){
+            [NTUserDefaults writeTheAdData:[finishData allValues]];
+            __strong typeof(self) self=__weakself;
+            [self resetView];
         }
         else{
+             __strong typeof(self) self=__weakself;
+            [self resetView];
         }
     }];
 }
@@ -215,255 +216,28 @@
             [NTUserDefaults writeTheFunctionData:(NSArray *)finishData];
         }
         else{
+            [self hideWaitingView];
         }
     }];
     dic=nil;
-    
-    /*
-     [
-     {
-     "id": "52",
-     "name": "hlry",
-     "pid": "0",
-     "title": "婚礼人员",
-     "icon": "85",
-     "child": [
-     {
-     "id": "146",
-     "name": "zcr",
-     "pid": "52",
-     "title": "主持人",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "57",
-     "name": "hzs",
-     "pid": "52",
-     "title": "化妆师",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "58",
-     "name": "sys",
-     "pid": "52",
-     "title": "摄影师",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "145",
-     "name": "sxs",
-     "pid": "52",
-     "title": "摄像师",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "147",
-     "name": "byry",
-     "pid": "52",
-     "title": "表演人员",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "148",
-     "name": "djs",
-     "pid": "52",
-     "title": "DJ师",
-     "icon": "0",
-     "child": []
-     }
-     ]
-     },
-     {
-     "id": "107",
-     "name": "hysj",
-     "pid": "0",
-     "title": "花艺设计",
-     "icon": "87",
-     "child": [
-     {
-     "id": "104",
-     "name": "cht",
-     "pid": "107",
-     "title": "车头花",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "105",
-     "name": "hm",
-     "pid": "107",
-     "title": "花门",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "149",
-     "name": "lyh",
-     "pid": "107",
-     "title": "路引花",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "150",
-     "name": "qdt",
-     "pid": "107",
-     "title": "签到台",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "151",
-     "name": "zh",
-     "pid": "107",
-     "title": "桌花",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "152",
-     "name": "xh",
-     "pid": "107",
-     "title": "胸花",
-     "icon": "0",
-     "child": []
-     }
-     ]
-     },
-     {
-     "id": "75",
-     "name": "cddj",
-     "pid": "0",
-     "title": "场地搭建",
-     "icon": "88",
-     "child": [
-     {
-     "id": "115",
-     "name": "wt",
-     "pid": "75",
-     "title": "舞台/T台",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "118",
-     "name": "dt",
-     "pid": "75",
-     "title": "地毯",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "117",
-     "name": "bj",
-     "pid": "75",
-     "title": "背景",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "119",
-     "name": "yjt",
-     "pid": "75",
-     "title": "演讲台",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "154",
-     "name": "cqdt",
-     "pid": "75",
-     "title": "签到台",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "155",
-     "name": "truss",
-     "pid": "75",
-     "title": "truss架",
-     "icon": "0",
-     "child": []
-     }
-     ]
-     },
-     {
-     "id": "71",
-     "name": "wmdg",
-     "pid": "0",
-     "title": "舞美灯光",
-     "icon": "86",
-     "child": [
-     {
-     "id": "86",
-     "name": "wtxg",
-     "pid": "71",
-     "title": "舞台效果",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "81",
-     "name": "dgxg",
-     "pid": "71",
-     "title": "灯光效果",
-     "icon": "0",
-     "child": []
-     }
-     ]
-     },
-     {
-     "id": "111",
-     "name": "hldj",
-     "pid": "0",
-     "title": "婚礼道具",
-     "icon": "56",
-     "child": [
-     {
-     "id": "112",
-     "name": "ysq",
-     "pid": "111",
-     "title": "仪式区",
-     "icon": "0",
-     "child": []
-     },
-     {
-     "id": "156",
-     "name": "yhq",
-     "pid": "111",
-     "title": "宴会区",
-     "icon": "0",
-     "child": []
-     }
-     ]
-     },
-     {
-     "id": "153",
-     "name": "dztc",
-     "pid": "0",
-     "title": "订制套餐",
-     "icon": "0",
-     "child": []
-     }
-     ]
-     
-     */
-
 }
 
 #pragma mark - headSelectViewDelegate
 
 - (void)headSelectAction:(id)sender{
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        return;
+    }
+    _isTheme=NO;
     NTButton *btn=(NTButton *)sender;
     if (btn.tag==0) {
         [self resetHomeView];
     }
     else{
+        if (btn.tag==153) {
+            _isTheme=YES;
+        }
         [self resetFunctionView];
         [_functionView reloadLeftViewWithData:[NTUserDefaults getTheDataForKey:[NSString stringWithFormat:@"%ld",(long)btn.tag]]];
     }
@@ -485,6 +259,11 @@
 #pragma mark - functionViewDelgate
 
 - (void)leftViewActionWithCategory:(NSString *)category WithOrder:(NSInteger)orderID{
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        return;
+    }
+    
     [self showWaitingViewWithText:@"正在加载..."];
     _functionView.tableView.hidden=YES;
     __weak typeof(self) __weakself=self;
@@ -504,27 +283,13 @@
         }
     }];
     dic=nil;
-    /*
-     {
-     "95": {
-	    "id": "95",
-	    "title": "订制套餐",
-	    "price": "100.00",
-	    "cover_id": "http://aihunhui.kfrig.net/Uploads/Picture/2015-06-17/558177c96e860.jpg",
-	    "sale": "0",
-	    "comment": "0"
-     }
-     }
-     */
-    
-//    [_functionView reloadFunctionViewWithData:[NTReadConfiguration getConfigurationWithKey:@"contentData"]];
 }
 
 - (void)memberSelectAction:(id)sender{
     UIButton *btn=(UIButton *)sender;
-    
     NTContentViewController *viewController=[[NTContentViewController alloc] init];
     viewController.productID=btn.tag;
+    viewController.isCanSelect=!_isTheme;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
@@ -536,6 +301,11 @@
 }
 
 - (void)userInfoAction:(id)sender {
+    if (![share()userIsLogin]) {
+        NTLoginViewController *viewcontroller=[[NTLoginViewController alloc] init];
+        viewcontroller.isHome=YES;
+        [self presentViewController:viewcontroller animated:YES completion:nil];
+    }
     UIButton *btn=(UIButton *)sender;
     _popoverContent=[[NTUserPopViewController alloc] init];
     _popoverContent.delegate=self;
@@ -554,7 +324,8 @@
         [self.navigationController pushViewController:userInfoView animated:YES];
     }
     else if ([(UIButton *)sender tag]==1){
-        
+         [_popoverView dismissPopoverAnimated:YES];
+        [NTUserDefaults writeTheData:@"0" ForKey:@"status"];
     }
 }
 

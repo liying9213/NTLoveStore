@@ -3,11 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "舞美灯光.jpg"
+      "filename" : "密码.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "密码x2.png"
     },
     {
       "idiom" : "universal",

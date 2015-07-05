@@ -27,12 +27,12 @@
 			<integer>3</integer>
 			<key>height</key>
 			<integer>1</integer>
-			<key>color</key>
-			<string>#eeccbb</string>
-			<key>imageName</key>
+			<key>icon</key>
+			<string></string>
+			<key>url</key>
 			<string></string>
 			<key>type</key>
-			<integer>2</integer>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -61,10 +61,12 @@
 			<integer>2</integer>
 			<key>color</key>
 			<string>#765432</string>
-			<key>imageName</key>
+			<key>icon</key>
+			<string></string>
+			<key>url</key>
 			<string></string>
 			<key>type</key>
-			<integer>2</integer>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -139,12 +141,12 @@
 			<integer>2</integer>
 			<key>height</key>
 			<integer>1</integer>
-			<key>color</key>
-			<string>#324562</string>
-			<key>imageName</key>
+			<key>icon</key>
+			<string></string>
+			<key>url</key>
 			<string></string>
 			<key>type</key>
-			<integer>2</integer>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -175,7 +177,7 @@
 			<key>id</key>
 			<integer>153</integer>
 			<key>name</key>
-			<string>定制套餐</string>
+			<string>特色主题</string>
 		</dict>
 		<dict>
 			<key>id</key>

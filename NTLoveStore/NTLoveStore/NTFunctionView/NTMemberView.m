@@ -22,31 +22,31 @@
 
 - (void)resetView{
     _imageView=[[EGOImageView alloc] initWithPlaceholderImage:[NTImage imageWithFileName:@"picple.jpg"]];
-    _imageView.frame=CGRectMake(0, 0, CGRectGetWidth(self.frame),  CGRectGetHeight(self.frame)-40);
+    _imageView.frame=CGRectMake(0, 0, CGRectGetWidth(self.frame),  CGRectGetHeight(self.frame)-50);
     [self addSubview:_imageView];
     
-    _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(_imageView.frame), CGRectGetWidth(self.frame)/2, 20)];
-    _titleLabel.font=[UIFont systemFontOfSize:15];
+    _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(_imageView.frame)+5, CGRectGetWidth(self.frame)/2, 20)];
+    _titleLabel.font=[UIFont systemFontOfSize:16];
     _titleLabel.backgroundColor=[NTColor clearColor];
     _titleLabel.textAlignment=NSTextAlignmentLeft;
     [self addSubview:_titleLabel];
     
-    _priceLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(_titleLabel.frame), CGRectGetHeight(_imageView.frame), CGRectGetWidth(self.frame)/2, 20)];
-    _priceLabel.font=[UIFont systemFontOfSize:14];
+    _priceLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(_titleLabel.frame), CGRectGetHeight(_imageView.frame)+5, CGRectGetWidth(self.frame)/2, 20)];
+    _priceLabel.font=[UIFont systemFontOfSize:16];
     _priceLabel.backgroundColor=[NTColor clearColor];
     _priceLabel.textColor=[NTColor redColor];
     _priceLabel.textAlignment=NSTextAlignmentRight;
     [self addSubview:_priceLabel];
     
-    _finishNumLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(_imageView.frame)+CGRectGetHeight(_titleLabel.frame), CGRectGetWidth(self.frame)/2, 20)];
-    _finishNumLabel.font=[UIFont systemFontOfSize:13];
+    _finishNumLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(_imageView.frame)+CGRectGetHeight(_titleLabel.frame)+10, CGRectGetWidth(self.frame)/2, 20)];
+    _finishNumLabel.font=[UIFont systemFontOfSize:15];
     _finishNumLabel.backgroundColor=[NTColor clearColor];
     _finishNumLabel.textColor=[NTColor lightGrayColor];
     _finishNumLabel.textAlignment=NSTextAlignmentLeft;
     [self addSubview:_finishNumLabel];
     
-    _commentNumLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(_finishNumLabel.frame), CGRectGetHeight(_imageView.frame)+CGRectGetHeight(_titleLabel.frame), CGRectGetWidth(self.frame)/2, 20)];
-    _commentNumLabel.font=[UIFont systemFontOfSize:13];
+    _commentNumLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(_finishNumLabel.frame), CGRectGetHeight(_imageView.frame)+CGRectGetHeight(_titleLabel.frame)+10, CGRectGetWidth(self.frame)/2, 20)];
+    _commentNumLabel.font=[UIFont systemFontOfSize:15];
     _commentNumLabel.backgroundColor=[NTColor clearColor];
     _commentNumLabel.textColor=[NTColor lightGrayColor];
     _commentNumLabel.textAlignment=NSTextAlignmentRight;
@@ -70,20 +70,7 @@
     [commentNum addAttribute:NSForegroundColorAttributeName value:[NTColor colorWithHexString:NTBlueColor] range:NSMakeRange(3,commentNum.length-4)];
     _finishNumLabel.attributedText=finishNum;
     _commentNumLabel.attributedText=commentNum;
-    
-    /*
-     {
-     "95": {
-	    "id": "95",
-	    "title": "订制套餐",
-	    "price": "100.00",
-	    "cover_id": "http://aihunhui.kfrig.net/Uploads/Picture/2015-06-17/558177c96e860.jpg",
-	    "sale": "0",
-	    "comment": "0"
-     }
-     }
-     */
-    
+
 }
 
 #pragma mark - memberAction

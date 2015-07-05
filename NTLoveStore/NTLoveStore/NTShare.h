@@ -15,6 +15,8 @@
 
 - (NSString *)userUid;
 
+- (void)setRootViewController;
+
 @end
 #ifdef __cplusplus
 extern "C" {

@@ -39,7 +39,7 @@
         if (i!=_selectData.count) {
             UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(currentXValue-2, (CGRectGetHeight(self.frame)-28)/2, 2, 28)];
             imageView.backgroundColor=[NTColor clearColor];
-            imageView.image=[NTImage imageWithFileName:@"separate.jpg"];
+            imageView.image=[NTImage imageNamed:@"interval"];
             [_scrollView addSubview:imageView];
         }
     }
@@ -74,14 +74,16 @@
 
 - (void)headSelectAction:(id)sender{
     NTButton *btn=(NTButton *)sender;
-    CGRect rect=btn.frame;
-    rect.origin.x=CGRectGetMinX(btn.frame)+15;
-    rect.origin.y=CGRectGetHeight(btn.frame)-3;
-    rect.size.height=3;
-    rect.size.width=CGRectGetWidth(btn.frame)-30;
-    [UIView animateWithDuration:0.25 animations:^{
-        _selcetBackGroundView.frame=rect;
-    }];
+    if ([share()userIsLogin]) {
+        CGRect rect=btn.frame;
+        rect.origin.x=CGRectGetMinX(btn.frame)+15;
+        rect.origin.y=CGRectGetHeight(btn.frame)-3;
+        rect.size.height=3;
+        rect.size.width=CGRectGetWidth(btn.frame)-30;
+        [UIView animateWithDuration:0.25 animations:^{
+            _selcetBackGroundView.frame=rect;
+        }];
+    }
     [_delegate headSelectAction:btn];
 }
 

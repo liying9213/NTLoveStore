@@ -3,11 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "婚礼道具.jpg"
+      "filename" : "登陆按钮.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "登陆按钮x2.png"
     },
     {
       "idiom" : "universal",

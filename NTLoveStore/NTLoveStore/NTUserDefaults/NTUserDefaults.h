@@ -14,6 +14,7 @@
 
 + (id)getTheDataForKey:(NSString *)key;
 
-+ (void) writeTheFunctionData:(NSArray *)functionData;
++ (void)writeTheFunctionData:(NSArray *)functionData;
 
++ (void)writeTheAdData:(NSArray *)adData;
 @end

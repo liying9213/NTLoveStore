@@ -23,15 +23,15 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithMenberNum:(int)num WithWidth:(float)width{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self){
-        float xValue=10;
-        float theWidth=(width-10*(num+1))/num;
+        float xValue=0;
+        float theWidth=(width-15*(num+1))/num;
         for (int i=0; i<num; i++) {
-            NTMemberView *menberView=[[NTMemberView alloc] initWithFrame:CGRectMake(xValue, 10, theWidth, 150)];
+            NTMemberView *menberView=[[NTMemberView alloc] initWithFrame:CGRectMake(xValue, 10, theWidth, 190)];
             menberView.delegate=self;
             menberView.tag=i;
             [menberView resetView];
             [self.contentView addSubview:menberView];
-            xValue+=theWidth+10;
+            xValue+=theWidth+15;
         }
     }
     self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];

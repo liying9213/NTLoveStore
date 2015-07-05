@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ViewController.h"
+#import "NTLoginViewController.h"
 static id<NTShare> _share = nil;
 
 id<NTShare> share(void)
@@ -29,8 +30,23 @@ id<NTShare> share(void)
     return  self;
 }
 
+- (void)setRootViewController{
+    ViewController *viewController=[[ViewController alloc] init];
+    UINavigationController *rootView=[[UINavigationController alloc] initWithRootViewController:viewController];    
+    self.window.rootViewController=rootView;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [self.window makeKeyAndVisible];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [application setStatusBarStyle:UIStatusBarStyleDefault];
+    if ([self userIsLogin]) {
+        [self setRootViewController];
+    }
+    else{
+        NTLoginViewController *rootViewController=[[NTLoginViewController alloc] init];
+        self.window.rootViewController=rootViewController;
+    }
     return YES;
 }
 

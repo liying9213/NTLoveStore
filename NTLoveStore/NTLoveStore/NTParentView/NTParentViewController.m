@@ -12,6 +12,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.translucent = NO;
     self.view.backgroundColor=[NTColor whiteColor];
 }
 
@@ -32,6 +33,7 @@
         text=@"正在请求...";
     }
     [self.view bringSubviewToFront:_waitingView];
+    _waitingView.mode = MBProgressHUDModeIndeterminate;
     _waitingView.labelText = text;
     [_waitingView show:YES];
 }
@@ -45,6 +47,7 @@
     [self.view bringSubviewToFront:_waitingView];
     _waitingView.labelText = text;
     _waitingView.mode=MBProgressHUDModeText;
+    [_waitingView show:YES];
     [_waitingView hide:YES afterDelay:1.0];
 }
 

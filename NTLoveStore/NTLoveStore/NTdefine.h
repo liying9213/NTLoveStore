@@ -15,7 +15,7 @@
 #define LOCAL_PATH_PUBLIC [[NSBundle mainBundle] bundlePath]
 
 #define NTWhiteColor @"#FFFFFF"
-#define NTBlueColor @"#00BFFF"
+#define NTBlueColor @"#42CFFA"
 #define NTPinkColor @"#FF69B4"
 
 #define thePlaceholderImage [[UIImage imageNamed:@"logo.png"] stretchableImageWithLeftCapWidth:2 topCapHeight:2]

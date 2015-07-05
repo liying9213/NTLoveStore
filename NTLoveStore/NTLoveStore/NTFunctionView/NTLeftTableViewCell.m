@@ -23,9 +23,11 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self){
-        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth/5-30, 50)];
+        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 130, 50)];
         _titleLabel.backgroundColor=[NTColor clearColor];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
+        _titleLabel.textColor=[NTColor blackColor];
+        _titleLabel.font=[UIFont systemFontOfSize:14];
         [self.contentView addSubview:_titleLabel];
         
         UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth(_titleLabel.frame), 20, 10 , 11)];
@@ -33,8 +35,6 @@
         imageView.image=[NTImage imageWithFileName:@"moreicon.png"];
         [self.contentView addSubview:imageView];
         
-        self.contentView.layer.masksToBounds=YES;
-        self.contentView.layer.cornerRadius=0.2;
         self.contentView.layer.borderWidth=0.5;
         self.contentView.layer.borderColor=[[NTColor lightGrayColor] CGColor];
         
@@ -46,6 +46,7 @@
 }
 
 - (void)reloadTheTableCellWithData:(NSDictionary *)cellDic{
+    _titleLabel.textColor=[NTColor blackColor];
     _titleLabel.text=[cellDic objectForKey:@"title"];
 }
 

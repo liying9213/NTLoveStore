@@ -13,5 +13,6 @@
 @property (nonatomic, strong) UITextField *userName;
 @property (nonatomic, strong) UITextField *userPassWord;
 @property (nonatomic, strong) UIButton *submitBtn;
+@property (nonatomic) BOOL isHome;
 
 @end

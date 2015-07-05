@@ -16,14 +16,22 @@
 
 @property (nonatomic, strong)UIView *contenInfoView;
 
-@property (nonatomic, strong)UIView *imageInfoView;
+@property (nonatomic, strong)UIScrollView *imageInfoView;
 
-@property (nonatomic, strong)UIView *videoInfoView;
+@property (nonatomic, strong)UIScrollView *videoInfoView;
 
 @property (nonatomic, strong)UIView *commentInfoView;
 
 @property (nonatomic, assign)NSInteger productID;
 
 @property (nonatomic, strong)NSDictionary *detailDic;
+
+@property (nonatomic, strong)NSArray *imageAry;
+
+@property (nonatomic, strong)NSMutableArray *videoAry;
+
+@property (nonatomic) float heightValue;
+
+@property (nonatomic) BOOL isCanSelect;
 
 @end

@@ -38,6 +38,12 @@
 
 @property (nonatomic) NSInteger selectID;
 
+@property (nonatomic) BOOL isTheme;
+
+@property (nonatomic) float thePrice;
+
+@property (nonatomic) float theTuanPrice;
+
 - (void)resetView;
 
 - (void)reloadLeftViewWithData:(NSArray *)leftAry;

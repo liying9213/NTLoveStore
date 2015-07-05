@@ -23,11 +23,11 @@
 }
 
 - (void)resetLeftSelectView{
-    _leftView=[[UITableView alloc] initWithFrame:CGRectMake(10, 0, ScreenWidth/5, CGRectGetHeight(self.frame))];
+    _leftView=[[UITableView alloc] initWithFrame:CGRectMake(10, 0, 165, CGRectGetHeight(self.frame))];
     _leftView.backgroundColor=[NTColor clearColor];
     _leftView.delegate=self;
     _leftView.dataSource=self;
-    _leftView.rowHeight=50;
+    _leftView.rowHeight=45;
     [self addSubview:_leftView];
 }
 
@@ -36,46 +36,40 @@
     typeView.backgroundColor=[NTColor clearColor];
     UIButton *firstBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     [firstBtn setTitle:@"综合排序："forState:UIControlStateNormal];
-    firstBtn.frame=CGRectMake(0, 0, 100, 30);
-    [firstBtn addTarget:self action:@selector(selectType:) forControlEvents:UIControlEventTouchUpInside];
-    firstBtn.tag=0;
+    firstBtn.frame=CGRectMake(0, 0, 105, 30);
+//    [firstBtn addTarget:self action:@selector(selectType:) forControlEvents:UIControlEventTouchUpInside];
+//    firstBtn.tag=0;
     firstBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [firstBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
-    firstBtn.layer.masksToBounds=YES;
-    firstBtn.layer.cornerRadius=0.2;
     firstBtn.layer.borderWidth=0.5;
     firstBtn.layer.borderColor=[[UIColor lightGrayColor] CGColor];
     [typeView addSubview:firstBtn];
     
     UIButton *secBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     [secBtn setTitle:@"价格"forState:UIControlStateNormal];
-    secBtn.frame=CGRectMake(CGRectGetWidth(firstBtn.frame), 0, 100, 30);
+    secBtn.frame=CGRectMake(CGRectGetWidth(firstBtn.frame), 0, 105, 30);
     [secBtn addTarget:self action:@selector(selectType:) forControlEvents:UIControlEventTouchUpInside];
     secBtn.tag=3;
     secBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [secBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
-    secBtn.layer.masksToBounds=YES;
-    secBtn.layer.cornerRadius=0.2;
     secBtn.layer.borderWidth=0.5;
     secBtn.layer.borderColor=[[UIColor lightGrayColor] CGColor];
     [typeView addSubview:secBtn];
     
     UIButton *thirdBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     [thirdBtn setTitle:@"好评数"forState:UIControlStateNormal];
-    thirdBtn.frame=CGRectMake(CGRectGetWidth(secBtn.frame)+CGRectGetMinX(secBtn.frame), 0, 100, 30);
+    thirdBtn.frame=CGRectMake(CGRectGetWidth(secBtn.frame)+CGRectGetMinX(secBtn.frame), 0, 105, 30);
     [thirdBtn addTarget:self action:@selector(selectType:) forControlEvents:UIControlEventTouchUpInside];
     thirdBtn.tag=1;
     thirdBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [thirdBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
-    thirdBtn.layer.masksToBounds=YES;
-    thirdBtn.layer.cornerRadius=0.2;
     thirdBtn.layer.borderWidth=0.5;
     thirdBtn.layer.borderColor=[[UIColor lightGrayColor] CGColor];
     [typeView addSubview:thirdBtn];
     
     UIButton *fourBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     [fourBtn setTitle:@"销量"forState:UIControlStateNormal];
-    fourBtn.frame=CGRectMake(CGRectGetWidth(thirdBtn.frame)+CGRectGetMinX(thirdBtn.frame), 0, 100, 30);
+    fourBtn.frame=CGRectMake(CGRectGetWidth(thirdBtn.frame)+CGRectGetMinX(thirdBtn.frame), 0, 105, 30);
     [fourBtn addTarget:self action:@selector(selectType:) forControlEvents:UIControlEventTouchUpInside];
     fourBtn.tag=4;
     fourBtn.titleLabel.font=[UIFont systemFontOfSize:14];
@@ -90,12 +84,45 @@
 }
 
 - (void)resetTableView{
-    _tableView=[[UITableView alloc] initWithFrame:CGRectMake(CGRectGetWidth(_leftView.frame)+10, 40, CGRectGetWidth(self.frame)-CGRectGetWidth(_leftView.frame)-10, CGRectGetHeight(self.frame))];
+    _tableView=[[UITableView alloc] initWithFrame:CGRectMake(CGRectGetWidth(_leftView.frame)+20, 35, CGRectGetWidth(self.frame)-CGRectGetWidth(_leftView.frame)-30, CGRectGetHeight(self.frame)-35)];
     _tableView.backgroundColor=[NTColor clearColor];
     _tableView.delegate=self;
     _tableView.dataSource=self;
-    _tableView.rowHeight=160;
+    _tableView.rowHeight=200;
     [self addSubview:_tableView];
+}
+
+- (void)resetTableFootView{
+    [self getThePrice];
+    UIView *footView=[[UIView alloc] initWithFrame:CGRectMake(0, 20, CGRectGetWidth(_tableView.frame), 80)];
+    footView.backgroundColor=[UIColor clearColor];
+    
+    UILabel *priceLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 20, 100, 30)];
+    priceLabel.text=[NSString stringWithFormat:@"原价:￥%.2lf",_thePrice];
+    priceLabel.font=[UIFont systemFontOfSize:14];
+    priceLabel.backgroundColor=[UIColor clearColor];
+    [footView addSubview:priceLabel];
+    
+    UILabel *tuanPriceLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(priceLabel.frame)+30, 20, 100, 30)];
+    NSMutableAttributedString *tuanPrice=[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"现价:￥%.2lf",_theTuanPrice]];
+    [tuanPrice addAttribute:NSForegroundColorAttributeName value:[NTColor redColor] range:NSMakeRange(3,tuanPrice.length-3)];
+    tuanPriceLabel.attributedText=tuanPrice;
+    tuanPriceLabel.font=[UIFont systemFontOfSize:14];
+    tuanPriceLabel.backgroundColor=[UIColor clearColor];
+    [footView addSubview:tuanPriceLabel];
+
+    UIButton *showBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(tuanPriceLabel.frame)+CGRectGetMinX(tuanPriceLabel.frame)+60, 25, 100, 20)];
+    showBtn.titleLabel.font=[UIFont systemFontOfSize:14];
+    [showBtn setTitle:@"查看现场全景" forState:UIControlStateNormal];
+    [showBtn setTitleColor:[NTColor colorWithHexString:NTBlueColor] forState:UIControlStateNormal];
+    [footView addSubview:showBtn];
+    
+    UIButton *btn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(_tableView.frame)-120, 50, 120, 30)];
+    [btn setTitle:@"立即购买" forState:UIControlStateNormal];
+    [btn setTitleColor:[NTColor whiteColor] forState:UIControlStateNormal];
+    [btn setBackgroundColor:[NTColor colorWithHexString:NTBlueColor]];
+    [footView addSubview:btn];
+    _tableView.tableFooterView=footView;
 }
 
 - (void)reloadLeftViewWithData:(NSArray *)leftAry{
@@ -109,7 +136,20 @@
 
 - (void)reloadFunctionViewWithData:(NSArray *)functionAry{
     _functionAry=functionAry;
+    if (_isTheme) {
+        [self resetTableFootView];
+    }
+    else{
+        _tableView.tableFooterView.hidden=YES;
+    }
     [_tableView reloadData];
+}
+
+- (void)getThePrice{
+    for (NSDictionary *dic in _functionAry) {
+        _thePrice+=[[dic objectForKey:@"price"] floatValue];
+        _theTuanPrice+=[[dic objectForKey:@"tuan_price"] floatValue];
+    }
 }
 
 #pragma mark - tableViewDelegate
@@ -131,7 +171,7 @@
             iCell=[[NTLeftTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:_cellIdentify];
         }
         [iCell reloadTheTableCellWithData:[_leftAry objectAtIndex:indexPath.row]];
-        tableView.separatorStyle=UITableViewCellSelectionStyleNone;
+        tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
         return iCell;
     }
     else{

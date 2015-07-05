@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <EGOImageView.h>
 
-@interface NTShowDetailVIew : UIView
+@interface NTShowDetailVIew : UIView <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong)EGOImageView *showImageView;
 
-- (void)showImageWithArray:(NSArray *)imageArray;
+- (void)showImageWithArray:(NSArray *)imageArray withIndex:(NSInteger)index;
 
 - (void)showTextWithString:(NSString *)string;
 
