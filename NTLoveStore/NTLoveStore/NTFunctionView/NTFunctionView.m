@@ -41,8 +41,8 @@
 //    firstBtn.tag=0;
     firstBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [firstBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
-    firstBtn.layer.borderWidth=0.5;
-    firstBtn.layer.borderColor=[[UIColor lightGrayColor] CGColor];
+    firstBtn.layer.borderWidth=1;
+    firstBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
     [typeView addSubview:firstBtn];
     
     UIButton *secBtn=[UIButton buttonWithType:UIButtonTypeCustom];
@@ -52,8 +52,8 @@
     secBtn.tag=3;
     secBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [secBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
-    secBtn.layer.borderWidth=0.5;
-    secBtn.layer.borderColor=[[UIColor lightGrayColor] CGColor];
+    secBtn.layer.borderWidth=1;
+    secBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
     [typeView addSubview:secBtn];
     
     UIButton *thirdBtn=[UIButton buttonWithType:UIButtonTypeCustom];
@@ -63,8 +63,8 @@
     thirdBtn.tag=1;
     thirdBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [thirdBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
-    thirdBtn.layer.borderWidth=0.5;
-    thirdBtn.layer.borderColor=[[UIColor lightGrayColor] CGColor];
+    thirdBtn.layer.borderWidth=1;
+    thirdBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
     [typeView addSubview:thirdBtn];
     
     UIButton *fourBtn=[UIButton buttonWithType:UIButtonTypeCustom];
@@ -74,10 +74,8 @@
     fourBtn.tag=4;
     fourBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [fourBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
-    fourBtn.layer.masksToBounds=YES;
-    fourBtn.layer.cornerRadius=0.2;
-    fourBtn.layer.borderWidth=0.5;
-    fourBtn.layer.borderColor=[[UIColor lightGrayColor] CGColor];
+    fourBtn.layer.borderWidth=1;
+    fourBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
     [typeView addSubview:fourBtn];
     
     [self addSubview:typeView];

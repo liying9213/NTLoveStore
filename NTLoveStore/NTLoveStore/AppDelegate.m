@@ -39,7 +39,7 @@ id<NTShare> share(void)
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self.window makeKeyAndVisible];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [application setStatusBarStyle:UIStatusBarStyleDefault];
+    [application setStatusBarStyle:UIStatusBarStyleLightContent];
     if ([self userIsLogin]) {
         [self setRootViewController];
     }

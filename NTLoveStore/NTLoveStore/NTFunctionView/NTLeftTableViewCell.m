@@ -35,10 +35,10 @@
         imageView.image=[NTImage imageWithFileName:@"moreicon.png"];
         [self.contentView addSubview:imageView];
         
-        self.contentView.layer.borderWidth=0.5;
-        self.contentView.layer.borderColor=[[NTColor lightGrayColor] CGColor];
+        self.contentView.layer.borderWidth=1;
+        self.contentView.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
         
-        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
+        self.selectedBackgroundView = [[UIView alloc] initWithFrame:CGRectZero];
         self.selectedBackgroundView.backgroundColor = [NTColor colorWithHexString:NTBlueColor];
         
     }

@@ -21,7 +21,7 @@
 #pragma mark - resetView
 
 - (void)resetView{
-    _imageView=[[EGOImageView alloc] initWithPlaceholderImage:[NTImage imageWithFileName:@"picple.jpg"]];
+    _imageView=[[EGOImageView alloc] initWithPlaceholderImage:[NTImage imageWithFileName:@"picple.png"]];
     _imageView.frame=CGRectMake(0, 0, CGRectGetWidth(self.frame),  CGRectGetHeight(self.frame)-50);
     [self addSubview:_imageView];
     

@@ -38,7 +38,7 @@
         currentXValue+=currentWidth;
         if (i!=_selectData.count) {
             UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(currentXValue-2, (CGRectGetHeight(self.frame)-28)/2, 2, 28)];
-            imageView.backgroundColor=[NTColor clearColor];
+//            imageView.backgroundColor=[NTColor colorWithHexString:@"#6BDEE2"];
             imageView.image=[NTImage imageNamed:@"interval"];
             [_scrollView addSubview:imageView];
         }

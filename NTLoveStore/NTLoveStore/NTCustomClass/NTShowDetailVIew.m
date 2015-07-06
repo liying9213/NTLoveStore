@@ -46,7 +46,7 @@
     showView.backgroundColor=[NTColor whiteColor];
     [self addSubview:showView];
     
-    _showImageView=[[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"picple.jpg"]];
+    _showImageView=[[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"picple.png"]];
     _showImageView.imageURL=[NSURL URLWithString:[imageArray objectAtIndex:index]];
     _showImageView.frame=CGRectMake(10, 40, CGRectGetWidth(showView.frame)-20, CGRectGetHeight(showView.frame)-170);
     _showImageView.backgroundColor=[UIColor clearColor];
@@ -59,7 +59,7 @@
     scrollView.backgroundColor=[UIColor clearColor];
     [showView addSubview:scrollView];
     for (NSString *imagePath in imageArray) {
-        EGOImageButton *imageBtn=[[EGOImageButton alloc] initWithPlaceholderImage:[UIImage  imageNamed:@"picple.jpg"]];
+        EGOImageButton *imageBtn=[[EGOImageButton alloc] initWithPlaceholderImage:[UIImage  imageNamed:@"picple.png"]];
         imageBtn.frame=CGRectMake(width, 0, 160, 110);
         imageBtn.imageURL=[NSURL URLWithString:imagePath];
         [imageBtn addTarget:self action:@selector(selectImageView:) forControlEvents:UIControlEventTouchUpInside];

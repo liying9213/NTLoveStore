@@ -14,6 +14,19 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.translucent = NO;
     self.view.backgroundColor=[NTColor whiteColor];
+    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
+        NSArray *list=self.navigationController.navigationBar.subviews;
+        for (id obj in list) {
+            if ([obj isKindOfClass:[UIImageView class]]) {
+                UIImageView *imageView=(UIImageView *)obj;
+                imageView.hidden=YES;
+            }
+        }
+        UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, -20, ScreenWidth, 64)];
+        imageView.image=[NTImage imageWithColor:[NTColor colorWithHexString:NTWhiteColor] size:CGSizeMake(ScreenWidth, 3)];
+        [self.navigationController.navigationBar addSubview:imageView];
+        [self.navigationController.navigationBar sendSubviewToBack:imageView];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

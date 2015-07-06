@@ -15,10 +15,12 @@
 #define LOCAL_PATH_PUBLIC [[NSBundle mainBundle] bundlePath]
 
 #define NTWhiteColor @"#FFFFFF"
-#define NTBlueColor @"#42CFFA"
+#define NTBlueColor @"#50ceff"
 #define NTPinkColor @"#FF69B4"
+#define NTGrayColor @"#F5F5F5"
 
-#define thePlaceholderImage [[UIImage imageNamed:@"logo.png"] stretchableImageWithLeftCapWidth:2 topCapHeight:2]
+
+#define thePlaceholderImage [[UIImage imageNamed:@"picple.png"] stretchableImageWithLeftCapWidth:2 topCapHeight:2]
 
 static NSString * loginBaseURL=@"http://aihunhui.kfrig.net/home/app/login";
 

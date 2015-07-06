@@ -29,7 +29,6 @@
 		B22F99EF1B418B500027EB40 /* site.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E81B418B500027EB40 /* site.jpg */; };
 		B22F99F01B418B500027EB40 /* staff.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E91B418B500027EB40 /* staff.jpg */; };
 		B23B3A3B1B29C5CA00328AD9 /* NTHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B23B3A3A1B29C5CA00328AD9 /* NTHomeView.m */; };
-		B251A2511B37E34D00B537A1 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B251A2501B37E34D00B537A1 /* logo.png */; };
 		B251A2531B37E45C00B537A1 /* shopping.png in Resources */ = {isa = PBXBuildFile; fileRef = B251A2521B37E45C00B537A1 /* shopping.png */; };
 		B251A2551B37E59200B537A1 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = B251A2541B37E59200B537A1 /* user.png */; };
 		B251A2571B37EBED00B537A1 /* separate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B251A2561B37EBED00B537A1 /* separate.jpg */; };
@@ -47,6 +46,9 @@
 		B2D999051B2C10C20068DE87 /* NTLeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D999041B2C10C20068DE87 /* NTLeftTableViewCell.m */; };
 		B2D999091B2C35E70068DE87 /* NTContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D999081B2C35E70068DE87 /* NTContentViewController.m */; };
 		B2E5C8AF1B37FBC40011A95F /* moreicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E5C8AE1B37FBC40011A95F /* moreicon.png */; };
+		B2E808D11B4AB9AA00A9D9FE /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E808D01B4AB9AA00A9D9FE /* logo.png */; };
+		B2E808D31B4AB9DB00A9D9FE /* picple.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E808D21B4AB9DB00A9D9FE /* picple.png */; };
+		B2E808D51B4ABDC000A9D9FE /* HeaderBg_7.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E808D41B4ABDC000A9D9FE /* HeaderBg_7.png */; };
 		B2EAB19C1B273B7B00BB419A /* libPods-EGOImageLoading.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19B1B273B7B00BB419A /* libPods-EGOImageLoading.a */; };
 		B2EAB19F1B273B8100BB419A /* libPods-AFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19D1B273B8100BB419A /* libPods-AFNetworking.a */; };
 		B2EAB1A01B273B8100BB419A /* libPods-EGOCache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19E1B273B8100BB419A /* libPods-EGOCache.a */; };
@@ -54,7 +56,6 @@
 		B2F1F6D71B2ACFF000B6BCA8 /* NTMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1F6D61B2ACFF000B6BCA8 /* NTMemberView.m */; };
 		B2F1F6DC1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1F6DB1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m */; };
 		B2F1F6E01B2AE79E00B6BCA8 /* NTFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1F6DF1B2AE79E00B6BCA8 /* NTFunctionView.m */; };
-		B2F2D1081B42BB4900231782 /* picple.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2F2D1071B42BB4900231782 /* picple.jpg */; };
 		B2F2D1111B42D0FE00231782 /* NTShowDetailVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F2D1101B42D0FE00231782 /* NTShowDetailVIew.m */; };
 		B2F3A1651B28919A00B1FCA1 /* NTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F3A1641B28919A00B1FCA1 /* NTButton.m */; };
 /* End PBXBuildFile section */
@@ -107,7 +108,6 @@
 		B23B3A391B29C5CA00328AD9 /* NTHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTHomeView.h; sourceTree = "<group>"; };
 		B23B3A3A1B29C5CA00328AD9 /* NTHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTHomeView.m; sourceTree = "<group>"; };
 		B23F7F541B4022CF000B7C6F /* NTShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTShare.h; sourceTree = "<group>"; };
-		B251A2501B37E34D00B537A1 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		B251A2521B37E45C00B537A1 /* shopping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopping.png; sourceTree = "<group>"; };
 		B251A2541B37E59200B537A1 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		B251A2561B37EBED00B537A1 /* separate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = separate.jpg; sourceTree = "<group>"; };
@@ -135,6 +135,10 @@
 		B2D999071B2C35E70068DE87 /* NTContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTContentViewController.h; sourceTree = "<group>"; };
 		B2D999081B2C35E70068DE87 /* NTContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTContentViewController.m; sourceTree = "<group>"; };
 		B2E5C8AE1B37FBC40011A95F /* moreicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moreicon.png; sourceTree = "<group>"; };
+		B2E808D01B4AB9AA00A9D9FE /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		B2E808D21B4AB9DB00A9D9FE /* picple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picple.png; sourceTree = "<group>"; };
+		B2E808D41B4ABDC000A9D9FE /* HeaderBg_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HeaderBg_7.png; sourceTree = "<group>"; };
+		B2E808D71B4ABEAF00A9D9FE /* NTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTButton.h; sourceTree = "<group>"; };
 		B2EAB19B1B273B7B00BB419A /* libPods-EGOImageLoading.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-EGOImageLoading.a"; path = "Pods/../build/Debug-iphoneos/libPods-EGOImageLoading.a"; sourceTree = "<group>"; };
 		B2EAB19D1B273B8100BB419A /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
 		B2EAB19E1B273B8100BB419A /* libPods-EGOCache.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-EGOCache.a"; path = "Pods/../build/Debug-iphoneos/libPods-EGOCache.a"; sourceTree = "<group>"; };
@@ -146,10 +150,8 @@
 		B2F1F6DB1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTFunctionTableViewCell.m; sourceTree = "<group>"; };
 		B2F1F6DE1B2AE79E00B6BCA8 /* NTFunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTFunctionView.h; sourceTree = "<group>"; };
 		B2F1F6DF1B2AE79E00B6BCA8 /* NTFunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTFunctionView.m; sourceTree = "<group>"; };
-		B2F2D1071B42BB4900231782 /* picple.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = picple.jpg; sourceTree = "<group>"; };
 		B2F2D10F1B42D0FE00231782 /* NTShowDetailVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTShowDetailVIew.h; sourceTree = "<group>"; };
 		B2F2D1101B42D0FE00231782 /* NTShowDetailVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTShowDetailVIew.m; sourceTree = "<group>"; };
-		B2F3A1631B28919A00B1FCA1 /* NTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTButton.h; sourceTree = "<group>"; };
 		B2F3A1641B28919A00B1FCA1 /* NTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTButton.m; sourceTree = "<group>"; };
 		C07F5D2EA0F4239420C95EAA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EE460C36E7E38FBAFD5DF810 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -282,7 +284,7 @@
 				B21037E21B2541C200ED732B /* NTColor.m */,
 				B21037E31B2541C200ED732B /* NTImage.h */,
 				B21037E41B2541C200ED732B /* NTImage.m */,
-				B2F3A1631B28919A00B1FCA1 /* NTButton.h */,
+				B2E808D71B4ABEAF00A9D9FE /* NTButton.h */,
 				B2F3A1641B28919A00B1FCA1 /* NTButton.m */,
 				B2A4CECF1B317BF00058DE58 /* NTScrollImageView.h */,
 				B2A4CED01B317BF00058DE58 /* NTScrollImageView.m */,
@@ -315,8 +317,9 @@
 		B251A24F1B37E2CB00B537A1 /* NTSource */ = {
 			isa = PBXGroup;
 			children = (
+				B2E808D41B4ABDC000A9D9FE /* HeaderBg_7.png */,
 				B26EF0561B4448F0000D106D /* login.png */,
-				B2F2D1071B42BB4900231782 /* picple.jpg */,
+				B2E808D21B4AB9DB00A9D9FE /* picple.png */,
 				B22F99E31B418B500027EB40 /* floar.jpg */,
 				B22F99E41B418B500027EB40 /* form.jpg */,
 				B22F99E51B418B500027EB40 /* hotel.jpg */,
@@ -326,8 +329,8 @@
 				B22F99E91B418B500027EB40 /* staff.jpg */,
 				B2E5C8AE1B37FBC40011A95F /* moreicon.png */,
 				B251A2561B37EBED00B537A1 /* separate.jpg */,
+				B2E808D01B4AB9AA00A9D9FE /* logo.png */,
 				B251A2521B37E45C00B537A1 /* shopping.png */,
-				B251A2501B37E34D00B537A1 /* logo.png */,
 				B251A2541B37E59200B537A1 /* user.png */,
 			);
 			path = NTSource;
@@ -490,9 +493,8 @@
 			files = (
 				B251A2571B37EBED00B537A1 /* separate.jpg in Resources */,
 				B22F99EF1B418B500027EB40 /* site.jpg in Resources */,
+				B2E808D11B4AB9AA00A9D9FE /* logo.png in Resources */,
 				B206316A1B1BF4C000C02FA6 /* Main.storyboard in Resources */,
-				B251A2511B37E34D00B537A1 /* logo.png in Resources */,
-				B2F2D1081B42BB4900231782 /* picple.jpg in Resources */,
 				B2E5C8AF1B37FBC40011A95F /* moreicon.png in Resources */,
 				B22F99EC1B418B500027EB40 /* hotel.jpg in Resources */,
 				B2C71E651B26818500682AEB /* NTConfigurationFile.plist in Resources */,
@@ -503,8 +505,10 @@
 				B22F99EE1B418B500027EB40 /* props.jpg in Resources */,
 				B26EF0571B4448F0000D106D /* login.png in Resources */,
 				B22F99F01B418B500027EB40 /* staff.jpg in Resources */,
+				B2E808D31B4AB9DB00A9D9FE /* picple.png in Resources */,
 				B206316C1B1BF4C000C02FA6 /* Images.xcassets in Resources */,
 				B22F99EA1B418B500027EB40 /* floar.jpg in Resources */,
+				B2E808D51B4ABDC000A9D9FE /* HeaderBg_7.png in Resources */,
 				B251A2531B37E45C00B537A1 /* shopping.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,4 +11,5 @@
 
 + (UIImage *)imageWithFileName:(NSString *)name;
 
++ ( UIImage  *)imageWithColor:( UIColor  *)color size:( CGSize )size;
 @end

@@ -78,7 +78,7 @@
     [self.view addSubview:_scrollView];
     _scrollView.scrollEnabled=YES;
     
-    EGOImageView *imageView=[[EGOImageView alloc] initWithPlaceholderImage:[NTImage imageWithFileName:@"picple.jpg"]];
+    EGOImageView *imageView=[[EGOImageView alloc] initWithPlaceholderImage:[NTImage imageWithFileName:@"picple.png"]];
     imageView.frame=CGRectMake(20, 20, 570, 415);
     imageView.imageURL=[NSURL URLWithString:[_detailDic objectForKey:@"cover_id"]];
     [_scrollView addSubview:imageView];
@@ -164,7 +164,7 @@
             [contentBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
             [contentBtn addTarget:self action:@selector(contentInfoselect:) forControlEvents:UIControlEventTouchUpInside];
             contentBtn.layer.borderWidth=0.5;
-            contentBtn.layer.borderColor=[[UIColor lightGrayColor] CGColor];
+            contentBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
             contentBtn.backgroundColor=[NTColor colorWithHexString:NTBlueColor];
             contentBtn.tag=i;
             contentBtn.frame=CGRectMake(20+j*120, 455, 120, 40);
@@ -234,7 +234,7 @@
                 _imageInfoView.backgroundColor=[NTColor whiteColor];
                 int i=0;
                 for (NSString *imagePath in _imageAry) {
-                    EGOImageButton *imageBtn=[[EGOImageButton alloc] initWithPlaceholderImage:[UIImage imageNamed:@"picple.jpg"]];
+                    EGOImageButton *imageBtn=[[EGOImageButton alloc] initWithPlaceholderImage:[UIImage imageNamed:@"picple.png"]];
                     [imageBtn addTarget:self action:@selector(imageBtnAction:) forControlEvents:UIControlEventTouchUpInside];
                     imageBtn.tag=i;
                     imageBtn.imageURL=[NSURL URLWithString:imagePath];
