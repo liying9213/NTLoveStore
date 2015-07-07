@@ -49,7 +49,7 @@
     UIView * leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 45)];
     leftView.backgroundColor = [NTColor  clearColor];
     
-    UIImageView *logoImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 125, 45)];
+    UIImageView *logoImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 2, 99, 35)];
     logoImageView.backgroundColor=[NTColor clearColor];
     logoImageView.image=[NTImage imageWithFileName:@"logo.png"];
     [leftView addSubview:logoImageView];

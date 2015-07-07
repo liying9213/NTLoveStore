@@ -7,8 +7,9 @@
 //
 
 #import "NTParentViewController.h"
+#import "VRGCalendarView.h"
 
-@interface NTContentViewController : NTParentViewController
+@interface NTContentViewController : NTParentViewController<VRGCalendarViewDelegate,UIPopoverControllerDelegate>
 
 @property (nonatomic, strong)NSDictionary *contentDic;
 
@@ -21,6 +22,10 @@
 @property (nonatomic, strong)UIScrollView *videoInfoView;
 
 @property (nonatomic, strong)UIView *commentInfoView;
+
+@property (nonatomic, strong)UILabel *selectDateLabel;
+
+@property (nonatomic, strong)UIPopoverController *popoverView;
 
 @property (nonatomic, assign)NSInteger productID;
 

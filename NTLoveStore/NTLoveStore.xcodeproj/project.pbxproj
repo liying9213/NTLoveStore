@@ -21,6 +21,12 @@
 		B21037E61B2541C200ED732B /* NTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B21037E41B2541C200ED732B /* NTImage.m */; };
 		B21037EC1B2578F800ED732B /* NTParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21037EB1B2578F800ED732B /* NTParentViewController.m */; };
 		B213C0C51B259D210023D6B5 /* NTAsynService.m in Sources */ = {isa = PBXBuildFile; fileRef = B213C0C41B259D210023D6B5 /* NTAsynService.m */; };
+		B2255A671B4C12DD00FA2C21 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B2255A661B4C12DD00FA2C21 /* logo.png */; };
+		B2255A731B4C191C00FA2C21 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2255A6A1B4C191C00FA2C21 /* VRGCalendarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		B2255A741B4C191C00FA2C21 /* UIView+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B2255A6C1B4C191C00FA2C21 /* UIView+convenience.m */; };
+		B2255A751B4C191C00FA2C21 /* NSMutableArray+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B2255A6E1B4C191C00FA2C21 /* NSMutableArray+convenience.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		B2255A761B4C191C00FA2C21 /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B2255A701B4C191C00FA2C21 /* NSDate+convenience.m */; };
+		B2255A771B4C191C00FA2C21 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = B2255A721B4C191C00FA2C21 /* UIColor+expanded.m */; };
 		B22F99EA1B418B500027EB40 /* floar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E31B418B500027EB40 /* floar.jpg */; };
 		B22F99EB1B418B500027EB40 /* form.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E41B418B500027EB40 /* form.jpg */; };
 		B22F99EC1B418B500027EB40 /* hotel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E51B418B500027EB40 /* hotel.jpg */; };
@@ -46,7 +52,6 @@
 		B2D999051B2C10C20068DE87 /* NTLeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D999041B2C10C20068DE87 /* NTLeftTableViewCell.m */; };
 		B2D999091B2C35E70068DE87 /* NTContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D999081B2C35E70068DE87 /* NTContentViewController.m */; };
 		B2E5C8AF1B37FBC40011A95F /* moreicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E5C8AE1B37FBC40011A95F /* moreicon.png */; };
-		B2E808D11B4AB9AA00A9D9FE /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E808D01B4AB9AA00A9D9FE /* logo.png */; };
 		B2E808D31B4AB9DB00A9D9FE /* picple.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E808D21B4AB9DB00A9D9FE /* picple.png */; };
 		B2E808D51B4ABDC000A9D9FE /* HeaderBg_7.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E808D41B4ABDC000A9D9FE /* HeaderBg_7.png */; };
 		B2EAB19C1B273B7B00BB419A /* libPods-EGOImageLoading.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19B1B273B7B00BB419A /* libPods-EGOImageLoading.a */; };
@@ -98,6 +103,17 @@
 		B21037EB1B2578F800ED732B /* NTParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTParentViewController.m; sourceTree = "<group>"; };
 		B213C0C31B259D210023D6B5 /* NTAsynService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTAsynService.h; sourceTree = "<group>"; };
 		B213C0C41B259D210023D6B5 /* NTAsynService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTAsynService.m; sourceTree = "<group>"; };
+		B2255A661B4C12DD00FA2C21 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		B2255A691B4C191C00FA2C21 /* VRGCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGCalendarView.h; sourceTree = "<group>"; };
+		B2255A6A1B4C191C00FA2C21 /* VRGCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGCalendarView.m; sourceTree = "<group>"; };
+		B2255A6B1B4C191C00FA2C21 /* UIView+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+convenience.h"; sourceTree = "<group>"; };
+		B2255A6C1B4C191C00FA2C21 /* UIView+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+convenience.m"; sourceTree = "<group>"; };
+		B2255A6D1B4C191C00FA2C21 /* NSMutableArray+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+convenience.h"; sourceTree = "<group>"; };
+		B2255A6E1B4C191C00FA2C21 /* NSMutableArray+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+convenience.m"; sourceTree = "<group>"; };
+		B2255A6F1B4C191C00FA2C21 /* NSDate+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+convenience.h"; sourceTree = "<group>"; };
+		B2255A701B4C191C00FA2C21 /* NSDate+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+convenience.m"; sourceTree = "<group>"; };
+		B2255A711B4C191C00FA2C21 /* UIColor+expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+expanded.h"; sourceTree = "<group>"; };
+		B2255A721B4C191C00FA2C21 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
 		B22F99E31B418B500027EB40 /* floar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = floar.jpg; sourceTree = "<group>"; };
 		B22F99E41B418B500027EB40 /* form.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = form.jpg; sourceTree = "<group>"; };
 		B22F99E51B418B500027EB40 /* hotel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hotel.jpg; sourceTree = "<group>"; };
@@ -135,7 +151,6 @@
 		B2D999071B2C35E70068DE87 /* NTContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTContentViewController.h; sourceTree = "<group>"; };
 		B2D999081B2C35E70068DE87 /* NTContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTContentViewController.m; sourceTree = "<group>"; };
 		B2E5C8AE1B37FBC40011A95F /* moreicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moreicon.png; sourceTree = "<group>"; };
-		B2E808D01B4AB9AA00A9D9FE /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		B2E808D21B4AB9DB00A9D9FE /* picple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picple.png; sourceTree = "<group>"; };
 		B2E808D41B4ABDC000A9D9FE /* HeaderBg_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HeaderBg_7.png; sourceTree = "<group>"; };
 		B2E808D71B4ABEAF00A9D9FE /* NTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTButton.h; sourceTree = "<group>"; };
@@ -213,6 +228,7 @@
 		B206315D1B1BF4C000C02FA6 /* NTLoveStore */ = {
 			isa = PBXGroup;
 			children = (
+				B2255A681B4C190200FA2C21 /* calendar */,
 				B20631621B1BF4C000C02FA6 /* AppDelegate.h */,
 				B20631631B1BF4C000C02FA6 /* AppDelegate.m */,
 				B20631651B1BF4C000C02FA6 /* ViewController.h */,
@@ -314,11 +330,29 @@
 			path = NTService;
 			sourceTree = "<group>";
 		};
+		B2255A681B4C190200FA2C21 /* calendar */ = {
+			isa = PBXGroup;
+			children = (
+				B2255A691B4C191C00FA2C21 /* VRGCalendarView.h */,
+				B2255A6A1B4C191C00FA2C21 /* VRGCalendarView.m */,
+				B2255A6B1B4C191C00FA2C21 /* UIView+convenience.h */,
+				B2255A6C1B4C191C00FA2C21 /* UIView+convenience.m */,
+				B2255A6D1B4C191C00FA2C21 /* NSMutableArray+convenience.h */,
+				B2255A6E1B4C191C00FA2C21 /* NSMutableArray+convenience.m */,
+				B2255A6F1B4C191C00FA2C21 /* NSDate+convenience.h */,
+				B2255A701B4C191C00FA2C21 /* NSDate+convenience.m */,
+				B2255A711B4C191C00FA2C21 /* UIColor+expanded.h */,
+				B2255A721B4C191C00FA2C21 /* UIColor+expanded.m */,
+			);
+			path = calendar;
+			sourceTree = "<group>";
+		};
 		B251A24F1B37E2CB00B537A1 /* NTSource */ = {
 			isa = PBXGroup;
 			children = (
 				B2E808D41B4ABDC000A9D9FE /* HeaderBg_7.png */,
 				B26EF0561B4448F0000D106D /* login.png */,
+				B2255A661B4C12DD00FA2C21 /* logo.png */,
 				B2E808D21B4AB9DB00A9D9FE /* picple.png */,
 				B22F99E31B418B500027EB40 /* floar.jpg */,
 				B22F99E41B418B500027EB40 /* form.jpg */,
@@ -329,7 +363,6 @@
 				B22F99E91B418B500027EB40 /* staff.jpg */,
 				B2E5C8AE1B37FBC40011A95F /* moreicon.png */,
 				B251A2561B37EBED00B537A1 /* separate.jpg */,
-				B2E808D01B4AB9AA00A9D9FE /* logo.png */,
 				B251A2521B37E45C00B537A1 /* shopping.png */,
 				B251A2541B37E59200B537A1 /* user.png */,
 			);
@@ -493,7 +526,6 @@
 			files = (
 				B251A2571B37EBED00B537A1 /* separate.jpg in Resources */,
 				B22F99EF1B418B500027EB40 /* site.jpg in Resources */,
-				B2E808D11B4AB9AA00A9D9FE /* logo.png in Resources */,
 				B206316A1B1BF4C000C02FA6 /* Main.storyboard in Resources */,
 				B2E5C8AF1B37FBC40011A95F /* moreicon.png in Resources */,
 				B22F99EC1B418B500027EB40 /* hotel.jpg in Resources */,
@@ -504,6 +536,7 @@
 				B22F99ED1B418B500027EB40 /* light.jpg in Resources */,
 				B22F99EE1B418B500027EB40 /* props.jpg in Resources */,
 				B26EF0571B4448F0000D106D /* login.png in Resources */,
+				B2255A671B4C12DD00FA2C21 /* logo.png in Resources */,
 				B22F99F01B418B500027EB40 /* staff.jpg in Resources */,
 				B2E808D31B4AB9DB00A9D9FE /* picple.png in Resources */,
 				B206316C1B1BF4C000C02FA6 /* Images.xcassets in Resources */,
@@ -561,13 +594,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B28842191B1DE76E00C972CF /* NTUserDefaults.m in Sources */,
+				B2255A751B4C191C00FA2C21 /* NSMutableArray+convenience.m in Sources */,
 				B2A0463E1B27DD1800B260EF /* NTHeadSelectView.m in Sources */,
 				B213C0C51B259D210023D6B5 /* NTAsynService.m in Sources */,
 				B23B3A3B1B29C5CA00328AD9 /* NTHomeView.m in Sources */,
+				B2255A731B4C191C00FA2C21 /* VRGCalendarView.m in Sources */,
 				B2A4CED11B317BF00058DE58 /* NTScrollImageView.m in Sources */,
 				B21037DC1B253DE300ED732B /* NTLoginViewController.m in Sources */,
 				B2F2D1111B42D0FE00231782 /* NTShowDetailVIew.m in Sources */,
 				B251A25A1B37F1FE00B537A1 /* NTUserPopViewController.m in Sources */,
+				B2255A761B4C191C00FA2C21 /* NSDate+convenience.m in Sources */,
 				B2F1F6E01B2AE79E00B6BCA8 /* NTFunctionView.m in Sources */,
 				B2EF0B881B394126008B40ED /* NTUserInfoViewController.m in Sources */,
 				B283E05E1B31BC8F0001D6F1 /* NTWebViewController.m in Sources */,
@@ -577,10 +613,12 @@
 				B283E0621B31C9960001D6F1 /* NTShoppingCarViewController.m in Sources */,
 				B21037E61B2541C200ED732B /* NTImage.m in Sources */,
 				B20631641B1BF4C000C02FA6 /* AppDelegate.m in Sources */,
+				B2255A771B4C191C00FA2C21 /* UIColor+expanded.m in Sources */,
 				B20631611B1BF4C000C02FA6 /* main.m in Sources */,
 				B21037EC1B2578F800ED732B /* NTParentViewController.m in Sources */,
 				B2F1F6DC1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m in Sources */,
 				B21037E51B2541C200ED732B /* NTColor.m in Sources */,
+				B2255A741B4C191C00FA2C21 /* UIView+convenience.m in Sources */,
 				B2C71E681B26871600682AEB /* NTReadConfiguration.m in Sources */,
 				B2F1F6D71B2ACFF000B6BCA8 /* NTMemberView.m in Sources */,
 				B2D999051B2C10C20068DE87 /* NTLeftTableViewCell.m in Sources */,

@@ -9,6 +9,7 @@
 #import "NTContentViewController.h"
 #import "NTShowDetailVIew.h"
 #import "NTAsynService.h"
+#import "NSDate+convenience.h"
 @interface NTContentViewController ()
 
 @end
@@ -46,28 +47,6 @@
         }
     }];
     dic=nil;
-    /*
-     id	string	商品ID
-     title	string	商品名称
-     content	string	商品详情（包括视频）
-     price	string	商品单价
-     cover_id	string	商品主图片地址
-     pics	string	商品展示图集 多个地址使用逗号隔开
-     sale	string	卖出商品数量
-     comment	string	商品评论数
-     
-     {
-     "id": "100",
-     "title": "truss架",
-     "content": "这是商品简介",
-     "price": "66.00",
-     "cover_id": "http://127.0.0.1/Uploads/Picture/2015-06-24/558ab221b7b3a.png",
-     "pics":"http://../Uploads/Picture/2015/3a.png,http://../Uploads/Picture/2015/3a.png",
-     "sale": "0",
-     "comment": "0"
-     }
-     
-     */
 }
 
 #pragma mark - resetView
@@ -115,6 +94,11 @@
     commentNumLabel.attributedText=commentNum;
     commentNumLabel.textAlignment=NSTextAlignmentLeft;
     [_scrollView addSubview:commentNumLabel];
+    
+    UIView *calendarView=[[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(titleLabel.frame), CGRectGetHeight(finishNumLabel.frame)+CGRectGetMinY(finishNumLabel.frame)+20,  ScreenWidth-640, 50)];
+    [self resetCalendarSelectWithView:calendarView];
+    calendarView.backgroundColor=[UIColor clearColor];
+    [_scrollView addSubview:calendarView];
     
     UIButton *selectBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     [selectBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateNormal];
@@ -177,6 +161,42 @@
     }
     _heightValue+=400;
     [_scrollView setContentSize:CGSizeMake(0, _heightValue)];
+}
+
+- (void)resetCalendarSelectWithView:(UIView *)view{
+    UIButton *selectBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    selectBtn.frame=CGRectMake(0, 0, 130, 30);
+    [selectBtn setTitle:@"选择档期" forState:UIControlStateNormal];
+    [selectBtn addTarget:self action:@selector(resetCalendar:) forControlEvents:UIControlEventTouchUpInside];
+    selectBtn.titleLabel.font=[UIFont systemFontOfSize:15];
+    [selectBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
+    selectBtn.layer.borderWidth=1;
+    selectBtn.layer.borderColor=[[NTColor blackColor] CGColor];
+    [view addSubview:selectBtn];
+    
+    _selectDateLabel=[[UILabel alloc] initWithFrame:CGRectMake(200, 0, 200, 30)];
+    _selectDateLabel.backgroundColor=[UIColor clearColor];
+    _selectDateLabel.font=[UIFont systemFontOfSize:15];
+    [view addSubview:_selectDateLabel];
+}
+
+- (void)resetCalendar:(id)sender{
+    UIButton *btn=(UIButton *)sender;
+    VRGCalendarView *calendar = [[VRGCalendarView alloc] init];
+    if (_selectDateLabel.text) {
+        NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
+        [inputFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSDate* inputDate = [inputFormatter dateFromString:_selectDateLabel.text];
+        calendar.firstDate=inputDate;
+    }
+    calendar.delegate=self;
+    UIViewController *viewcontroller=[[UIViewController alloc] init];
+    [viewcontroller.view addSubview:calendar];
+    
+    _popoverView=[[UIPopoverController alloc] initWithContentViewController:viewcontroller];
+    _popoverView.popoverContentSize = CGSizeMake(320, 400);
+    _popoverView.delegate=self;
+    [_popoverView presentPopoverFromRect:btn.bounds inView:btn permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
 - (NSMutableArray *)GetTheVideo{
@@ -298,6 +318,32 @@
         default:
             break;
     }
+}
+
+#pragma mark - calendarDelegate
+
+- (void)calendarView:(VRGCalendarView *)calendarView switchedToMonth:(int)month targetHeight:(float)targetHeight animated:(BOOL)animated{
+    NSDictionary  *dic=@{@"2015":@{@"7":@[@11,@22,@25,@28],@"9":@[@03,@10,@19]},@"2016":@{@"1":@[@18,@21,@22,@27],@"2":@[@13,@13,@19]}};
+    NSString *year=[NSString stringWithFormat:@"%d",[calendarView.currentMonth year]];
+    NSString *imonth=[NSString stringWithFormat:@"%d",[calendarView.currentMonth month]];
+    if ([dic objectForKey:year]) {
+        if ([[dic objectForKey:year] objectForKey:imonth]) {
+            [calendarView markDates:[[dic objectForKey:year] objectForKey:imonth]];
+        }
+    }
+}
+
+- (void)calendarView:(VRGCalendarView *)calendarView dateSelected:(NSDate *)date{
+    NSLog(@"====%@",date);
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    _selectDateLabel.text=[formatter stringFromDate:date];;
+    [_popoverView dismissPopoverAnimated:YES];
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController{
+    [_popoverView.contentViewController removeFromParentViewController];
+    _popoverView=nil;
 }
 
 #pragma mark - showDetailView
