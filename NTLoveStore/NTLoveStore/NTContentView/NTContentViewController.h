@@ -25,6 +25,16 @@
 
 @property (nonatomic, strong)UILabel *selectDateLabel;
 
+@property (nonatomic, strong)UILabel *selectNumLabel;
+
+@property (nonatomic, strong)UIButton *contentBtn;
+
+@property (nonatomic, strong)UIButton *imageViewBtn;
+
+@property (nonatomic, strong)UIButton *videoBtn;
+
+@property (nonatomic, strong)UIButton *commentBtn;
+
 @property (nonatomic, strong)UIPopoverController *popoverView;
 
 @property (nonatomic, assign)NSInteger productID;
@@ -35,8 +45,12 @@
 
 @property (nonatomic, strong)NSMutableArray *videoAry;
 
+@property (nonatomic) BOOL isPerson;
+
 @property (nonatomic) float heightValue;
 
 @property (nonatomic) BOOL isCanSelect;
+
+@property (nonatomic) int selectNum;
 
 @end

@@ -12,6 +12,7 @@
 #import "NTWebViewController.h"
 #import "NTShoppingCarViewController.h"
 #import "NTUserInfoViewController.h"
+#import "NTConsultViewController.h"
 //getData
 #import "NTAsynService.h"
 #import "NTReadConfiguration.h"
@@ -247,7 +248,13 @@
 
 - (void)homeSelectAction:(id)sender{
     EGOImageButton *btn=(EGOImageButton *)sender;
-    [_headSelectView selectTheTag:btn.tag];
+    if (btn.tag==1024) {
+        NTConsultViewController *viewcontroller=[[NTConsultViewController alloc] init];
+        [self.navigationController pushViewController:viewcontroller animated:YES];
+    }
+    else{
+        [_headSelectView selectTheTag:btn.tag];
+    }
 }
 
 - (void)homeWebSelectAction:(NSString *)path{
@@ -290,7 +297,16 @@
     NTContentViewController *viewController=[[NTContentViewController alloc] init];
     viewController.productID=btn.tag;
     viewController.isCanSelect=!_isTheme;
+    viewController.isPerson=[self isPerson];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (BOOL)isPerson{
+    NSDictionary *dic=[_functionView.leftAry firstObject];
+    if ([[dic objectForKey:@"pid"] intValue]==52) {
+        return YES;
+    }
+    return NO;
 }
 
 #pragma  mark - navAction

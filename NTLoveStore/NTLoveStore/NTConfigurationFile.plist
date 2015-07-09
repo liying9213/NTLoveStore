@@ -86,7 +86,7 @@
 		</dict>
 		<dict>
 			<key>id</key>
-			<integer>3</integer>
+			<integer>1025</integer>
 			<key>name</key>
 			<string>宴会酒店</string>
 			<key>width</key>
@@ -102,7 +102,7 @@
 		</dict>
 		<dict>
 			<key>id</key>
-			<integer>0</integer>
+			<integer>1024</integer>
 			<key>name</key>
 			<string>咨询单</string>
 			<key>width</key>

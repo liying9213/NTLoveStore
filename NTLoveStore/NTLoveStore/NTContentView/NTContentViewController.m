@@ -95,11 +95,19 @@
     commentNumLabel.textAlignment=NSTextAlignmentLeft;
     [_scrollView addSubview:commentNumLabel];
     
-    UIView *calendarView=[[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(titleLabel.frame), CGRectGetHeight(finishNumLabel.frame)+CGRectGetMinY(finishNumLabel.frame)+20,  ScreenWidth-640, 50)];
-    [self resetCalendarSelectWithView:calendarView];
-    calendarView.backgroundColor=[UIColor clearColor];
-    [_scrollView addSubview:calendarView];
-    
+    if (_isPerson) {
+        UIView *calendarView=[[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(titleLabel.frame), CGRectGetHeight(finishNumLabel.frame)+CGRectGetMinY(finishNumLabel.frame)+20,  ScreenWidth-640, 50)];
+        [self resetCalendarSelectWithView:calendarView];
+        calendarView.backgroundColor=[UIColor clearColor];
+        [_scrollView addSubview:calendarView];
+    }
+    else
+    {
+        UIView *numView=[[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(titleLabel.frame), CGRectGetHeight(finishNumLabel.frame)+CGRectGetMinY(finishNumLabel.frame)+20,  ScreenWidth-640, 50)];
+        [self resetSelectNumWithView:numView];
+        numView.backgroundColor=[UIColor clearColor];
+        [_scrollView addSubview:numView];
+    }
     UIButton *selectBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     [selectBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateNormal];
     [selectBtn setTitle:@"立即预定" forState:UIControlStateNormal];
@@ -123,40 +131,67 @@
         NSString *title;
         if ([_detailDic objectForKey:@"content"]&&i==0) {
             title=@"详细信息";
-            ishave=YES;
+            _contentBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+            [_contentBtn setTitle:title forState:UIControlStateNormal];
+            [_contentBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateSelected];
+            [_contentBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
+            [_contentBtn addTarget:self action:@selector(contentInfoselect:) forControlEvents:UIControlEventTouchUpInside];
+            _contentBtn.layer.borderWidth=0.5;
+            _contentBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
+            _contentBtn.backgroundColor=[NTColor colorWithHexString:NTBlueColor];
+            _contentBtn.tag=i;
+            _contentBtn.frame=CGRectMake(20+j*120, 455, 120, 40);
+            [_scrollView addSubview:_contentBtn];
+            if (i==0) {
+                [self contentInfoselect:_contentBtn];
+            }
         }
         else if ([_detailDic objectForKey:@"pics"]&&i==1){
             title=@"案例相册";
             j++;
-            ishave=YES;
             [self GetTheImage];
+            _imageViewBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+            [_imageViewBtn setTitle:title forState:UIControlStateNormal];
+            [_imageViewBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateSelected];
+            [_imageViewBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
+            [_imageViewBtn addTarget:self action:@selector(contentInfoselect:) forControlEvents:UIControlEventTouchUpInside];
+            _imageViewBtn.layer.borderWidth=0.5;
+            _imageViewBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
+            _imageViewBtn.backgroundColor=[NTColor colorWithHexString:NTBlueColor];
+            _imageViewBtn.tag=i;
+            _imageViewBtn.frame=CGRectMake(20+j*120, 455, 120, 40);
+            [_scrollView addSubview:_imageViewBtn];
         }
         else if ([self GetTheVideo]&&i==2){
             title=@"案例视频";
             j++;
-            ishave=YES;
+            _videoBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+            [_videoBtn setTitle:title forState:UIControlStateNormal];
+            [_videoBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateSelected];
+            [_videoBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
+            [_videoBtn addTarget:self action:@selector(contentInfoselect:) forControlEvents:UIControlEventTouchUpInside];
+            _videoBtn.layer.borderWidth=0.5;
+            _videoBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
+            _videoBtn.backgroundColor=[NTColor colorWithHexString:NTBlueColor];
+            _videoBtn.tag=i;
+            _videoBtn.frame=CGRectMake(20+j*120, 455, 120, 40);
+            [_scrollView addSubview:_videoBtn];
         }
         else if ([[_detailDic objectForKey:@"comment"] intValue]>0&&i==3){
             title=@"真实评论";
             j++;
-            ishave=YES;
-        }
-        if (ishave) {
-            UIButton *contentBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-            [contentBtn setTitle:title forState:UIControlStateNormal];
-            [contentBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateSelected];
-            [contentBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
-            [contentBtn addTarget:self action:@selector(contentInfoselect:) forControlEvents:UIControlEventTouchUpInside];
-            contentBtn.layer.borderWidth=0.5;
-            contentBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
-            contentBtn.backgroundColor=[NTColor colorWithHexString:NTBlueColor];
-            contentBtn.tag=i;
-            contentBtn.frame=CGRectMake(20+j*120, 455, 120, 40);
-            [_scrollView addSubview:contentBtn];
-            if (i==0) {
-                [self contentInfoselect:contentBtn];
-            }
-            ishave=NO;
+            _commentBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+            [_commentBtn setTitle:title forState:UIControlStateNormal];
+            [_commentBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateSelected];
+            [_commentBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
+            [_commentBtn addTarget:self action:@selector(contentInfoselect:) forControlEvents:UIControlEventTouchUpInside];
+            _commentBtn.layer.borderWidth=0.5;
+            _commentBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
+            _commentBtn.backgroundColor=[NTColor colorWithHexString:NTBlueColor];
+            _commentBtn.tag=i;
+            _commentBtn.frame=CGRectMake(20+j*120, 455, 120, 40);
+            [_scrollView addSubview:_commentBtn];
+            
         }
     }
     _heightValue+=400;
@@ -171,13 +206,51 @@
     selectBtn.titleLabel.font=[UIFont systemFontOfSize:15];
     [selectBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
     selectBtn.layer.borderWidth=1;
-    selectBtn.layer.borderColor=[[NTColor blackColor] CGColor];
+    selectBtn.layer.borderColor=[[NTColor colorWithHexString:@"BBBBBB"] CGColor];
     [view addSubview:selectBtn];
     
     _selectDateLabel=[[UILabel alloc] initWithFrame:CGRectMake(200, 0, 200, 30)];
     _selectDateLabel.backgroundColor=[UIColor clearColor];
     _selectDateLabel.font=[UIFont systemFontOfSize:15];
     [view addSubview:_selectDateLabel];
+}
+
+- (void)resetSelectNumWithView:(UIView *)view{
+    UILabel *label=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    label.backgroundColor=[UIColor clearColor];
+    label.text=@"数量：";
+    label.font=[UIFont systemFontOfSize:15];
+    [view addSubview:label];
+    
+    UIButton *minusBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    minusBtn.frame=CGRectMake(50, 10, 30, 30);
+    [minusBtn setTitle:@"-" forState:UIControlStateNormal];
+    minusBtn.titleLabel.font=[UIFont systemFontOfSize:15];
+    [minusBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
+    [minusBtn addTarget:self action:@selector(minusNum) forControlEvents:UIControlEventTouchUpInside];
+    minusBtn.layer.masksToBounds=YES;
+    minusBtn.layer.cornerRadius=15;
+    minusBtn.layer.borderWidth=1;
+    minusBtn.layer.borderColor=[[NTColor colorWithHexString:@"#BBBBBB"] CGColor];
+    [view addSubview:minusBtn];
+    
+    _selectNumLabel=[[UILabel alloc] initWithFrame:CGRectMake(90, 0, 50, 50)];
+    _selectNumLabel.textAlignment=NSTextAlignmentCenter;
+    _selectNumLabel.text=@"1";
+    _selectNumLabel.font=[UIFont systemFontOfSize:15];
+    [view addSubview:_selectNumLabel];
+    
+    UIButton *addBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    addBtn.frame=CGRectMake(150,10, 30, 30);
+    [addBtn setTitle:@"+" forState:UIControlStateNormal];
+    addBtn.titleLabel.font=[UIFont systemFontOfSize:15];
+    [addBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
+    [addBtn addTarget:self action:@selector(addNum) forControlEvents:UIControlEventTouchUpInside];
+    addBtn.layer.masksToBounds=YES;
+    addBtn.layer.cornerRadius=16;
+    addBtn.layer.borderWidth=1;
+    addBtn.layer.borderColor=[[NTColor colorWithHexString:@"#BBBBBB"] CGColor];
+    [view addSubview:addBtn];
 }
 
 - (void)resetCalendar:(id)sender{
@@ -216,7 +289,6 @@
 
 - (void)contentInfoselect:(id)sender{
     UIButton *btn=(UIButton *)sender;
-    btn.selected=!btn.selected;
     switch (btn.tag) {
         case 0:
         {
@@ -245,6 +317,10 @@
             _imageInfoView.hidden=YES;
             _videoInfoView.hidden=YES;
             _commentInfoView.hidden=YES;
+            _contentBtn.selected=YES;
+            _commentBtn.selected=NO;
+            _imageViewBtn.selected=NO;
+            _videoBtn.selected=NO;
         }
             break;
         case 1:
@@ -269,6 +345,10 @@
             _imageInfoView.hidden=NO;
             _videoInfoView.hidden=YES;
             _commentInfoView.hidden=YES;
+            _contentBtn.selected=NO;
+            _commentBtn.selected=NO;
+            _imageViewBtn.selected=YES;
+            _videoBtn.selected=NO;
         }
             break;
         case 2:
@@ -282,6 +362,10 @@
             _imageInfoView.hidden=YES;
             _videoInfoView.hidden=NO;
             _commentInfoView.hidden=YES;
+            _contentBtn.selected=NO;
+            _commentBtn.selected=NO;
+            _imageViewBtn.selected=NO;
+            _videoBtn.selected=YES;
         }
             break;
         case 3:
@@ -312,12 +396,32 @@
             _imageInfoView.hidden=YES;
             _videoInfoView.hidden=YES;
             _commentInfoView.hidden=NO;
+            _contentBtn.selected=NO;
+            _commentBtn.selected=YES;
+            _imageViewBtn.selected=NO;
+            _videoBtn.selected=NO;
         }
             break;
             
         default:
             break;
     }
+}
+
+#pragma  mark - selectNumAction
+
+- (void)minusNum{
+    if (_selectNum>1) {
+        _selectNum--;
+    }
+    else
+        _selectNum=1;
+    _selectNumLabel.text=[NSString stringWithFormat:@"%d",_selectNum];
+}
+
+- (void)addNum{
+    _selectNum++;
+    _selectNumLabel.text=[NSString stringWithFormat:@"%d",_selectNum];
 }
 
 #pragma mark - calendarDelegate

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C920C477F57CFF21BB9C469 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CB0EAAE541F33ECEC254AF /* libPods.a */; };
+		B200CF8D1B4EB87B00130D73 /* NTConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B200CF8C1B4EB87B00130D73 /* NTConsultViewController.m */; };
 		B20631611B1BF4C000C02FA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B20631601B1BF4C000C02FA6 /* main.m */; };
 		B20631641B1BF4C000C02FA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B20631631B1BF4C000C02FA6 /* AppDelegate.m */; };
 		B20631671B1BF4C000C02FA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B20631661B1BF4C000C02FA6 /* ViewController.m */; };
@@ -77,6 +78,8 @@
 
 /* Begin PBXFileReference section */
 		02CB0EAAE541F33ECEC254AF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B200CF8B1B4EB87B00130D73 /* NTConsultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTConsultViewController.h; sourceTree = "<group>"; };
+		B200CF8C1B4EB87B00130D73 /* NTConsultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTConsultViewController.m; sourceTree = "<group>"; };
 		B206315B1B1BF4C000C02FA6 /* NTLoveStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NTLoveStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B206315F1B1BF4C000C02FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B20631601B1BF4C000C02FA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -424,6 +427,8 @@
 			children = (
 				B2D999071B2C35E70068DE87 /* NTContentViewController.h */,
 				B2D999081B2C35E70068DE87 /* NTContentViewController.m */,
+				B200CF8B1B4EB87B00130D73 /* NTConsultViewController.h */,
+				B200CF8C1B4EB87B00130D73 /* NTConsultViewController.m */,
 			);
 			path = NTContentView;
 			sourceTree = "<group>";
@@ -602,6 +607,7 @@
 				B2A4CED11B317BF00058DE58 /* NTScrollImageView.m in Sources */,
 				B21037DC1B253DE300ED732B /* NTLoginViewController.m in Sources */,
 				B2F2D1111B42D0FE00231782 /* NTShowDetailVIew.m in Sources */,
+				B200CF8D1B4EB87B00130D73 /* NTConsultViewController.m in Sources */,
 				B251A25A1B37F1FE00B537A1 /* NTUserPopViewController.m in Sources */,
 				B2255A761B4C191C00FA2C21 /* NSDate+convenience.m in Sources */,
 				B2F1F6E01B2AE79E00B6BCA8 /* NTFunctionView.m in Sources */,
@@ -704,7 +710,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "b995eafa-5786-467b-91b3-af37e4b1016b";
+				PROVISIONING_PROFILE = "cc701ec0-e284-4fea-a8a3-2fcd1067d626";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -764,7 +770,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b995eafa-5786-467b-91b3-af37e4b1016b";
+				PROVISIONING_PROFILE = "cc701ec0-e284-4fea-a8a3-2fcd1067d626";
 			};
 			name = Debug;
 		};
