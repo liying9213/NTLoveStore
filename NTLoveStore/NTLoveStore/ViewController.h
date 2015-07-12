@@ -31,6 +31,8 @@
 
 @property (nonatomic, strong) NSString *currentType;
 
+@property (nonatomic) int theID;
+
 @property (nonatomic) BOOL isTheme;
 
 @end

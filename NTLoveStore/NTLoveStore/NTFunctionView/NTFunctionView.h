@@ -24,6 +24,11 @@
 
 - (void)showResult:(id)sender;
 
+@optional
+
+- (void)selectAction:(id)sender;
+
+
 @end
 
 @interface NTFunctionView : UIView <UITableViewDataSource,UITableViewDelegate>
@@ -49,6 +54,8 @@
 @property (nonatomic) float theTuanPrice;
 
 @property (nonatomic, strong)NSDictionary *resultDic;
+
+@property (nonatomic) int theID;
 
 - (void)resetView;
 

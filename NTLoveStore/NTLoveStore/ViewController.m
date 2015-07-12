@@ -281,6 +281,7 @@
                         @"order":[NSNumber numberWithInteger:orderID],
                         @"sort":@"asc"};
     _currentType=category;
+    _theID=_functionView.theID;
     [NTAsynService requestWithHead:listBaseURL WithBody:dic completionHandler:^(BOOL success,  id finishData, NSError *connectionError) {
         if (success) {
             __strong typeof(self) self=__weakself;
@@ -327,6 +328,35 @@
         }
     }];
     dic=nil;
+}
+
+- (void)selectAction:(id)sender{
+    UIButton *btn=(id)sender;
+    [btn setBackgroundColor:[UIColor lightGrayColor]];
+    [self showEndViewWithText:@"正在完善..."];
+//    __weak typeof(self) __weakself=self;
+//    NSString *num=@"1";
+//    NSString *date=@"0";
+//    NSDictionary *dic=@{@"uid":[share()userUid],
+//                        @"token":[share()userToken],
+//                        @"id":[NSString stringWithFormat:@"%d",_theID],
+//                        @"price":[NSString stringWithFormat:@"%f",_functionView.theTuanPrice],
+//                        @"num":num,
+//                        @"parameters":date,
+//                        @"sort":_currentType};
+//    [NTAsynService requestWithHead:addItemBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+//        if (success) {
+//            __strong typeof(self) self=__weakself;
+//            btn.enabled=NO;
+//            [btn setBackgroundColor:[NTColor lightGrayColor]];
+//            [self hideWaitingView];
+//        }
+//        else{
+//            __strong typeof(self) self=__weakself;
+//            [self showEndViewWithText:connectionError.localizedDescription];
+//        }
+//    }];
+//    dic=nil;
 }
 
 - (BOOL)isPerson{

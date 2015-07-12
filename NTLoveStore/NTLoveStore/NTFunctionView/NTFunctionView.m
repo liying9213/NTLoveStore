@@ -120,6 +120,7 @@
     [btn setTitle:@"立即购买" forState:UIControlStateNormal];
     [btn setTitleColor:[NTColor whiteColor] forState:UIControlStateNormal];
     [btn setBackgroundColor:[NTColor colorWithHexString:NTBlueColor]];
+    [btn addTarget:self action:@selector(selectAction:) forControlEvents:UIControlEventTouchUpInside];
     [footView addSubview:btn];
     _tableView.tableFooterView=footView;
 }
@@ -129,6 +130,7 @@
     [_leftView reloadData];
     if (_leftAry.count>0) {
         [_leftView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionBottom];
+        _theID=[[[_leftAry objectAtIndex:0] objectForKey:@"id"] intValue];
         [self leftViewActionWithCategory:[[_leftAry objectAtIndex:0] objectForKey:@"name"] WithOrder:_orderID];
     }
 }
@@ -201,6 +203,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (tableView==_leftView) {
         _selectID=indexPath.row;
+        _theID=[[[_leftAry objectAtIndex:indexPath.row] objectForKey:@"id"] intValue];
         [self leftViewActionWithCategory:[[_leftAry objectAtIndex:indexPath.row] objectForKey:@"name"] WithOrder:_orderID];
     }
 }
@@ -208,6 +211,10 @@
 #pragma mark - showR
 - (void)showResult:(id)sender{
     [_delegate showResult:_resultDic];
+}
+
+- (void)selectAction:(id)sender{
+    [_delegate selectAction:sender];
 }
 
 #pragma mark - leftViewSelectAction
