@@ -29,6 +29,8 @@
 
 @property (nonatomic, strong) NTUserPopViewController *popoverContent;
 
+@property (nonatomic, strong) NSString *currentType;
+
 @property (nonatomic) BOOL isTheme;
 
 @end

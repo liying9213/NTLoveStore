@@ -35,11 +35,14 @@
 		B22F99EE1B418B500027EB40 /* props.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E71B418B500027EB40 /* props.jpg */; };
 		B22F99EF1B418B500027EB40 /* site.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E81B418B500027EB40 /* site.jpg */; };
 		B22F99F01B418B500027EB40 /* staff.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E91B418B500027EB40 /* staff.jpg */; };
+		B2394DC21B500CC500F1E516 /* NTConsultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2394DC11B500CC500F1E516 /* NTConsultViewController.xib */; };
 		B23B3A3B1B29C5CA00328AD9 /* NTHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B23B3A3A1B29C5CA00328AD9 /* NTHomeView.m */; };
 		B251A2531B37E45C00B537A1 /* shopping.png in Resources */ = {isa = PBXBuildFile; fileRef = B251A2521B37E45C00B537A1 /* shopping.png */; };
 		B251A2551B37E59200B537A1 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = B251A2541B37E59200B537A1 /* user.png */; };
 		B251A2571B37EBED00B537A1 /* separate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B251A2561B37EBED00B537A1 /* separate.jpg */; };
 		B251A25A1B37F1FE00B537A1 /* NTUserPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B251A2591B37F1FE00B537A1 /* NTUserPopViewController.m */; };
+		B26284AD1B52771000890E2C /* NTShopcarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B26284AB1B52771000890E2C /* NTShopcarTableViewCell.m */; };
+		B26284AE1B52771000890E2C /* NTShopcarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B26284AC1B52771000890E2C /* NTShopcarTableViewCell.xib */; };
 		B26EF0571B4448F0000D106D /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = B26EF0561B4448F0000D106D /* login.png */; };
 		B283E05E1B31BC8F0001D6F1 /* NTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B283E05D1B31BC8F0001D6F1 /* NTWebViewController.m */; };
 		B283E0621B31C9960001D6F1 /* NTShoppingCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B283E0611B31C9960001D6F1 /* NTShoppingCarViewController.m */; };
@@ -50,6 +53,9 @@
 		B2C71E651B26818500682AEB /* NTConfigurationFile.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2C71E641B26818500682AEB /* NTConfigurationFile.plist */; };
 		B2C71E681B26871600682AEB /* NTReadConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C71E671B26871600682AEB /* NTReadConfiguration.m */; };
 		B2CB93021B4516BC003385D7 /* NTFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CB93011B4516BC003385D7 /* NTFunction.m */; };
+		B2D91DCF1B5122AE00DE9722 /* NTFInishView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D91DCE1B5122AE00DE9722 /* NTFInishView.m */; };
+		B2D91DD11B51274100DE9722 /* NTFinishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D91DD01B51274100DE9722 /* NTFinishView.xib */; };
+		B2D91DD31B51546A00DE9722 /* NTShoppingCarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D91DD21B51546A00DE9722 /* NTShoppingCarViewController.xib */; };
 		B2D999051B2C10C20068DE87 /* NTLeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D999041B2C10C20068DE87 /* NTLeftTableViewCell.m */; };
 		B2D999091B2C35E70068DE87 /* NTContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D999081B2C35E70068DE87 /* NTContentViewController.m */; };
 		B2E5C8AF1B37FBC40011A95F /* moreicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E5C8AE1B37FBC40011A95F /* moreicon.png */; };
@@ -124,6 +130,7 @@
 		B22F99E71B418B500027EB40 /* props.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = props.jpg; sourceTree = "<group>"; };
 		B22F99E81B418B500027EB40 /* site.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = site.jpg; sourceTree = "<group>"; };
 		B22F99E91B418B500027EB40 /* staff.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = staff.jpg; sourceTree = "<group>"; };
+		B2394DC11B500CC500F1E516 /* NTConsultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTConsultViewController.xib; sourceTree = "<group>"; };
 		B23B3A391B29C5CA00328AD9 /* NTHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTHomeView.h; sourceTree = "<group>"; };
 		B23B3A3A1B29C5CA00328AD9 /* NTHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTHomeView.m; sourceTree = "<group>"; };
 		B23F7F541B4022CF000B7C6F /* NTShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTShare.h; sourceTree = "<group>"; };
@@ -132,6 +139,9 @@
 		B251A2561B37EBED00B537A1 /* separate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = separate.jpg; sourceTree = "<group>"; };
 		B251A2581B37F1FE00B537A1 /* NTUserPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTUserPopViewController.h; sourceTree = "<group>"; };
 		B251A2591B37F1FE00B537A1 /* NTUserPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTUserPopViewController.m; sourceTree = "<group>"; };
+		B26284AA1B52771000890E2C /* NTShopcarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTShopcarTableViewCell.h; sourceTree = "<group>"; };
+		B26284AB1B52771000890E2C /* NTShopcarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTShopcarTableViewCell.m; sourceTree = "<group>"; };
+		B26284AC1B52771000890E2C /* NTShopcarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTShopcarTableViewCell.xib; sourceTree = "<group>"; };
 		B26EF0561B4448F0000D106D /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		B283E05C1B31BC8F0001D6F1 /* NTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTWebViewController.h; sourceTree = "<group>"; };
 		B283E05D1B31BC8F0001D6F1 /* NTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTWebViewController.m; sourceTree = "<group>"; };
@@ -149,6 +159,10 @@
 		B2C71E671B26871600682AEB /* NTReadConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTReadConfiguration.m; sourceTree = "<group>"; };
 		B2CB93001B4516BC003385D7 /* NTFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTFunction.h; sourceTree = "<group>"; };
 		B2CB93011B4516BC003385D7 /* NTFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTFunction.m; sourceTree = "<group>"; };
+		B2D91DCD1B5122AE00DE9722 /* NTFInishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTFInishView.h; sourceTree = "<group>"; };
+		B2D91DCE1B5122AE00DE9722 /* NTFInishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTFInishView.m; sourceTree = "<group>"; };
+		B2D91DD01B51274100DE9722 /* NTFinishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTFinishView.xib; sourceTree = "<group>"; };
+		B2D91DD21B51546A00DE9722 /* NTShoppingCarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTShoppingCarViewController.xib; sourceTree = "<group>"; };
 		B2D999031B2C10C20068DE87 /* NTLeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTLeftTableViewCell.h; sourceTree = "<group>"; };
 		B2D999041B2C10C20068DE87 /* NTLeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTLeftTableViewCell.m; sourceTree = "<group>"; };
 		B2D999071B2C35E70068DE87 /* NTContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTContentViewController.h; sourceTree = "<group>"; };
@@ -311,6 +325,9 @@
 				B251A2591B37F1FE00B537A1 /* NTUserPopViewController.m */,
 				B2F2D10F1B42D0FE00231782 /* NTShowDetailVIew.h */,
 				B2F2D1101B42D0FE00231782 /* NTShowDetailVIew.m */,
+				B2D91DCD1B5122AE00DE9722 /* NTFInishView.h */,
+				B2D91DCE1B5122AE00DE9722 /* NTFInishView.m */,
+				B2D91DD01B51274100DE9722 /* NTFinishView.xib */,
 			);
 			path = NTCustomClass;
 			sourceTree = "<group>";
@@ -386,6 +403,10 @@
 			children = (
 				B283E0601B31C9960001D6F1 /* NTShoppingCarViewController.h */,
 				B283E0611B31C9960001D6F1 /* NTShoppingCarViewController.m */,
+				B2D91DD21B51546A00DE9722 /* NTShoppingCarViewController.xib */,
+				B26284AA1B52771000890E2C /* NTShopcarTableViewCell.h */,
+				B26284AB1B52771000890E2C /* NTShopcarTableViewCell.m */,
+				B26284AC1B52771000890E2C /* NTShopcarTableViewCell.xib */,
 			);
 			path = NTShoppingCarView;
 			sourceTree = "<group>";
@@ -429,6 +450,7 @@
 				B2D999081B2C35E70068DE87 /* NTContentViewController.m */,
 				B200CF8B1B4EB87B00130D73 /* NTConsultViewController.h */,
 				B200CF8C1B4EB87B00130D73 /* NTConsultViewController.m */,
+				B2394DC11B500CC500F1E516 /* NTConsultViewController.xib */,
 			);
 			path = NTContentView;
 			sourceTree = "<group>";
@@ -529,11 +551,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2D91DD11B51274100DE9722 /* NTFinishView.xib in Resources */,
 				B251A2571B37EBED00B537A1 /* separate.jpg in Resources */,
+				B2394DC21B500CC500F1E516 /* NTConsultViewController.xib in Resources */,
 				B22F99EF1B418B500027EB40 /* site.jpg in Resources */,
 				B206316A1B1BF4C000C02FA6 /* Main.storyboard in Resources */,
 				B2E5C8AF1B37FBC40011A95F /* moreicon.png in Resources */,
 				B22F99EC1B418B500027EB40 /* hotel.jpg in Resources */,
+				B26284AE1B52771000890E2C /* NTShopcarTableViewCell.xib in Resources */,
 				B2C71E651B26818500682AEB /* NTConfigurationFile.plist in Resources */,
 				B206316F1B1BF4C000C02FA6 /* LaunchScreen.xib in Resources */,
 				B22F99EB1B418B500027EB40 /* form.jpg in Resources */,
@@ -544,6 +569,7 @@
 				B2255A671B4C12DD00FA2C21 /* logo.png in Resources */,
 				B22F99F01B418B500027EB40 /* staff.jpg in Resources */,
 				B2E808D31B4AB9DB00A9D9FE /* picple.png in Resources */,
+				B2D91DD31B51546A00DE9722 /* NTShoppingCarViewController.xib in Resources */,
 				B206316C1B1BF4C000C02FA6 /* Images.xcassets in Resources */,
 				B22F99EA1B418B500027EB40 /* floar.jpg in Resources */,
 				B2E808D51B4ABDC000A9D9FE /* HeaderBg_7.png in Resources */,
@@ -604,7 +630,9 @@
 				B213C0C51B259D210023D6B5 /* NTAsynService.m in Sources */,
 				B23B3A3B1B29C5CA00328AD9 /* NTHomeView.m in Sources */,
 				B2255A731B4C191C00FA2C21 /* VRGCalendarView.m in Sources */,
+				B26284AD1B52771000890E2C /* NTShopcarTableViewCell.m in Sources */,
 				B2A4CED11B317BF00058DE58 /* NTScrollImageView.m in Sources */,
+				B2D91DCF1B5122AE00DE9722 /* NTFInishView.m in Sources */,
 				B21037DC1B253DE300ED732B /* NTLoginViewController.m in Sources */,
 				B2F2D1111B42D0FE00231782 /* NTShowDetailVIew.m in Sources */,
 				B200CF8D1B4EB87B00130D73 /* NTConsultViewController.m in Sources */,

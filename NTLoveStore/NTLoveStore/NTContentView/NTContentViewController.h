@@ -41,9 +41,13 @@
 
 @property (nonatomic, strong)NSDictionary *detailDic;
 
+@property (nonatomic, strong)NSArray *hotListAry;
+
 @property (nonatomic, strong)NSArray *imageAry;
 
 @property (nonatomic, strong)NSMutableArray *videoAry;
+
+@property (nonatomic, strong)NSString *currentType;
 
 @property (nonatomic) BOOL isPerson;
 

@@ -20,6 +20,10 @@
 
 - (void)memberSelectAction:(id)sender;
 
+@optional
+
+- (void)showResult:(id)sender;
+
 @end
 
 @interface NTFunctionView : UIView <UITableViewDataSource,UITableViewDelegate>
@@ -28,7 +32,7 @@
 
 @property (nonatomic, strong) NSArray *leftAry;
 
-@property (nonatomic, strong) NSArray *functionAry;
+@property (nonatomic, strong) NSMutableArray *functionAry;
 
 @property (nonatomic, strong) UITableView *leftView;
 
@@ -43,6 +47,8 @@
 @property (nonatomic) float thePrice;
 
 @property (nonatomic) float theTuanPrice;
+
+@property (nonatomic, strong)NSDictionary *resultDic;
 
 - (void)resetView;
 

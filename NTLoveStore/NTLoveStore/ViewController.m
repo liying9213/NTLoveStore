@@ -13,6 +13,7 @@
 #import "NTShoppingCarViewController.h"
 #import "NTUserInfoViewController.h"
 #import "NTConsultViewController.h"
+#import "NTShowDetailVIew.h"
 //getData
 #import "NTAsynService.h"
 #import "NTReadConfiguration.h"
@@ -279,6 +280,7 @@
                         @"category":category,
                         @"order":[NSNumber numberWithInteger:orderID],
                         @"sort":@"asc"};
+    _currentType=category;
     [NTAsynService requestWithHead:listBaseURL WithBody:dic completionHandler:^(BOOL success,  id finishData, NSError *connectionError) {
         if (success) {
             __strong typeof(self) self=__weakself;
@@ -297,8 +299,34 @@
     NTContentViewController *viewController=[[NTContentViewController alloc] init];
     viewController.productID=btn.tag;
     viewController.isCanSelect=!_isTheme;
+    viewController.currentType=_currentType;
     viewController.isPerson=[self isPerson];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)showResult:(id)sender{
+    if (!sender) {
+        [self showEndViewWithText:@"未找到场地效果图！"];
+        return;
+    }
+    [self showWaitingViewWithText:nil];
+    __weak typeof(self) __weakself=self;
+    NSDictionary *dic=@{@"uid":[share()userUid],
+                        @"token":[share()userToken],
+                        @"id":[sender objectForKey:@"id"]};
+    [NTAsynService requestWithHead:detileBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+        if (success) {
+            __strong typeof(self) self=__weakself;
+            [self hideWaitingView];
+            NTShowDetailVIew *detailView=[[NTShowDetailVIew alloc] initWithFrame:self.view.frame];
+            [detailView showImageWithArray:[[finishData objectForKey:@"pics"] componentsSeparatedByString:@","] withIndex:0];
+        }
+        else{
+            __strong typeof(self) self=__weakself;
+            [self showEndViewWithText:connectionError.localizedDescription];
+        }
+    }];
+    dic=nil;
 }
 
 - (BOOL)isPerson{

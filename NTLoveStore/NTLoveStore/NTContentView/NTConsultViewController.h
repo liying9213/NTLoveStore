@@ -8,7 +8,7 @@
 
 #import "NTParentViewController.h"
 
-@interface NTConsultViewController : NTParentViewController
+@interface NTConsultViewController : NTParentViewController<UIPopoverControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *weddingDate;
 @property (strong, nonatomic) IBOutlet UITextField *deskTextField;
 @property (strong, nonatomic) IBOutlet UITextField *bridegroomNameTextField;
@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *brideTelTextField;
 @property (strong, nonatomic) IBOutlet UITextField *brideAddressTextField;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) UIPopoverController *popoverView;
 
 - (IBAction)selcetDate:(id)sender;
 - (IBAction)submit:(id)sender;

@@ -112,6 +112,7 @@
     UIButton *showBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(tuanPriceLabel.frame)+CGRectGetMinX(tuanPriceLabel.frame)+60, 25, 100, 20)];
     showBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [showBtn setTitle:@"查看现场全景" forState:UIControlStateNormal];
+    [showBtn addTarget:self action:@selector(showResult:) forControlEvents:UIControlEventTouchUpInside];
     [showBtn setTitleColor:[NTColor colorWithHexString:NTBlueColor] forState:UIControlStateNormal];
     [footView addSubview:showBtn];
     
@@ -133,7 +134,14 @@
 }
 
 - (void)reloadFunctionViewWithData:(NSArray *)functionAry{
-    _functionAry=functionAry;
+    for (NSDictionary *dic in functionAry) {
+        if ([[dic objectForKey:@"mark"] intValue]==1) {
+            _resultDic=dic;
+            break;
+        }
+    }
+    _functionAry=[[NSMutableArray alloc] initWithArray:functionAry];
+    [_functionAry removeObject:_resultDic];
     if (_isTheme) {
         [self resetTableFootView];
     }
@@ -195,6 +203,11 @@
         _selectID=indexPath.row;
         [self leftViewActionWithCategory:[[_leftAry objectAtIndex:indexPath.row] objectForKey:@"name"] WithOrder:_orderID];
     }
+}
+
+#pragma mark - showR
+- (void)showResult:(id)sender{
+    [_delegate showResult:_resultDic];
 }
 
 #pragma mark - leftViewSelectAction

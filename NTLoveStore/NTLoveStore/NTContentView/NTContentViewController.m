@@ -9,6 +9,7 @@
 #import "NTContentViewController.h"
 #import "NTShowDetailVIew.h"
 #import "NTAsynService.h"
+#import "NTMemberView.h"
 #import "NSDate+convenience.h"
 @interface NTContentViewController ()
 
@@ -37,6 +38,7 @@
         if (success) {
             __strong typeof(self) self=__weakself;
             _detailDic=finishData;
+            [self getTheHotListData];
             [self resetView];
             [self resetContentView];
             [self hideWaitingView];
@@ -49,10 +51,29 @@
     dic=nil;
 }
 
+- (void)getTheHotListData{
+    __weak typeof(self) __weakself=self;
+    NSDictionary *dic=@{@"uid":[share()userUid],
+                        @"token":[share()userToken],
+                        @"id":[NSNumber numberWithInteger:_productID]};
+    [NTAsynService requestWithHead:hotListBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+        if (success) {
+            __strong typeof(self) self=__weakself;
+            _hotListAry=[finishData allValues];
+            [self resetHotListView];
+        }
+        else{
+            __strong typeof(self) self=__weakself;
+            [self showEndViewWithText:connectionError.localizedDescription];
+        }
+    }];
+    dic=nil;
+}
+
 #pragma mark - resetView
 
 - (void)resetView{
-    _scrollView=[[UIScrollView alloc] initWithFrame:self.view.frame];
+    _scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth,ScreenHeight-64)];
     _scrollView.backgroundColor=[NTColor clearColor];
     [self.view addSubview:_scrollView];
     _scrollView.scrollEnabled=YES;
@@ -95,13 +116,13 @@
     commentNumLabel.textAlignment=NSTextAlignmentLeft;
     [_scrollView addSubview:commentNumLabel];
     
-    if (_isPerson) {
+    if (_isPerson&&_isCanSelect) {
         UIView *calendarView=[[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(titleLabel.frame), CGRectGetHeight(finishNumLabel.frame)+CGRectGetMinY(finishNumLabel.frame)+20,  ScreenWidth-640, 50)];
         [self resetCalendarSelectWithView:calendarView];
         calendarView.backgroundColor=[UIColor clearColor];
         [_scrollView addSubview:calendarView];
     }
-    else
+    else if(!_isPerson&&_isCanSelect)
     {
         UIView *numView=[[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(titleLabel.frame), CGRectGetHeight(finishNumLabel.frame)+CGRectGetMinY(finishNumLabel.frame)+20,  ScreenWidth-640, 50)];
         [self resetSelectNumWithView:numView];
@@ -111,7 +132,7 @@
     UIButton *selectBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     [selectBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateNormal];
     [selectBtn setTitle:@"立即预定" forState:UIControlStateNormal];
-    [selectBtn addTarget:self action:@selector(selectAction) forControlEvents:UIControlEventTouchUpInside];
+    [selectBtn addTarget:self action:@selector(selectAction:) forControlEvents:UIControlEventTouchUpInside];
     selectBtn.titleLabel.font=[UIFont systemFontOfSize:19];
     if (_isCanSelect) {
       [selectBtn setBackgroundColor:[NTColor colorWithHexString:NTBlueColor]];
@@ -126,7 +147,6 @@
 
 - (void)resetContentView{
     int j=0;
-    BOOL ishave=NO;
     for (int i=0; i<4; i++) {
         NSString *title;
         if ([_detailDic objectForKey:@"content"]&&i==0) {
@@ -272,6 +292,41 @@
     [_popoverView presentPopoverFromRect:btn.bounds inView:btn permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
+- (void)resetHotListView{
+    UIView *hotListView=[[UIView alloc] initWithFrame:CGRectMake(0, 780, ScreenWidth, 280)];
+    [_scrollView addSubview:hotListView];
+    UILabel *label=[[UILabel alloc] initWithFrame:CGRectMake(20, 0, 290, 40)];
+    label.backgroundColor=[NTColor colorWithHexString:NTBlueColor];
+    label.textColor=[NTColor whiteColor];
+    label.text=@"看过这个的人还看过哪些";
+    label.textAlignment=NSTextAlignmentCenter;
+    [hotListView addSubview:label];
+    UIView *line=[[UIView alloc] initWithFrame:CGRectMake(20, 39, ScreenWidth-20, 1)];
+    line.backgroundColor=[NTColor colorWithHexString:NTGrayColor];
+    [hotListView addSubview:line];
+    
+    UIScrollView *hotScrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(20, 60, ScreenWidth-40, 210)];
+    hotScrollView.scrollEnabled=YES;
+    hotScrollView.showsHorizontalScrollIndicator=YES;
+    [hotListView addSubview:hotScrollView];
+    float xValue=0;
+    int i=0;
+    for (NSDictionary *dic in _hotListAry) {
+        NTMemberView *menberView=[[NTMemberView alloc] initWithFrame:CGRectMake(xValue, 10, 190, 190)];
+        menberView.delegate=self;
+        menberView.tag=i;
+        [menberView resetView];
+        [menberView reloadTheViewWithData:dic];
+        [hotScrollView addSubview:menberView];
+        xValue+=210;
+        i++;
+    }
+    _heightValue+=250;
+    CGSize size=CGSizeMake(ScreenWidth, _heightValue);
+    [_scrollView setContentSize:size];
+    [hotScrollView setContentSize:CGSizeMake(_hotListAry.count*210, 0)];
+}
+
 - (NSMutableArray *)GetTheVideo{
     
     return nil;
@@ -283,8 +338,36 @@
 
 #pragma  mark - selectAction
 
-- (void)selectAction{
-    
+- (void)selectAction:(id)sender{
+    if (_isPerson&&!_selectDateLabel.text.length>0) {
+        [self showEndViewWithText:@"请选择档期"];
+        return;
+    }
+    UIButton *btn=(UIButton *)sender;
+    [self showWaitingViewWithText:@"正在加入购物车..."];
+    __weak typeof(self) __weakself=self;
+    NSString *num=_isPerson?@"1":_selectNumLabel.text;
+    NSString *date=_isPerson?_selectDateLabel.text:@"0";
+    NSDictionary *dic=@{@"uid":[share()userUid],
+                        @"token":[share()userToken],
+                        @"id":[NSNumber numberWithInteger:_productID],
+                        @"price":[_detailDic objectForKey:@"price"],
+                        @"num":num,
+                        @"parameters":date,
+                        @"sort":_currentType};
+    [NTAsynService requestWithHead:addItemBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+        if (success) {
+            __strong typeof(self) self=__weakself;
+            btn.enabled=NO;
+            [btn setBackgroundColor:[NTColor lightGrayColor]];
+            [self hideWaitingView];
+        }
+        else{
+            __strong typeof(self) self=__weakself;
+            [self showEndViewWithText:connectionError.localizedDescription];
+        }
+    }];
+    dic=nil;
 }
 
 - (void)contentInfoselect:(id)sender{
@@ -441,7 +524,7 @@
     NSLog(@"====%@",date);
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
-    _selectDateLabel.text=[formatter stringFromDate:date];;
+    _selectDateLabel.text=[formatter stringFromDate:date];
     [_popoverView dismissPopoverAnimated:YES];
 }
 
@@ -468,6 +551,15 @@
         [detailView showTextWithString:[_detailDic objectForKey:@"content"]];
     }
     
+}
+
+#pragma mark - showHotListMember
+- (void)memberSelectAction:(id)sender{
+    UIButton *btn=(UIButton *)sender;
+    NTContentViewController *viewController=[[NTContentViewController alloc] init];
+    viewController.productID=btn.tag;
+    viewController.isCanSelect=NO;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end
