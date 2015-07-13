@@ -29,6 +29,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *adessTextField;
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 @property (strong, nonatomic) UIPopoverController *popoverView;
+@property (strong, nonatomic) NSMutableArray *selectAry;
+@property (nonatomic) BOOL isSelectAll;
 
 
 - (IBAction)submitInfo:(id)sender;
@@ -36,7 +38,11 @@
 - (IBAction)dateAction:(id)sender;
 
 - (IBAction)selectAllAction:(id)sender;
+
 - (IBAction)subscriptionAction:(id)sender;
+
 - (IBAction)payAction:(id)sender;
+
 - (IBAction)delectAction:(id)sender;
+
 @end

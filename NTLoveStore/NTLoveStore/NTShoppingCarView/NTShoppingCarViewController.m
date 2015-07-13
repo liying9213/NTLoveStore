@@ -53,9 +53,16 @@
 }
 
 - (void)resetView{
+    if (_isSelectAll) {
+        _selectNumLabel.text=[NSString stringWithFormat:@"已选商品%lu件",(unsigned long)_shopcartData.count];
+        _totalPricesLabel.text=[NSString stringWithFormat:@"合计：%@",_allPrice];
+    }
+    else{
+        _selectNumLabel.text=[NSString stringWithFormat:@"已选商品%lu件",(unsigned long)_selectAry.count];
+       NSString *price= [self getTheSelectPrice];
+        _totalPricesLabel.text=[NSString stringWithFormat:@"合计：%@",price];
+    }
     [_tableView reloadData];
-    _selectNumLabel.text=[NSString stringWithFormat:@"已选商品%lu件",(unsigned long)_shopcartData.count];
-    _totalPricesLabel.text=[NSString stringWithFormat:@"合计：%@",_allPrice];
 }
 
 #pragma mark - tableViewDelegate
@@ -76,10 +83,23 @@
         [tableView registerNib:[UINib nibWithNibName:@"NTShopcarTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
         iCell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     }
-    iCell.leftImagView.imageURL=[NSURL URLWithString:[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"cover_id"]];
+    if ([[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"pet"] intValue]==1) {
+        iCell.leftImagView.image=[UIImage imageNamed:@"picple.png"];
+    }
+    else{
+        iCell.leftImagView.imageURL=[NSURL URLWithString:[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"cover_id"]];
+    }
     iCell.commodityName.text=[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"title"];
     iCell.price.text=[NSString stringWithFormat:@"%@/元",[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"price"]];
     iCell.allPrice.text=[NSString stringWithFormat:@"%@元",[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"tprice"]];
+    [iCell.selectBtn addTarget:self action:@selector(selectOne:) forControlEvents:UIControlEventTouchUpInside];
+    iCell.selectBtn.tag=indexPath.row;
+    if (_isSelectAll) {
+        iCell.selectBtn.selected=YES;
+    }
+    else{
+        iCell.selectBtn.selected=[self isSelectINDataWithTag:indexPath.row];
+    }
     if ([[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"parameters"] length]>4) {
         iCell.dateLabel.hidden=NO;
         iCell.dateLabel.text=[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"parameters"];
@@ -89,14 +109,21 @@
         iCell.dateLabel.hidden=YES;
         iCell.contView.hidden=NO;
         iCell.numLabel.text=[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"num"];
+        iCell.delBtn.enabled=YES;
         iCell.delBtn.layer.borderWidth=1;
         iCell.delBtn.layer.borderColor=[[UIColor lightGrayColor] CGColor];
         [iCell.delBtn addTarget:self action:@selector(delAction:) forControlEvents:UIControlEventTouchUpInside];
         iCell.delBtn.tag=indexPath.row;
+        iCell.addBtn.enabled=YES;
         iCell.addBtn.layer.borderWidth=1;
         iCell.addBtn.layer.borderColor=[[UIColor lightGrayColor] CGColor];
         [iCell.addBtn addTarget:self action:@selector(addAction:) forControlEvents:UIControlEventTouchUpInside];
         iCell.addBtn.tag=indexPath.row;
+        if ([[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"pet"] intValue]==1) {
+            iCell.delBtn.enabled=NO;
+            iCell.addBtn.enabled=NO;
+        }
+
     }
     iCell.delectBtn.tag=indexPath.row;
     [iCell.delectBtn addTarget:self action:@selector(delectOneAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -115,6 +142,7 @@
                         @"price":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"price"],
                         @"sort":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"sort"],
                         @"parameters":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"parameters"],
+                        @"pet":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"pet"],
                         @"key":@"2"};
     [NTAsynService requestWithHead:delItemBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
@@ -142,6 +170,7 @@
                         @"price":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"price"],
                         @"sort":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"sort"],
                         @"parameters":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"parameters"],
+                        @"pet":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"pet"],
                         @"key":@"1"};
     [NTAsynService requestWithHead:delItemBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
@@ -169,6 +198,7 @@
                         @"price":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"price"],
                         @"sort":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"sort"],
                         @"num":@"1",
+                        @"pet":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"pet"],
                         @"parameters":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"parameters"]};
 
     [NTAsynService requestWithHead:addItemBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
@@ -221,7 +251,50 @@
     [_popoverView presentPopoverFromRect:btn.bounds inView:btn permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
+- (NSString *)getTheSelectPrice{
+    float price =0;
+    for (NSNumber *num in _selectAry) {
+        NSDictionary *dic=[_shopcartData objectAtIndex:[num intValue]];
+        price +=[[dic objectForKey:@"tprice"] floatValue];
+    }
+    return [NSString stringWithFormat:@"%f",price];
+}
+
+- (BOOL)isSelectINDataWithTag:(NSInteger)tag{
+    if (!_selectAry) {
+        return NO;
+    }
+    return [_selectAry containsObject:[NSNumber numberWithInteger:tag]];
+}
+
+- (void)selectOne:(id)sender{
+    if (!_selectAry) {
+        _selectAry=[[NSMutableArray alloc] init];
+    }
+    UIButton *btn=(UIButton *)sender;
+    btn.selected=!btn.selected;
+    if (btn.selected) {
+        [_selectAry addObject:[NSNumber numberWithInteger:btn.tag]];
+    }
+    else{
+        [_selectAry removeObject:[NSNumber numberWithInteger:btn.tag]];
+    }
+    if ([_selectAry count]==[_shopcartData count]) {
+        _selectAllBtn.selected=YES;
+        _selectBtn1.selected=YES;
+        _isSelectAll=YES;
+    }
+    [self resetView];
+}
+
 - (IBAction)selectAllAction:(id)sender {
+    _selectAllBtn.selected=!_selectAllBtn.selected;
+    _selectBtn1.selected=!_selectBtn1.selected;
+    _isSelectAll=_selectBtn1.selected;
+    if (!_isSelectAll) {
+        [_selectAry removeAllObjects];
+    }
+    [self resetView];
 }
 
 - (IBAction)subscriptionAction:(id)sender {

@@ -19,5 +19,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *numLabel;
 @property (strong, nonatomic) IBOutlet UIButton *addBtn;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UIButton *selectBtn;
 
 @end

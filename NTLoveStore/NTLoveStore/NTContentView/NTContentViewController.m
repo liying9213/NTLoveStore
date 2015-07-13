@@ -352,6 +352,7 @@
                         @"token":[share()userToken],
                         @"id":[NSNumber numberWithInteger:_productID],
                         @"price":[_detailDic objectForKey:@"price"],
+                        @"pet":@"0",
                         @"num":num,
                         @"parameters":date,
                         @"sort":_currentType};
