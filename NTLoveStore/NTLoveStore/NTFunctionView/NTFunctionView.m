@@ -95,13 +95,13 @@
     UIView *footView=[[UIView alloc] initWithFrame:CGRectMake(0, 20, CGRectGetWidth(_tableView.frame), 80)];
     footView.backgroundColor=[UIColor clearColor];
     
-    UILabel *priceLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 20, 100, 30)];
+    UILabel *priceLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 20, 150, 30)];
     priceLabel.text=[NSString stringWithFormat:@"原价:￥%.2lf",_thePrice];
     priceLabel.font=[UIFont systemFontOfSize:14];
     priceLabel.backgroundColor=[UIColor clearColor];
     [footView addSubview:priceLabel];
     
-    UILabel *tuanPriceLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(priceLabel.frame)+30, 20, 100, 30)];
+    UILabel *tuanPriceLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(priceLabel.frame)+30, 20, 150, 30)];
     NSMutableAttributedString *tuanPrice=[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"现价:￥%.2lf",_theTuanPrice]];
     [tuanPrice addAttribute:NSForegroundColorAttributeName value:[NTColor redColor] range:NSMakeRange(3,tuanPrice.length-3)];
     tuanPriceLabel.attributedText=tuanPrice;

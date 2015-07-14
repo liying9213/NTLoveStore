@@ -55,12 +55,12 @@
 - (void)resetView{
     if (_isSelectAll) {
         _selectNumLabel.text=[NSString stringWithFormat:@"已选商品%lu件",(unsigned long)_shopcartData.count];
-        _totalPricesLabel.text=[NSString stringWithFormat:@"合计：%@",_allPrice];
+        _totalPricesLabel.text=[NSString stringWithFormat:@"合计：%.2lf",[_allPrice floatValue]];
     }
     else{
         _selectNumLabel.text=[NSString stringWithFormat:@"已选商品%lu件",(unsigned long)_selectAry.count];
        NSString *price= [self getTheSelectPrice];
-        _totalPricesLabel.text=[NSString stringWithFormat:@"合计：%@",price];
+        _totalPricesLabel.text=[NSString stringWithFormat:@"合计：%.2lf",[price floatValue]];
     }
     [_tableView reloadData];
 }
@@ -277,6 +277,9 @@
         [_selectAry addObject:[NSNumber numberWithInteger:btn.tag]];
     }
     else{
+        _selectAllBtn.selected=NO;
+        _selectBtn1.selected=NO;
+        _isSelectAll=NO;
         [_selectAry removeObject:[NSNumber numberWithInteger:btn.tag]];
     }
     if ([_selectAry count]==[_shopcartData count]) {
@@ -298,6 +301,15 @@
 }
 
 - (IBAction)subscriptionAction:(id)sender {
+    UIButton *btn=(UIButton *)sender;
+    btn.selected=!btn.selected;
+    NSString *str=[_totalPricesLabel.text substringFromIndex:3];
+    if (btn.selected) {
+       _totalPricesLabel.text=[NSString stringWithFormat:@"合计：%.2lf",[str floatValue]/2];
+    }
+    else{
+       _totalPricesLabel.text=[NSString stringWithFormat:@"合计：%.2lf",[str floatValue]*2];
+    }
 }
 
 - (IBAction)payAction:(id)sender {

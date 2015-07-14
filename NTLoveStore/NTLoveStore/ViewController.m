@@ -333,7 +333,7 @@
 - (void)selectAction:(id)sender{
     UIButton *btn=(id)sender;
     [btn setBackgroundColor:[UIColor lightGrayColor]];
-    [self showEndViewWithText:@"正在完善..."];
+    [self showWaitingViewWithText:@"正在加入购物车..."];
     __weak typeof(self) __weakself=self;
     NSString *num=@"1";
     NSString *date=@"0";

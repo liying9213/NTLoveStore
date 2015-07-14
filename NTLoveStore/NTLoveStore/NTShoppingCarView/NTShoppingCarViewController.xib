@@ -47,18 +47,20 @@
                         <constraint firstAttribute="height" constant="2" id="Zo2-ei-Oth"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ls-Ox-nrI">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ls-Ox-nrI">
                     <rect key="frame" x="20" y="41" width="60" height="20"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="eDm-WD-MWd"/>
                         <constraint firstAttribute="width" constant="60" id="faT-qP-KBf"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="全选">
+                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="-5" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="10" maxY="0.0"/>
+                    <state key="normal" title="全选" image="disSelect">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="selected" image="select"/>
                     <connections>
                         <action selector="selectAllAction:" destination="-1" eventType="touchUpInside" id="7Of-p1-trH"/>
                     </connections>
@@ -121,39 +123,43 @@
                         <outlet property="delegate" destination="-1" id="WYb-La-j5C"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zjf-2G-7fM">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zjf-2G-7fM">
                     <rect key="frame" x="20" y="504" width="60" height="20"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="dlj-Dc-Sjt"/>
                         <constraint firstAttribute="height" constant="20" id="kre-cQ-Eg6"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="全选">
+                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="-5" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="10" maxY="0.0"/>
+                    <state key="normal" title="全选" image="disSelect">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="selected" image="select"/>
                     <connections>
                         <action selector="selectAllAction:" destination="-1" eventType="touchUpInside" id="Fmj-3l-0bJ"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4f6-9c-pHv">
-                    <rect key="frame" x="140" y="504" width="90" height="20"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4f6-9c-pHv">
+                    <rect key="frame" x="128" y="504" width="87" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Bb6-Pa-OQi"/>
                         <constraint firstAttribute="width" constant="90" id="ghX-gN-Q5g"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="50%订金">
+                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="-5" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="8" maxY="0.0"/>
+                    <state key="normal" title="50%订金" image="disSelect">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="selected" image="select"/>
                     <connections>
                         <action selector="subscriptionAction:" destination="-1" eventType="touchUpInside" id="f2F-7P-Sba"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已选商品" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pC-IX-poB">
-                    <rect key="frame" x="300" y="503" width="110" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="已选商品" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pC-IX-poB">
+                    <rect key="frame" x="288" y="503" width="110" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="UhW-cA-Uu4"/>
                         <constraint firstAttribute="width" constant="110" id="gtt-dM-hDf"/>
@@ -162,8 +168,8 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合计：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHe-l2-L7f">
-                    <rect key="frame" x="510" y="503" width="128" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="合计：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHe-l2-L7f">
+                    <rect key="frame" x="498" y="503" width="128" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="128" id="L2c-pf-Dfm"/>
                         <constraint firstAttribute="height" constant="21" id="msG-Or-WUq"/>
@@ -241,7 +247,7 @@
                 <constraint firstItem="eRm-Y6-etb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="zfw-4N-Kuy"/>
                 <constraint firstItem="Zjf-2G-7fM" firstAttribute="top" secondItem="8eb-pA-tQ5" secondAttribute="bottom" constant="14" id="zs7-8f-bTo"/>
             </constraints>
-            <point key="canvasLocation" x="50" y="166"/>
+            <point key="canvasLocation" x="33" y="102"/>
         </view>
         <view contentMode="scaleToFill" id="SyI-5H-Xgy">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -440,6 +446,8 @@
         </datePicker>
     </objects>
     <resources>
+        <image name="disSelect" width="12" height="12"/>
         <image name="drop" width="123" height="27"/>
+        <image name="select" width="13" height="13"/>
     </resources>
 </document>
