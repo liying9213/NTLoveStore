@@ -61,17 +61,6 @@
     
     UIView * titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 44)];
     titleView.backgroundColor = [UIColor yellowColor];
-
-//    UISearchBar *searchBar=[[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 400, 44)];
-//    searchBar.backgroundColor=[UIColor lightGrayColor];
-//    searchBar.delegate=self;
-//    [titleView addSubview:searchBar];
-//    self.navigationItem.titleView=titleView;
-//    
-//    _searchDisplayView=[[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
-//    _searchDisplayView.delegate=self;
-//    _searchDisplayView.searchResultsDataSource=self;
-//    _searchDisplayView.searchResultsDelegate=self;
     
     UIView * rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 240, 44)];
     rightView.backgroundColor = [NTColor clearColor];
@@ -147,30 +136,6 @@
     [self hideWaitingView];
 }
 
-#pragma mark - searchBarDelegate
-
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
-    
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    
-}
-
-#pragma mark - searchDisplayDelegate
-
-- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller{
-    _searchDisplayView.searchResultsTableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption{
-    return YES;
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
-    return YES;
-}
-
 #pragma mark - tableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -199,6 +164,7 @@
     [NTAsynService requestWithHead:adBaseURL WithBody:nil completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success){
             [NTUserDefaults writeTheAdData:[finishData allValues]];
+            finishData=nil;
             __strong typeof(self) self=__weakself;
             [self resetView];
         }
@@ -216,9 +182,16 @@
         if (success) {
             [self hideWaitingView];
             [NTUserDefaults writeTheFunctionData:(NSArray *)finishData];
+            finishData=nil;
         }
         else{
             [self hideWaitingView];
+            if (![share()userIsLogin]) {
+                [self showEndViewWithText:@"请登录账号！"];
+                NTLoginViewController *viewcontroller=[[NTLoginViewController alloc] init];
+                viewcontroller.isHome=YES;
+                [self presentViewController:viewcontroller animated:YES completion:nil];
+            }
         }
     }];
     dic=nil;
@@ -229,6 +202,9 @@
 - (void)headSelectAction:(id)sender{
     if (![share()userIsLogin]) {
         [self showEndViewWithText:@"请登录账号！"];
+        NTLoginViewController *viewcontroller=[[NTLoginViewController alloc] init];
+        viewcontroller.isHome=YES;
+        [self presentViewController:viewcontroller animated:YES completion:nil];
         return;
     }
     _isTheme=NO;
@@ -248,6 +224,13 @@
 #pragma mark - homeSelectDelegate
 
 - (void)homeSelectAction:(id)sender{
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        NTLoginViewController *viewcontroller=[[NTLoginViewController alloc] init];
+        viewcontroller.isHome=YES;
+        [self presentViewController:viewcontroller animated:YES completion:nil];
+        return;
+    }
     EGOImageButton *btn=(EGOImageButton *)sender;
     if (btn.tag==1024) {
         NTConsultViewController *viewcontroller=[[NTConsultViewController alloc] init];
@@ -259,6 +242,13 @@
 }
 
 - (void)homeWebSelectAction:(NSString *)path{
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        NTLoginViewController *viewcontroller=[[NTLoginViewController alloc] init];
+        viewcontroller.isHome=YES;
+        [self presentViewController:viewcontroller animated:YES completion:nil];
+        return;
+    }
     NTWebViewController *webView=[[NTWebViewController alloc] init];
     webView.urlPath=path;
     [self.navigationController pushViewController:webView animated:YES];
@@ -286,10 +276,16 @@
         if (success) {
             __strong typeof(self) self=__weakself;
             [self reloadFunctionView:[finishData allValues]];
+            finishData=nil;
         }
         else{
             __strong typeof(self) self=__weakself;
-            [self showEndViewWithText:connectionError.localizedDescription];
+            if (![share()userIsLogin]) {
+                [self showEndViewWithText:@"请登录账号！"];
+            }
+            else{
+                [self showEndViewWithText:@"网路请求失败！"];
+            }
         }
     }];
     dic=nil;
@@ -306,6 +302,10 @@
 }
 
 - (void)showResult:(id)sender{
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        return;
+    }
     if (!sender) {
         [self showEndViewWithText:@"未找到场地效果图！"];
         return;
@@ -324,13 +324,22 @@
         }
         else{
             __strong typeof(self) self=__weakself;
-            [self showEndViewWithText:connectionError.localizedDescription];
+            if (![share()userIsLogin]) {
+                [self showEndViewWithText:@"请登录账号！"];
+            }
+            else{
+                [self showEndViewWithText:@"网路请求失败！"];
+            }
         }
     }];
     dic=nil;
 }
 
 - (void)selectAction:(id)sender{
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        return;
+    }
     UIButton *btn=(id)sender;
     [btn setBackgroundColor:[UIColor lightGrayColor]];
     [self showWaitingViewWithText:@"正在加入购物车..."];
@@ -354,7 +363,12 @@
         }
         else{
             __strong typeof(self) self=__weakself;
-            [self showEndViewWithText:connectionError.localizedDescription];
+            if (![share()userIsLogin]) {
+                [self showEndViewWithText:@"请登录账号！"];
+            }
+            else{
+                [self showEndViewWithText:@"网路请求失败！"];
+            }
         }
     }];
     dic=nil;

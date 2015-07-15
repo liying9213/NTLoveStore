@@ -20,7 +20,7 @@
 @property (strong, nonatomic) NSString *allPrice;
 @property (strong, nonatomic) NSMutableArray *shopcartData;
 @property (strong, nonatomic) IBOutlet UIView *infoVIew;
-@property (strong, nonatomic) IBOutlet UIView *infobgView;
+@property (strong, nonatomic) IBOutlet UIView *datePickerView;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @property (strong, nonatomic) IBOutlet UIButton *dateBtn;

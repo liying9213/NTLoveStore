@@ -38,6 +38,7 @@
     [self removeFromSuperview];
 }
 
+
 #pragma mark - showImageView
 
 - (void)showImageWithArray:(NSArray *)imageArray withIndex:(NSInteger)index{

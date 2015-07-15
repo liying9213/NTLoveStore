@@ -26,6 +26,10 @@
 }
 
 - (void)getTheShopCartData{
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        return;
+    }
     [self showWaitingViewWithText:nil];
     __weak typeof(self) __weakself=self;
     NSDictionary *dic=@{@"uid":[share()userUid],
@@ -38,7 +42,12 @@
         }
         else{
             __strong typeof(self) self=__weakself;
-            [self showEndViewWithText:connectionError.localizedDescription];
+            if (![share()userIsLogin]) {
+                [self showEndViewWithText:@"请登录账号！"];
+            }
+            else{
+                [self showEndViewWithText:@"网路请求失败！"];
+            }
         }
     }];
     dic=nil;
@@ -132,6 +141,10 @@
 
 
 - (void)delectOneAction:(id)sender{
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        return;
+    }
     UIButton *btn=(UIButton *)sender;
     [self showWaitingViewWithText:@"正在删除..."];
     __weak typeof(self) __weakself=self;
@@ -153,13 +166,22 @@
         }
         else{
             __strong typeof(self) self=__weakself;
-            [self showEndViewWithText:connectionError.localizedDescription];
+            if (![share()userIsLogin]) {
+                [self showEndViewWithText:@"请登录账号！"];
+            }
+            else{
+                [self showEndViewWithText:@"网路请求失败！"];
+            }
         }
     }];
     dic=nil;
 }
 
 - (void)delAction:(id)sender{
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        return;
+    }
     UIButton *btn=(UIButton *)sender;
     [self showWaitingViewWithText:@"正在删除..."];
     __weak typeof(self) __weakself=self;
@@ -181,13 +203,22 @@
         }
         else{
             __strong typeof(self) self=__weakself;
-            [self showEndViewWithText:connectionError.localizedDescription];
+            if (![share()userIsLogin]) {
+                [self showEndViewWithText:@"请登录账号！"];
+            }
+            else{
+                [self showEndViewWithText:@"网路请求失败！"];
+            }
         }
     }];
     dic=nil;
 }
 
 - (void)addAction:(id)sender{
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        return;
+    }
     UIButton *btn=(UIButton *)sender;
     [self showWaitingViewWithText:@"正在添加..."];
     __weak typeof(self) __weakself=self;
@@ -210,7 +241,12 @@
         }
         else{
             __strong typeof(self) self=__weakself;
-            [self showEndViewWithText:connectionError.localizedDescription];
+            if (![share()userIsLogin]) {
+                [self showEndViewWithText:@"请登录账号！"];
+            }
+            else{
+                [self showEndViewWithText:@"网路请求失败！"];
+            }
         }
     }];
     dic=nil;
@@ -242,13 +278,9 @@
 }
 
 - (IBAction)dateAction:(id)sender {
-    UIButton *btn=(UIButton *)sender;
-    UIViewController *viewcontroller=[[UIViewController alloc] init];
-    [viewcontroller.view addSubview:_datePicker];
-    _popoverView=[[UIPopoverController alloc] initWithContentViewController:viewcontroller];
-    _popoverView.popoverContentSize = CGSizeMake(320, 162);
-    _popoverView.delegate=self;
-    [_popoverView presentPopoverFromRect:btn.bounds inView:btn permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    if (_datePickerView.hidden) {
+        _datePickerView.hidden=NO;
+    }
 }
 
 - (NSString *)getTheSelectPrice{
@@ -319,14 +351,20 @@
     else{
         UITapGestureRecognizer *panGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(colseTheView:)];
         panGestureRecognizer.delegate=self;
-        [_infoVIew sendSubviewToBack:_infobgView];
-        [_infobgView addGestureRecognizer:panGestureRecognizer];
+        [_infoVIew addGestureRecognizer:panGestureRecognizer];
+        UITapGestureRecognizer *panGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(getTheDate)];
+        panGestureRecognizer1.delegate=self;
+         [_datePickerView addGestureRecognizer:panGestureRecognizer1];
         _infoVIew.frame=CGRectMake(0, 0, ScreenWidth, ScreenHeight);
-        [self.view addSubview:_infoVIew];
+       [[[UIApplication sharedApplication] windows][0] addSubview:_infoVIew];
     }
 }
 
 - (IBAction)delectAction:(id)sender {
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        return;
+    }
     [self showWaitingViewWithText:@"正在清空..."];
     __weak typeof(self) __weakself=self;
     NSDictionary *dic=@{@"uid":[share()userUid],
@@ -340,13 +378,15 @@
             [self hideWaitingView];
         }
         else{
+            if (![share()userIsLogin]) {
+                [self showEndViewWithText:@"请登录账号！"];
+                return ;
+            }
             __strong typeof(self) self=__weakself;
             _allPrice=@"0";
             _shopcartData=nil;
             [self resetView];
             [self hideWaitingView];
-            
-//            [self showEndViewWithText:connectionError.localizedDescription];
         }
     }];
     dic=nil;
@@ -360,13 +400,12 @@
     _infoVIew.hidden=YES;
 }
 
-- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController{
+- (void)getTheDate{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     NSString *str=[formatter stringFromDate:_datePicker.date];
     [_dateBtn setTitle:str forState:UIControlStateNormal];
-    [_popoverView.contentViewController removeFromParentViewController];
-    _popoverView=nil;
-    
+    _datePickerView.hidden=YES;
 }
+
 @end

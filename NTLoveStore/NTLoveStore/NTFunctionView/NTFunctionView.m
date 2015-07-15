@@ -37,8 +37,7 @@
     UIButton *firstBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     [firstBtn setTitle:@"综合排序："forState:UIControlStateNormal];
     firstBtn.frame=CGRectMake(0, 0, 105, 30);
-//    [firstBtn addTarget:self action:@selector(selectType:) forControlEvents:UIControlEventTouchUpInside];
-//    firstBtn.tag=0;
+
     firstBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [firstBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
     firstBtn.layer.borderWidth=1;

@@ -30,6 +30,10 @@
 #pragma mark - getContentData
 
 - (void)getTheContentData{
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        return;
+    }
     __weak typeof(self) __weakself=self;
     NSDictionary *dic=@{@"uid":[share()userUid],
                         @"token":[share()userToken],
@@ -45,13 +49,22 @@
         }
         else{
             __strong typeof(self) self=__weakself;
-            [self showEndViewWithText:connectionError.localizedDescription];
+            if (![share()userIsLogin]) {
+                [self showEndViewWithText:@"请登录账号！"];
+            }
+            else{
+                [self showEndViewWithText:@"网路请求失败！"];
+            }
         }
     }];
     dic=nil;
 }
 
 - (void)getTheHotListData{
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        return;
+    }
     __weak typeof(self) __weakself=self;
     NSDictionary *dic=@{@"uid":[share()userUid],
                         @"token":[share()userToken],
@@ -64,7 +77,12 @@
         }
         else{
             __strong typeof(self) self=__weakself;
-            [self showEndViewWithText:connectionError.localizedDescription];
+            if (![share()userIsLogin]) {
+                [self showEndViewWithText:@"请登录账号！"];
+            }
+            else{
+                [self showEndViewWithText:@"网路请求失败！"];
+            }
         }
     }];
     dic=nil;
@@ -339,6 +357,10 @@
 #pragma  mark - selectAction
 
 - (void)selectAction:(id)sender{
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        return;
+    }
     if (_isPerson&&!_selectDateLabel.text.length>0) {
         [self showEndViewWithText:@"请选择档期"];
         return;
@@ -365,7 +387,12 @@
         }
         else{
             __strong typeof(self) self=__weakself;
-            [self showEndViewWithText:connectionError.localizedDescription];
+            if (![share()userIsLogin]) {
+                [self showEndViewWithText:@"请登录账号！"];
+            }
+            else{
+                [self showEndViewWithText:@"网路请求失败！"];
+            }
         }
     }];
     dic=nil;
