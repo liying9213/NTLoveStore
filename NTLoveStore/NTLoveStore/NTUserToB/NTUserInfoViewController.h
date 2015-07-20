@@ -7,7 +7,12 @@
 //
 
 #import "NTParentViewController.h"
+#import "NTListView.h"
+@interface NTUserInfoViewController : NTParentViewController<UITableViewDataSource,UITableViewDelegate>
 
-@interface NTUserInfoViewController : NTParentViewController
+@property (nonatomic, strong) NSArray *leftAry;
 
+@property (weak, nonatomic) IBOutlet UITableView *leftTableView;
+
+@property (weak, nonatomic) IBOutlet UIView *rightContentView;
 @end

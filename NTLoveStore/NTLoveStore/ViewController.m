@@ -394,6 +394,7 @@
         NTLoginViewController *viewcontroller=[[NTLoginViewController alloc] init];
         viewcontroller.isHome=YES;
         [self presentViewController:viewcontroller animated:YES completion:nil];
+        return;
     }
     UIButton *btn=(UIButton *)sender;
     _popoverContent=[[NTUserPopViewController alloc] init];

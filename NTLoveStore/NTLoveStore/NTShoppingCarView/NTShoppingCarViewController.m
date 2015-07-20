@@ -278,8 +278,21 @@
 }
 
 - (IBAction)dateAction:(id)sender {
-    if (_datePickerView.hidden) {
-        _datePickerView.hidden=NO;
+    if (!_dateView) {
+        UIViewController *viewcontroller=[[UIViewController alloc] init];
+        [viewcontroller.view addSubview:_datePicker];
+        viewcontroller.view.frame=CGRectMake(0, CGRectGetHeight(_infoDataView.frame)-162, CGRectGetWidth(_infoDataView.frame), 162);
+        _datePicker.frame=CGRectMake(0, 0, CGRectGetWidth(_infoDataView.frame), 162);
+        viewcontroller.view.backgroundColor=[UIColor whiteColor];
+        _dateView=viewcontroller.view;
+        [_infoDataView addSubview:_dateView];
+        _dateView.hidden=YES;
+    }
+    if (_dateView.hidden) {
+        _dateView.hidden=NO;
+    }
+    else{
+        [self getTheDate];
     }
 }
 
@@ -352,11 +365,15 @@
         UITapGestureRecognizer *panGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(colseTheView:)];
         panGestureRecognizer.delegate=self;
         [_infoVIew addGestureRecognizer:panGestureRecognizer];
-        UITapGestureRecognizer *panGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(getTheDate)];
-        panGestureRecognizer1.delegate=self;
-         [_datePickerView addGestureRecognizer:panGestureRecognizer1];
         _infoVIew.frame=CGRectMake(0, 0, ScreenWidth, ScreenHeight);
        [[[UIApplication sharedApplication] windows][0] addSubview:_infoVIew];
+        
+        [_nameTextField addTarget:self action:@selector(textField:) forControlEvents:UIControlEventEditingDidBegin];
+        [_telTextField addTarget:self action:@selector(textField:) forControlEvents:UIControlEventEditingDidBegin];
+        [_adessTextField addTarget:self action:@selector(textField:) forControlEvents:UIControlEventEditingDidBegin];
+        [_emailTextField addTarget:self action:@selector(textField:) forControlEvents:UIControlEventEditingDidBegin];
+        
+        
     }
 }
 
@@ -392,12 +409,22 @@
     dic=nil;
 }
 
+- (void)textField:(id)sender{
+    if (_dateView&&!_dateView.hidden) {
+        [self getTheDate];
+    }
+}
 
 
 #pragma mark - infoView
 
 - (void)colseTheView:(UIPanGestureRecognizer*)paramSender{
-    _infoVIew.hidden=YES;
+    if (_dateView.hidden) {
+        _infoVIew.hidden=YES;
+    }
+    else{
+        [self getTheDate];
+    }
 }
 
 - (void)getTheDate{
@@ -405,7 +432,7 @@
     [formatter setDateFormat:@"yyyy-MM-dd"];
     NSString *str=[formatter stringFromDate:_datePicker.date];
     [_dateBtn setTitle:str forState:UIControlStateNormal];
-    _datePickerView.hidden=YES;
+    _dateView.hidden=YES;
 }
 
 @end

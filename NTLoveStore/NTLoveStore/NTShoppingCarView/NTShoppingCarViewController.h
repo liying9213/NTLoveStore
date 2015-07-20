@@ -20,8 +20,8 @@
 @property (strong, nonatomic) NSString *allPrice;
 @property (strong, nonatomic) NSMutableArray *shopcartData;
 @property (strong, nonatomic) IBOutlet UIView *infoVIew;
-@property (strong, nonatomic) IBOutlet UIView *datePickerView;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UIView *infoDataView;
 
 @property (strong, nonatomic) IBOutlet UIButton *dateBtn;
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
@@ -31,7 +31,7 @@
 @property (strong, nonatomic) UIPopoverController *popoverView;
 @property (strong, nonatomic) NSMutableArray *selectAry;
 @property (nonatomic) BOOL isSelectAll;
-
+@property (nonatomic, strong) UIView *dateView;
 
 - (IBAction)submitInfo:(id)sender;
 
