@@ -28,7 +28,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -43,6 +42,7 @@
 - (void)resetListView{
     NTListView *listView=[[NTListView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(_rightContentView.frame), CGRectGetHeight(_rightContentView.frame))];
     [_rightContentView  addSubview:listView];
+    [listView reloadData];
 }
 
 #pragma mark - tableViewDelegate

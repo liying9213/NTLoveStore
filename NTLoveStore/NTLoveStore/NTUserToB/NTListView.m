@@ -2,24 +2,30 @@
 //  NTListView.m
 //  NTLoveStore
 //
-//  Created by liying on 15/7/18.
+//  Created by liying on 15/7/22.
 //  Copyright (c) 2015年 liying. All rights reserved.
 //
 
 #import "NTListView.h"
-
+#import "NTListTableViewCell.h"
 @implementation NTListView
 
-- (id)initWithFrame:(CGRect)frame{
-    self=[super initWithFrame:frame];
-    if (self) {
-        
-    }
-    return self;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _listAry.count;
 }
 
-- (void)awakeFromNib{
-    [super awakeFromNib];
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString * _cellIdentify = @"cell";
+    NTListTableViewCell * iCell = [tableView dequeueReusableCellWithIdentifier:_cellIdentify];
+    if (iCell == nil){
+        [tableView registerNib:[UINib nibWithNibName:@"NTShopcarTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+        iCell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    }
+    return iCell;
 }
 
 @end

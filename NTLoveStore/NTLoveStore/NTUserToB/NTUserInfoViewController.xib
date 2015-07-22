@@ -31,7 +31,6 @@
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oaS-vH-kQs">
                     <rect key="frame" x="185" y="10" width="405" height="580"/>
-                    <color key="backgroundColor" red="0.55273108250000003" green="1" blue="0.73409988969999995" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
             <constraints>

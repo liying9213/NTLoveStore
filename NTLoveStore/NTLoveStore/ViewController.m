@@ -53,7 +53,7 @@
     
     UIImageView *logoImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 2, 99, 35)];
     logoImageView.backgroundColor=[NTColor clearColor];
-    logoImageView.image=[NTImage imageWithFileName:@"logo.png"];
+    logoImageView.image=[NTImage imageNamed:@"logo"];
     [leftView addSubview:logoImageView];
 
     UIBarButtonItem * _leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftView];
