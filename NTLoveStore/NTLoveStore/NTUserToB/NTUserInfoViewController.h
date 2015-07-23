@@ -7,6 +7,7 @@
 //
 
 #import "NTParentViewController.h"
+#import "NTAsynService.h"
 #import "NTListView.h"
 @interface NTUserInfoViewController : NTParentViewController<UITableViewDataSource,UITableViewDelegate>
 
@@ -15,4 +16,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *leftTableView;
 
 @property (weak, nonatomic) IBOutlet UIView *rightContentView;
+
+@property (nonatomic, strong) NTListView *listView;
+
+@property (nonatomic) NSInteger selectType;
+
 @end
