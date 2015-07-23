@@ -52,7 +52,10 @@ static NSString * outOrderBaseUR=@"http://aihunhui.kfrig.net/Home/App/outorder";
 
 static NSString * getodBaseUR=@"http://aihunhui.kfrig.net/Home/App/getod";
 
+static NSString * saveOrderBaseUR=@"http://aihunhui.kfrig.net/Home/App/gorder";
 
+static NSString * finishOrderBaseUR=@"http://aihunhui.kfrig.net/Home/App/worder";
 
+static NSString * delOrderBaseUR=@"http://aihunhui.kfrig.net/Home/App/delorder";
 
 #endif

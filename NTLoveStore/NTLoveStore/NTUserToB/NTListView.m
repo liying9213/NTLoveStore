@@ -23,6 +23,7 @@
 - (void)resetView{
     [self resetBtnView];
     _tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 40, CGRectGetWidth(self.frame), CGRectGetWidth(self.frame)-40)];
+    _tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     _tableView.delegate=self;
     _tableView.dataSource=self;
     [self addSubview:_tableView];
@@ -33,6 +34,8 @@
     _allOrderBtn.frame=CGRectMake(0, 0, 100, 30);
     [_allOrderBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateSelected];
     [_allOrderBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
+    [_allOrderBtn setTitle:@"所有订单" forState:UIControlStateNormal];
+    _allOrderBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     _allOrderBtn.layer.borderWidth=0.5;
     _allOrderBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
     _allOrderBtn.backgroundColor=[NTColor whiteColor];
@@ -45,6 +48,8 @@
     _finOrderBtn.frame=CGRectMake(CGRectGetWidth(_allOrderBtn.frame), 0, 100, 30);
     [_finOrderBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateSelected];
     [_finOrderBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
+    [_finOrderBtn setTitle:@"已完成订单" forState:UIControlStateNormal];
+    _finOrderBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     _finOrderBtn.layer.borderWidth=0.5;
     _finOrderBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
     _finOrderBtn.backgroundColor=[NTColor whiteColor];
@@ -56,6 +61,8 @@
     _outOrderBtn.frame=CGRectMake(CGRectGetWidth(_finOrderBtn.frame)+CGRectGetMinX(_finOrderBtn.frame), 0, 100, 30);
     [_outOrderBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateSelected];
     [_outOrderBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
+    [_outOrderBtn setTitle:@"未完成订单" forState:UIControlStateNormal];
+    _outOrderBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     _outOrderBtn.layer.borderWidth=0.5;
     _outOrderBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
     _outOrderBtn.backgroundColor=[NTColor whiteColor];
@@ -67,6 +74,8 @@
     _payOrderBtn.frame=CGRectMake(CGRectGetWidth(_outOrderBtn.frame)+CGRectGetMinX(_outOrderBtn.frame), 0, 100, 30);
     [_payOrderBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateSelected];
     [_payOrderBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
+    [_payOrderBtn setTitle:@"未支付订单" forState:UIControlStateNormal];
+    _payOrderBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     _payOrderBtn.layer.borderWidth=0.5;
     _payOrderBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
     _payOrderBtn.backgroundColor=[NTColor whiteColor];
@@ -88,6 +97,9 @@
     UIButton *btn=(UIButton *)sender;
     btn.backgroundColor=[NTColor colorWithHexString:NTBlueColor];
     btn.selected=YES;
+    _isSelect=NO;
+    [_contentView removeFromSuperview];
+    _contentView=nil;
     [_delegate selectAction:sender];
 }
 
@@ -99,7 +111,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (_selectIndex==indexPath.row&&_isSelect&&_contentListAry&&_contentListAry.count>0) {
-        return 199;
+        long value=[_contentListAry count]/2;
+        if ([_contentListAry count]%2>0) {
+            value=value+1;
+        }
+        return 78+value*30+5;
     }
     else{
         return 78;
@@ -120,22 +136,35 @@
     iCell.priceLabel.text=_listAry[indexPath.row][@"pricetotal"];
     iCell.weddingDateLabel.text=_listAry[indexPath.row][@"time"];
     if (_selectIndex==indexPath.row&&_isSelect&&_contentListAry&&_contentListAry.count>0){
-        iCell.contentInfoView=[self resetContentView];
-    }    return iCell;
+        long value=[_contentListAry count]/2;
+        if ([_contentListAry count]%2>0) {
+            value=value+1;
+        }
+        CGRect rect=iCell.contentInfoView.frame;
+        iCell.contentInfoView.frame=CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), value*30);
+        [iCell.contentInfoView addSubview:[self resetContentViewWith:CGRectMake(0, 0, CGRectGetWidth(rect), value*30)]];
+    }
+    if (!_isSelect) {
+        CGRect rect=iCell.contentInfoView.frame;
+        iCell.contentInfoView.frame=CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), 0);
+    }
+    return iCell;
 }
 
-- (UIView *)resetContentView{
+- (UIView *)resetContentViewWith:(CGRect)rect{
     if (!_contentView) {
-        _contentView = [[UIView alloc] init];
-        UILabel *label=[[UILabel  alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+        _contentView = [[UIView alloc] initWithFrame:rect];
+        UILabel *label=[[UILabel  alloc] initWithFrame:CGRectMake(0, 0, 150, 30)];
         label.text=@"所需物品：";
+        label.font=[UIFont systemFontOfSize:15];
         [_contentView addSubview:label];
         int x=0;
         int y=0;
         for (NSDictionary *dic in _contentListAry) {
-            UILabel *infoLabel=[[UILabel alloc] initWithFrame:CGRectMake(x*300+30, y*50, 300, 50)];
+            UILabel *infoLabel=[[UILabel alloc] initWithFrame:CGRectMake(x*300+150, y*30, 300, 30)];
             infoLabel.text=[NSString stringWithFormat:@"%@:%@",dic[@"goodid"],dic[@"num"]];
             infoLabel.textAlignment=NSTextAlignmentLeft;
+            infoLabel.font=[UIFont systemFontOfSize:15];
             [_contentView addSubview:infoLabel];
             if (x==0) {
                 x++;
@@ -155,6 +184,7 @@
         _isSelect=YES;
         [self getTheContentWithOrderid:_listAry[indexPath.row][@"orderid"]];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)getTheContentWithOrderid:(NSString *)orderID{

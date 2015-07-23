@@ -22,6 +22,9 @@
 		B21037E61B2541C200ED732B /* NTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B21037E41B2541C200ED732B /* NTImage.m */; };
 		B21037EC1B2578F800ED732B /* NTParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21037EB1B2578F800ED732B /* NTParentViewController.m */; };
 		B213C0C51B259D210023D6B5 /* NTAsynService.m in Sources */ = {isa = PBXBuildFile; fileRef = B213C0C41B259D210023D6B5 /* NTAsynService.m */; };
+		B213E17C1B613532003AB819 /* NTFollowListView.m in Sources */ = {isa = PBXBuildFile; fileRef = B213E17B1B613532003AB819 /* NTFollowListView.m */; };
+		B213E1801B613641003AB819 /* NTFollowListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B213E17E1B613641003AB819 /* NTFollowListTableViewCell.m */; };
+		B213E1811B613641003AB819 /* NTFollowListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B213E17F1B613641003AB819 /* NTFollowListTableViewCell.xib */; };
 		B2255A671B4C12DD00FA2C21 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B2255A661B4C12DD00FA2C21 /* logo.png */; };
 		B2255A731B4C191C00FA2C21 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2255A6A1B4C191C00FA2C21 /* VRGCalendarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B2255A741B4C191C00FA2C21 /* UIView+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B2255A6C1B4C191C00FA2C21 /* UIView+convenience.m */; };
@@ -116,6 +119,11 @@
 		B21037EB1B2578F800ED732B /* NTParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTParentViewController.m; sourceTree = "<group>"; };
 		B213C0C31B259D210023D6B5 /* NTAsynService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTAsynService.h; sourceTree = "<group>"; };
 		B213C0C41B259D210023D6B5 /* NTAsynService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTAsynService.m; sourceTree = "<group>"; };
+		B213E17A1B613532003AB819 /* NTFollowListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTFollowListView.h; sourceTree = "<group>"; };
+		B213E17B1B613532003AB819 /* NTFollowListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTFollowListView.m; sourceTree = "<group>"; };
+		B213E17D1B613641003AB819 /* NTFollowListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTFollowListTableViewCell.h; sourceTree = "<group>"; };
+		B213E17E1B613641003AB819 /* NTFollowListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTFollowListTableViewCell.m; sourceTree = "<group>"; };
+		B213E17F1B613641003AB819 /* NTFollowListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTFollowListTableViewCell.xib; sourceTree = "<group>"; };
 		B2255A661B4C12DD00FA2C21 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		B2255A691B4C191C00FA2C21 /* VRGCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGCalendarView.h; sourceTree = "<group>"; };
 		B2255A6A1B4C191C00FA2C21 /* VRGCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGCalendarView.m; sourceTree = "<group>"; };
@@ -321,6 +329,11 @@
 				B27182C01B60C38C0039C7AD /* NTListTableViewCell.h */,
 				B27182C11B60C38C0039C7AD /* NTListTableViewCell.m */,
 				B27182C21B60C38C0039C7AD /* NTListTableViewCell.xib */,
+				B213E17A1B613532003AB819 /* NTFollowListView.h */,
+				B213E17B1B613532003AB819 /* NTFollowListView.m */,
+				B213E17D1B613641003AB819 /* NTFollowListTableViewCell.h */,
+				B213E17E1B613641003AB819 /* NTFollowListTableViewCell.m */,
+				B213E17F1B613641003AB819 /* NTFollowListTableViewCell.xib */,
 			);
 			name = NTUserToBVIew;
 			path = NTUserToB;
@@ -581,6 +594,7 @@
 				B22F99EB1B418B500027EB40 /* form.jpg in Resources */,
 				B251A2551B37E59200B537A1 /* user.png in Resources */,
 				B22F99ED1B418B500027EB40 /* light.jpg in Resources */,
+				B213E1811B613641003AB819 /* NTFollowListTableViewCell.xib in Resources */,
 				B22F99EE1B418B500027EB40 /* props.jpg in Resources */,
 				B26EF0571B4448F0000D106D /* login.png in Resources */,
 				B2255A671B4C12DD00FA2C21 /* logo.png in Resources */,
@@ -659,10 +673,12 @@
 				B251A25A1B37F1FE00B537A1 /* NTUserPopViewController.m in Sources */,
 				B2255A761B4C191C00FA2C21 /* NSDate+convenience.m in Sources */,
 				B2F1F6E01B2AE79E00B6BCA8 /* NTFunctionView.m in Sources */,
+				B213E17C1B613532003AB819 /* NTFollowListView.m in Sources */,
 				B2EF0B881B394126008B40ED /* NTUserInfoViewController.m in Sources */,
 				B283E05E1B31BC8F0001D6F1 /* NTWebViewController.m in Sources */,
 				B2CB93021B4516BC003385D7 /* NTFunction.m in Sources */,
 				B2D999091B2C35E70068DE87 /* NTContentViewController.m in Sources */,
+				B213E1801B613641003AB819 /* NTFollowListTableViewCell.m in Sources */,
 				B20631671B1BF4C000C02FA6 /* ViewController.m in Sources */,
 				B283E0621B31C9960001D6F1 /* NTShoppingCarViewController.m in Sources */,
 				B21037E61B2541C200ED732B /* NTImage.m in Sources */,

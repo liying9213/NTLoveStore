@@ -10,7 +10,7 @@
 
 @interface NTListView : UIView<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic) id delegate;
+@property (nonatomic, weak) id delegate;
 
 @property (nonatomic) BOOL isSelect;
 

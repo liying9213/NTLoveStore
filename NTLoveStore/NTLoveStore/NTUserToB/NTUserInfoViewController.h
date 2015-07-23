@@ -9,7 +9,8 @@
 #import "NTParentViewController.h"
 #import "NTAsynService.h"
 #import "NTListView.h"
-@interface NTUserInfoViewController : NTParentViewController<UITableViewDataSource,UITableViewDelegate>
+#import "NTFollowListView.h"
+@interface NTUserInfoViewController : NTParentViewController<UITableViewDataSource,UITableViewDelegate,UIPopoverControllerDelegate>
 
 @property (nonatomic, strong) NSArray *leftAry;
 
@@ -19,6 +20,13 @@
 
 @property (nonatomic, strong) NTListView *listView;
 
+@property (nonatomic, strong) NTFollowListView *followListView;
+
+@property (nonatomic, strong) UIView *normalView;
+
 @property (nonatomic) NSInteger selectType;
+
+@property (nonatomic) BOOL isFollow;
+
 
 @end
