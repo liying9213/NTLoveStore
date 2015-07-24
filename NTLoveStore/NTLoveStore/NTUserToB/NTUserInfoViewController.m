@@ -440,11 +440,11 @@
 }
 
 - (void)saveAction:(id)sender{
-    [self saveTheOrderWithdata:nil];
+    [self saveTheOrderWithdata:sender];
 }
 
 - (void)finishAction:(id)sender{
-    [self delTheOrder:nil];
+    [self finishTheOrder:sender];
 }
 
 @end

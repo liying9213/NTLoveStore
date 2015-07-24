@@ -252,6 +252,56 @@
     dic=nil;
 }
 
+/*
+ user	yes	string	用户名
+ pass	yes	string	密码
+ goods	yes	obj	｛0｛num:” ”，id:” ”，parameters:” ”，sort:” ”，price:” ”｝，1｛num:” ”，id:” ”，parameters:” ”，sort:” ”，price:” ”｝
+ date	yes	string	结婚日期
+ name	yes	string	联系人名字
+ phone	yes	string	联系人电话
+ address	yes	String	住址
+ email	yes	string	联系人email
+ typ	yes	string	是否勾选50%订金
+ */
+
+- (void)subOrderAction{
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        return;
+    }
+    
+    [self showWaitingViewWithText:@"正在添加..."];
+    __weak typeof(self) __weakself=self;
+    NSDictionary *dic=@{@"uid":[share()userUid],
+                        @"token":[share()userToken],
+                        @"date":_dateBtn.titleLabel.text,
+                        @"name":_nameTextField.text,
+                        @"phone":_telTextField.text,
+                        @"address":_adessTextField.text,
+                        @"email":_emailTextField.text,
+                        @"goods":@"",
+                        @"typ":[NSString stringWithFormat:@"%d",_subscriptionBtn.selected]};
+    
+    [NTAsynService requestWithHead:subOrderBaseUR WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+        if (success) {
+            __strong typeof(self) self=__weakself;
+            [self changeData:finishData];
+            [self resetView];
+            [self hideWaitingView];
+        }
+        else{
+            __strong typeof(self) self=__weakself;
+            if (![share()userIsLogin]) {
+                [self showEndViewWithText:@"请登录账号！"];
+            }
+            else{
+                [self showEndViewWithText:@"网路请求失败！"];
+            }
+        }
+    }];
+    dic=nil;
+}
+
 - (IBAction)submitInfo:(id)sender {
     if (!_dateBtn.titleLabel.text) {
         [self showEndViewWithText:@"请选择婚期"];
@@ -274,6 +324,7 @@
         return;
     }
     [self colseTheView:nil];
+    [self subOrderAction];
     [self showEndViewWithText:@"支付功能正在完善！"];
 }
 
@@ -372,8 +423,6 @@
         [_telTextField addTarget:self action:@selector(textField:) forControlEvents:UIControlEventEditingDidBegin];
         [_adessTextField addTarget:self action:@selector(textField:) forControlEvents:UIControlEventEditingDidBegin];
         [_emailTextField addTarget:self action:@selector(textField:) forControlEvents:UIControlEventEditingDidBegin];
-        
-        
     }
 }
 
