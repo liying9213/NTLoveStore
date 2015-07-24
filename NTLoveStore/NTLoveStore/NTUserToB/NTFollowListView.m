@@ -104,6 +104,7 @@
             infoLabel.textAlignment=NSTextAlignmentLeft;
             infoLabel.font=[UIFont systemFontOfSize:15];
             [_contentView addSubview:infoLabel];
+            
             if (x==0) {
                 x++;
             }
@@ -113,6 +114,21 @@
             }
             i++;
         }
+        
+        UIButton *saveBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+        saveBtn.frame=CGRectMake(CGRectGetWidth(_contentView.frame)-100, CGRectGetHeight(_contentView.frame)-100, 90, 40);
+        [saveBtn setBackgroundColor:[NTColor colorWithHexString:NTBlueColor]];
+        [saveBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateNormal];
+        [saveBtn addTarget:self action:@selector(saveAction:) forControlEvents:UIControlEventTouchUpInside];
+        [_contentView addSubview:saveBtn];
+        
+        UIButton *finishBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+        finishBtn.frame=CGRectMake(CGRectGetMinX(saveBtn.frame), CGRectGetHeight(_contentView.frame)-50, 90, 40);
+        [finishBtn setBackgroundColor:[NTColor colorWithHexString:NTBlueColor]];
+        [finishBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateNormal];
+        [finishBtn addTarget:self action:@selector(finishBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [_contentView addSubview:finishBtn];
+        
     }
     return _contentView;
 }
@@ -137,6 +153,14 @@
 - (void)selectAction:(id)sender{
     NTButton *btn=(NTButton *)sender;
     btn.selected=!btn.selected;
+}
+
+- (void)saveAction:(id)sender{
+    [_delegate saveAction:sender];
+}
+
+- (void)finishAction:(id)sender{
+    [_delegate finishAction:sender];
 }
 
 @end
