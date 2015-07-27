@@ -42,6 +42,8 @@ static NSString * shopcartBaseUR=@"http://aihunhui.kfrig.net/Home/App/get_shopca
 
 static NSString * dropBaseUR=@"http://aihunhui.kfrig.net/Home/App/delItem";
 
+static NSString * subOrderBaseUR=@"http://aihunhui.kfrig.net/Home/App/order";
+
 static NSString * allOrderBaseUR=@"http://aihunhui.kfrig.net/Home/App/getorder";
 
 static NSString * finOrderBaseUR=@"http://aihunhui.kfrig.net/Home/App/finishedorder";

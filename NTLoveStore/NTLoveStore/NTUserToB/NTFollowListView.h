@@ -26,6 +26,8 @@
 
 @property (nonatomic, weak) id delegate;
 
+@property (nonatomic, strong) NSMutableArray *selectAry;
+
 - (void)resetView;
 
 @end

@@ -104,6 +104,7 @@
             infoLabel.textAlignment=NSTextAlignmentLeft;
             infoLabel.font=[UIFont systemFontOfSize:15];
             [_contentView addSubview:infoLabel];
+            
             if (x==0) {
                 x++;
             }
@@ -113,6 +114,24 @@
             }
             i++;
         }
+        
+        UIButton *saveBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+        saveBtn.frame=CGRectMake(CGRectGetWidth(_contentView.frame)-100, CGRectGetHeight(_contentView.frame)-100, 90, 40);
+        [saveBtn setBackgroundColor:[NTColor colorWithHexString:NTBlueColor]];
+        [saveBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateNormal];
+        [saveBtn addTarget:self action:@selector(saveAction:) forControlEvents:UIControlEventTouchUpInside];
+        [saveBtn setTitle:@"保存订单" forState:UIControlStateNormal];
+        [_contentView addSubview:saveBtn];
+        
+        NTButton *finishBtn=[NTButton buttonWithType:UIButtonTypeCustom];
+        finishBtn.frame=CGRectMake(CGRectGetMinX(saveBtn.frame), CGRectGetHeight(_contentView.frame)-50, 90, 40);
+        [finishBtn setBackgroundColor:[NTColor colorWithHexString:NTBlueColor]];
+        [finishBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateNormal];
+        [finishBtn addTarget:self action:@selector(finishAction:) forControlEvents:UIControlEventTouchUpInside];
+        [finishBtn setTitle:@"完成订单" forState:UIControlStateNormal];
+        finishBtn.keyWord=_followListAry[_selectIndex][@"orderid"];
+        [_contentView addSubview:finishBtn];
+        
     }
     return _contentView;
 }
@@ -136,7 +155,35 @@
 
 - (void)selectAction:(id)sender{
     NTButton *btn=(NTButton *)sender;
+    if (!_selectAry) {
+        _selectAry=[[NSMutableArray alloc] init];
+    }
+    if ([_selectAry containsObject:[NSNumber numberWithInteger:btn.tag]]) {
+        [_selectAry removeObject:[NSNumber numberWithInteger:btn.tag]];
+    }
+    else{
+        [_selectAry addObject:[NSNumber numberWithInteger:btn.tag]];
+    }
     btn.selected=!btn.selected;
+}
+
+- (void)saveAction:(id)sender{
+    NSString *string;
+    int i=0;
+    for (NSNumber *num in _selectAry){
+        if (i==0) {
+            string=[NSString stringWithFormat:@"%@",num];
+        }
+        else{
+             string=[NSString stringWithFormat:@"%@,%@",string,num];
+        }
+    }
+    [_delegate saveAction:string];
+}
+
+- (void)finishAction:(id)sender{
+    NTButton *btn=(NTButton *)sender;
+    [_delegate finishAction:btn.keyWord];
 }
 
 @end

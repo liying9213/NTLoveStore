@@ -179,6 +179,8 @@
     dic=nil;
 }
 
+#pragma mark - resetView
+
 - (void)resetViewWithType:(NSInteger)type withData:(id)listData{
     if (type==0||type==1||type==2||type==3) {
 //        _listView.listAry=[listData allValues];
@@ -271,12 +273,79 @@
     _rightContentView.hidden=NO;
 }
 
+#pragma mark - LeftTableViewDelegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (tableView.tag==1) {
+        return 5;
+    }
+    else
+        return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString * _cellIdentify = @"cell";
+    if (tableView.tag==1) {
+        NTLeftTableViewCell * iCell = [tableView dequeueReusableCellWithIdentifier:_cellIdentify];
+        if (iCell == nil){
+            iCell=[[NTLeftTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:_cellIdentify];
+        }
+        [iCell reloadTheTableCellWithData:[_leftAry objectAtIndex:indexPath.row]];
+        tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+        return iCell;
+    }
+    else
+        return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView.tag==1) {
+        switch (indexPath.row) {
+            case 0:
+            {
+                _isFollow=NO;
+//                [self getTheListData];
+                [self selectAction:nil];
+                _normalView.hidden=YES;
+            }
+                break;
+            case 1:
+            {
+                _isFollow=YES;
+                _selectType=2;
+//                [self getTheListData];
+                [self selectAction:nil];
+                _normalView.hidden=YES;
+            }
+                break;
+            case 2:
+            {
+                [self resetNomalView];
+            }
+                break;
+            case 3:
+            {
+                [self resetNomalView];
+            }
+                break;
+            case 4:
+            {
+                [self resetNomalView];
+            }
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+
 #pragma mark listViewDelegate
 
 - (void)selectAction:(id)sender{
     UIButton *btn=(id)sender;
     _selectType=btn.tag;
-//    [self getTheListData];
+    //    [self getTheListData];
     NSArray *ary=@[
                    @{@"id":@"100",
                      @"orderid":@"E616698396244850355",
@@ -370,71 +439,12 @@
     [_popoverView presentPopoverFromRect:btn.bounds inView:btn permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
-#pragma mark - tableViewDelegate
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (tableView.tag==1) {
-        return 5;
-    }
-    else
-        return 0;
+- (void)saveAction:(id)sender{
+    [self saveTheOrderWithdata:sender];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString * _cellIdentify = @"cell";
-    if (tableView.tag==1) {
-        NTLeftTableViewCell * iCell = [tableView dequeueReusableCellWithIdentifier:_cellIdentify];
-        if (iCell == nil){
-            iCell=[[NTLeftTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:_cellIdentify];
-        }
-        [iCell reloadTheTableCellWithData:[_leftAry objectAtIndex:indexPath.row]];
-        tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
-        return iCell;
-    }
-    else
-        return nil;
+- (void)finishAction:(id)sender{
+    [self finishTheOrder:sender];
 }
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (tableView.tag==1) {
-        switch (indexPath.row) {
-            case 0:
-            {
-                _isFollow=NO;
-//                [self getTheListData];
-                [self selectAction:nil];
-                _normalView.hidden=YES;
-            }
-                break;
-            case 1:
-            {
-                _isFollow=YES;
-                _selectType=2;
-//                [self getTheListData];
-                [self selectAction:nil];
-                _normalView.hidden=YES;
-            }
-                break;
-            case 2:
-            {
-                [self resetNomalView];
-            }
-                break;
-            case 3:
-            {
-                [self resetNomalView];
-            }
-                break;
-            case 4:
-            {
-                [self resetNomalView];
-            }
-                break;
-            default:
-                break;
-        }
-    }
-}
-
 
 @end
