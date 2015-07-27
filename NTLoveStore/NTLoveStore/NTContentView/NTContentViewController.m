@@ -53,7 +53,7 @@
                 [self showEndViewWithText:@"请登录账号！"];
             }
             else{
-                [self showEndViewWithText:@"网路请求失败！"];
+                [self showEndViewWithText:@"网络请求失败！"];
             }
         }
     }];
@@ -81,7 +81,7 @@
                 [self showEndViewWithText:@"请登录账号！"];
             }
             else{
-                [self showEndViewWithText:@"网路请求失败！"];
+                [self showEndViewWithText:@"网络请求失败！"];
             }
         }
     }];
@@ -133,6 +133,15 @@
     commentNumLabel.attributedText=commentNum;
     commentNumLabel.textAlignment=NSTextAlignmentLeft;
     [_scrollView addSubview:commentNumLabel];
+    
+    if ([_detailDic objectForKey:@"stock"]) {
+        UIView *numView=[[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(titleLabel.frame), CGRectGetHeight(finishNumLabel.frame)+CGRectGetMinY(finishNumLabel.frame)+20,  ScreenWidth-640, 50)];
+        [self resetSelectNumWithView:numView];
+        numView.backgroundColor=[UIColor clearColor];
+        [_scrollView addSubview:numView];
+        _selectNumLabel.text=[_detailDic objectForKey:@"stock"];
+        
+    }
     
     if (_isPerson&&_isCanSelect) {
         UIView *calendarView=[[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(titleLabel.frame), CGRectGetHeight(finishNumLabel.frame)+CGRectGetMinY(finishNumLabel.frame)+20,  ScreenWidth-640, 50)];
@@ -266,6 +275,7 @@
     minusBtn.titleLabel.font=[UIFont systemFontOfSize:15];
     [minusBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
     [minusBtn addTarget:self action:@selector(minusNum) forControlEvents:UIControlEventTouchUpInside];
+    minusBtn.enabled=_isCanSelect;
     minusBtn.layer.masksToBounds=YES;
     minusBtn.layer.cornerRadius=15;
     minusBtn.layer.borderWidth=1;
@@ -284,6 +294,7 @@
     addBtn.titleLabel.font=[UIFont systemFontOfSize:15];
     [addBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
     [addBtn addTarget:self action:@selector(addNum) forControlEvents:UIControlEventTouchUpInside];
+    addBtn.enabled=_isCanSelect;
     addBtn.layer.masksToBounds=YES;
     addBtn.layer.cornerRadius=16;
     addBtn.layer.borderWidth=1;
@@ -391,7 +402,7 @@
                 [self showEndViewWithText:@"请登录账号！"];
             }
             else{
-                [self showEndViewWithText:@"网路请求失败！"];
+                [self showEndViewWithText:@"网络请求失败！"];
             }
         }
     }];

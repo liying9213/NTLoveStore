@@ -85,7 +85,7 @@
                 [self showEndViewWithText:@"请登录账号！"];
             }
             else{
-                [self showEndViewWithText:@"网路请求失败！"];
+                [self showEndViewWithText:@"网络请求失败！"];
             }
         }
     }];
@@ -115,7 +115,7 @@
                 [self showEndViewWithText:@"请登录账号！"];
             }
             else{
-                [self showEndViewWithText:@"网路请求失败！"];
+                [self showEndViewWithText:@"网络请求失败！"];
             }
         }
     }];
@@ -144,7 +144,7 @@
                 [self showEndViewWithText:@"请登录账号！"];
             }
             else{
-                [self showEndViewWithText:@"网路请求失败！"];
+                [self showEndViewWithText:@"网络请求失败！"];
             }
         }
     }];
@@ -172,7 +172,7 @@
                 [self showEndViewWithText:@"请登录账号！"];
             }
             else{
-                [self showEndViewWithText:@"网路请求失败！"];
+                [self showEndViewWithText:@"网络请求失败！"];
             }
         }
     }];
@@ -396,7 +396,7 @@
                 [self showEndViewWithText:@"请登录账号！"];
             }
             else{
-                [self showEndViewWithText:@"网路请求失败！"];
+                [self showEndViewWithText:@"网络请求失败！"];
             }
         }
     }];

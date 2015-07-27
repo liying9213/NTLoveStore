@@ -44,7 +44,7 @@
 
 - (void)resetView{
     [self resetNavView];
-    [self resetHeadSelectView];
+//    [self resetHeadSelectView];
 }
 
 - (void)resetNavView{
@@ -93,9 +93,9 @@
     self.navigationItem.rightBarButtonItem = _rightBarButtonItem;
 }
 
-- (void)resetHeadSelectView{
+- (void)resetHeadSelectView:(NSArray *)ary{
     _headSelectView=[[NTHeadSelectView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 45)];
-    _headSelectView.selectData=[NTReadConfiguration getConfigurationWithKey:@"functionData"];
+    _headSelectView.selectData=ary;
     _headSelectView.delegate=self;
     _headSelectView.selectTag=0;
     [_headSelectView creatHeadSelectView];
@@ -182,6 +182,10 @@
         if (success) {
             [self hideWaitingView];
             [NTUserDefaults writeTheFunctionData:(NSArray *)finishData];
+            NSMutableArray *ary=[[NSMutableArray array] init];
+            [ary addObject:@{@"id":@"0",@"title":@"首页",@"name":@"sy"}];
+            [ary addObjectsFromArray:(NSArray *)finishData];
+            [self resetHeadSelectView:ary];
             finishData=nil;
         }
         else{
@@ -275,7 +279,7 @@
     [NTAsynService requestWithHead:listBaseURL WithBody:dic completionHandler:^(BOOL success,  id finishData, NSError *connectionError) {
         if (success) {
             __strong typeof(self) self=__weakself;
-            [self reloadFunctionView:[finishData allValues]];
+            [self reloadFunctionView:[self getTheValuesWithKey:[[finishData allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] withData:finishData]];
             finishData=nil;
         }
         else{
@@ -284,12 +288,21 @@
                 [self showEndViewWithText:@"请登录账号！"];
             }
             else{
-                [self showEndViewWithText:@"网路请求失败！"];
+                [self showEndViewWithText:@"网络请求失败！"];
             }
         }
     }];
     dic=nil;
 }
+
+- (NSMutableArray *)getTheValuesWithKey:(NSArray *)keyAry withData:(NSMutableDictionary *)dic{
+    NSMutableArray *ary=[[NSMutableArray array] init];
+    for (NSString *str in keyAry) {
+        [ary addObject:[dic objectForKey:str]];
+    }
+    return ary;
+}
+
 
 - (void)memberSelectAction:(id)sender{
     UIButton *btn=(UIButton *)sender;
@@ -328,7 +341,7 @@
                 [self showEndViewWithText:@"请登录账号！"];
             }
             else{
-                [self showEndViewWithText:@"网路请求失败！"];
+                [self showEndViewWithText:@"网络请求失败！"];
             }
         }
     }];
@@ -367,7 +380,7 @@
                 [self showEndViewWithText:@"请登录账号！"];
             }
             else{
-                [self showEndViewWithText:@"网路请求失败！"];
+                [self showEndViewWithText:@"网络请求失败！"];
             }
         }
     }];

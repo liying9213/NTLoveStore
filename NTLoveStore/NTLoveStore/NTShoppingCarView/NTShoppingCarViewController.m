@@ -46,7 +46,7 @@
                 [self showEndViewWithText:@"请登录账号！"];
             }
             else{
-                [self showEndViewWithText:@"网路请求失败！"];
+                [self showEndViewWithText:@"网络请求失败！"];
             }
         }
     }];
@@ -57,8 +57,16 @@
     _allPrice=[finishData objectForKey:@"mtotal"];
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] initWithDictionary:finishData];
     [dic removeObjectForKey:@"mtotal"];
-    _shopcartData=[[NSMutableArray alloc] initWithArray:[dic allValues]];
+    _shopcartData=[self getTheValuesWithKey:[[dic allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] withData:dic];
     dic=nil;
+}
+
+- (NSMutableArray *)getTheValuesWithKey:(NSArray *)keyAry withData:(NSMutableDictionary *)dic{
+    NSMutableArray *ary=[[NSMutableArray array] init];
+    for (NSString *str in keyAry) {
+        [ary addObject:[dic objectForKey:str]];
+    }
+    return ary;
 }
 
 - (void)resetView{
@@ -92,12 +100,7 @@
         [tableView registerNib:[UINib nibWithNibName:@"NTShopcarTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
         iCell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     }
-    if ([[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"pet"] intValue]==1) {
-        iCell.leftImagView.image=[UIImage imageNamed:@"picple.png"];
-    }
-    else{
-        iCell.leftImagView.imageURL=[NSURL URLWithString:[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"cover_id"]];
-    }
+    iCell.leftImagView.imageURL=[NSURL URLWithString:[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"cover_id"]];
     iCell.commodityName.text=[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"title"];
     iCell.price.text=[NSString stringWithFormat:@"%@/元",[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"price"]];
     iCell.allPrice.text=[NSString stringWithFormat:@"%@元",[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"tprice"]];
@@ -170,7 +173,7 @@
                 [self showEndViewWithText:@"请登录账号！"];
             }
             else{
-                [self showEndViewWithText:@"网路请求失败！"];
+                [self showEndViewWithText:@"网络请求失败！"];
             }
         }
     }];
@@ -207,7 +210,7 @@
                 [self showEndViewWithText:@"请登录账号！"];
             }
             else{
-                [self showEndViewWithText:@"网路请求失败！"];
+                [self showEndViewWithText:@"网络请求失败！"];
             }
         }
     }];
@@ -245,7 +248,7 @@
                 [self showEndViewWithText:@"请登录账号！"];
             }
             else{
-                [self showEndViewWithText:@"网路请求失败！"];
+                [self showEndViewWithText:@"网络请求失败！"];
             }
         }
     }];
@@ -295,7 +298,7 @@
                 [self showEndViewWithText:@"请登录账号！"];
             }
             else{
-                [self showEndViewWithText:@"网路请求失败！"];
+                [self showEndViewWithText:@"网络请求失败！"];
             }
         }
     }];

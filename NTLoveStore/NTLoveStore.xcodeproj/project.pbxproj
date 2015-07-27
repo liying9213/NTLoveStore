@@ -44,6 +44,7 @@
 		B251A2551B37E59200B537A1 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = B251A2541B37E59200B537A1 /* user.png */; };
 		B251A2571B37EBED00B537A1 /* separate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B251A2561B37EBED00B537A1 /* separate.jpg */; };
 		B251A25A1B37F1FE00B537A1 /* NTUserPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B251A2591B37F1FE00B537A1 /* NTUserPopViewController.m */; };
+		B255FD4C1B666BA900EED9D7 /* login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B255FD4B1B666BA900EED9D7 /* login.jpg */; };
 		B26284AD1B52771000890E2C /* NTShopcarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B26284AB1B52771000890E2C /* NTShopcarTableViewCell.m */; };
 		B26284AE1B52771000890E2C /* NTShopcarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B26284AC1B52771000890E2C /* NTShopcarTableViewCell.xib */; };
 		B26EF0571B4448F0000D106D /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = B26EF0561B4448F0000D106D /* login.png */; };
@@ -151,6 +152,7 @@
 		B251A2561B37EBED00B537A1 /* separate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = separate.jpg; sourceTree = "<group>"; };
 		B251A2581B37F1FE00B537A1 /* NTUserPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTUserPopViewController.h; sourceTree = "<group>"; };
 		B251A2591B37F1FE00B537A1 /* NTUserPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTUserPopViewController.m; sourceTree = "<group>"; };
+		B255FD4B1B666BA900EED9D7 /* login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = login.jpg; sourceTree = "<group>"; };
 		B26284AA1B52771000890E2C /* NTShopcarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTShopcarTableViewCell.h; sourceTree = "<group>"; };
 		B26284AB1B52771000890E2C /* NTShopcarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTShopcarTableViewCell.m; sourceTree = "<group>"; };
 		B26284AC1B52771000890E2C /* NTShopcarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTShopcarTableViewCell.xib; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 		B251A24F1B37E2CB00B537A1 /* NTSource */ = {
 			isa = PBXGroup;
 			children = (
+				B255FD4B1B666BA900EED9D7 /* login.jpg */,
 				B2E808D41B4ABDC000A9D9FE /* HeaderBg_7.png */,
 				B26EF0561B4448F0000D106D /* login.png */,
 				B2255A661B4C12DD00FA2C21 /* logo.png */,
@@ -582,6 +585,7 @@
 			files = (
 				B2D91DD11B51274100DE9722 /* NTFinishView.xib in Resources */,
 				B251A2571B37EBED00B537A1 /* separate.jpg in Resources */,
+				B255FD4C1B666BA900EED9D7 /* login.jpg in Resources */,
 				B2394DC21B500CC500F1E516 /* NTConsultViewController.xib in Resources */,
 				B22F99EF1B418B500027EB40 /* site.jpg in Resources */,
 				B206316A1B1BF4C000C02FA6 /* Main.storyboard in Resources */,

@@ -29,7 +29,7 @@
 - (void)resetView{
     
     UIImageView *imageview=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth,ScreenHeight )];
-    imageview.image=[NTImage imageWithFileName:@"login.png"];
+    imageview.image=[NTImage imageWithFileName:@"login.jpg"];
     [self.view addSubview:imageview];
     
     

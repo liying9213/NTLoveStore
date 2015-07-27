@@ -43,14 +43,15 @@
             [_scrollView addSubview:imageView];
         }
     }
+    _selectData=nil;
 }
 
 - (void)resetSelectBtnWithData:(NSDictionary *)dic WithXValue:(float)xValue WithWidthValue:(float)WidthValue WithParentView:(UIScrollView *)view{
     NTButton *selectBtn=[NTButton buttonWithType:UIButtonTypeCustom];
     selectBtn.backgroundColor=[NTColor clearColor];
-    [selectBtn setTitle:[dic objectForKey:@"name"] forState:UIControlStateNormal];
+    [selectBtn setTitle:[dic objectForKey:@"title"] forState:UIControlStateNormal];
     selectBtn.tag=[[dic objectForKey:@"id"] integerValue];
-    selectBtn.keyWord=[dic objectForKey:@"key"];
+    selectBtn.keyWord=[dic objectForKey:@"name"];
     selectBtn.frame=CGRectMake(xValue, 0, WidthValue, CGRectGetHeight(self.frame));
     [selectBtn setTitleColor:[NTColor colorWithHexString:NTWhiteColor] forState:UIControlStateNormal];
     [selectBtn addTarget:self action:@selector(headSelectAction:) forControlEvents:UIControlEventTouchUpInside];
