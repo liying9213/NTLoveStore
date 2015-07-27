@@ -426,22 +426,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NTLoveStore/NTUserToB/NTUserInfoViewController.m"
-            timestampString = "459360910.100047"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
-            landmarkName = "-selectAction:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/NTUserToB/NTUserInfoViewController.m"
             timestampString = "459360820.794311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
