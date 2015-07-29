@@ -47,6 +47,8 @@
 
 @property (nonatomic, strong)NSMutableArray *videoAry;
 
+@property (nonatomic, strong)NSMutableString *contentStr;
+
 @property (nonatomic, strong)NSString *currentType;
 
 @property (nonatomic) BOOL isPerson;

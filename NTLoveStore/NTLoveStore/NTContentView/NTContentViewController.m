@@ -7,9 +7,11 @@
 //
 
 #import "NTContentViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 #import "NTShowDetailVIew.h"
 #import "NTAsynService.h"
 #import "NTMemberView.h"
+#import "HTMLParser.h"
 #import "NSDate+convenience.h"
 @interface NTContentViewController ()
 
@@ -134,7 +136,7 @@
     commentNumLabel.textAlignment=NSTextAlignmentLeft;
     [_scrollView addSubview:commentNumLabel];
     
-    if ([_detailDic objectForKey:@"stock"]) {
+    if ([_detailDic objectForKey:@"stock"]&&!_isCanSelect) {
         UIView *numView=[[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(titleLabel.frame), CGRectGetHeight(finishNumLabel.frame)+CGRectGetMinY(finishNumLabel.frame)+20,  ScreenWidth-640, 50)];
         [self resetSelectNumWithView:numView];
         numView.backgroundColor=[UIColor clearColor];
@@ -173,6 +175,7 @@
 }
 
 - (void)resetContentView{
+    [self flattenHTML:[_detailDic objectForKey:@"content"]];
     int j=0;
     for (int i=0; i<4; i++) {
         NSString *title;
@@ -209,7 +212,7 @@
             _imageViewBtn.frame=CGRectMake(20+j*120, 455, 120, 40);
             [_scrollView addSubview:_imageViewBtn];
         }
-        else if ([self GetTheVideo]&&i==2){
+        else if (_videoAry&&_videoAry.count>0&&i==2){
             title=@"案例视频";
             j++;
             _videoBtn=[UIButton buttonWithType:UIButtonTypeCustom];
@@ -417,7 +420,7 @@
             if (!_contenInfoView) {
                 _contenInfoView=[[UIView alloc] initWithFrame:CGRectMake(20, 500, ScreenWidth-40, 250)];
                 UILabel *contentLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 0,ScreenWidth-40, 200)];
-                contentLabel.text=[_detailDic objectForKey:@"content"];
+                contentLabel.text=_contentStr;
                 contentLabel.backgroundColor=[NTColor clearColor];
                 contentLabel.font=[UIFont systemFontOfSize:15];
                 contentLabel.lineBreakMode=NSLineBreakByTruncatingTail;
@@ -477,8 +480,19 @@
         {
             if (!_videoInfoView) {
                 _videoInfoView=[[UIScrollView alloc] initWithFrame:CGRectMake(20, 500, ScreenWidth-40, 200)];
-                _videoInfoView.backgroundColor=[NTColor orangeColor];
+                _videoInfoView.backgroundColor=[NTColor whiteColor];
                 [_scrollView addSubview:_videoInfoView];
+                int i=0;
+                for (NSString *videoPath in _videoAry) {
+                    EGOImageButton *imageBtn=[[EGOImageButton alloc] initWithPlaceholderImage:[UIImage imageNamed:@"picple.png"]];
+                    [imageBtn addTarget:self action:@selector(videoBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+                    imageBtn.tag=i;
+                    imageBtn.frame=CGRectMake(i*(285+40), 20, 285, 185);
+                    [_videoInfoView addSubview:imageBtn];
+                    i++;
+                }
+                [_videoInfoView setContentSize:CGSizeMake([_videoAry count]*325, 225)];
+                
             }
             _contenInfoView.hidden=YES;
             _imageInfoView.hidden=YES;
@@ -527,6 +541,24 @@
             
         default:
             break;
+    }
+}
+
+- (void)flattenHTML:(NSString *)html {
+    
+    _contentStr=[NSMutableString string];
+    HTMLParser *parser = [[HTMLParser alloc] initWithString:html error:nil];
+    
+    for (HTMLNode *node in [[parser body] children])
+    {
+        if ([node.tagName isEqualToString:@"a"]) {
+            if (!_videoAry) {
+                _videoAry=[[NSMutableArray alloc] init];
+            }
+            [_videoAry addObject:node.allContents];
+        }
+        else
+            [_contentStr appendString:node.allContents];
     }
 }
 
@@ -580,14 +612,23 @@
     [detailView showImageWithArray:_imageAry withIndex:btn.tag];
 }
 
+- (void)videoBtnAction:(id)sender{
+    EGOImageButton *btn=(EGOImageButton *)sender;
+    NSURL * movieurl = [NSURL URLWithString:[_videoAry objectAtIndex:btn.tag]];
+    
+    MPMoviePlayerViewController *player = [[MPMoviePlayerViewController alloc] initWithContentURL:movieurl];
+    
+    [self presentMoviePlayerViewControllerAnimated:player];
+}
+
 - (void)showTextView:(id)sender{
     UIButton *btn=(UIButton*)sender;
     NTShowDetailVIew *detailView=[[NTShowDetailVIew alloc] initWithFrame:self.view.frame];
     if(btn.tag==1){
-       [detailView showTextWithString:[_detailDic objectForKey:@"content"]];
+       [detailView showTextWithString:_contentStr];
     }
     else{
-        [detailView showTextWithString:[_detailDic objectForKey:@"content"]];
+        [detailView showTextWithString:_contentStr];
     }
     
 }

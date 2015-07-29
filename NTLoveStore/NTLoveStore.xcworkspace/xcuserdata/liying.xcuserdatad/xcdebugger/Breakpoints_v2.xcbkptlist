@@ -25,22 +25,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/NTContentView/NTContentViewController.m"
-            timestampString = "459706838.30361"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "551"
-            endingLineNumber = "551"
-            landmarkName = "-calendarView:switchedToMonth:targetHeight:animated:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "NTLoveStore/calendar/VRGCalendarView.m"
             timestampString = "457975635.706067"
             startingColumnNumber = "9223372036854775807"
@@ -105,28 +89,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/NTShoppingCarView/NTShoppingCarViewController.m"
-            timestampString = "459705172.301279"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
-            landmarkName = "-dateAction:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "NTLoveStore/NTContentView/NTContentViewController.m"
-            timestampString = "459706838.30361"
+            timestampString = "459877035.884141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
             landmarkName = "-selectAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NTLoveStore/NTContentView/NTContentViewController.m"
-            timestampString = "459706838.30361"
+            timestampString = "459877035.884141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "400"
-            endingLineNumber = "400"
+            startingLineNumber = "403"
+            endingLineNumber = "403"
             landmarkName = "-selectAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -154,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NTLoveStore/NTContentView/NTContentViewController.m"
-            timestampString = "459706838.30361"
+            timestampString = "459877035.884141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "392"
-            endingLineNumber = "392"
+            startingLineNumber = "395"
+            endingLineNumber = "395"
             landmarkName = "-selectAction:"
             landmarkType = "5">
             <Locations>
@@ -170,11 +138,11 @@
                   moduleName = "NTLoveStore"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liying/GitHub/NTLoveStore/NTLoveStore/NTLoveStore/NTContentView/NTContentViewController.m"
-                  timestampString = "459706838.836716"
+                  timestampString = "459877551.09074"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "392"
-                  endingLineNumber = "392"
+                  startingLineNumber = "395"
+                  endingLineNumber = "395"
                   offsetFromSymbolStart = "1712">
                </Location>
                <Location
@@ -185,11 +153,11 @@
                   moduleName = "NTLoveStore"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liying/GitHub/NTLoveStore/NTLoveStore/NTLoveStore/NTContentView/NTContentViewController.m"
-                  timestampString = "459706838.837041"
+                  timestampString = "459877551.091043"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "392"
-                  endingLineNumber = "392"
+                  startingLineNumber = "395"
+                  endingLineNumber = "395"
                   offsetFromSymbolStart = "78">
                </Location>
             </Locations>
@@ -234,7 +202,7 @@
                   moduleName = "NTLoveStore"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liying/GitHub/NTLoveStore/NTLoveStore/NTLoveStore/NTShoppingCarView/NTShoppingCarViewController.m"
-                  timestampString = "459706838.844154"
+                  timestampString = "459877551.09349"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "200"
@@ -249,7 +217,7 @@
                   moduleName = "NTLoveStore"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liying/GitHub/NTLoveStore/NTLoveStore/NTLoveStore/NTShoppingCarView/NTShoppingCarViewController.m"
-                  timestampString = "459706838.844543"
+                  timestampString = "459877551.093758"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "200"
@@ -304,22 +272,6 @@
             startingLineNumber = "318"
             endingLineNumber = "318"
             landmarkName = "-submitInfo:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/NTShoppingCarView/NTShoppingCarViewController.m"
-            timestampString = "459705172.301279"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "352"
-            endingLineNumber = "352"
-            landmarkName = "-getTheSelectPrice"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -442,7 +394,7 @@
                   moduleName = "NTLoveStore"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liying/GitHub/NTLoveStore/NTLoveStore/NTLoveStore/NTUserToB/NTLoginViewController.m"
-                  timestampString = "459706838.8605"
+                  timestampString = "459877551.102206"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "89"
@@ -457,7 +409,7 @@
                   moduleName = "NTLoveStore"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liying/GitHub/NTLoveStore/NTLoveStore/NTLoveStore/NTUserToB/NTLoginViewController.m"
-                  timestampString = "459706838.860806"
+                  timestampString = "459877551.102486"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "89"
@@ -481,150 +433,6 @@
             endingLineNumber = "49"
             landmarkName = "-resetSelectBtnWithData:WithXValue:WithWidthValue:WithParentView:"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/ViewController.m"
-            timestampString = "459703382.253939"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
-            landmarkName = "-leftViewActionWithCategory:WithOrder:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/ViewController.m"
-            timestampString = "459703448.71041"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
-            landmarkName = "-leftViewActionWithCategory:WithOrder:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/ViewController.m"
-            timestampString = "459703460.708301"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
-            landmarkName = "-leftViewActionWithCategory:WithOrder:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/ViewController.m"
-            timestampString = "459703481.452398"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
-            landmarkName = "-leftViewActionWithCategory:WithOrder:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ViewController leftViewActionWithCategory:WithOrder:]"
-                  moduleName = "NTLoveStore"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liying/GitHub/NTLoveStore/NTLoveStore/NTLoveStore/ViewController.m"
-                  timestampString = "459706838.865764"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "279"
-                  endingLineNumber = "279"
-                  offsetFromSymbolStart = "998">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__55-[ViewController leftViewActionWithCategory:WithOrder:]_block_invoke"
-                  moduleName = "NTLoveStore"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liying/GitHub/NTLoveStore/NTLoveStore/NTLoveStore/ViewController.m"
-                  timestampString = "459706838.866304"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "279"
-                  endingLineNumber = "279"
-                  offsetFromSymbolStart = "81">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/NTShoppingCarView/NTShoppingCarViewController.m"
-            timestampString = "459703817.002259"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-getTheShopCartData"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[NTShoppingCarViewController getTheShopCartData]"
-                  moduleName = "NTLoveStore"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liying/GitHub/NTLoveStore/NTLoveStore/NTLoveStore/NTShoppingCarView/NTShoppingCarViewController.m"
-                  timestampString = "459706838.868004"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "589">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__49-[NTShoppingCarViewController getTheShopCartData]_block_invoke"
-                  moduleName = "NTLoveStore"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liying/GitHub/NTLoveStore/NTLoveStore/NTLoveStore/NTShoppingCarView/NTShoppingCarViewController.m"
-                  timestampString = "459706838.868194"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "78">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -662,94 +470,46 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/NTShoppingCarView/NTShoppingCarViewController.m"
-            timestampString = "459705171.81132"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "-getTheValuesWithKey:withData:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/ViewController.m"
-            timestampString = "459705853.780694"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
-            landmarkName = "-leftViewActionWithCategory:WithOrder:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/ViewController.m"
-            timestampString = "459706037.861381"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
-            landmarkName = "-getTheValuesWithKey:withData:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NTLoveStore/NTContentView/NTContentViewController.m"
-            timestampString = "459706566.496936"
+            timestampString = "459877035.884141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "-getTheContentData"
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[NTContentViewController getTheContentData]"
                   moduleName = "NTLoveStore"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liying/GitHub/NTLoveStore/NTLoveStore/NTLoveStore/NTContentView/NTContentViewController.m"
-                  timestampString = "459706838.875102"
+                  timestampString = "459876139.390701"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
                   offsetFromSymbolStart = "706">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__44-[NTContentViewController getTheContentData]_block_invoke"
                   moduleName = "NTLoveStore"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liying/GitHub/NTLoveStore/NTLoveStore/NTLoveStore/NTContentView/NTContentViewController.m"
-                  timestampString = "459706838.875383"
+                  timestampString = "459876139.391021"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
                   offsetFromSymbolStart = "78">
                </Location>
             </Locations>
@@ -758,15 +518,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NTLoveStore/NTContentView/NTContentViewController.m"
-            timestampString = "459706567.88313"
+            timestampString = "459877035.884141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "-getTheContentData"
             landmarkType = "5">
          </BreakpointContent>
@@ -777,13 +537,157 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NTLoveStore/NTContentView/NTContentViewController.m"
-            timestampString = "459706569.440803"
+            filePath = "NTLoveStore/NTShoppingCarView/NTShoppingCarViewController.m"
+            timestampString = "459783963.657934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
             endingLineNumber = "38"
-            landmarkName = "-getTheContentData"
+            landmarkName = "-getTheShopCartData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NTLoveStore/NTUserToB/NTUserInfoViewController.m"
+            timestampString = "459873346.058816"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
+            landmarkName = "-getTheContentWithOrderid:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NTLoveStore/NTUserToB/NTUserInfoViewController.m"
+            timestampString = "459873349.052328"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "388"
+            endingLineNumber = "388"
+            landmarkName = "-getTheContentWithOrderid:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NTLoveStore/NTUserToB/NTLoginViewController.m"
+            timestampString = "459873526.780708"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "-submitAction:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NTLoveStore/NTContentView/NTContentViewController.m"
+            timestampString = "459877035.884141"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "615"
+            endingLineNumber = "615"
+            landmarkName = "-videoBtnAction:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NTLoveStore/NTContentView/NTContentViewController.m"
+            timestampString = "459877128.741405"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "619"
+            endingLineNumber = "619"
+            landmarkName = "-videoBtnAction:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NTLoveStore/NTContentView/NTContentViewController.m"
+            timestampString = "459877383.278637"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
+            landmarkName = "-resetSelectNumWithView:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NTLoveStore/NTContentView/NTContentViewController.m"
+            timestampString = "459877420.943121"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
+            landmarkName = "-resetSelectNumWithView:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NTLoveStore/NTContentView/NTContentViewController.m"
+            timestampString = "459877426.575611"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "-resetView"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NTLoveStore/NTContentView/NTContentViewController.m"
+            timestampString = "459877431.917765"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "-resetView"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

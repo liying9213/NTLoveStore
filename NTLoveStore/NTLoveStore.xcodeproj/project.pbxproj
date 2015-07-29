@@ -51,6 +51,10 @@
 		B27182BF1B60C0C10039C7AD /* NTListView.m in Sources */ = {isa = PBXBuildFile; fileRef = B27182BE1B60C0C10039C7AD /* NTListView.m */; };
 		B27182C31B60C38C0039C7AD /* NTListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B27182C11B60C38C0039C7AD /* NTListTableViewCell.m */; };
 		B27182C41B60C38C0039C7AD /* NTListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B27182C21B60C38C0039C7AD /* NTListTableViewCell.xib */; };
+		B28324E31B6923F3005BF596 /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B28324E01B6923F3005BF596 /* HTMLNode.m */; };
+		B28324E41B6923F3005BF596 /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B28324E21B6923F3005BF596 /* HTMLParser.m */; };
+		B28324E61B6924AE005BF596 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B28324E51B6924AE005BF596 /* libxml2.dylib */; };
+		B28324E81B692A79005BF596 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28324E71B692A79005BF596 /* MediaPlayer.framework */; };
 		B283E05E1B31BC8F0001D6F1 /* NTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B283E05D1B31BC8F0001D6F1 /* NTWebViewController.m */; };
 		B283E0621B31C9960001D6F1 /* NTShoppingCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B283E0611B31C9960001D6F1 /* NTShoppingCarViewController.m */; };
 		B28842191B1DE76E00C972CF /* NTUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B28842181B1DE76E00C972CF /* NTUserDefaults.m */; };
@@ -162,6 +166,12 @@
 		B27182C01B60C38C0039C7AD /* NTListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTListTableViewCell.h; sourceTree = "<group>"; };
 		B27182C11B60C38C0039C7AD /* NTListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTListTableViewCell.m; sourceTree = "<group>"; };
 		B27182C21B60C38C0039C7AD /* NTListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTListTableViewCell.xib; sourceTree = "<group>"; };
+		B28324DF1B6923F3005BF596 /* HTMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLNode.h; sourceTree = "<group>"; };
+		B28324E01B6923F3005BF596 /* HTMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLNode.m; sourceTree = "<group>"; };
+		B28324E11B6923F3005BF596 /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
+		B28324E21B6923F3005BF596 /* HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLParser.m; sourceTree = "<group>"; };
+		B28324E51B6924AE005BF596 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		B28324E71B692A79005BF596 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		B283E05C1B31BC8F0001D6F1 /* NTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTWebViewController.h; sourceTree = "<group>"; };
 		B283E05D1B31BC8F0001D6F1 /* NTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTWebViewController.m; sourceTree = "<group>"; };
 		B283E0601B31C9960001D6F1 /* NTShoppingCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTShoppingCarViewController.h; sourceTree = "<group>"; };
@@ -214,6 +224,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B28324E81B692A79005BF596 /* MediaPlayer.framework in Frameworks */,
+				B28324E61B6924AE005BF596 /* libxml2.dylib in Frameworks */,
 				B2A4CED31B317DAA0058DE58 /* libPods-SDWebImage.a in Frameworks */,
 				B2EAB19F1B273B8100BB419A /* libPods-AFNetworking.a in Frameworks */,
 				B2EAB1A01B273B8100BB419A /* libPods-EGOCache.a in Frameworks */,
@@ -246,6 +258,8 @@
 		B20631521B1BF4C000C02FA6 = {
 			isa = PBXGroup;
 			children = (
+				B28324E71B692A79005BF596 /* MediaPlayer.framework */,
+				B28324E51B6924AE005BF596 /* libxml2.dylib */,
 				B206315D1B1BF4C000C02FA6 /* NTLoveStore */,
 				B20631771B1BF4C000C02FA6 /* NTLoveStoreTests */,
 				B206315C1B1BF4C000C02FA6 /* Products */,
@@ -265,6 +279,7 @@
 		B206315D1B1BF4C000C02FA6 /* NTLoveStore */ = {
 			isa = PBXGroup;
 			children = (
+				B28324DE1B6923E2005BF596 /* NTHTMLNode */,
 				B2255A681B4C190200FA2C21 /* calendar */,
 				B20631621B1BF4C000C02FA6 /* AppDelegate.h */,
 				B20631631B1BF4C000C02FA6 /* AppDelegate.m */,
@@ -419,6 +434,17 @@
 				B251A2541B37E59200B537A1 /* user.png */,
 			);
 			path = NTSource;
+			sourceTree = "<group>";
+		};
+		B28324DE1B6923E2005BF596 /* NTHTMLNode */ = {
+			isa = PBXGroup;
+			children = (
+				B28324DF1B6923F3005BF596 /* HTMLNode.h */,
+				B28324E01B6923F3005BF596 /* HTMLNode.m */,
+				B28324E11B6923F3005BF596 /* HTMLParser.h */,
+				B28324E21B6923F3005BF596 /* HTMLParser.m */,
+			);
+			path = NTHTMLNode;
 			sourceTree = "<group>";
 		};
 		B283E05B1B31BC710001D6F1 /* NTWebView */ = {
@@ -678,6 +704,7 @@
 				B2255A761B4C191C00FA2C21 /* NSDate+convenience.m in Sources */,
 				B2F1F6E01B2AE79E00B6BCA8 /* NTFunctionView.m in Sources */,
 				B213E17C1B613532003AB819 /* NTFollowListView.m in Sources */,
+				B28324E31B6923F3005BF596 /* HTMLNode.m in Sources */,
 				B2EF0B881B394126008B40ED /* NTUserInfoViewController.m in Sources */,
 				B283E05E1B31BC8F0001D6F1 /* NTWebViewController.m in Sources */,
 				B2CB93021B4516BC003385D7 /* NTFunction.m in Sources */,
@@ -687,6 +714,7 @@
 				B283E0621B31C9960001D6F1 /* NTShoppingCarViewController.m in Sources */,
 				B21037E61B2541C200ED732B /* NTImage.m in Sources */,
 				B20631641B1BF4C000C02FA6 /* AppDelegate.m in Sources */,
+				B28324E41B6923F3005BF596 /* HTMLParser.m in Sources */,
 				B2255A771B4C191C00FA2C21 /* UIColor+expanded.m in Sources */,
 				B20631611B1BF4C000C02FA6 /* main.m in Sources */,
 				B21037EC1B2578F800ED732B /* NTParentViewController.m in Sources */,
@@ -831,6 +859,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: yun tian (UM9YNB44RQ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yun tian (UM9YNB44RQ)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/EGOCache\"",
+					"\"${PODS_ROOT}/Headers/Public/EGOImageLoading\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = NTLoveStore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -849,6 +887,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: yun tian (FBJ73GTMGR)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: yun tian (FBJ73GTMGR)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/EGOCache\"",
+					"\"${PODS_ROOT}/Headers/Public/EGOImageLoading\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = NTLoveStore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
