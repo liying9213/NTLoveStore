@@ -27,21 +27,22 @@
 
 - (void)resetView{
     UIButton *userInfo=[UIButton buttonWithType:UIButtonTypeCustom];
-    userInfo.backgroundColor=[NTColor clearColor];
-    userInfo.tag=0;
-    [userInfo setTitle:@"个人中心" forState:UIControlStateNormal];
-    [userInfo setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
-    userInfo.frame=CGRectMake(0, 0, 200, 50);
-    userInfo.titleLabel.font=[UIFont systemFontOfSize:14];
-    [userInfo addTarget:self action:@selector(userInfoSelect:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:userInfo];
-    
-    CALayer *bottomBorder = [CALayer layer];
-    float height1=userInfo.frame.size.height-0.5f;
-    float width1=userInfo.frame.size.width;
-    bottomBorder.frame = CGRectMake(0.0f, height1, width1, 0.5f);
-    bottomBorder.backgroundColor = [UIColor blackColor].CGColor;
-    [userInfo.layer addSublayer:bottomBorder];
+    userInfo.frame=CGRectZero;
+//    userInfo.backgroundColor=[NTColor clearColor];
+//    userInfo.tag=0;
+//    [userInfo setTitle:@"个人中心" forState:UIControlStateNormal];
+//    [userInfo setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
+//    userInfo.frame=CGRectMake(0, 0, 200, 50);
+//    userInfo.titleLabel.font=[UIFont systemFontOfSize:14];
+//    [userInfo addTarget:self action:@selector(userInfoSelect:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:userInfo];
+//    
+//    CALayer *bottomBorder = [CALayer layer];
+//    float height1=userInfo.frame.size.height-0.5f;
+//    float width1=userInfo.frame.size.width;
+//    bottomBorder.frame = CGRectMake(0.0f, height1, width1, 0.5f);
+//    bottomBorder.backgroundColor = [UIColor blackColor].CGColor;
+//    [userInfo.layer addSublayer:bottomBorder];
     
     UIButton *logout=[UIButton buttonWithType:UIButtonTypeCustom];
     logout.backgroundColor=[NTColor clearColor];

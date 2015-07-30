@@ -91,6 +91,30 @@
     [[[[UIApplication sharedApplication] windows] objectAtIndex:0] addSubview:self];
 }
 
+- (void)showLeftTextWithString:(NSString *)string{
+    [self resetBackgroundView];
+    UIView *showView=[[UIView alloc] initWithFrame:CGRectMake(254, 0,ScreenWidth-254, ScreenHeight)];
+    showView.backgroundColor=[NTColor whiteColor];
+    [self addSubview:showView];
+    UILabel *label=[[UILabel alloc] initWithFrame:CGRectMake(0, 20, 120, 30)];
+    label.text=@"详细信息";
+    label.font=[UIFont systemFontOfSize:16];
+    label.textAlignment=NSTextAlignmentCenter;
+    label.textColor=[NTColor whiteColor];
+    label.backgroundColor=[NTColor colorWithHexString:NTBlueColor];
+    [showView addSubview:label];
+    
+    UITextView *textView=[[UITextView alloc] initWithFrame:CGRectMake(0, 50, CGRectGetWidth(showView.frame)-20, CGRectGetHeight(showView.frame)-20)];
+    textView.text=string;
+    textView.font=[UIFont systemFontOfSize:16];
+    textView.editable=NO;
+    [showView addSubview:textView];
+    [[[[UIApplication sharedApplication] windows] objectAtIndex:0] addSubview:self];
+}
+
+
+
+
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
     if ([touch.view isMemberOfClass:[UIButton class]]) {
         //放过button点击拦截

@@ -135,7 +135,7 @@
     commentNumLabel.attributedText=commentNum;
     commentNumLabel.textAlignment=NSTextAlignmentLeft;
     [_scrollView addSubview:commentNumLabel];
-    
+   /*
     if ([_detailDic objectForKey:@"stock"]&&!_isCanSelect) {
         UIView *numView=[[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(titleLabel.frame), CGRectGetHeight(finishNumLabel.frame)+CGRectGetMinY(finishNumLabel.frame)+20,  ScreenWidth-640, 50)];
         [self resetSelectNumWithView:numView];
@@ -172,6 +172,7 @@
     selectBtn.frame=CGRectMake(CGRectGetMinX(titleLabel.frame), CGRectGetHeight(finishNumLabel.frame)+CGRectGetMinY(finishNumLabel.frame)+100, 380, 40);
     selectBtn.enabled=_isCanSelect;
     [_scrollView addSubview:selectBtn];
+    */
 }
 
 - (void)resetContentView{
@@ -625,10 +626,10 @@
     UIButton *btn=(UIButton*)sender;
     NTShowDetailVIew *detailView=[[NTShowDetailVIew alloc] initWithFrame:self.view.frame];
     if(btn.tag==1){
-       [detailView showTextWithString:_contentStr];
+       [detailView showLeftTextWithString:_contentStr];
     }
     else{
-        [detailView showTextWithString:_contentStr];
+        [detailView showLeftTextWithString:_contentStr];
     }
 }
 

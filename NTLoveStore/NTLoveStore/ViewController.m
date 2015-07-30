@@ -24,7 +24,8 @@
 @end
 
 @implementation ViewController
-
+int i=0;
+int j=0;
 - (void)viewDidLoad {
     self.isHomeView=YES;
     [super viewDidLoad];
@@ -66,17 +67,17 @@
     UIView * rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 240, 44)];
     rightView.backgroundColor = [NTColor clearColor];
     
-    UIButton *shoppingBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    shoppingBtn.frame=CGRectMake(0, 0, 120, 44);
-    [shoppingBtn setImage:[NTImage imageWithContentsOfFile:nil] forState:UIControlStateNormal];
-    shoppingBtn.backgroundColor=[NTColor clearColor];
-    [shoppingBtn addTarget:self action:@selector(shoppingCarAction) forControlEvents:UIControlEventTouchUpInside];
-    [shoppingBtn setImage:[NTImage imageWithFileName:@"shopping.png"] forState:UIControlStateNormal];
-    [shoppingBtn setTitle:@"我的购物车" forState:UIControlStateNormal];
-    [shoppingBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
-    shoppingBtn.titleLabel.font=[UIFont systemFontOfSize:14];
-    shoppingBtn.titleEdgeInsets=UIEdgeInsetsMake(0, 10, 0, -10);
-    [rightView addSubview:shoppingBtn];
+//    UIButton *shoppingBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+//    shoppingBtn.frame=CGRectMake(0, 0, 120, 44);
+//    [shoppingBtn setImage:[NTImage imageWithContentsOfFile:nil] forState:UIControlStateNormal];
+//    shoppingBtn.backgroundColor=[NTColor clearColor];
+//    [shoppingBtn addTarget:self action:@selector(shoppingCarAction) forControlEvents:UIControlEventTouchUpInside];
+//    [shoppingBtn setImage:[NTImage imageWithFileName:@"shopping.png"] forState:UIControlStateNormal];
+//    [shoppingBtn setTitle:@"我的购物车" forState:UIControlStateNormal];
+//    [shoppingBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
+//    shoppingBtn.titleLabel.font=[UIFont systemFontOfSize:14];
+//    shoppingBtn.titleEdgeInsets=UIEdgeInsetsMake(0, 10, 0, -10);
+//    [rightView addSubview:shoppingBtn];
     
     UIButton *userBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     userBtn.frame=CGRectMake(130, 0, 110, 44);
@@ -414,7 +415,7 @@
     _popoverContent=[[NTUserPopViewController alloc] init];
     _popoverContent.delegate=self;
     _popoverView=[[UIPopoverController alloc] initWithContentViewController:_popoverContent];
-    _popoverView.popoverContentSize = CGSizeMake(200, 100);
+    _popoverView.popoverContentSize = CGSizeMake(200, 50);
     _popoverView.delegate=self;
     [_popoverView presentPopoverFromRect:btn.bounds inView:btn permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
