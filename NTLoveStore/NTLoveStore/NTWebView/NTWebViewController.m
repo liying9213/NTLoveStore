@@ -48,4 +48,8 @@
     [self showEndViewWithText:error.localizedFailureReason];
 }
 
+- (void)backBtnAction:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end

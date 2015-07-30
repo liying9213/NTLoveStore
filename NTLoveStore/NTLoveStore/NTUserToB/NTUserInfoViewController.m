@@ -447,4 +447,8 @@
     [self finishTheOrder:sender];
 }
 
+- (void)backBtnAction:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end

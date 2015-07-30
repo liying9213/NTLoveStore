@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) MBProgressHUD *waitingView;
 
+@property (nonatomic) BOOL isHomeView;
+
 - (void)showWaitingViewWithText:(NSString *)str;
 
 - (void)showEndViewWithText:(NSString *)text;

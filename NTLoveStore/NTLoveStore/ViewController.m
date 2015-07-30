@@ -26,6 +26,7 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    self.isHomeView=YES;
     [super viewDidLoad];
     [self showWaitingViewWithText:@"正在加载..."];
     [self getHomeViewData];

@@ -27,6 +27,23 @@
         [self.navigationController.navigationBar addSubview:imageView];
         [self.navigationController.navigationBar sendSubviewToBack:imageView];
     }
+    if (!_isHomeView) {
+     [self ResetBackView];
+    }
+}
+
+-(void)ResetBackView
+{
+    [self.navigationController setNavigationBarHidden:NO];
+    UIButton * _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _backBtn.frame = CGRectMake(0, 0, 44, 44);
+    [_backBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [_backBtn addTarget:self action:@selector(backBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    _backBtn.backgroundColor = [UIColor clearColor];
+    UIBarButtonItem *spaceButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    spaceButtonItem.width = -10;
+    UIBarButtonItem *Lbar=[[UIBarButtonItem alloc] initWithCustomView:_backBtn];
+    self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:spaceButtonItem, Lbar, nil];
 }
 
 - (void)didReceiveMemoryWarning {

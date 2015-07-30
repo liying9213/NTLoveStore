@@ -80,7 +80,7 @@
 			<key>color</key>
 			<string>#897654</string>
 			<key>imageName</key>
-			<string>staff.jpg</string>
+			<string>staff.png</string>
 			<key>type</key>
 			<integer>1</integer>
 		</dict>
@@ -160,7 +160,7 @@
 			<key>color</key>
 			<string>#324562</string>
 			<key>imageName</key>
-			<string>props.jpg</string>
+			<string>props.png</string>
 			<key>type</key>
 			<integer>1</integer>
 		</dict>

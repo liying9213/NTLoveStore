@@ -17,6 +17,10 @@
 		B206316F1B1BF4C000C02FA6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B206316D1B1BF4C000C02FA6 /* LaunchScreen.xib */; };
 		B206317B1B1BF4C000C02FA6 /* NTLoveStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B206317A1B1BF4C000C02FA6 /* NTLoveStoreTests.m */; };
 		B20631851B1C0ED300C02FA6 /* libPods-MBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B20631841B1C0ED300C02FA6 /* libPods-MBProgressHUD.a */; };
+		B2078A731B6A5AAB0010859E /* props.png in Resources */ = {isa = PBXBuildFile; fileRef = B2078A6F1B6A5AAB0010859E /* props.png */; };
+		B2078A741B6A5AAB0010859E /* props@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2078A701B6A5AAB0010859E /* props@2x.png */; };
+		B2078A751B6A5AAB0010859E /* staff.png in Resources */ = {isa = PBXBuildFile; fileRef = B2078A711B6A5AAB0010859E /* staff.png */; };
+		B2078A761B6A5AAB0010859E /* staff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2078A721B6A5AAB0010859E /* staff@2x.png */; };
 		B21037DC1B253DE300ED732B /* NTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21037DB1B253DE300ED732B /* NTLoginViewController.m */; };
 		B21037E51B2541C200ED732B /* NTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B21037E21B2541C200ED732B /* NTColor.m */; };
 		B21037E61B2541C200ED732B /* NTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B21037E41B2541C200ED732B /* NTImage.m */; };
@@ -35,9 +39,7 @@
 		B22F99EB1B418B500027EB40 /* form.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E41B418B500027EB40 /* form.jpg */; };
 		B22F99EC1B418B500027EB40 /* hotel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E51B418B500027EB40 /* hotel.jpg */; };
 		B22F99ED1B418B500027EB40 /* light.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E61B418B500027EB40 /* light.jpg */; };
-		B22F99EE1B418B500027EB40 /* props.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E71B418B500027EB40 /* props.jpg */; };
 		B22F99EF1B418B500027EB40 /* site.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E81B418B500027EB40 /* site.jpg */; };
-		B22F99F01B418B500027EB40 /* staff.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B22F99E91B418B500027EB40 /* staff.jpg */; };
 		B2394DC21B500CC500F1E516 /* NTConsultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2394DC11B500CC500F1E516 /* NTConsultViewController.xib */; };
 		B23B3A3B1B29C5CA00328AD9 /* NTHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B23B3A3A1B29C5CA00328AD9 /* NTHomeView.m */; };
 		B251A2531B37E45C00B537A1 /* shopping.png in Resources */ = {isa = PBXBuildFile; fileRef = B251A2521B37E45C00B537A1 /* shopping.png */; };
@@ -112,6 +114,10 @@
 		B20631791B1BF4C000C02FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B206317A1B1BF4C000C02FA6 /* NTLoveStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTLoveStoreTests.m; sourceTree = "<group>"; };
 		B20631841B1C0ED300C02FA6 /* libPods-MBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MBProgressHUD.a"; path = "Pods/../build/Debug-iphoneos/libPods-MBProgressHUD.a"; sourceTree = "<group>"; };
+		B2078A6F1B6A5AAB0010859E /* props.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = props.png; sourceTree = "<group>"; };
+		B2078A701B6A5AAB0010859E /* props@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "props@2x.png"; sourceTree = "<group>"; };
+		B2078A711B6A5AAB0010859E /* staff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = staff.png; sourceTree = "<group>"; };
+		B2078A721B6A5AAB0010859E /* staff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "staff@2x.png"; sourceTree = "<group>"; };
 		B21037DA1B253DE300ED732B /* NTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTLoginViewController.h; sourceTree = "<group>"; };
 		B21037DB1B253DE300ED732B /* NTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTLoginViewController.m; sourceTree = "<group>"; };
 		B21037DF1B253F8600ED732B /* NTdefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTdefine.h; sourceTree = "<group>"; };
@@ -144,9 +150,7 @@
 		B22F99E41B418B500027EB40 /* form.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = form.jpg; sourceTree = "<group>"; };
 		B22F99E51B418B500027EB40 /* hotel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hotel.jpg; sourceTree = "<group>"; };
 		B22F99E61B418B500027EB40 /* light.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = light.jpg; sourceTree = "<group>"; };
-		B22F99E71B418B500027EB40 /* props.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = props.jpg; sourceTree = "<group>"; };
 		B22F99E81B418B500027EB40 /* site.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = site.jpg; sourceTree = "<group>"; };
-		B22F99E91B418B500027EB40 /* staff.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = staff.jpg; sourceTree = "<group>"; };
 		B2394DC11B500CC500F1E516 /* NTConsultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTConsultViewController.xib; sourceTree = "<group>"; };
 		B23B3A391B29C5CA00328AD9 /* NTHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTHomeView.h; sourceTree = "<group>"; };
 		B23B3A3A1B29C5CA00328AD9 /* NTHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTHomeView.m; sourceTree = "<group>"; };
@@ -425,9 +429,11 @@
 				B22F99E41B418B500027EB40 /* form.jpg */,
 				B22F99E51B418B500027EB40 /* hotel.jpg */,
 				B22F99E61B418B500027EB40 /* light.jpg */,
-				B22F99E71B418B500027EB40 /* props.jpg */,
 				B22F99E81B418B500027EB40 /* site.jpg */,
-				B22F99E91B418B500027EB40 /* staff.jpg */,
+				B2078A6F1B6A5AAB0010859E /* props.png */,
+				B2078A701B6A5AAB0010859E /* props@2x.png */,
+				B2078A711B6A5AAB0010859E /* staff.png */,
+				B2078A721B6A5AAB0010859E /* staff@2x.png */,
 				B2E5C8AE1B37FBC40011A95F /* moreicon.png */,
 				B251A2561B37EBED00B537A1 /* separate.jpg */,
 				B251A2521B37E45C00B537A1 /* shopping.png */,
@@ -611,24 +617,26 @@
 			files = (
 				B2D91DD11B51274100DE9722 /* NTFinishView.xib in Resources */,
 				B251A2571B37EBED00B537A1 /* separate.jpg in Resources */,
+				B2078A731B6A5AAB0010859E /* props.png in Resources */,
 				B255FD4C1B666BA900EED9D7 /* login.jpg in Resources */,
 				B2394DC21B500CC500F1E516 /* NTConsultViewController.xib in Resources */,
 				B22F99EF1B418B500027EB40 /* site.jpg in Resources */,
 				B206316A1B1BF4C000C02FA6 /* Main.storyboard in Resources */,
 				B2E5C8AF1B37FBC40011A95F /* moreicon.png in Resources */,
+				B2078A751B6A5AAB0010859E /* staff.png in Resources */,
 				B22F99EC1B418B500027EB40 /* hotel.jpg in Resources */,
 				B26284AE1B52771000890E2C /* NTShopcarTableViewCell.xib in Resources */,
 				B2C71E651B26818500682AEB /* NTConfigurationFile.plist in Resources */,
+				B2078A741B6A5AAB0010859E /* props@2x.png in Resources */,
 				B2B21C8A1B59ECF000619882 /* NTUserInfoViewController.xib in Resources */,
 				B206316F1B1BF4C000C02FA6 /* LaunchScreen.xib in Resources */,
+				B2078A761B6A5AAB0010859E /* staff@2x.png in Resources */,
 				B22F99EB1B418B500027EB40 /* form.jpg in Resources */,
 				B251A2551B37E59200B537A1 /* user.png in Resources */,
 				B22F99ED1B418B500027EB40 /* light.jpg in Resources */,
 				B213E1811B613641003AB819 /* NTFollowListTableViewCell.xib in Resources */,
-				B22F99EE1B418B500027EB40 /* props.jpg in Resources */,
 				B26EF0571B4448F0000D106D /* login.png in Resources */,
 				B2255A671B4C12DD00FA2C21 /* logo.png in Resources */,
-				B22F99F01B418B500027EB40 /* staff.jpg in Resources */,
 				B2E808D31B4AB9DB00A9D9FE /* picple.png in Resources */,
 				B2D91DD31B51546A00DE9722 /* NTShoppingCarViewController.xib in Resources */,
 				B206316C1B1BF4C000C02FA6 /* Images.xcassets in Resources */,

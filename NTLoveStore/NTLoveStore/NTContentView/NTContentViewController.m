@@ -630,7 +630,6 @@
     else{
         [detailView showTextWithString:_contentStr];
     }
-    
 }
 
 #pragma mark - showHotListMember
@@ -640,6 +639,10 @@
     viewController.productID=btn.tag;
     viewController.isCanSelect=NO;
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)backBtnAction:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
