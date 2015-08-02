@@ -21,7 +21,7 @@
 
 @interface NTHeadSelectView : UIView
 
-@property (nonatomic, assign)id delegate;
+@property (nonatomic, assign)id<NTHeadSelectViewDelegate> delegate;
 @property (nonatomic, strong)UIScrollView *scrollView;
 @property (nonatomic, strong)NSArray *selectData;
 @property (nonatomic, strong)UIView *selcetBackGroundView;

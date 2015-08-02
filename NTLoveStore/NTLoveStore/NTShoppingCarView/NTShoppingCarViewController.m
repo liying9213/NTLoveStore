@@ -9,6 +9,7 @@
 #import "NTShoppingCarViewController.h"
 #import "NTShopcarTableViewCell.h"
 #import "NTAsynService.h"
+#import "NTPayCodeView.h"
 @interface NTShoppingCarViewController ()
 
 @end
@@ -267,6 +268,18 @@
  typ	yes	string	是否勾选50%订金
  */
 
+- (NSMutableDictionary *)getTheSelectDic{
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+    for (int i=0; i<_selectAry.count; i++) {
+        NSDictionary *data=[_shopcartData objectAtIndex:[[_selectAry objectAtIndex:i] integerValue]];
+        NSDictionary *onedic=@{@"num":[data objectForKey:@"num"],@"id":[data objectForKey:@"goodid"],@"parameters":[data objectForKey:@"parameters"],@"sort":[data objectForKey:@"sort"],@"price":[data objectForKey:@"price"]};
+        [dic setObject:onedic forKey:[NSNumber numberWithInt:i]];
+        data=nil;
+        onedic=nil;
+    }
+    return dic;
+}
+
 - (void)subOrderAction{
     if (![share()userIsLogin]) {
         [self showEndViewWithText:@"请登录账号！"];
@@ -282,14 +295,15 @@
                         @"phone":_telTextField.text,
                         @"address":_adessTextField.text,
                         @"email":_emailTextField.text,
-                        @"goods":@"",
+                        @"goods":[self getTheSelectDic],
                         @"typ":[NSString stringWithFormat:@"%d",_subscriptionBtn.selected]};
     
     [NTAsynService requestWithHead:subOrderBaseUR WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
             __strong typeof(self) self=__weakself;
-            [self changeData:finishData];
-            [self resetView];
+            [self showPayCodeViewWithImagePath:[finishData objectForKey:@"pic"]];
+//            [self changeData:finishData];
+//            [self resetView];
             [self hideWaitingView];
         }
         else{
@@ -304,6 +318,17 @@
     }];
     dic=nil;
 }
+
+- (void)showPayCodeViewWithImagePath:(NSString *)imagePath{
+    NTPayCodeView *view=[[NSBundle mainBundle]loadNibNamed:@"NTPayCodeView" owner:self options:nil][0];
+    view.frame=CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+    view.imagePath=imagePath;
+    [view showThepayCodeView];
+    view.closeBlock=^(){
+        [self.navigationController popViewControllerAnimated:YES];
+    };
+}
+
 
 - (IBAction)submitInfo:(id)sender {
     if (!_dateBtn.titleLabel.text) {
@@ -328,7 +353,7 @@
     }
     [self colseTheView:nil];
     [self subOrderAction];
-    [self showEndViewWithText:@"支付功能正在完善！"];
+    [self showWaitingViewWithText:@"正在提交..."];
 }
 
 - (IBAction)dateAction:(id)sender {

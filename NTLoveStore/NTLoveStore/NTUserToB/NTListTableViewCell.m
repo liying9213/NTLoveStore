@@ -11,6 +11,10 @@
 @implementation NTListTableViewCell
 
 - (void)awakeFromNib {
+    self.contentView.layer.masksToBounds=YES;
+    self.contentView.layer.cornerRadius=0.2;
+    self.contentView.layer.borderWidth=0.5;
+    self.contentView.layer.borderColor=[[UIColor lightGrayColor] CGColor];
     // Initialization code
 }
 

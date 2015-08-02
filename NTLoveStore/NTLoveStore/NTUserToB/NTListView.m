@@ -129,6 +129,7 @@
         [tableView registerNib:[UINib nibWithNibName:@"NTListTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
         iCell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     }
+    iCell.selectionStyle=UITableViewCellSelectionStyleNone;
     iCell.numLabel.text=_listAry[indexPath.row][@"orderid"];
     iCell.creatDateLabel.text=_listAry[indexPath.row][@"create_time"];
     iCell.telLabel.text=_listAry[indexPath.row][@"send_contact"];
@@ -141,13 +142,14 @@
             value=value+1;
         }
         CGRect rect=iCell.contentInfoView.frame;
-        iCell.contentInfoView.frame=CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), value*30);
+//        iCell.contentInfoView.frame=CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), value*30);
+//        iCell.contentInfoView.backgroundColor=[UIColor yellowColor];
         [iCell.contentInfoView addSubview:[self resetContentViewWith:CGRectMake(0, 0, CGRectGetWidth(rect), value*30)]];
     }
-    if (!_isSelect) {
-        CGRect rect=iCell.contentInfoView.frame;
-        iCell.contentInfoView.frame=CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), 0);
-    }
+//    if (!_isSelect) {
+//        CGRect rect=iCell.contentInfoView.frame;
+//        iCell.contentInfoView.frame=CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), 0);
+//    }
     return iCell;
 }
 

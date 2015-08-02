@@ -16,7 +16,10 @@
 @implementation NTUserInfoViewController
 
 - (void)viewDidLoad {
+    self.isShowLogo=YES;
     [super viewDidLoad];
+    NSArray *ary=@[@{@"title":@"首页",@"name":@"首页",@"id":@"1"},@{@"title":@"个人中心",@"name":@"个人中心",@"id":@"2"},@{@"title":@"策划助理",@"name":@"策划助理",@"id":@"3"}];
+    [self resetHeadSelectView:ary];
     _leftAry=@[@{@"title":@"订单查询"},
                @{@"title":@"服务跟踪"},
                @{@"title":@"资料库"},
@@ -24,7 +27,17 @@
                @{@"title":@"客户评价"}];
     
     [_leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionBottom];
-//    [self getTheListData];
+    _selectType=0;
+    [self getTheListData];
+}
+
+- (void)resetHeadSelectView:(NSArray *)ary{
+    _headSelectView=[[NTHeadSelectView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 45)];
+    _headSelectView.selectData=ary;
+    _headSelectView.delegate=self;
+    _headSelectView.selectTag=2;
+    [_headSelectView creatHeadSelectView];
+    [self.view addSubview:_headSelectView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,7 +46,22 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self resetListView];
+//    [self resetListView];
+}
+
+#pragma mark - headSelectViewDelegate
+
+- (void)headSelectAction:(id)sender{
+    UIButton *btn=(UIButton *)sender;
+    if (btn.tag==1) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else if (btn.tag==2) {
+        
+    }
+    else if (btn.tag==3) {
+        
+    }
 }
 
 #pragma mark - getData
@@ -76,7 +104,7 @@
     [NTAsynService requestWithHead:headStr WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
             __strong typeof(self) self=__weakself;
-           [self resetViewWithType:_selectType withData:finishData];
+           [self resetViewWithType:_selectType withData: [self getTheValuesWithKey:[[finishData allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] withData:finishData]];
             [self hideWaitingView];
         }
         else{
@@ -87,6 +115,7 @@
             else{
                 [self showEndViewWithText:@"网络请求失败！"];
             }
+            [self resetViewWithType:_selectType withData: [self getTheValuesWithKey:[[finishData allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] withData:finishData]];
         }
     }];
     dic=nil;
@@ -137,6 +166,7 @@
         if (success) {
             __strong typeof(self) self=__weakself;
             [self hideWaitingView];
+            [self getTheListData];
         }
         else{
             __strong typeof(self) self=__weakself;
@@ -160,7 +190,8 @@
     __weak typeof(self) __weakself=self;
 
     NSDictionary *dic=@{@"uid":[share()userUid],
-                        @"token":[share()userToken]};
+                        @"token":[share()userToken],
+                        @"orderid":orderID};
     [NTAsynService requestWithHead:delOrderBaseUR WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
             __strong typeof(self) self=__weakself;
@@ -183,13 +214,35 @@
 
 - (void)resetViewWithType:(NSInteger)type withData:(id)listData{
     if (type==0||type==1||type==2||type==3) {
-//        _listView.listAry=[listData allValues];
+        
+        NSArray *ary=@[
+                       @{@"id":@"100",
+                         @"orderid":@"E616698396244850355",
+                         @"create_time":@"2015-09-09 12:01:01",
+                         @"pricetotal":@"100.0",
+                         @"send_name":@"张三",
+                         @"send_contact":@"135576786",
+                         @"time":@"2015-09-09"},
+                       @{@"id":@"100",
+                         @"orderid":@"E616698396244850355",
+                         @"create_time":@"2015-09-09 12:01:01",
+                         @"pricetotal":@"100.0",
+                         @"send_name":@"张三",
+                         @"send_contact":@"135576786",
+                         @"time":@"2015-09-09"},
+                       @{@"id":@"100",
+                         @"orderid":@"E616698396244850355",
+                         @"create_time":@"2015-09-09 12:01:01",
+                         @"pricetotal":@"100.0",
+                         @"send_name":@"张三",
+                         @"send_contact":@"135576786",
+                         @"time":@"2015-09-09"}];
         if (_isFollow) {
             _listView.hidden=YES;
             if (!_followListView) {
                 [self resetFollowListView];
             }
-            _followListView.followListAry=listData;
+            _followListView.followListAry=ary;
             _followListView.isSelect=NO;
             [_followListView.tableView reloadData];
             _followListView.hidden=NO;
@@ -199,7 +252,8 @@
             if (!_listView) {
                 [self resetListView];
             }
-            _listView.listAry=listData;
+            
+            _listView.listAry=ary;
             _listView.isSelect=NO;
             [_listView.tableView reloadData];
             _listView.hidden=NO;
@@ -207,38 +261,11 @@
     }
 }
 
-- (void)resetView{
-    [self resetListView];
-}
-
 - (void)resetListView{
-    NSArray *ary=@[
-                   @{@"id":@"100",
-                     @"orderid":@"E616698396244850355",
-                     @"create_time":@"2015-09-09 12:01:01",
-                     @"pricetotal":@"100.0",
-                     @"send_name":@"张三",
-                     @"send_contact":@"135576786",
-                     @"time":@"2015-09-09"},
-                   @{@"id":@"100",
-                     @"orderid":@"E616698396244850355",
-                     @"create_time":@"2015-09-09 12:01:01",
-                     @"pricetotal":@"100.0",
-                     @"send_name":@"张三",
-                     @"send_contact":@"135576786",
-                     @"time":@"2015-09-09"},
-                   @{@"id":@"100",
-                     @"orderid":@"E616698396244850355",
-                     @"create_time":@"2015-09-09 12:01:01",
-                     @"pricetotal":@"100.0",
-                     @"send_name":@"张三",
-                     @"send_contact":@"135576786",
-                     @"time":@"2015-09-09"}];
     if (!_listView) {
         _listView=[[NTListView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(_rightContentView.frame), CGRectGetHeight(_rightContentView.frame))];
         _listView.delegate=self;
         [_listView resetView];
-         _listView.listAry=ary;
         [_rightContentView  addSubview:_listView];
         _listView.hidden=NO;
     }
@@ -304,8 +331,7 @@
             case 0:
             {
                 _isFollow=NO;
-//                [self getTheListData];
-                [self selectAction:nil];
+                [self getTheListData];
                 _normalView.hidden=YES;
             }
                 break;
@@ -313,8 +339,7 @@
             {
                 _isFollow=YES;
                 _selectType=2;
-//                [self getTheListData];
-                [self selectAction:nil];
+                [self getTheListData];
                 _normalView.hidden=YES;
             }
                 break;
@@ -345,36 +370,10 @@
 - (void)selectAction:(id)sender{
     UIButton *btn=(id)sender;
     _selectType=btn.tag;
-    //    [self getTheListData];
-    NSArray *ary=@[
-                   @{@"id":@"100",
-                     @"orderid":@"E616698396244850355",
-                     @"create_time":@"2015-09-09 12:01:01",
-                     @"pricetotal":@"100.0",
-                     @"send_name":[NSString stringWithFormat:@"张三%ld",(long)_selectType],
-                     @"send_contact":@"135576786",
-                     @"time":@"2015-09-09"},
-                   @{@"id":@"100",
-                     @"orderid":@"E616698396244850355",
-                     @"create_time":@"2015-09-09 12:01:01",
-                     @"pricetotal":@"100.0",
-                     @"send_name":@"张三1",
-                     @"send_contact":@"135576786",
-                     @"time":@"2015-09-09"},
-                   @{@"id":@"100",
-                     @"orderid":@"E616698396244850355",
-                     @"create_time":@"2015-09-09 12:01:01",
-                     @"pricetotal":@"100.0",
-                     @"send_name":@"张三1",
-                     @"send_contact":@"135576786",
-                     @"time":@"2015-09-09"}];
-    
-    [self resetViewWithType:_selectType withData:ary];
+    [self getTheListData];
 }
 
 - (void)getTheContentWithOrderid:(NSString *)orderID{
-    [self reloadTheListViewWithData:nil];
-    return;
     if (![share()userIsLogin]) {
         [self showEndViewWithText:@"请登录账号！"];
         return;
@@ -387,7 +386,7 @@
     [NTAsynService requestWithHead:getodBaseUR WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
             __strong typeof(self) self=__weakself;
-            [self reloadTheListViewWithData:finishData];
+            [self reloadTheListViewWithData:[self getTheValuesWithKey:[[finishData allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] withData:finishData]];
             [self hideWaitingView];
         }
         else{
@@ -404,37 +403,28 @@
 }
 
 - (void)reloadTheListViewWithData:(id)data{
-    NSDictionary *dic=@{
-                        @"100":@{@"goodid":@"手捧花",@"num":@"13",@"price":@"100",@"status":@"1"},
-                        @"101":@{@"goodid":@"手捧花",@"num":@"13",@"price":@"100",@"status":@"1"},
-                        @"102":@{@"goodid":@"手捧花",@"num":@"13",@"price":@"100",@"status":@"2"},
-                        @"103":@{@"goodid":@"手捧花",@"num":@"13",@"price":@"100",@"status":@"2"},
-                        @"104":@{@"goodid":@"手捧花",@"num":@"13",@"price":@"100",@"status":@"2"}};
     if (_isFollow) {
         if (_followListView) {
-            _followListView.contentListAry=[dic allValues];
+            _followListView.contentListAry=data;
             [_followListView.tableView reloadData];
         }
     }
     else{
         if (_listView) {
-            _listView.contentListAry=[dic allValues];
+            _listView.contentListAry=data;
             [_listView.tableView reloadData];
         }
     }
-    
-    
-    
 }
 
 - (void)showCodeImage:(id)seder{
     UIButton *btn=(UIButton *)seder;
     UIViewController *viewcontroller=[[UIViewController alloc] init];
-    UIImageView *imageview=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    UIImageView *imageview=[[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
     imageview.image=[UIImage imageNamed:@"code"];
     [viewcontroller.view addSubview:imageview];
     UIPopoverController* _popoverView=[[UIPopoverController alloc] initWithContentViewController:viewcontroller];
-    _popoverView.popoverContentSize = CGSizeMake(100, 100);
+    _popoverView.popoverContentSize = CGSizeMake(120, 120);
     _popoverView.delegate=self;
     [_popoverView presentPopoverFromRect:btn.bounds inView:btn permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }

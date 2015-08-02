@@ -10,9 +10,12 @@
 #import "NTAsynService.h"
 #import "NTListView.h"
 #import "NTFollowListView.h"
-@interface NTUserInfoViewController : NTParentViewController<UITableViewDataSource,UITableViewDelegate,UIPopoverControllerDelegate>
+#import "NTHeadSelectView.h"
+@interface NTUserInfoViewController : NTParentViewController<UITableViewDataSource,UITableViewDelegate,UIPopoverControllerDelegate,NTHeadSelectViewDelegate>
 
 @property (nonatomic, strong) NSArray *leftAry;
+
+@property (nonatomic, strong) NTHeadSelectView *headSelectView;
 
 @property (weak, nonatomic) IBOutlet UITableView *leftTableView;
 

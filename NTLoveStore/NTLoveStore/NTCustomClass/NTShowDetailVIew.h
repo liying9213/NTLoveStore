@@ -17,4 +17,6 @@
 
 - (void)showTextWithString:(NSString *)string;
 
+- (void)showLeftTextWithString:(NSString *)string;
+
 @end

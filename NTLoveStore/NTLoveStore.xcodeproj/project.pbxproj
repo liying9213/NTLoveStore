@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5C920C477F57CFF21BB9C469 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CB0EAAE541F33ECEC254AF /* libPods.a */; };
 		B200CF8D1B4EB87B00130D73 /* NTConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B200CF8C1B4EB87B00130D73 /* NTConsultViewController.m */; };
+		B204E4741B6E5E6100AF6B98 /* NTPayCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B204E4731B6E5E6100AF6B98 /* NTPayCodeView.m */; };
+		B204E4761B6E5E9E00AF6B98 /* NTPayCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B204E4751B6E5E9E00AF6B98 /* NTPayCodeView.xib */; };
 		B20631611B1BF4C000C02FA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B20631601B1BF4C000C02FA6 /* main.m */; };
 		B20631641B1BF4C000C02FA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B20631631B1BF4C000C02FA6 /* AppDelegate.m */; };
 		B20631671B1BF4C000C02FA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B20631661B1BF4C000C02FA6 /* ViewController.m */; };
@@ -100,6 +102,9 @@
 		02CB0EAAE541F33ECEC254AF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B200CF8B1B4EB87B00130D73 /* NTConsultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTConsultViewController.h; sourceTree = "<group>"; };
 		B200CF8C1B4EB87B00130D73 /* NTConsultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTConsultViewController.m; sourceTree = "<group>"; };
+		B204E4721B6E5E6100AF6B98 /* NTPayCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTPayCodeView.h; sourceTree = "<group>"; };
+		B204E4731B6E5E6100AF6B98 /* NTPayCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTPayCodeView.m; sourceTree = "<group>"; };
+		B204E4751B6E5E9E00AF6B98 /* NTPayCodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTPayCodeView.xib; sourceTree = "<group>"; };
 		B206315B1B1BF4C000C02FA6 /* NTLoveStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NTLoveStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B206315F1B1BF4C000C02FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B20631601B1BF4C000C02FA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -378,6 +383,9 @@
 				B2D91DCD1B5122AE00DE9722 /* NTFInishView.h */,
 				B2D91DCE1B5122AE00DE9722 /* NTFInishView.m */,
 				B2D91DD01B51274100DE9722 /* NTFinishView.xib */,
+				B204E4721B6E5E6100AF6B98 /* NTPayCodeView.h */,
+				B204E4731B6E5E6100AF6B98 /* NTPayCodeView.m */,
+				B204E4751B6E5E9E00AF6B98 /* NTPayCodeView.xib */,
 			);
 			path = NTCustomClass;
 			sourceTree = "<group>";
@@ -639,6 +647,7 @@
 				B2255A671B4C12DD00FA2C21 /* logo.png in Resources */,
 				B2E808D31B4AB9DB00A9D9FE /* picple.png in Resources */,
 				B2D91DD31B51546A00DE9722 /* NTShoppingCarViewController.xib in Resources */,
+				B204E4761B6E5E9E00AF6B98 /* NTPayCodeView.xib in Resources */,
 				B206316C1B1BF4C000C02FA6 /* Images.xcassets in Resources */,
 				B27182C41B60C38C0039C7AD /* NTListTableViewCell.xib in Resources */,
 				B22F99EA1B418B500027EB40 /* floar.jpg in Resources */,
@@ -714,6 +723,7 @@
 				B213E17C1B613532003AB819 /* NTFollowListView.m in Sources */,
 				B28324E31B6923F3005BF596 /* HTMLNode.m in Sources */,
 				B2EF0B881B394126008B40ED /* NTUserInfoViewController.m in Sources */,
+				B204E4741B6E5E6100AF6B98 /* NTPayCodeView.m in Sources */,
 				B283E05E1B31BC8F0001D6F1 /* NTWebViewController.m in Sources */,
 				B2CB93021B4516BC003385D7 /* NTFunction.m in Sources */,
 				B2D999091B2C35E70068DE87 /* NTContentViewController.m in Sources */,

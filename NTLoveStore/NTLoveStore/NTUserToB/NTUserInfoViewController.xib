@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GJD-zd-tME">
-                    <rect key="frame" x="10" y="10" width="165" height="225"/>
+                    <rect key="frame" x="10" y="55" width="165" height="225"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="225" id="5Ps-O1-xdo"/>
@@ -30,16 +30,16 @@
                     </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oaS-vH-kQs">
-                    <rect key="frame" x="185" y="10" width="405" height="580"/>
+                    <rect key="frame" x="185" y="55" width="405" height="535"/>
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="oaS-vH-kQs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="38N-bC-Yye"/>
+                <constraint firstItem="oaS-vH-kQs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="55" id="38N-bC-Yye"/>
                 <constraint firstItem="oaS-vH-kQs" firstAttribute="leading" secondItem="GJD-zd-tME" secondAttribute="trailing" constant="10" id="5r9-5y-ycF"/>
                 <constraint firstAttribute="trailing" secondItem="oaS-vH-kQs" secondAttribute="trailing" constant="10" id="9AO-g2-h3V"/>
                 <constraint firstItem="GJD-zd-tME" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="ibJ-ua-5Tc"/>
                 <constraint firstAttribute="bottom" secondItem="oaS-vH-kQs" secondAttribute="bottom" constant="10" id="sap-m0-ovA"/>
-                <constraint firstItem="GJD-zd-tME" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="v7W-nQ-qGR"/>
+                <constraint firstItem="GJD-zd-tME" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="55" id="v7W-nQ-qGR"/>
             </constraints>
             <point key="canvasLocation" x="266" y="219"/>
         </view>

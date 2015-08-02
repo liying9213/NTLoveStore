@@ -18,10 +18,14 @@
 
 @property (nonatomic) BOOL isHomeView;
 
+@property (nonatomic) BOOL isShowLogo;
+
 - (void)showWaitingViewWithText:(NSString *)str;
 
 - (void)showEndViewWithText:(NSString *)text;
 
 - (void)hideWaitingView;
+
+- (NSMutableArray *)getTheValuesWithKey:(NSArray *)keyAry withData:(NSMutableDictionary *)dic;
 
 @end

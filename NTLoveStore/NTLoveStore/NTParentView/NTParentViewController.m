@@ -35,20 +35,43 @@
 -(void)ResetBackView
 {
     [self.navigationController setNavigationBarHidden:NO];
-    UIButton * _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _backBtn.frame = CGRectMake(0, 0, 44, 44);
-    [_backBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-    [_backBtn addTarget:self action:@selector(backBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    _backBtn.backgroundColor = [UIColor clearColor];
-    UIBarButtonItem *spaceButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    spaceButtonItem.width = -10;
-    UIBarButtonItem *Lbar=[[UIBarButtonItem alloc] initWithCustomView:_backBtn];
-    self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:spaceButtonItem, Lbar, nil];
+    if (!_isShowLogo) {
+        UIButton * _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _backBtn.frame = CGRectMake(0, 0, 44, 44);
+        [_backBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        [_backBtn addTarget:self action:@selector(backBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+        _backBtn.backgroundColor = [UIColor clearColor];
+        UIBarButtonItem *spaceButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        spaceButtonItem.width = -10;
+        UIBarButtonItem *Lbar=[[UIBarButtonItem alloc] initWithCustomView:_backBtn];
+        self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:spaceButtonItem, Lbar, nil];
+    }
+    else{
+        UIView * leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 45)];
+        leftView.backgroundColor = [NTColor  clearColor];
+        
+        UIImageView *logoImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 2, 99, 35)];
+        logoImageView.backgroundColor=[NTColor clearColor];
+        logoImageView.image=[NTImage imageNamed:@"logo"];
+        [leftView addSubview:logoImageView];
+        
+        UIBarButtonItem * _leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftView];
+        self.navigationItem.leftBarButtonItem = _leftBarButtonItem;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+- (NSMutableArray *)getTheValuesWithKey:(NSArray *)keyAry withData:(NSMutableDictionary *)dic{
+    NSMutableArray *ary=[[NSMutableArray array] init];
+    for (NSString *str in keyAry) {
+        [ary addObject:[dic objectForKey:str]];
+    }
+    return ary;
+}
+
 
 #pragma mark - waitingView
 

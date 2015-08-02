@@ -625,10 +625,10 @@
     UIButton *btn=(UIButton*)sender;
     NTShowDetailVIew *detailView=[[NTShowDetailVIew alloc] initWithFrame:self.view.frame];
     if(btn.tag==1){
-       [detailView showTextWithString:_contentStr];
+       [detailView showLeftTextWithString:_contentStr];
     }
     else{
-        [detailView showTextWithString:_contentStr];
+        [detailView showLeftTextWithString:_contentStr];
     }
 }
 

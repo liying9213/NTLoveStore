@@ -296,15 +296,6 @@
     dic=nil;
 }
 
-- (NSMutableArray *)getTheValuesWithKey:(NSArray *)keyAry withData:(NSMutableDictionary *)dic{
-    NSMutableArray *ary=[[NSMutableArray array] init];
-    for (NSString *str in keyAry) {
-        [ary addObject:[dic objectForKey:str]];
-    }
-    return ary;
-}
-
-
 - (void)memberSelectAction:(id)sender{
     UIButton *btn=(UIButton *)sender;
     NTContentViewController *viewController=[[NTContentViewController alloc] init];
@@ -426,6 +417,7 @@
         [_popoverView dismissPopoverAnimated:YES];
         NTUserInfoViewController *userInfoView=[[NTUserInfoViewController alloc] init];
         [self.navigationController pushViewController:userInfoView animated:YES];
+//        [self presentViewController:userInfoView animated:YES completion:nil];
     }
     else if ([(UIButton *)sender tag]==1){
          [_popoverView dismissPopoverAnimated:YES];

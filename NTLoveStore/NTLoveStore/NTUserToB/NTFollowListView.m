@@ -55,6 +55,7 @@
         [tableView registerNib:[UINib nibWithNibName:@"NTFollowListTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
         iCell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     }
+    iCell.selectionStyle=UITableViewCellSelectionStyleNone;
     iCell.numLabel.text=_followListAry[indexPath.row][@"orderid"];
     iCell.creatDateLabel.text=_followListAry[indexPath.row][@"create_time"];
     iCell.telLabel.text=_followListAry[indexPath.row][@"send_contact"];
@@ -68,12 +69,12 @@
             value=value+1;
         }
         CGRect rect=iCell.contentInfoView.frame;
-        iCell.contentInfoView.frame=CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), value*30);
+//        iCell.contentInfoView.frame=CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), value*30);
         [iCell.contentInfoView addSubview:[self resetContentViewWith:CGRectMake(0, 0, CGRectGetWidth(rect), value*30)]];
     }
     if (!_isSelect) {
-        CGRect rect=iCell.contentInfoView.frame;
-        iCell.contentInfoView.frame=CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), 0);
+//        CGRect rect=iCell.contentInfoView.frame;
+//        iCell.contentInfoView.frame=CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), 0);
     }
     return iCell;
 }
@@ -116,20 +117,24 @@
         }
         
         UIButton *saveBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-        saveBtn.frame=CGRectMake(CGRectGetWidth(_contentView.frame)-100, CGRectGetHeight(_contentView.frame)-100, 90, 40);
+        saveBtn.frame=CGRectMake(CGRectGetWidth(_contentView.frame)-100, CGRectGetHeight(_contentView.frame)-70, 90, 30);
         [saveBtn setBackgroundColor:[NTColor colorWithHexString:NTBlueColor]];
         [saveBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateNormal];
         [saveBtn addTarget:self action:@selector(saveAction:) forControlEvents:UIControlEventTouchUpInside];
         [saveBtn setTitle:@"保存订单" forState:UIControlStateNormal];
+        saveBtn.titleLabel.font=[UIFont systemFontOfSize:14];
         [_contentView addSubview:saveBtn];
         
         NTButton *finishBtn=[NTButton buttonWithType:UIButtonTypeCustom];
-        finishBtn.frame=CGRectMake(CGRectGetMinX(saveBtn.frame), CGRectGetHeight(_contentView.frame)-50, 90, 40);
+        finishBtn.frame=CGRectMake(CGRectGetMinX(saveBtn.frame), CGRectGetHeight(_contentView.frame)-30, 90, 30);
         [finishBtn setBackgroundColor:[NTColor colorWithHexString:NTBlueColor]];
         [finishBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateNormal];
         [finishBtn addTarget:self action:@selector(finishAction:) forControlEvents:UIControlEventTouchUpInside];
         [finishBtn setTitle:@"完成订单" forState:UIControlStateNormal];
+        finishBtn.titleLabel.font=[UIFont systemFontOfSize:14];
         finishBtn.keyWord=_followListAry[_selectIndex][@"orderid"];
+        finishBtn.userInteractionEnabled=YES;
+        finishBtn.enabled=YES;
         [_contentView addSubview:finishBtn];
         
     }
