@@ -58,25 +58,37 @@
     _allPrice=[finishData objectForKey:@"mtotal"];
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] initWithDictionary:finishData];
     [dic removeObjectForKey:@"mtotal"];
-    _shopcartData=[self getTheValuesWithKey:[[dic allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] withData:dic];
-    dic=nil;
-}
-
-- (NSMutableArray *)getTheValuesWithKey:(NSArray *)keyAry withData:(NSMutableDictionary *)dic{
-    NSMutableArray *ary=[[NSMutableArray array] init];
-    for (NSString *str in keyAry) {
-        [ary addObject:[dic objectForKey:str]];
+    NSArray *ary=[self getTheValuesWithKey:[[dic allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] withData:dic];
+    NSMutableDictionary *idic=[[NSMutableDictionary alloc] init];
+    for (int i=0; i<ary.count; i++) {
+        if ([idic allKeys].count>0&&[[idic allKeys] containsObject:[ary[i] objectForKey:@"sort"]]) {
+            NSMutableDictionary *theDic=[[NSMutableDictionary alloc] initWithDictionary:[idic objectForKey:[ary[i] objectForKey:@"sort"]]];
+            NSMutableArray *objAry=[[NSMutableArray alloc] initWithArray:[theDic objectForKey:@"obj"]];
+            [objAry addObject:ary[i]];
+            [theDic setObject:objAry forKey:@"obj"];
+            [idic setObject:theDic forKey:[ary[i] objectForKey:@"sort"]];
+            objAry=nil;
+            theDic=nil;
+        }
+        else
+        {
+            [idic setObject:@{@"name":[ary[i] objectForKey:@"sort"],@"obj":@[ary[i]]} forKey:[ary[i] objectForKey:@"sort"]];
+        }
     }
-    return ary;
+    _allDataCount=[ary count];
+    _shopcartData=[self getTheValuesWithKey:[idic allKeys] withData:idic];
+    idic=nil;
+    ary=nil;
+    dic=nil;
 }
 
 - (void)resetView{
     if (_isSelectAll) {
-        _selectNumLabel.text=[NSString stringWithFormat:@"已选商品%lu件",(unsigned long)_shopcartData.count];
+        _selectNumLabel.text=[NSString stringWithFormat:@"已选商品%lu件",(unsigned long)_allDataCount];
         _totalPricesLabel.text=[NSString stringWithFormat:@"合计：%.2lf",[_allPrice floatValue]];
     }
     else{
-        _selectNumLabel.text=[NSString stringWithFormat:@"已选商品%lu件",(unsigned long)_selectAry.count];
+        _selectNumLabel.text=[NSString stringWithFormat:@"已选商品%lu件",(unsigned long)[self getSelectCount]];
        NSString *price= [self getTheSelectPrice];
         _totalPricesLabel.text=[NSString stringWithFormat:@"合计：%.2lf",[price floatValue]];
     }
@@ -84,13 +96,16 @@
 }
 
 #pragma mark - tableViewDelegate
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_shopcartData count];
+    NSInteger value=[[_shopcartData[section] objectForKey:@"obj"] count];
+    
+    return value;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return [_shopcartData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -101,44 +116,48 @@
         [tableView registerNib:[UINib nibWithNibName:@"NTShopcarTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
         iCell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     }
-    iCell.leftImagView.imageURL=[NSURL URLWithString:[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"cover_id"]];
-    iCell.commodityName.text=[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"title"];
-    iCell.price.text=[NSString stringWithFormat:@"%@/元",[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"price"]];
-    iCell.allPrice.text=[NSString stringWithFormat:@"%@元",[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"tprice"]];
+    iCell.leftImagView.imageURL=[NSURL URLWithString:[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"cover_id"]];
+    iCell.commodityName.text=[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"title"];
+    iCell.price.text=[NSString stringWithFormat:@"%@/元",[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"price"]];
+    iCell.allPrice.text=[NSString stringWithFormat:@"%@元",[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"tprice"]];
     [iCell.selectBtn addTarget:self action:@selector(selectOne:) forControlEvents:UIControlEventTouchUpInside];
+    iCell.selectBtn.section=indexPath.section;
     iCell.selectBtn.tag=indexPath.row;
     if (_isSelectAll) {
         iCell.selectBtn.selected=YES;
     }
     else{
-        iCell.selectBtn.selected=[self isSelectINDataWithTag:indexPath.row];
+        iCell.selectBtn.selected=[self isSelectINDataWithTag:iCell.selectBtn];
     }
-    if ([[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"parameters"] length]>4) {
+    if ([[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"parameters"] length]>4) {
         iCell.dateLabel.hidden=NO;
-        iCell.dateLabel.text=[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"parameters"];
+        iCell.dateLabel.text=[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"parameters"];
         iCell.contView.hidden=YES;
     }
     else{
         iCell.dateLabel.hidden=YES;
         iCell.contView.hidden=NO;
-        iCell.numLabel.text=[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"num"];
+        iCell.numLabel.text=[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"num"];
         iCell.delBtn.enabled=YES;
         iCell.delBtn.layer.borderWidth=1;
         iCell.delBtn.layer.borderColor=[[UIColor lightGrayColor] CGColor];
         [iCell.delBtn addTarget:self action:@selector(delAction:) forControlEvents:UIControlEventTouchUpInside];
         iCell.delBtn.tag=indexPath.row;
+        iCell.delBtn.section=indexPath.section;
         iCell.addBtn.enabled=YES;
         iCell.addBtn.layer.borderWidth=1;
         iCell.addBtn.layer.borderColor=[[UIColor lightGrayColor] CGColor];
         [iCell.addBtn addTarget:self action:@selector(addAction:) forControlEvents:UIControlEventTouchUpInside];
         iCell.addBtn.tag=indexPath.row;
-        if ([[[_shopcartData objectAtIndex:indexPath.row] objectForKey:@"pet"] intValue]==1) {
+        iCell.addBtn.section=indexPath.section;
+        if ([[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"pet"] intValue]==1) {
             iCell.delBtn.enabled=NO;
             iCell.addBtn.enabled=NO;
         }
 
     }
     iCell.delectBtn.tag=indexPath.row;
+    iCell.delectBtn.section=indexPath.section;
     [iCell.delectBtn addTarget:self action:@selector(delectOneAction:) forControlEvents:UIControlEventTouchUpInside];
     return iCell;
 }
@@ -186,17 +205,17 @@
         [self showEndViewWithText:@"请登录账号！"];
         return;
     }
-    UIButton *btn=(UIButton *)sender;
+    NTButton *btn=(NTButton *)sender;
     [self showWaitingViewWithText:@"正在删除..."];
     __weak typeof(self) __weakself=self;
     
     NSDictionary *dic=@{@"uid":[share()userUid],
                         @"token":[share()userToken],
-                        @"id":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"goodid"],
-                        @"price":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"price"],
-                        @"sort":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"sort"],
-                        @"parameters":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"parameters"],
-                        @"pet":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"pet"],
+                        @"id":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"goodid"],
+                        @"price":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"price"],
+                        @"sort":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"sort"],
+                        @"parameters":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"parameters"],
+                        @"pet":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"pet"],
                         @"key":@"1"};
     [NTAsynService requestWithHead:delItemBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
@@ -223,18 +242,18 @@
         [self showEndViewWithText:@"请登录账号！"];
         return;
     }
-    UIButton *btn=(UIButton *)sender;
+    NTButton *btn=(NTButton *)sender;
     [self showWaitingViewWithText:@"正在添加..."];
     __weak typeof(self) __weakself=self;
     
     NSDictionary *dic=@{@"uid":[share()userUid],
                         @"token":[share()userToken],
-                        @"id":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"goodid"],
-                        @"price":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"price"],
-                        @"sort":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"sort"],
+                        @"id":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"goodid"],
+                        @"price":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"price"],
+                        @"sort":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"sort"],
                         @"num":@"1",
-                        @"pet":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"pet"],
-                        @"parameters":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"parameters"]};
+                        @"pet":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"pet"],
+                        @"parameters":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"parameters"]};
 
     [NTAsynService requestWithHead:addItemBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
@@ -256,26 +275,18 @@
     dic=nil;
 }
 
-/*
- user	yes	string	用户名
- pass	yes	string	密码
- goods	yes	obj	｛0｛num:” ”，id:” ”，parameters:” ”，sort:” ”，price:” ”｝，1｛num:” ”，id:” ”，parameters:” ”，sort:” ”，price:” ”｝
- date	yes	string	结婚日期
- name	yes	string	联系人名字
- phone	yes	string	联系人电话
- address	yes	String	住址
- email	yes	string	联系人email
- typ	yes	string	是否勾选50%订金
- */
-
 - (NSMutableDictionary *)getTheSelectDic{
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
-    for (int i=0; i<_selectAry.count; i++) {
-        NSDictionary *data=[_shopcartData objectAtIndex:[[_selectAry objectAtIndex:i] integerValue]];
-        NSDictionary *onedic=@{@"num":[data objectForKey:@"num"],@"id":[data objectForKey:@"goodid"],@"parameters":[data objectForKey:@"parameters"],@"sort":[data objectForKey:@"sort"],@"price":[data objectForKey:@"price"]};
-        [dic setObject:onedic forKey:[NSNumber numberWithInt:i]];
-        data=nil;
-        onedic=nil;
+    int i=0;
+    for (NSNumber *section in [_selectDic allKeys]) {
+        for (NSNumber * row in [_selectDic objectForKey:section]) {
+            NSDictionary *data=[[_shopcartData objectAtIndex:[section intValue]] objectForKey:@"obj"][row.intValue];
+            NSDictionary *onedic=@{@"num":[data objectForKey:@"num"],@"id":[data objectForKey:@"goodid"],@"parameters":[data objectForKey:@"parameters"],@"sort":[data objectForKey:@"sort"],@"price":[data objectForKey:@"price"]};
+            [dic setObject:onedic forKey:[NSNumber numberWithInt:i]];
+            data=nil;
+            onedic=nil;
+            i++;
+        }
     }
     return dic;
 }
@@ -302,8 +313,8 @@
         if (success) {
             __strong typeof(self) self=__weakself;
             [self showPayCodeViewWithImagePath:[finishData objectForKey:@"pic"]];
-//            [self changeData:finishData];
-//            [self resetView];
+            [self changeData:finishData];
+            [self resetView];
             [self hideWaitingView];
         }
         else{
@@ -377,36 +388,53 @@
 
 - (NSString *)getTheSelectPrice{
     float price =0;
-    for (NSNumber *num in _selectAry) {
-        NSDictionary *dic=[_shopcartData objectAtIndex:[num intValue]];
-        price +=[[dic objectForKey:@"tprice"] floatValue];
+    for (NSNumber * section in [_selectDic allKeys]) {
+        for (NSNumber * row in [_selectDic objectForKey:section]){
+            NSDictionary *dic=[[_shopcartData[section.intValue] objectForKey:@"obj"] objectAtIndex:row.intValue];
+            price +=[[dic objectForKey:@"tprice"] floatValue];
+        }
     }
     return [NSString stringWithFormat:@"%f",price];
 }
 
-- (BOOL)isSelectINDataWithTag:(NSInteger)tag{
-    if (!_selectAry) {
+- (BOOL)isSelectINDataWithTag:(id)sender{
+    NTButton *btn=(NTButton *)sender;
+    if (!_selectDic) {
         return NO;
     }
-    return [_selectAry containsObject:[NSNumber numberWithInteger:tag]];
+    return [[_selectDic objectForKey:[NSNumber numberWithInteger:btn.section]] containsObject:[NSNumber numberWithInteger:btn.tag]];
 }
 
 - (void)selectOne:(id)sender{
-    if (!_selectAry) {
-        _selectAry=[[NSMutableArray alloc] init];
+    if (!_selectDic) {
+        _selectDic=[[NSMutableDictionary alloc] init];
     }
-    UIButton *btn=(UIButton *)sender;
+    NTButton *btn=(NTButton *)sender;
     btn.selected=!btn.selected;
     if (btn.selected) {
-        [_selectAry addObject:[NSNumber numberWithInteger:btn.tag]];
+        if ([[_selectDic allKeys] count]>0&&[[_selectDic allKeys] containsObject:[NSNumber numberWithInteger:btn.section]]) {
+            NSMutableArray *ary=[[NSMutableArray alloc] initWithArray:[_selectDic objectForKey:[NSNumber numberWithInteger:btn.section]]];
+            [ary addObject:[NSNumber numberWithInteger:btn.tag]];
+            [_selectDic setObject:ary forKey:[NSNumber numberWithInteger:btn.section]];
+        }
+        else{
+            NSArray *ary=@[[NSNumber numberWithInteger:btn.tag]];
+            [_selectDic setObject:ary forKey:[NSNumber numberWithInteger:btn.section]];
+        }
     }
     else{
+        if ([[_selectDic allKeys] count]>0&&[[_selectDic allKeys] containsObject:[NSNumber numberWithInteger:btn.section]]) {
+            NSMutableArray *ary=[[NSMutableArray alloc] initWithArray:[_selectDic objectForKey:[NSNumber numberWithInteger:btn.section]]];
+            [ary removeObject:[NSNumber numberWithInteger:btn.tag]];
+            [_selectDic setObject:ary forKey:[NSNumber numberWithInteger:btn.section]];
+            
+        }
         _selectAllBtn.selected=NO;
         _selectBtn1.selected=NO;
         _isSelectAll=NO;
-        [_selectAry removeObject:[NSNumber numberWithInteger:btn.tag]];
     }
-    if ([_selectAry count]==[_shopcartData count]) {
+    NSUInteger selectCount=[self getSelectCount];
+    if (selectCount==_allDataCount) {
         _selectAllBtn.selected=YES;
         _selectBtn1.selected=YES;
         _isSelectAll=YES;
@@ -414,12 +442,35 @@
     [self resetView];
 }
 
+-(NSUInteger)getSelectCount{
+    NSArray *ary=[self getTheValuesWithKey:[_selectDic allKeys] withData:_selectDic];
+    NSInteger selectCount=0;
+    for (int i=0; i<ary.count; i++) {
+        selectCount+=[ary[i] count];
+    }
+    return selectCount;
+}
+
 - (IBAction)selectAllAction:(id)sender {
     _selectAllBtn.selected=!_selectAllBtn.selected;
     _selectBtn1.selected=!_selectBtn1.selected;
     _isSelectAll=_selectBtn1.selected;
     if (!_isSelectAll) {
-        [_selectAry removeAllObjects];
+        [_selectDic removeAllObjects];
+    }
+    else{
+        if (!_selectDic) {
+            _selectDic=[[NSMutableDictionary alloc] init];
+        }
+        else
+            [_selectDic removeAllObjects];
+        for (int i=0; i<_shopcartData.count; i++) {
+            NSMutableArray *ary=[[NSMutableArray alloc] init];
+            for (int j=0; j<[[_shopcartData[i] objectForKey:@"obj"] count];j++) {
+                [ary addObject:[NSNumber numberWithInt:j]];
+            }
+            [_selectDic setObject:ary forKey:[NSNumber numberWithInt:i]];
+        }
     }
     [self resetView];
 }

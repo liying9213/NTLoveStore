@@ -29,7 +29,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *adessTextField;
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 @property (strong, nonatomic) UIPopoverController *popoverView;
-@property (strong, nonatomic) NSMutableArray *selectAry;
+@property (strong, nonatomic) NSMutableDictionary *selectDic;
+@property (nonatomic) NSUInteger allDataCount;
 @property (nonatomic) BOOL isSelectAll;
 @property (nonatomic, strong) UIView *dateView;
 

@@ -11,5 +11,6 @@
 @interface NTButton : UIButton
 
 @property (nonatomic, strong)NSString *keyWord;
+@property (nonatomic) NSInteger section;
 
 @end
