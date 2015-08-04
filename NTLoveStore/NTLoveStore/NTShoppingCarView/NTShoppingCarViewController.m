@@ -19,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self getTheShopCartData];
+    _tableView.backgroundView = nil;
+    _tableView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,6 +98,31 @@
 }
 
 #pragma mark - tableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 30;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 30)];
+    view.backgroundColor=[NTColor colorWithHexString:NTGrayColor];
+    NTButton *selectBtn=[NTButton buttonWithType:UIButtonTypeCustom];
+    selectBtn.section=section;
+    selectBtn.frame=CGRectMake(22, 7.5, 15, 15);
+    [selectBtn addTarget:self action:@selector(selectSectionAction:) forControlEvents:UIControlEventTouchUpInside];
+    [selectBtn setImage:[UIImage imageNamed:@"disSelect"] forState:UIControlStateNormal];
+    [selectBtn setImage:[UIImage imageNamed:@"select"] forState:UIControlStateSelected];
+    selectBtn.selected=[self isSelectALlSection:section];
+    [view addSubview:selectBtn];
+    
+    UILabel *label=[[UILabel alloc] initWithFrame:CGRectMake(52, 7.5, ScreenWidth-50, 15)];
+    label.font=[UIFont systemFontOfSize:15];
+    label.text=[_shopcartData[section] objectForKey:@"name"];
+    label.textAlignment=NSTextAlignmentLeft;
+    [view addSubview:label];
+
+    return view;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -397,12 +424,46 @@
     return [NSString stringWithFormat:@"%f",price];
 }
 
+
+
 - (BOOL)isSelectINDataWithTag:(id)sender{
     NTButton *btn=(NTButton *)sender;
     if (!_selectDic) {
         return NO;
     }
     return [[_selectDic objectForKey:[NSNumber numberWithInteger:btn.section]] containsObject:[NSNumber numberWithInteger:btn.tag]];
+}
+
+- (void)selectSectionAction:(id)sender{
+    NTButton *btn=(NTButton *)sender;
+    btn.selected=!btn.selected;
+    if (btn.selected) {
+        if (!_selectDic) {
+            _selectDic=[[NSMutableDictionary alloc] init];
+        }
+        NSMutableArray *ary=[[NSMutableArray alloc] init];
+        for (int j=0; j<[[_shopcartData[btn.section] objectForKey:@"obj"] count];j++) {
+            [ary addObject:[NSNumber numberWithInt:j]];
+        }
+        [_selectDic setObject:ary forKey:[NSNumber numberWithInteger :btn.section]];
+        NSUInteger selectCount=[self getSelectCount];
+        if (selectCount==_allDataCount) {
+            _selectAllBtn.selected=YES;
+            _selectBtn1.selected=YES;
+            _isSelectAll=YES;
+        }
+    }
+    else{
+        if ([_selectDic objectForKey:[NSNumber numberWithInteger:btn.section]]) {
+            [_selectDic removeObjectForKey:[NSNumber numberWithInteger:btn.section]];
+        }
+        _selectAllBtn.selected=NO;
+        _selectBtn1.selected=NO;
+        _isSelectAll=NO;
+    }
+    [self resetView];
+    
+    
 }
 
 - (void)selectOne:(id)sender{
@@ -440,6 +501,19 @@
         _isSelectAll=YES;
     }
     [self resetView];
+}
+
+- (BOOL)isSelectALlSection:(NSInteger)section{
+    if ([_selectDic objectForKey:[NSNumber numberWithInteger:section]]) {
+        NSUInteger selectcount= [[_selectDic objectForKey:[NSNumber numberWithInteger:section]] count];
+        NSUInteger allcount=[[_shopcartData[section] objectForKey:@"obj"] count];
+        if (selectcount==allcount) {
+            return YES;
+        }
+        return NO;
+        
+    }
+    return NO;
 }
 
 -(NSUInteger)getSelectCount{
