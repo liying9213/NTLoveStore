@@ -12,6 +12,7 @@
 #import "NTAsynService.h"
 #import "NTMemberView.h"
 #import "HTMLParser.h"
+#import "NTNormalHead.h"
 #import "NSDate+convenience.h"
 @interface NTContentViewController ()
 
@@ -98,9 +99,8 @@
     [self.view addSubview:_scrollView];
     _scrollView.scrollEnabled=YES;
     
-    EGOImageView *imageView=[[EGOImageView alloc] initWithPlaceholderImage:[NTImage imageWithFileName:@"picple.png"]];
-    imageView.frame=CGRectMake(20, 20, 570, 415);
-    imageView.imageURL=[NSURL URLWithString:[_detailDic objectForKey:@"cover_id"]];
+    UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(20, 20, 570, 415)];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[_detailDic objectForKey:@"cover_id"]] placeholderImage:[NTImage imageWithFileName:@"picple.png"]];
     [_scrollView addSubview:imageView];
     _heightValue+=CGRectGetHeight(imageView.frame)+20;
     
@@ -455,11 +455,11 @@
                 _imageInfoView.backgroundColor=[NTColor whiteColor];
                 int i=0;
                 for (NSString *imagePath in _imageAry) {
-                    EGOImageButton *imageBtn=[[EGOImageButton alloc] initWithPlaceholderImage:[UIImage imageNamed:@"picple.png"]];
+                    NTButton *imageBtn=[NTButton buttonWithType:UIButtonTypeCustom];
+                    imageBtn.frame=CGRectMake(i*(285+40), 20, 285, 185);
+                    [imageBtn sd_setImageWithURL:[NSURL URLWithString:imagePath] forState:UIControlStateNormal placeholderImage:[NTImage imageWithFileName:@"picple.png"]];
                     [imageBtn addTarget:self action:@selector(imageBtnAction:) forControlEvents:UIControlEventTouchUpInside];
                     imageBtn.tag=i;
-                    imageBtn.imageURL=[NSURL URLWithString:imagePath];
-                    imageBtn.frame=CGRectMake(i*(285+40), 20, 285, 185);
                     [_imageInfoView addSubview:imageBtn];
                     i++;
                 }
@@ -484,7 +484,9 @@
                 [_scrollView addSubview:_videoInfoView];
                 int i=0;
                 for (NSString *videoPath in _videoAry) {
-                    EGOImageButton *imageBtn=[[EGOImageButton alloc] initWithPlaceholderImage:[UIImage imageNamed:@"picple.png"]];
+                    NTButton *imageBtn=[NTButton buttonWithType:UIButtonTypeCustom];
+                    [imageBtn setImage:[NTImage imageWithFileName:@"picple.png"] forState:UIControlStateNormal];
+                    imageBtn.frame=CGRectMake(i*(285+40), 20, 285, 185);
                     [imageBtn addTarget:self action:@selector(videoBtnAction:) forControlEvents:UIControlEventTouchUpInside];
                     imageBtn.tag=i;
                     imageBtn.frame=CGRectMake(i*(285+40), 20, 285, 185);
@@ -607,13 +609,13 @@
 #pragma mark - showDetailView
 
 - (void)imageBtnAction:(id)sender{
-    EGOImageButton *btn=(EGOImageButton *)sender;
+    NTButton *btn=(NTButton *)sender;
     NTShowDetailVIew *detailView=[[NTShowDetailVIew alloc] initWithFrame:self.view.frame];
     [detailView showImageWithArray:_imageAry withIndex:btn.tag];
 }
 
 - (void)videoBtnAction:(id)sender{
-    EGOImageButton *btn=(EGOImageButton *)sender;
+    NTButton *btn=(NTButton *)sender;
     NSURL * movieurl = [NSURL URLWithString:[_videoAry objectAtIndex:btn.tag]];
     
     MPMoviePlayerViewController *player = [[MPMoviePlayerViewController alloc] initWithContentURL:movieurl];

@@ -7,8 +7,6 @@
 //
 
 #import "NTHomeView.h"
-#import <EGOImageLoading/EGOImageView.h>
-#import <EGOImageLoading/EGOImageButton.h>
 #import "NTReadConfiguration.h"
 #import "NTScrollImageView.h"
 @implementation NTHomeView
@@ -38,7 +36,7 @@
     for (NSDictionary *dic in adArray) {
         [imagesURLAry addObject:[dic objectForKey:@"icon"]];
     }
-    NTScrollImageView *scrollImageView = [NTScrollImageView adScrollViewWithFrame:CGRectMake(0, 0, ScreenWidth, 132)    imageLinkURL:imagesURLAry placeHoderImageName:nil   pageControlShowStyle:UIPageControlShowStyleCenter];
+    NTScrollImageView *scrollImageView = [NTScrollImageView adScrollViewWithFrame:CGRectMake(0, 0, ScreenWidth, 132)    imageLinkURL:imagesURLAry placeHoderImageName:@"picple.png"   pageControlShowStyle:UIPageControlShowStyleCenter];
     scrollImageView.callBack = ^(NSInteger index,NSString * imageURL)
     {
         [_delegate homeWebSelectAction:[[adArray objectAtIndex:index] objectForKey:@"url"]];
@@ -68,15 +66,14 @@
     int typeValue=[[data objectForKey:@"type"] intValue];
     float width=functionBtnHeight*widthValue+(widthValue-1)*10;
     float height=functionBtnHeight*heightValue+(heightValue-1)*10;
-    EGOImageButton *funButton;
+    NTButton *funButton=[NTButton buttonWithType:UIButtonTypeCustom];
     if (typeValue==0) {
-        funButton=[[EGOImageButton alloc] initWithPlaceholderImage:thePlaceholderImage];
-        funButton.imageURL=[NSURL URLWithString:[data objectForKey:@"icon"]];
+        [funButton sd_setImageWithURL:[NSURL URLWithString:[data objectForKey:@"icon"]] forState:UIControlStateNormal placeholderImage:thePlaceholderImage];
         funButton.tag=0;
         funButton.contentPath=[data objectForKey:@"url"];
     }
     else{
-        funButton=[[EGOImageButton alloc] initWithPlaceholderImage:[NTImage imageWithFileName:[data objectForKey:@"imageName"]]];
+        [funButton setImage:[NTImage imageWithFileName:[data objectForKey:@"imageName"]] forState:UIControlStateNormal];
         funButton.tag=[[data objectForKey:@"id"] integerValue];
     }
     funButton.backgroundColor=[UIColor clearColor];
@@ -105,7 +102,7 @@
 #pragma mark - homeSelectAction
 
 - (void)homeSelectAction:(id)sender{
-    EGOImageButton *btn=(EGOImageButton *)sender;
+    NTButton *btn=(NTButton *)sender;
     if (btn.tag==0) {
          [_delegate homeWebSelectAction:btn.contentPath];
     }

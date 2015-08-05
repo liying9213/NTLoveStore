@@ -19,6 +19,7 @@
 #import "NTReadConfiguration.h"
 #import "NTUserDefaults.h"
 #import "NTShare.h"
+#import "NTNormalHead.h"
 @interface ViewController ()
 
 @end
@@ -68,7 +69,7 @@
     
     UIButton *shoppingBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     shoppingBtn.frame=CGRectMake(0, 0, 120, 44);
-    [shoppingBtn setImage:[NTImage imageWithContentsOfFile:nil] forState:UIControlStateNormal];
+    [shoppingBtn setImage:[NTImage imageWithFileName:nil] forState:UIControlStateNormal];
     shoppingBtn.backgroundColor=[NTColor clearColor];
     [shoppingBtn addTarget:self action:@selector(shoppingCarAction) forControlEvents:UIControlEventTouchUpInside];
     [shoppingBtn setImage:[NTImage imageWithFileName:@"shopping.png"] forState:UIControlStateNormal];
@@ -80,7 +81,7 @@
     
     UIButton *userBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     userBtn.frame=CGRectMake(130, 0, 110, 44);
-    [userBtn setImage:[NTImage imageWithContentsOfFile:nil] forState:UIControlStateNormal];
+    [userBtn setImage:[NTImage imageWithFileName:nil] forState:UIControlStateNormal];
     userBtn.backgroundColor=[NTColor clearColor];
     [userBtn addTarget:self action:@selector(userInfoAction:) forControlEvents:UIControlEventTouchUpInside];
     [userBtn setImage:[NTImage imageWithFileName:@"user.png"] forState:UIControlStateNormal];
@@ -132,6 +133,7 @@
 }
 
 -(void)reloadFunctionView:(NSArray *)functionAry{
+    _functionView.index=1;
     _functionView.tableView.hidden=NO;
     [_functionView reloadFunctionViewWithData:functionAry];
     [self hideWaitingView];
@@ -236,7 +238,7 @@
         [self presentViewController:viewcontroller animated:YES completion:nil];
         return;
     }
-    EGOImageButton *btn=(EGOImageButton *)sender;
+    NTButton *btn=(NTButton *)sender;
     if (btn.tag==1024) {
         NTConsultViewController *viewcontroller=[[NTConsultViewController alloc] init];
         [self.navigationController pushViewController:viewcontroller animated:YES];

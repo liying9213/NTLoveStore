@@ -214,35 +214,12 @@
 
 - (void)resetViewWithType:(NSInteger)type withData:(id)listData{
     if (type==0||type==1||type==2||type==3) {
-        
-        NSArray *ary=@[
-                       @{@"id":@"100",
-                         @"orderid":@"E616698396244850355",
-                         @"create_time":@"2015-09-09 12:01:01",
-                         @"pricetotal":@"100.0",
-                         @"send_name":@"张三",
-                         @"send_contact":@"135576786",
-                         @"time":@"2015-09-09"},
-                       @{@"id":@"100",
-                         @"orderid":@"E616698396244850355",
-                         @"create_time":@"2015-09-09 12:01:01",
-                         @"pricetotal":@"100.0",
-                         @"send_name":@"张三",
-                         @"send_contact":@"135576786",
-                         @"time":@"2015-09-09"},
-                       @{@"id":@"100",
-                         @"orderid":@"E616698396244850355",
-                         @"create_time":@"2015-09-09 12:01:01",
-                         @"pricetotal":@"100.0",
-                         @"send_name":@"张三",
-                         @"send_contact":@"135576786",
-                         @"time":@"2015-09-09"}];
         if (_isFollow) {
             _listView.hidden=YES;
             if (!_followListView) {
                 [self resetFollowListView];
             }
-            _followListView.followListAry=ary;
+            _followListView.followListAry=listData;
             _followListView.isSelect=NO;
             [_followListView.tableView reloadData];
             _followListView.hidden=NO;
@@ -253,7 +230,7 @@
                 [self resetListView];
             }
             
-            _listView.listAry=ary;
+            _listView.listAry=listData;
             _listView.isSelect=NO;
             [_listView.tableView reloadData];
             _listView.hidden=NO;

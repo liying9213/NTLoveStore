@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <EGOImageView.h>
 
 @interface NTShowDetailVIew : UIView <UIGestureRecognizerDelegate>
 
-@property (nonatomic, strong)EGOImageView *showImageView;
+@property (nonatomic, strong)UIImageView *showImageView;
 
 - (void)showImageWithArray:(NSArray *)imageArray withIndex:(NSInteger)index;
 

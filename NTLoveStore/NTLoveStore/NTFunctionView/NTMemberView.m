@@ -21,8 +21,7 @@
 #pragma mark - resetView
 
 - (void)resetView{
-    _imageView=[[EGOImageView alloc] initWithPlaceholderImage:[NTImage imageWithFileName:@"picple.png"]];
-    _imageView.frame=CGRectMake(0, 0, CGRectGetWidth(self.frame),  CGRectGetHeight(self.frame)-50);
+    _imageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame),  CGRectGetHeight(self.frame)-50)];
     [self addSubview:_imageView];
     
     _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(_imageView.frame)+5, CGRectGetWidth(self.frame)/2, 20)];
@@ -60,7 +59,8 @@
 }
 
 - (void)reloadTheViewWithData:(NSDictionary *)dic{
-    _imageView.imageURL=[NSURL URLWithString:[dic objectForKey:@"cover_id"]];
+//    _imageView.imageURL=[NSURL URLWithString:[dic objectForKey:@"cover_id"]];
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:[dic objectForKey:@"cover_id"]] placeholderImage:[NTImage imageWithFileName:@"picple.png"]];
     _titleLabel.text=[dic objectForKey:@"title"];
     _priceLabel.text=[NSString stringWithFormat:@"￥%@",[dic objectForKey:@"price"]];
     _selectBtn.tag=[[dic objectForKey:@"id"] integerValue];

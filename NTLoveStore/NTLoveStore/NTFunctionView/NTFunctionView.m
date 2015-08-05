@@ -16,6 +16,7 @@
 
 - (void)resetView{
     _orderID=1;
+    _index=1;
     _selectID=0;
     [self resetLeftSelectView];
     [self resetSelectTypeView];
@@ -166,7 +167,12 @@
         return [_leftAry count];
     }
     else{
-        return [_functionAry count]/4+([_functionAry count]%4>0?1:0);
+        if (16*_index<_functionAry.count) {
+            return 4*_index;
+        }
+        else{
+            return [_functionAry count]/4+([_functionAry count]%4>0?1:0);
+        }
     }
 }
 
@@ -204,6 +210,13 @@
         _selectID=indexPath.row;
         _theID=[[[_leftAry objectAtIndex:indexPath.row] objectForKey:@"id"] intValue];
         [self leftViewActionWithCategory:[[_leftAry objectAtIndex:indexPath.row] objectForKey:@"name"] WithOrder:_orderID];
+    }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (scrollView==_tableView&&scrollView.contentSize.height-scrollView.contentOffset.y<=620.0&&16*_index<_functionAry.count) {
+        _index++;
+        [_tableView reloadData];
     }
 }
 

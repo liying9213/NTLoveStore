@@ -8,7 +8,6 @@
 
 #import "NTShowDetailVIew.h"
 #import "NTNormalHead.h"
-#import <EGOImageButton.h>
 
 @implementation NTShowDetailVIew
 
@@ -47,9 +46,8 @@
     showView.backgroundColor=[NTColor whiteColor];
     [self addSubview:showView];
     
-    _showImageView=[[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"picple.png"]];
-    _showImageView.imageURL=[NSURL URLWithString:[imageArray objectAtIndex:index]];
-    _showImageView.frame=CGRectMake(10, 40, CGRectGetWidth(showView.frame)-20, CGRectGetHeight(showView.frame)-170);
+    _showImageView=[[UIImageView alloc] initWithFrame:CGRectMake(10, 40, CGRectGetWidth(showView.frame)-20, CGRectGetHeight(showView.frame)-170)];
+    [_showImageView sd_setImageWithURL:[NSURL URLWithString:[imageArray objectAtIndex:index]] placeholderImage:[NTImage imageWithFileName:@"picple.png"]];
     _showImageView.backgroundColor=[UIColor clearColor];
     [showView addSubview:_showImageView];
     
@@ -60,9 +58,9 @@
     scrollView.backgroundColor=[UIColor clearColor];
     [showView addSubview:scrollView];
     for (NSString *imagePath in imageArray) {
-        EGOImageButton *imageBtn=[[EGOImageButton alloc] initWithPlaceholderImage:[UIImage  imageNamed:@"picple.png"]];
+        NTButton *imageBtn=[NTButton buttonWithType:UIButtonTypeCustom];
+        [imageBtn sd_setImageWithURL:[NSURL URLWithString:imagePath] forState:UIControlStateNormal placeholderImage:[NTImage  imageWithFileName:@"picple.png"]];
         imageBtn.frame=CGRectMake(width, 0, 160, 110);
-        imageBtn.imageURL=[NSURL URLWithString:imagePath];
         [imageBtn addTarget:self action:@selector(selectImageView:) forControlEvents:UIControlEventTouchUpInside];
         [scrollView addSubview:imageBtn];
         width+=CGRectGetWidth(imageBtn.frame)+10;
@@ -72,8 +70,8 @@
 }
 
 - (void)selectImageView:(id)sender{
-    EGOImageButton *btn=(EGOImageButton *)sender;
-    _showImageView.imageURL=btn.imageURL;
+    NTButton *btn=(NTButton *)sender;
+    [_showImageView sd_setImageWithURL:[btn sd_currentImageURL] placeholderImage:[NTImage imageWithFileName:@"picple.png"]];
 }
 
 #pragma mark - showTextView

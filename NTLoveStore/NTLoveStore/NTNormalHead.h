@@ -12,3 +12,5 @@
 #import "NTButton.h"
 #import "NTShare.h"
 #import "NTUserDefaults.h"
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"

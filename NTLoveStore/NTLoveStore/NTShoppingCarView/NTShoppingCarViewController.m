@@ -143,7 +143,7 @@
         [tableView registerNib:[UINib nibWithNibName:@"NTShopcarTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
         iCell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     }
-    iCell.leftImagView.imageURL=[NSURL URLWithString:[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"cover_id"]];
+    [iCell.leftImagView sd_setImageWithURL:[NSURL URLWithString:[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"cover_id"]] placeholderImage:[NTImage imageWithFileName:@"picple.png"]];
     iCell.commodityName.text=[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"title"];
     iCell.price.text=[NSString stringWithFormat:@"%@/元",[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"price"]];
     iCell.allPrice.text=[NSString stringWithFormat:@"%@元",[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"tprice"]];

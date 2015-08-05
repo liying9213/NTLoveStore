@@ -31,7 +31,7 @@
 
 @end
 
-@interface NTFunctionView : UIView <UITableViewDataSource,UITableViewDelegate>
+@interface NTFunctionView : UIView <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate  >
 
 @property (nonatomic, assign) id delegate;
 
@@ -56,6 +56,8 @@
 @property (nonatomic, strong)NSDictionary *resultDic;
 
 @property (nonatomic) int theID;
+
+@property (nonatomic) int index;
 
 - (void)resetView;
 

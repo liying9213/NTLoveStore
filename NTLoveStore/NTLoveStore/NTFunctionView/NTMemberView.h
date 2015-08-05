@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "NTNormalHead.h"
-#import <EGOImageLoading/EGOImageView.h>
 
 @class NTMemberView;
 
@@ -27,7 +26,7 @@
 
 //@property (nonatomic, strong) NSDictionary *memberDic;
 
-@property (nonatomic, strong) EGOImageView *imageView;
+@property (nonatomic, strong) UIImageView *imageView;
 
 @property (nonatomic, strong) UILabel *titleLabel;
 

@@ -7,6 +7,7 @@
 //
 
 #import "NTPayCodeView.h"
+#import "NTNormalHead.h"
 #import "NTdefine.h"
 @implementation NTPayCodeView
 
@@ -23,9 +24,8 @@
 }
 
 - (void)resetView{
-    _payCodeImageView=[[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"picple.png"]];
-    _payCodeImageView.frame=CGRectMake((ScreenWidth-400)/2, (ScreenHeight-400)/2, 400, 400);
-    _payCodeImageView.imageURL=[NSURL URLWithString:_imagePath];
+    _payCodeImageView=[[UIImageView alloc] initWithFrame:CGRectMake((ScreenWidth-400)/2, (ScreenHeight-400)/2, 400, 400)];
+    [_payCodeImageView sd_setImageWithURL:[NSURL URLWithString:_imagePath] placeholderImage:[NTImage imageWithFileName:@"picple.png"]];
     [self addSubview:_payCodeImageView];
 }
 

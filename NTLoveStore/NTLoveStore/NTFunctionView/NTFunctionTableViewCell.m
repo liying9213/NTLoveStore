@@ -53,6 +53,7 @@
             }
         }
     }
+    subAry=nil;
 }
 
 #pragma mark - memberViewDelegate

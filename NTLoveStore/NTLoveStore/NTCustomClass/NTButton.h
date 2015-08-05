@@ -10,7 +10,7 @@
 
 @interface NTButton : UIButton
 
-@property (nonatomic, strong)NSString *keyWord;
+@property (nonatomic, strong) NSString *keyWord;
 @property (nonatomic) NSInteger section;
-
+@property (nonatomic, copy) NSString*contentPath;
 @end

@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EGOImageView.h"
 #import "NTButton.h"
 @interface NTShopcarTableViewCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet EGOImageView *leftImagView;
+@property (strong, nonatomic) IBOutlet UIImageView *leftImagView;
 @property (strong, nonatomic) IBOutlet UILabel *commodityName;
 @property (strong, nonatomic) IBOutlet UILabel *price;
 @property (strong, nonatomic) IBOutlet UILabel *allPrice;

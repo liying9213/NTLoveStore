@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EGOImageView.h"
 @interface NTPayCodeView : UIView<UIGestureRecognizerDelegate>
 typedef void (^Close)();
 @property (nonatomic , strong) Close closeBlock;
-@property (strong, nonatomic) IBOutlet EGOImageView *payCodeImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *payCodeImageView;
 @property (nonatomic, strong) NSString *imagePath;
 - (void) showThepayCodeView;
 

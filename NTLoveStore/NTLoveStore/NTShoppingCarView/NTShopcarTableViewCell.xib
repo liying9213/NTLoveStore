@@ -121,7 +121,7 @@
                         </state>
                         <state key="selected" image="select"/>
                     </button>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jol-V2-IXa" customClass="EGOImageView">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jol-V2-IXa" customClass="UIImageView">
                         <rect key="frame" x="45" y="10" width="110" height="80"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="110" id="PPT-3C-b5r"/>
