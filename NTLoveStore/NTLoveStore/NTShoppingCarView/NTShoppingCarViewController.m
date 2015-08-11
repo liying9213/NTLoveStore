@@ -561,6 +561,10 @@
     }
 }
 
+- (IBAction)closeView:(id)sender {
+    [self colseTheView:nil];
+}
+
 - (IBAction)payAction:(id)sender {
     if(_infoVIew.hidden){
         _infoVIew.hidden=NO;
@@ -617,11 +621,10 @@
     }
 }
 
-
 #pragma mark - infoView
 
 - (void)colseTheView:(UIPanGestureRecognizer*)paramSender{
-    if (_dateView.hidden) {
+    if (!_dateView||_dateView.hidden) {
         _infoVIew.hidden=YES;
     }
     else{

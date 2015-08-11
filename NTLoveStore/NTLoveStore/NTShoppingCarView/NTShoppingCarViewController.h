@@ -42,6 +42,8 @@
 
 - (IBAction)subscriptionAction:(id)sender;
 
+- (IBAction)closeView:(id)sender;
+
 - (IBAction)payAction:(id)sender;
 
 - (IBAction)delectAction:(id)sender;

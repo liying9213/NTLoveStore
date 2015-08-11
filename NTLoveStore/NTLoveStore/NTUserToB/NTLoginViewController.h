@@ -8,8 +8,9 @@
 
 #import "NTParentViewController.h"
 
-@interface NTLoginViewController : NTParentViewController
+@interface NTLoginViewController : NTParentViewController<UITextFieldDelegate>
 
+@property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UITextField *userName;
 @property (nonatomic, strong) UITextField *userPassWord;
 @property (nonatomic, strong) UIButton *submitBtn;

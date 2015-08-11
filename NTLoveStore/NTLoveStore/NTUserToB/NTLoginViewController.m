@@ -27,10 +27,13 @@
 #pragma mark - resetView
 
 - (void)resetView{
+    _scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    _scrollView.backgroundColor=[UIColor clearColor];
+    [self.view addSubview:_scrollView];
     
     UIImageView *imageview=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth,ScreenHeight )];
     imageview.image=[NTImage imageWithFileName:@"login.jpg"];
-    [self.view addSubview:imageview];
+    [_scrollView addSubview:imageview];
     
     
     _userName=[[UITextField alloc] initWithFrame:CGRectMake((ScreenWidth-340)/2, 350+30, 340, 47)];
@@ -40,11 +43,13 @@
     _userName.layer.masksToBounds=YES;
     _userName.layer.cornerRadius=2;
     _userName.leftViewMode=UITextFieldViewModeAlways;
+    _userName.delegate=self;
+//    [_userName addTarget:self action:@selector(textField:) forControlEvents:UIControlEventEditingDidBegin];
     UIImageView *userimageview=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
     userimageview.image=[UIImage imageNamed:@"user"];
     userimageview.contentMode = UIViewContentModeScaleAspectFit;
     _userName.leftView=userimageview;
-    [self.view addSubview:_userName];
+    [_scrollView addSubview:_userName];
     
     _userPassWord=[[UITextField alloc] initWithFrame:CGRectMake((ScreenWidth-340)/2, _userName.frame.size.height+_userName.frame.origin.y+20, 340, 47)];
     _userPassWord.center=CGPointMake(ScreenWidth/2, _userName.frame.size.height+_userName.frame.origin.y+20+50/2);
@@ -53,11 +58,13 @@
     _userPassWord.layer.masksToBounds=YES;
     _userPassWord.layer.cornerRadius=2;
     _userPassWord.leftViewMode=UITextFieldViewModeAlways;
+//    [_userPassWord addTarget:self action:@selector(textField:) forControlEvents:UIControlEventEditingDidBegin];
+    _userPassWord.delegate=self;
     UIImageView *passimageview=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
     passimageview.image=[UIImage imageNamed:@"pass"];
     passimageview.contentMode = UIViewContentModeScaleAspectFit;
     _userPassWord.leftView=passimageview;
-    [self.view addSubview:_userPassWord];
+    [_scrollView addSubview:_userPassWord];
     
     _submitBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     _submitBtn.frame=CGRectMake((ScreenWidth-187)/2, _userPassWord.frame.size.height+_userPassWord.frame.origin.y+30, 184, 47);
@@ -68,7 +75,7 @@
     [_submitBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateNormal];
     _submitBtn.titleLabel.font=[UIFont boldSystemFontOfSize:20];
     [_submitBtn addTarget:self action:@selector(submitAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_submitBtn];
+    [_scrollView addSubview:_submitBtn];
     
     UILabel *messageLabel=[[UILabel alloc] initWithFrame:CGRectMake(20, ScreenHeight-50, ScreenWidth-40, 47)];
     messageLabel.textAlignment=NSTextAlignmentRight;
@@ -76,13 +83,43 @@
     messageLabel.font=[UIFont systemFontOfSize:16];
     messageLabel.textColor=[NTColor whiteColor];
     messageLabel.text=@"客服：010-63850182   QQ：3284796320";
-    [self.view addSubview:messageLabel];
+    [_scrollView addSubview:messageLabel];
+}
+
+#pragma mark - textFieldDelegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    if (textField==_userName) {
+        [_scrollView setContentOffset:CGPointMake(0, 190)];
+    }
+    else if (textField==_userPassWord) {
+        [_scrollView setContentOffset:CGPointMake(0, 225)];
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    [_scrollView setContentOffset:CGPointMake(0, 0)];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+     [_scrollView setContentOffset:CGPointMake(0, 0)];
+    return YES;
 }
 
 #pragma mark - submitBtnAction
 
 - (void)submitAction:(id)sender{
+    [_scrollView setContentOffset:CGPointMake(0, 0)];
     __weak typeof(self) __weakself=self;
+    if (!_userName.text||!_userName.text.length>0) {
+        [self showEndViewWithText:@"请输入用户名"];
+        return;
+    }
+    if (!_userPassWord.text||!_userPassWord.text.length>0) {
+        [self showEndViewWithText:@"请输入密码"];
+        return;
+    }
+    
     [self showWaitingViewWithText:nil];
     NSDictionary *dic=@{@"user":_userName.text,
                         @"pass":_userPassWord.text};
