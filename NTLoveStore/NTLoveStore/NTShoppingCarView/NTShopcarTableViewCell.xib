@@ -29,16 +29,15 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTy-ja-lXH">
-                                <rect key="frame" x="38" y="7" width="38" height="21"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Wa-do-6iO" customClass="NTTextField">
+                                <rect key="frame" x="38" y="3" width="38" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="38" id="JXT-aa-2Qe"/>
-                                    <constraint firstAttribute="height" constant="21" id="nPm-IU-mzS"/>
+                                    <constraint firstAttribute="height" constant="30" id="JqW-T0-08a"/>
+                                    <constraint firstAttribute="width" constant="38" id="qqv-2k-2tH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwx-8L-GVq" customClass="NTButton">
                                 <rect key="frame" x="0.0" y="3" width="30" height="30"/>
                                 <constraints>
@@ -54,12 +53,12 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Lqy-sx-Amw" secondAttribute="trailing" id="3nn-su-vqP"/>
                             <constraint firstAttribute="bottom" secondItem="cwx-8L-GVq" secondAttribute="bottom" constant="3" id="Blt-Pc-Cax"/>
-                            <constraint firstItem="Lqy-sx-Amw" firstAttribute="leading" secondItem="TTy-ja-lXH" secondAttribute="trailing" constant="8" id="N40-Af-ZDL"/>
+                            <constraint firstItem="Lqy-sx-Amw" firstAttribute="leading" secondItem="6Wa-do-6iO" secondAttribute="trailing" constant="8" id="D5z-3V-tFV"/>
+                            <constraint firstItem="6Wa-do-6iO" firstAttribute="leading" secondItem="cwx-8L-GVq" secondAttribute="trailing" constant="8" id="Lmn-ym-T3k"/>
                             <constraint firstAttribute="bottom" secondItem="Lqy-sx-Amw" secondAttribute="bottom" constant="3" id="OZm-xF-iMm"/>
                             <constraint firstAttribute="height" constant="36" id="Ttq-IS-fmP"/>
-                            <constraint firstAttribute="bottom" secondItem="TTy-ja-lXH" secondAttribute="bottom" constant="8" id="ikJ-jm-X8s"/>
+                            <constraint firstItem="6Wa-do-6iO" firstAttribute="top" secondItem="8Yd-4R-fc6" secondAttribute="top" constant="3" id="hcj-tM-h2X"/>
                             <constraint firstItem="cwx-8L-GVq" firstAttribute="leading" secondItem="8Yd-4R-fc6" secondAttribute="leading" id="jpx-JM-nTW"/>
-                            <constraint firstItem="TTy-ja-lXH" firstAttribute="leading" secondItem="cwx-8L-GVq" secondAttribute="trailing" constant="8" id="k31-h1-6Ge"/>
                             <constraint firstAttribute="trailing" secondItem="cwx-8L-GVq" secondAttribute="trailing" constant="84" id="oa7-0S-fui"/>
                             <constraint firstAttribute="width" constant="114" id="wbb-ES-hUk"/>
                         </constraints>
@@ -178,7 +177,7 @@
                 <outlet property="delBtn" destination="cwx-8L-GVq" id="AR7-P7-P0R"/>
                 <outlet property="delectBtn" destination="0QM-9F-Tim" id="Bt9-2a-XA8"/>
                 <outlet property="leftImagView" destination="jol-V2-IXa" id="9fM-cE-SQ7"/>
-                <outlet property="numLabel" destination="TTy-ja-lXH" id="Vfh-bF-xy8"/>
+                <outlet property="numLabel" destination="6Wa-do-6iO" id="GG7-OH-a5f"/>
                 <outlet property="price" destination="lWj-SP-pdh" id="T2N-q2-Rq2"/>
                 <outlet property="selectBtn" destination="XZe-za-hw8" id="pzi-vy-BCJ"/>
             </connections>

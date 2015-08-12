@@ -136,6 +136,8 @@
 }
 
 - (void)reloadFunctionViewWithData:(NSArray *)functionAry{
+    _thePrice=0.0f;
+    _theTuanPrice=0.0f;
     for (NSDictionary *dic in functionAry) {
         if ([[dic objectForKey:@"mark"] intValue]==1) {
             _resultDic=dic;

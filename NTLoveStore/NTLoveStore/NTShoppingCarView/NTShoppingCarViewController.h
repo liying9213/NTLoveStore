@@ -8,7 +8,7 @@
 
 #import "NTParentViewController.h"
 
-@interface NTShoppingCarViewController : NTParentViewController <UITableViewDataSource,UITableViewDelegate,UIPopoverControllerDelegate,UIGestureRecognizerDelegate>
+@interface NTShoppingCarViewController : NTParentViewController <UITableViewDataSource,UITableViewDelegate,UIPopoverControllerDelegate,UIGestureRecognizerDelegate,UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *selectAllBtn;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *selectBtn1;

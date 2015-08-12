@@ -9,7 +9,7 @@
 #import "NTParentViewController.h"
 #import "VRGCalendarView.h"
 
-@interface NTContentViewController : NTParentViewController<VRGCalendarViewDelegate,UIPopoverControllerDelegate>
+@interface NTContentViewController : NTParentViewController<VRGCalendarViewDelegate,UIPopoverControllerDelegate,UITextFieldDelegate>
 
 @property (nonatomic, strong)NSDictionary *contentDic;
 
@@ -25,7 +25,7 @@
 
 @property (nonatomic, strong)UILabel *selectDateLabel;
 
-@property (nonatomic, strong)UILabel *selectNumLabel;
+@property (nonatomic, strong)UITextField *selectNumLabel;
 
 @property (nonatomic, strong)UIButton *contentBtn;
 

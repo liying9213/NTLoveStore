@@ -159,7 +159,6 @@
     
 }
 
-
 #pragma mark - getTheData
 
 - (void)getHomeViewData{
@@ -179,6 +178,7 @@
 }
 
 - (void)getFunctionData{
+    
     NSDictionary *dic=@{@"uid":[share()userUid],
                         @"token":[share()userToken]};
     [NTAsynService requestWithHead:catalogBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {

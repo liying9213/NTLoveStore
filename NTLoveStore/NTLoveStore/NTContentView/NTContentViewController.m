@@ -285,10 +285,12 @@
     minusBtn.layer.borderColor=[[NTColor colorWithHexString:@"#BBBBBB"] CGColor];
     [view addSubview:minusBtn];
     
-    _selectNumLabel=[[UILabel alloc] initWithFrame:CGRectMake(90, 0, 50, 50)];
+    _selectNumLabel=[[UITextField alloc] initWithFrame:CGRectMake(90, 0, 50, 50)];
     _selectNumLabel.textAlignment=NSTextAlignmentCenter;
     _selectNumLabel.text=@"1";
+    _selectNumLabel.keyboardType=UIKeyboardTypePhonePad;
     _selectNumLabel.font=[UIFont systemFontOfSize:15];
+    _selectNumLabel.delegate=self;
     [view addSubview:_selectNumLabel];
     
     UIButton *addBtn=[UIButton buttonWithType:UIButtonTypeCustom];
@@ -632,6 +634,10 @@
     else{
         [detailView showLeftTextWithString:_contentStr];
     }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    _selectNum=[textField.text intValue];
 }
 
 #pragma mark - showHotListMember

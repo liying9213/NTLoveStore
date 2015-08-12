@@ -8,6 +8,7 @@
 
 #import "NTShoppingCarViewController.h"
 #import "NTShopcarTableViewCell.h"
+#import "NTTextField.h"
 #import "NTAsynService.h"
 #import "NTPayCodeView.h"
 @interface NTShoppingCarViewController ()
@@ -148,6 +149,8 @@
     iCell.price.text=[NSString stringWithFormat:@"%@/元",[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"price"]];
     iCell.allPrice.text=[NSString stringWithFormat:@"%@元",[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"tprice"]];
     [iCell.selectBtn addTarget:self action:@selector(selectOne:) forControlEvents:UIControlEventTouchUpInside];
+    iCell.numLabel.textAlignment = NSTextAlignmentCenter;
+    iCell.numLabel.delegate=self;
     iCell.selectBtn.section=indexPath.section;
     iCell.selectBtn.tag=indexPath.row;
     if (_isSelectAll) {
@@ -165,6 +168,8 @@
         iCell.dateLabel.hidden=YES;
         iCell.contView.hidden=NO;
         iCell.numLabel.text=[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"num"];
+        iCell.numLabel.tag=indexPath.row;
+        iCell.numLabel.section=indexPath.section;
         iCell.delBtn.enabled=YES;
         iCell.delBtn.layer.borderWidth=1;
         iCell.delBtn.layer.borderColor=[[UIColor lightGrayColor] CGColor];
@@ -195,17 +200,16 @@
         [self showEndViewWithText:@"请登录账号！"];
         return;
     }
-    UIButton *btn=(UIButton *)sender;
+    NTButton *btn=(NTButton *)sender;
     [self showWaitingViewWithText:@"正在删除..."];
     __weak typeof(self) __weakself=self;
-
     NSDictionary *dic=@{@"uid":[share()userUid],
                         @"token":[share()userToken],
-                        @"id":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"goodid"],
-                        @"price":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"price"],
-                        @"sort":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"sort"],
-                        @"parameters":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"parameters"],
-                        @"pet":[[_shopcartData objectAtIndex:btn.tag] objectForKey:@"pet"],
+                        @"id":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"goodid"],
+                        @"price":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"price"],
+                        @"sort":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"sort"],
+                        @"parameters":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"parameters"],
+                        @"pet":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"pet"],
                         @"key":@"2"};
     [NTAsynService requestWithHead:delItemBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
@@ -233,16 +237,20 @@
         return;
     }
     NTButton *btn=(NTButton *)sender;
+    [self delActionWith:btn.section WithRow:btn.tag with:1];
+}
+
+- (void)delActionWith:(NSInteger)section WithRow:(NSInteger)row with:(int)num{
     [self showWaitingViewWithText:@"正在删除..."];
     __weak typeof(self) __weakself=self;
     
     NSDictionary *dic=@{@"uid":[share()userUid],
                         @"token":[share()userToken],
-                        @"id":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"goodid"],
-                        @"price":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"price"],
-                        @"sort":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"sort"],
-                        @"parameters":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"parameters"],
-                        @"pet":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"pet"],
+                        @"id":[[[_shopcartData[section]objectForKey:@"obj"] objectAtIndex:row] objectForKey:@"goodid"],
+                        @"price":[[[_shopcartData[section]objectForKey:@"obj"] objectAtIndex:row] objectForKey:@"price"],
+                        @"sort":[[[_shopcartData[section]objectForKey:@"obj"] objectAtIndex:row] objectForKey:@"sort"],
+                        @"parameters":[[[_shopcartData[section]objectForKey:@"obj"] objectAtIndex:row] objectForKey:@"parameters"],
+                        @"pet":[[[_shopcartData[section]objectForKey:@"obj"] objectAtIndex:row] objectForKey:@"pet"],
                         @"key":@"1"};
     [NTAsynService requestWithHead:delItemBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
@@ -264,24 +272,29 @@
     dic=nil;
 }
 
+
 - (void)addAction:(id)sender{
     if (![share()userIsLogin]) {
         [self showEndViewWithText:@"请登录账号！"];
         return;
     }
     NTButton *btn=(NTButton *)sender;
+    [self addActionWith:btn.section WithRow:btn.tag with:1];
+}
+
+- (void)addActionWith:(NSInteger)section WithRow:(NSInteger)row with:(int)num{
     [self showWaitingViewWithText:@"正在添加..."];
     __weak typeof(self) __weakself=self;
     
     NSDictionary *dic=@{@"uid":[share()userUid],
                         @"token":[share()userToken],
-                        @"id":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"goodid"],
-                        @"price":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"price"],
-                        @"sort":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"sort"],
-                        @"num":@"1",
-                        @"pet":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"pet"],
-                        @"parameters":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"parameters"]};
-
+                        @"id":[[[_shopcartData[section]objectForKey:@"obj"] objectAtIndex:row] objectForKey:@"goodid"],
+                        @"price":[[[_shopcartData[section]objectForKey:@"obj"] objectAtIndex:row] objectForKey:@"price"],
+                        @"sort":[[[_shopcartData[section]objectForKey:@"obj"] objectAtIndex:row] objectForKey:@"sort"],
+                        @"num":[NSNumber numberWithInt:num],
+                        @"pet":[[[_shopcartData[section]objectForKey:@"obj"] objectAtIndex:row] objectForKey:@"pet"],
+                        @"parameters":[[[_shopcartData[section]objectForKey:@"obj"] objectAtIndex:row] objectForKey:@"parameters"]};
+    
     [NTAsynService requestWithHead:addItemBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
             __strong typeof(self) self=__weakself;
@@ -620,6 +633,49 @@
         [self getTheDate];
     }
 }
+
+- (void)textFieldDidBeginEditing:(NTTextField *)textField{
+    float heigh=0;
+    for (int i=0; i<=textField.section; i++) {
+        if (textField.section==i) {
+            heigh+=100*(textField.tag+1);
+        }
+        else{
+            heigh+=100*[[_shopcartData[textField.section] objectForKey:@"obj"] count];
+        }
+    }
+     [_tableView setContentOffset:CGPointMake(0, heigh)];
+    float ContentHeight=_tableView.contentSize.height;
+    [_tableView setContentSize:CGSizeMake(0, ContentHeight+250)];
+}
+
+- (void)textFieldDidEndEditing:(NTTextField *)textField{
+    [_tableView setContentOffset:CGPointMake(0, 0)];
+    float ContentHeight=_tableView.contentSize.height;
+    [_tableView setContentSize:CGSizeMake(0, ContentHeight-250)];
+    textField.text=[NSString stringWithFormat:@"%d",[self changeNumWith:textField]];
+}
+
+- (BOOL)textFieldShouldReturn:(NTTextField *)textField{
+    textField.text=[NSString stringWithFormat:@"%d",[self changeNumWith:textField]];
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (int)changeNumWith:(NTTextField *)textField{
+    int value=[textField.text intValue];
+    int normal= [[[[_shopcartData[textField.section] objectForKey:@"obj"] objectAtIndex:textField.tag] objectForKey:@"num"] intValue];
+    if (normal<value){
+        [self addActionWith:textField.section WithRow:textField.tag with:value-normal];
+        return value;
+    }
+    else{
+//        textField.text=[NSString stringWithFormat:@"%d",normal];
+        return normal;
+    }
+    
+}
+
 
 #pragma mark - infoView
 
