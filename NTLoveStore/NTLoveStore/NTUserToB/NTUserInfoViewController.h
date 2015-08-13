@@ -31,5 +31,7 @@
 
 @property (nonatomic) BOOL isFollow;
 
+@property (nonatomic) BOOL isComment;
+
 
 @end

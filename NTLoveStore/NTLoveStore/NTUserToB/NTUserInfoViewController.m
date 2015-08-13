@@ -60,7 +60,7 @@
         
     }
     else if (btn.tag==3) {
-        
+        [self resetNomalView];
     }
 }
 
@@ -224,12 +224,21 @@
             [_followListView.tableView reloadData];
             _followListView.hidden=NO;
         }
-        else{
+        else if (_isComment) {
             _followListView.hidden=YES;
             if (!_listView) {
                 [self resetListView];
             }
-            
+            _listView.listAry=listData;
+            _listView.isSelect=NO;
+            [_listView.tableView reloadData];
+            _listView.hidden=NO;
+        }
+        else if(!_isFollow&&!_isComment){
+            _followListView.hidden=YES;
+            if (!_listView) {
+                [self resetListView];
+            }
             _listView.listAry=listData;
             _listView.isSelect=NO;
             [_listView.tableView reloadData];
@@ -274,6 +283,7 @@
         [_normalView addSubview:label];
         [_rightContentView  addSubview:_normalView];
     }
+    _normalView.hidden=NO;
     _rightContentView.hidden=NO;
 }
 
@@ -308,6 +318,7 @@
             case 0:
             {
                 _isFollow=NO;
+                _isComment=NO;
                 [self getTheListData];
                 _normalView.hidden=YES;
             }
@@ -315,6 +326,7 @@
             case 1:
             {
                 _isFollow=YES;
+                _isComment=NO;
                 _selectType=2;
                 [self getTheListData];
                 _normalView.hidden=YES;
@@ -332,7 +344,11 @@
                 break;
             case 4:
             {
-                [self resetNomalView];
+                _isFollow=NO;
+                _isComment=YES;
+                _selectType=1;
+                [self getTheListData];
+                _normalView.hidden=YES;
             }
                 break;
             default:
