@@ -133,6 +133,7 @@
         _theID=[[[_leftAry objectAtIndex:0] objectForKey:@"id"] intValue];
         [self leftViewActionWithCategory:[[_leftAry objectAtIndex:0] objectForKey:@"name"] WithOrder:_orderID];
     }
+    leftAry=nil;
 }
 
 - (void)reloadFunctionViewWithData:(NSArray *)functionAry{
@@ -153,6 +154,7 @@
         _tableView.tableFooterView.hidden=YES;
     }
     [_tableView reloadData];
+    functionAry=nil;
 }
 
 - (void)getThePrice{

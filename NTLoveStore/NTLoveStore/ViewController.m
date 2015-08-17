@@ -46,13 +46,11 @@
 
 - (void)resetView{
     [self resetNavView];
-//    [self resetHeadSelectView];
 }
 
 - (void)resetNavView{
     UIView * leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 45)];
     leftView.backgroundColor = [NTColor  clearColor];
-    
     UIImageView *logoImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 2, 99, 35)];
     logoImageView.backgroundColor=[NTColor clearColor];
     logoImageView.image=[NTImage imageNamed:@"logo"];
@@ -106,6 +104,8 @@
 
 - (void)resetHomeView{
     _functionView.hidden=YES;
+    [_functionView removeFromSuperview];
+    _functionView=nil;
     if (!_homeView){
         _homeView=[[NTHomeView alloc] initWithFrame:CGRectMake(0, 55, ScreenWidth, CGRectGetHeight(self.view.frame)-55)];
         _homeView.delegate=self;
@@ -119,6 +119,8 @@
 
 - (void)resetFunctionView{
     _homeView.hidden=YES;
+    [_homeView removeFromSuperview];
+    _homeView=nil;
     if (!_functionView) {
         _functionView=[[NTFunctionView alloc] initWithFrame:CGRectMake(0, 60, ScreenWidth, CGRectGetHeight(self.view.frame)-60)];
         _functionView.delegate=self;
@@ -189,6 +191,7 @@
             [ary addObject:@{@"id":@"0",@"title":@"首页",@"name":@"sy"}];
             [ary addObjectsFromArray:(NSArray *)finishData];
             [self resetHeadSelectView:ary];
+            ary=nil;
             finishData=nil;
         }
         else{
@@ -224,7 +227,9 @@
             _isTheme=YES;
         }
         [self resetFunctionView];
-        [_functionView reloadLeftViewWithData:[NTUserDefaults getTheDataForKey:[NSString stringWithFormat:@"%ld",(long)btn.tag]]];
+        id data=[NTUserDefaults getTheDataForKey:[NSString stringWithFormat:@"%ld",(long)btn.tag]];
+        [_functionView reloadLeftViewWithData:data];
+        data=nil;
     }
 }
 

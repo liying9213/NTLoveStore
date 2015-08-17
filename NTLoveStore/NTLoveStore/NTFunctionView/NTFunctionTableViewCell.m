@@ -51,8 +51,10 @@
             else{
                 memberView.hidden=YES;
             }
+            memberView=nil;
         }
     }
+    cellAray=nil;
     subAry=nil;
 }
 

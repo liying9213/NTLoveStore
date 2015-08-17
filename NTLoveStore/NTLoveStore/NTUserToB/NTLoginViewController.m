@@ -140,6 +140,7 @@
              __strong typeof(self) self=__weakself;
             [self showEndViewWithText:connectionError.localizedDescription];
         }
+        finishData=nil;
     }];
     dic=nil;
 }

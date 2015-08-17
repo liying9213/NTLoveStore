@@ -42,6 +42,7 @@
         [_delegate homeWebSelectAction:[[adArray objectAtIndex:index] objectForKey:@"url"]];
     };
     [self addSubview:scrollImageView];
+    adArray = nil;
 }
 
 - (void)resetFunctionView{
@@ -58,6 +59,7 @@
             [self resetFunctionButtonWithData:dic];
         }
     }
+    functionArray=nil;
 }
 
 - (void)resetFunctionButtonWithData:(NSDictionary *)data{
@@ -94,9 +96,6 @@
         functionBtnXValue=10;
         functionBtnYValue+=height+10;
     }
-//    if (funButton.tag==0) {
-//        funButton.enabled=NO;
-//    }
 }
 
 #pragma mark - homeSelectAction

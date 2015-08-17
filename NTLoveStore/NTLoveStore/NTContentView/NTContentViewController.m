@@ -30,6 +30,16 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)dealloc{
+    _contentDic=nil;
+    _detailDic=nil;
+    _hotListAry=nil;
+    _imageAry=nil;
+    _videoAry=nil;
+    _contentStr=nil;
+    _currentType=nil;
+}
+
 #pragma mark - getContentData
 
 - (void)getTheContentData{
@@ -87,6 +97,7 @@
                 [self showEndViewWithText:@"网络请求失败！"];
             }
         }
+        finishData=nil;
     }];
     dic=nil;
 }
@@ -410,6 +421,7 @@
                 [self showEndViewWithText:@"网络请求失败！"];
             }
         }
+        finishData=nil;
     }];
     dic=nil;
 }
@@ -596,7 +608,6 @@
 }
 
 - (void)calendarView:(VRGCalendarView *)calendarView dateSelected:(NSDate *)date{
-    NSLog(@"====%@",date);
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     _selectDateLabel.text=[formatter stringFromDate:date];
@@ -619,9 +630,7 @@
 - (void)videoBtnAction:(id)sender{
     NTButton *btn=(NTButton *)sender;
     NSURL * movieurl = [NSURL URLWithString:[_videoAry objectAtIndex:btn.tag]];
-    
     MPMoviePlayerViewController *player = [[MPMoviePlayerViewController alloc] initWithContentURL:movieurl];
-    
     [self presentMoviePlayerViewControllerAnimated:player];
 }
 

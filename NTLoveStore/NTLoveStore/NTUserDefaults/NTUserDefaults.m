@@ -15,6 +15,7 @@
 + (void)writeTheData:(id)data ForKey:(NSString *)key{
     NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
     [defaults setObject:data forKey:key];
+    data=nil;
 }
 
 + (id)getTheDataForKey:(NSString *)key{
@@ -29,6 +30,7 @@
             [self writeTheData:[dic objectForKey:@"child"] ForKey:[dic objectForKey:@"id"]];
         }
     }
+    functionData=nil;
 }
 
 + (void)writeTheAdData:(NSArray *)adData{
@@ -47,6 +49,9 @@
     }
     [self writeTheData:adAry ForKey:@"scrollADData"];
     [self writeHomeData:homeAry];
+    adData=nil;
+    adAry=nil;
+    homeAry=nil;
 }
 
 + (void)writeHomeData:(NSArray*)homeData{
@@ -78,6 +83,8 @@
         }
     }
     [self writeTheData:functionArray ForKey:@"homeData"];
+    homeData=nil;
+    functionArray=nil;
 }
 
 + (NTFunction *)getFunctionWithData:(NSDictionary *)dic{

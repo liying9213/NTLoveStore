@@ -53,6 +53,7 @@
                 [self showEndViewWithText:@"网络请求失败！"];
             }
         }
+        finishData=nil;
     }];
     dic=nil;
 }
@@ -227,6 +228,7 @@
                 [self showEndViewWithText:@"网络请求失败！"];
             }
         }
+        finishData=nil;
     }];
     dic=nil;
 }

@@ -142,14 +142,8 @@
             value=value+1;
         }
         CGRect rect=iCell.contentInfoView.frame;
-//        iCell.contentInfoView.frame=CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), value*30);
-//        iCell.contentInfoView.backgroundColor=[UIColor yellowColor];
         [iCell.contentInfoView addSubview:[self resetContentViewWith:CGRectMake(0, 0, CGRectGetWidth(rect), value*30)]];
     }
-//    if (!_isSelect) {
-//        CGRect rect=iCell.contentInfoView.frame;
-//        iCell.contentInfoView.frame=CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), 0);
-//    }
     return iCell;
 }
 

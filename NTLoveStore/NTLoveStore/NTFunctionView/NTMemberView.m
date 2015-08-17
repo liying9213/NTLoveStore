@@ -70,7 +70,7 @@
     [commentNum addAttribute:NSForegroundColorAttributeName value:[NTColor colorWithHexString:NTBlueColor] range:NSMakeRange(3,commentNum.length-4)];
     _finishNumLabel.attributedText=finishNum;
     _commentNumLabel.attributedText=commentNum;
-
+    dic=nil;
 }
 
 #pragma mark - memberAction
