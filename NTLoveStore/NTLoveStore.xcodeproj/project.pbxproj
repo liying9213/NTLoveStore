@@ -18,7 +18,6 @@
 		B206316C1B1BF4C000C02FA6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B206316B1B1BF4C000C02FA6 /* Images.xcassets */; };
 		B206316F1B1BF4C000C02FA6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B206316D1B1BF4C000C02FA6 /* LaunchScreen.xib */; };
 		B206317B1B1BF4C000C02FA6 /* NTLoveStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B206317A1B1BF4C000C02FA6 /* NTLoveStoreTests.m */; };
-		B20631851B1C0ED300C02FA6 /* libPods-MBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B20631841B1C0ED300C02FA6 /* libPods-MBProgressHUD.a */; };
 		B2078A731B6A5AAB0010859E /* props.png in Resources */ = {isa = PBXBuildFile; fileRef = B2078A6F1B6A5AAB0010859E /* props.png */; };
 		B2078A741B6A5AAB0010859E /* props@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2078A701B6A5AAB0010859E /* props@2x.png */; };
 		B2078A751B6A5AAB0010859E /* staff.png in Resources */ = {isa = PBXBuildFile; fileRef = B2078A711B6A5AAB0010859E /* staff.png */; };
@@ -65,7 +64,6 @@
 		B29AD7C91B7CDD7C0041B1AE /* NTCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B29AD7C81B7CDD7C0041B1AE /* NTCommentView.m */; };
 		B2A0463E1B27DD1800B260EF /* NTHeadSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A0463D1B27DD1800B260EF /* NTHeadSelectView.m */; };
 		B2A4CED11B317BF00058DE58 /* NTScrollImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A4CED01B317BF00058DE58 /* NTScrollImageView.m */; };
-		B2A4CED31B317DAA0058DE58 /* libPods-SDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A4CED21B317DAA0058DE58 /* libPods-SDWebImage.a */; };
 		B2B21C8A1B59ECF000619882 /* NTUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2B21C891B59ECF000619882 /* NTUserInfoViewController.xib */; };
 		B2C71E651B26818500682AEB /* NTConfigurationFile.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2C71E641B26818500682AEB /* NTConfigurationFile.plist */; };
 		B2C71E681B26871600682AEB /* NTReadConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C71E671B26871600682AEB /* NTReadConfiguration.m */; };
@@ -79,9 +77,6 @@
 		B2E5C8AF1B37FBC40011A95F /* moreicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E5C8AE1B37FBC40011A95F /* moreicon.png */; };
 		B2E808D31B4AB9DB00A9D9FE /* picple.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E808D21B4AB9DB00A9D9FE /* picple.png */; };
 		B2E808D51B4ABDC000A9D9FE /* HeaderBg_7.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E808D41B4ABDC000A9D9FE /* HeaderBg_7.png */; };
-		B2EAB19C1B273B7B00BB419A /* libPods-EGOImageLoading.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19B1B273B7B00BB419A /* libPods-EGOImageLoading.a */; };
-		B2EAB19F1B273B8100BB419A /* libPods-AFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19D1B273B8100BB419A /* libPods-AFNetworking.a */; };
-		B2EAB1A01B273B8100BB419A /* libPods-EGOCache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EAB19E1B273B8100BB419A /* libPods-EGOCache.a */; };
 		B2EF0B881B394126008B40ED /* NTUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EF0B871B394126008B40ED /* NTUserInfoViewController.m */; };
 		B2F1F6D71B2ACFF000B6BCA8 /* NTMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1F6D61B2ACFF000B6BCA8 /* NTMemberView.m */; };
 		B2F1F6DC1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1F6DB1B2AE43A00B6BCA8 /* NTFunctionTableViewCell.m */; };
@@ -241,11 +236,6 @@
 			files = (
 				B28324E81B692A79005BF596 /* MediaPlayer.framework in Frameworks */,
 				B28324E61B6924AE005BF596 /* libxml2.dylib in Frameworks */,
-				B2A4CED31B317DAA0058DE58 /* libPods-SDWebImage.a in Frameworks */,
-				B2EAB19F1B273B8100BB419A /* libPods-AFNetworking.a in Frameworks */,
-				B2EAB1A01B273B8100BB419A /* libPods-EGOCache.a in Frameworks */,
-				B2EAB19C1B273B7B00BB419A /* libPods-EGOImageLoading.a in Frameworks */,
-				B20631851B1C0ED300C02FA6 /* libPods-MBProgressHUD.a in Frameworks */,
 				5C920C477F57CFF21BB9C469 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

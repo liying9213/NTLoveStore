@@ -25,14 +25,34 @@
     if (self){
         float xValue=0;
         float theWidth=(width-15*(num+1))/num;
-        for (int i=0; i<num; i++) {
-            NTMemberView *menberView=[[NTMemberView alloc] initWithFrame:CGRectMake(xValue, 10, theWidth, 190)];
-            menberView.delegate=self;
-            menberView.tag=i;
-            [menberView resetView];
-            [self.contentView addSubview:menberView];
-            xValue+=theWidth+15;
-        }
+        
+        self.memberView1=[[NTMemberView alloc] initWithFrame:CGRectMake(xValue, 10, theWidth, 190)];
+        self.memberView1.delegate=self;
+        self.memberView1.tag=1;
+        [self.memberView1 resetView];
+        [self.contentView addSubview:self.memberView1];
+        xValue+=theWidth+15;
+        
+        self.memberView2=[[NTMemberView alloc] initWithFrame:CGRectMake(xValue, 10, theWidth, 190)];
+        self.memberView2.delegate=self;
+        self.memberView2.tag=1;
+        [self.memberView2 resetView];
+        [self.contentView addSubview:self.memberView2];
+        xValue+=theWidth+15;
+        
+        self.memberView3=[[NTMemberView alloc] initWithFrame:CGRectMake(xValue, 10, theWidth, 190)];
+        self.memberView3.delegate=self;
+        self.memberView3.tag=1;
+        [self.memberView3 resetView];
+        [self.contentView addSubview:self.memberView3];
+        xValue+=theWidth+15;
+        
+        self.memberView4=[[NTMemberView alloc] initWithFrame:CGRectMake(xValue, 10, theWidth, 190)];
+        self.memberView4.delegate=self;
+        self.memberView4.tag=1;
+        [self.memberView4 resetView];
+        [self.contentView addSubview:self.memberView4];
+        xValue+=theWidth+15;
     }
     self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
     self.selectedBackgroundView.backgroundColor = [NTColor clearColor];
@@ -40,22 +60,43 @@
 }
 
 - (void)reloadTheTableCellWithData:(NSArray *)cellAray{
-    NSArray *subAry=self.contentView.subviews;
-    for (UIView *view in subAry) {
-        if ([view.class isSubclassOfClass:[NTMemberView class]]) {
-            NTMemberView *memberView=(NTMemberView *)view;
-            if (cellAray.count>=memberView.tag+1) {
-                memberView.hidden=NO;
-                [memberView reloadTheViewWithData:[cellAray objectAtIndex:memberView.tag]];
+    for (int i=0;i<cellAray.count;i++){
+        switch (i) {
+            case 0:
+            {
+                self.memberView1.hidden=NO;
+                [self.memberView1 reloadTheViewWithData:[cellAray objectAtIndex:i]];
+                self.memberView2.hidden=YES;
+                self.memberView3.hidden=YES;
+                self.memberView4.hidden=YES;
             }
-            else{
-                memberView.hidden=YES;
+                break;
+            case 1:
+            {
+                self.memberView2.hidden=NO;
+                [self.memberView2 reloadTheViewWithData:[cellAray objectAtIndex:i]];
+                self.memberView3.hidden=YES;
+                self.memberView4.hidden=YES;
             }
-            memberView=nil;
+                break;
+            case 2:
+            {
+                self.memberView3.hidden=NO;
+                [self.memberView3 reloadTheViewWithData:[cellAray objectAtIndex:i]];
+                self.memberView4.hidden=YES;
+            }
+                break;
+            case 3:
+            {
+                self.memberView4.hidden=NO;
+                [self.memberView4 reloadTheViewWithData:[cellAray objectAtIndex:i]];
+            }
+                break;
+            default:
+                break;
         }
     }
     cellAray=nil;
-    subAry=nil;
 }
 
 #pragma mark - memberViewDelegate

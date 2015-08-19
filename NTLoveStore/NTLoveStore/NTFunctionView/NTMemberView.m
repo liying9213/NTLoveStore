@@ -59,18 +59,19 @@
 }
 
 - (void)reloadTheViewWithData:(NSDictionary *)dic{
-//    _imageView.imageURL=[NSURL URLWithString:[dic objectForKey:@"cover_id"]];
     [_imageView sd_setImageWithURL:[NSURL URLWithString:[dic objectForKey:@"cover_id"]] placeholderImage:[NTImage imageWithFileName:@"picple.png"]];
-    _titleLabel.text=[dic objectForKey:@"title"];
-    _priceLabel.text=[NSString stringWithFormat:@"￥%@",[dic objectForKey:@"price"]];
-    _selectBtn.tag=[[dic objectForKey:@"id"] integerValue];
-    NSMutableAttributedString *finishNum=[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"已服务%@人",[dic objectForKey:@"sale"]]];
+    _titleLabel.text = [dic objectForKey:@"title"];
+    _priceLabel.text = [NSString stringWithFormat:@"￥%@",[dic objectForKey:@"price"]];
+    _selectBtn.tag = [[dic objectForKey:@"id"] integerValue];
+    NSMutableAttributedString *finishNum = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"已服务%@人",[dic objectForKey:@"sale"]]];
     [finishNum addAttribute:NSForegroundColorAttributeName value:[NTColor colorWithHexString:NTBlueColor] range:NSMakeRange(3,finishNum.length-4)];
-    NSMutableAttributedString *commentNum=[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"好评数%@条",[dic objectForKey:@"comment"]]];
+    NSMutableAttributedString *commentNum = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"好评数%@条",[dic objectForKey:@"comment"]]];
     [commentNum addAttribute:NSForegroundColorAttributeName value:[NTColor colorWithHexString:NTBlueColor] range:NSMakeRange(3,commentNum.length-4)];
-    _finishNumLabel.attributedText=finishNum;
-    _commentNumLabel.attributedText=commentNum;
-    dic=nil;
+    _finishNumLabel.attributedText = finishNum;
+    _commentNumLabel.attributedText = commentNum;
+    dic = nil;
+    finishNum = nil;
+    commentNum = nil;
 }
 
 #pragma mark - memberAction
