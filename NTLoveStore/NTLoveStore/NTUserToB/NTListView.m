@@ -22,7 +22,7 @@
 
 - (void)resetView{
     [self resetBtnView];
-    _tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 40, CGRectGetWidth(self.frame), CGRectGetWidth(self.frame)-40)];
+    _tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 40, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)-40)];
     _tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     _tableView.delegate=self;
     _tableView.dataSource=self;
@@ -148,6 +148,10 @@
 }
 
 - (UIView *)resetContentViewWith:(CGRect)rect{
+    if (_contentView) {
+        [_contentView removeFromSuperview];
+        _contentView=nil;
+    }
     if (!_contentView) {
         _contentView = [[UIView alloc] initWithFrame:rect];
         UILabel *label=[[UILabel  alloc] initWithFrame:CGRectMake(0, 0, 150, 30)];

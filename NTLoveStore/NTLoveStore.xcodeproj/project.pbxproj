@@ -63,6 +63,8 @@
 		B28842191B1DE76E00C972CF /* NTUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B28842181B1DE76E00C972CF /* NTUserDefaults.m */; };
 		B29AD7C91B7CDD7C0041B1AE /* NTCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B29AD7C81B7CDD7C0041B1AE /* NTCommentView.m */; };
 		B2A0463E1B27DD1800B260EF /* NTHeadSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A0463D1B27DD1800B260EF /* NTHeadSelectView.m */; };
+		B2A0E3F81B8DFE6500017D6F /* NTCommentBodyView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A0E3F71B8DFE6500017D6F /* NTCommentBodyView.m */; };
+		B2A0E3FB1B8E084600017D6F /* NTCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A0E3FA1B8E084600017D6F /* NTCommentTableViewCell.m */; };
 		B2A4CED11B317BF00058DE58 /* NTScrollImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A4CED01B317BF00058DE58 /* NTScrollImageView.m */; };
 		B2B21C8A1B59ECF000619882 /* NTUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2B21C891B59ECF000619882 /* NTUserInfoViewController.xib */; };
 		B2C71E651B26818500682AEB /* NTConfigurationFile.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2C71E641B26818500682AEB /* NTConfigurationFile.plist */; };
@@ -188,6 +190,10 @@
 		B29AD7C81B7CDD7C0041B1AE /* NTCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCommentView.m; sourceTree = "<group>"; };
 		B2A0463C1B27DD1800B260EF /* NTHeadSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTHeadSelectView.h; sourceTree = "<group>"; };
 		B2A0463D1B27DD1800B260EF /* NTHeadSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTHeadSelectView.m; sourceTree = "<group>"; };
+		B2A0E3F61B8DFE6500017D6F /* NTCommentBodyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTCommentBodyView.h; sourceTree = "<group>"; };
+		B2A0E3F71B8DFE6500017D6F /* NTCommentBodyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCommentBodyView.m; sourceTree = "<group>"; };
+		B2A0E3F91B8E084600017D6F /* NTCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTCommentTableViewCell.h; sourceTree = "<group>"; };
+		B2A0E3FA1B8E084600017D6F /* NTCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCommentTableViewCell.m; sourceTree = "<group>"; };
 		B2A4CECF1B317BF00058DE58 /* NTScrollImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTScrollImageView.h; sourceTree = "<group>"; };
 		B2A4CED01B317BF00058DE58 /* NTScrollImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTScrollImageView.m; sourceTree = "<group>"; };
 		B2A4CED21B317DAA0058DE58 /* libPods-SDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SDWebImage.a"; path = "Pods/../build/Debug-iphoneos/libPods-SDWebImage.a"; sourceTree = "<group>"; };
@@ -386,6 +392,8 @@
 				B204E4721B6E5E6100AF6B98 /* NTPayCodeView.h */,
 				B204E4731B6E5E6100AF6B98 /* NTPayCodeView.m */,
 				B204E4751B6E5E9E00AF6B98 /* NTPayCodeView.xib */,
+				B2A0E3F61B8DFE6500017D6F /* NTCommentBodyView.h */,
+				B2A0E3F71B8DFE6500017D6F /* NTCommentBodyView.m */,
 			);
 			path = NTCustomClass;
 			sourceTree = "<group>";
@@ -523,6 +531,8 @@
 				B200CF8B1B4EB87B00130D73 /* NTConsultViewController.h */,
 				B200CF8C1B4EB87B00130D73 /* NTConsultViewController.m */,
 				B2394DC11B500CC500F1E516 /* NTConsultViewController.xib */,
+				B2A0E3F91B8E084600017D6F /* NTCommentTableViewCell.h */,
+				B2A0E3FA1B8E084600017D6F /* NTCommentTableViewCell.m */,
 			);
 			path = NTContentView;
 			sourceTree = "<group>";
@@ -714,6 +724,8 @@
 				B2A4CED11B317BF00058DE58 /* NTScrollImageView.m in Sources */,
 				B2D91DCF1B5122AE00DE9722 /* NTFInishView.m in Sources */,
 				B21037DC1B253DE300ED732B /* NTLoginViewController.m in Sources */,
+				B2A0E3FB1B8E084600017D6F /* NTCommentTableViewCell.m in Sources */,
+				B2A0E3F81B8DFE6500017D6F /* NTCommentBodyView.m in Sources */,
 				B2F2D1111B42D0FE00231782 /* NTShowDetailVIew.m in Sources */,
 				B29AD7C91B7CDD7C0041B1AE /* NTCommentView.m in Sources */,
 				B200CF8D1B4EB87B00130D73 /* NTConsultViewController.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "NTShowDetailVIew.h"
 #import "NTNormalHead.h"
+#import "NTCommentTableViewCell.h"
 
 @implementation NTShowDetailVIew
 
@@ -111,6 +112,29 @@
     [[[[UIApplication sharedApplication] windows] objectAtIndex:0] addSubview:self];
 }
 
+- (void)showTableViewWithData:(NSArray*)dataAry{
+    [self resetBackgroundView];
+    _commentAry=dataAry;
+    UIView *showView=[[UIView alloc] initWithFrame:CGRectMake(254, 0,ScreenWidth-254, ScreenHeight)];
+    showView.backgroundColor=[NTColor whiteColor];
+    [self addSubview:showView];
+    UILabel *label=[[UILabel alloc] initWithFrame:CGRectMake(0, 20, 120, 30)];
+    label.text=@"真实评论";
+    label.font=[UIFont systemFontOfSize:16];
+    label.textAlignment=NSTextAlignmentCenter;
+    label.textColor=[NTColor whiteColor];
+    label.backgroundColor=[NTColor colorWithHexString:NTBlueColor];
+    [showView addSubview:label];
+    
+    UITableView *tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 50, CGRectGetWidth(showView.frame), CGRectGetHeight(showView.frame)-50)];
+    tableView.delegate=self;
+    tableView.dataSource=self;
+    tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    [showView addSubview:tableView];
+    
+    [[[[UIApplication sharedApplication] windows] objectAtIndex:0] addSubview:self];
+}
+
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
     if ([touch.view isMemberOfClass:[UIButton class]]) {
         //放过button点击拦截
@@ -118,6 +142,27 @@
     }else{
         return YES;
     }
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _commentAry.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString * _cellIdentify = @"cell";
+    NTCommentTableViewCell * iCell = [tableView dequeueReusableCellWithIdentifier:_cellIdentify];
+    if (iCell == nil){
+        iCell=[[NTCommentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:_cellIdentify withWidth:ScreenWidth-254];
+    }
+    iCell.selectionStyle=UITableViewCellSelectionStyleNone;
+    iCell.userLabel.text=[NSString stringWithFormat:@"用户：%@",_commentAry[indexPath.row][@"tag"]];
+    iCell.commentLabel.text=_commentAry[indexPath.row][@"content"];
+    iCell.dateLabel.text=_commentAry[indexPath.row][@"create_time"];
+    return iCell;
 }
 
 @end

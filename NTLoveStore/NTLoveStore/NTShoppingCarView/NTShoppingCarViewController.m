@@ -38,7 +38,7 @@
     __weak typeof(self) __weakself=self;
     NSDictionary *dic=@{@"uid":[share()userUid],
                         @"token":[share()userToken]};
-    [NTAsynService requestWithHead:shopcartBaseUR WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+    [NTAsynService requestWithHead:shopcartBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
             [self changeData:finishData];
             [self resetView];
@@ -76,7 +76,7 @@
         }
         else
         {
-            [idic setObject:@{@"name":[ary[i] objectForKey:@"sort"],@"obj":@[ary[i]]} forKey:[ary[i] objectForKey:@"sort"]];
+            [idic setObject:@{@"name":[ary[i] objectForKey:@"cate"],@"obj":@[ary[i]]} forKey:[ary[i] objectForKey:@"sort"]];
         }
     }
     _allDataCount=[ary count];
@@ -319,17 +319,37 @@
 
 - (NSMutableDictionary *)getTheSelectDic{
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+    NSString *idStr;
+    NSString *numStr;
+    NSString *parameters;
+    NSString *sortStr;
+    NSString *price;
     int i=0;
     for (NSNumber *section in [_selectDic allKeys]) {
         for (NSNumber * row in [_selectDic objectForKey:section]) {
             NSDictionary *data=[[_shopcartData objectAtIndex:[section intValue]] objectForKey:@"obj"][row.intValue];
-            NSDictionary *onedic=@{@"num":[data objectForKey:@"num"],@"id":[data objectForKey:@"goodid"],@"parameters":[data objectForKey:@"parameters"],@"sort":[data objectForKey:@"sort"],@"price":[data objectForKey:@"price"]};
-            [dic setObject:onedic forKey:[NSNumber numberWithInt:i]];
-            data=nil;
-            onedic=nil;
+            if (i==0) {
+                idStr=[data objectForKey:@"goodid"];
+                numStr=[data objectForKey:@"num"];
+                parameters=[data objectForKey:@"parameters"];
+                sortStr=[data objectForKey:@"sort"];
+                price=[data objectForKey:@"price"];
+            }
+            else{
+                idStr=[NSString stringWithFormat:@"%@,%@",idStr,[data objectForKey:@"goodid"]];
+                numStr=[NSString stringWithFormat:@"%@,%@",numStr,[data objectForKey:@"num"]];
+                parameters=[NSString stringWithFormat:@"%@,%@",parameters,[data objectForKey:@"parameters"]];
+                sortStr=[NSString stringWithFormat:@"%@,%@",sortStr,[data objectForKey:@"sort"]];
+                price=[NSString stringWithFormat:@"%@,%@",price,[data objectForKey:@"price"]];
+            }
             i++;
         }
     }
+    [dic setObject:idStr forKey:@"id"];
+    [dic setObject:numStr forKey:@"num"];
+    [dic setObject:parameters forKey:@"parameters"];
+    [dic setObject:price forKey:@"price"];
+    [dic setObject:sortStr forKey:@"sort"];
     return dic;
 }
 
@@ -348,11 +368,27 @@
                         @"phone":_telTextField.text,
                         @"address":_adessTextField.text,
                         @"email":_emailTextField.text,
-                        @"goods":[self getTheSelectDic],
+                        @"tc":[NSString stringWithFormat:@"%ld",(long)_payType],
                         @"typ":[NSString stringWithFormat:@"%d",_subscriptionBtn.selected]};
-    
-    [NTAsynService requestWithHead:subOrderBaseUR WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+    NSMutableDictionary *keyDic=[[NSMutableDictionary alloc] init];
+    [keyDic setDictionary:dic];
+    [keyDic addEntriesFromDictionary:[self getTheSelectDic]];
+    [NTAsynService requestWithHead:subOrderBaseURL WithBody:keyDic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
+            [self hideWaitingView];
+            if([[finishData allKeys] count]<2&&[[finishData allKeys] containsObject:@"status"]){
+                finishData=nil;
+                _selectDic=nil;
+                _allDataCount=0;
+                _shopcartData=nil;
+                _selectAllBtn.selected=NO;
+                _selectBtn1.selected=NO;
+                _isSelectAll=NO;
+                _allDataCount=0;
+                _allPrice=nil;
+                [self getTheShopCartData];
+                return ;
+            }
             __strong typeof(self) self=__weakself;
             [self showPayCodeViewWithImagePath:[finishData objectForKey:@"pic"]];
             [self changeData:finishData];
@@ -369,6 +405,7 @@
             }
         }
     }];
+    keyDic=nil;
     dic=nil;
 }
 
@@ -581,13 +618,19 @@
 }
 
 - (IBAction)payAction:(id)sender {
+    UIButton *btn=(UIButton *)sender;
+    if (btn.tag==0) {
+        _payType=-1;
+    }
+    else
+        _payType=1;
     if(_infoVIew.hidden){
         _infoVIew.hidden=NO;
     }
     else{
-        UITapGestureRecognizer *panGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(colseTheView:)];
-        panGestureRecognizer.delegate=self;
-        [_infoVIew addGestureRecognizer:panGestureRecognizer];
+//        UITapGestureRecognizer *panGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(colseTheView:)];
+//        panGestureRecognizer.delegate=self;
+//        [_infoVIew addGestureRecognizer:panGestureRecognizer];
         _infoVIew.frame=CGRectMake(0, 0, ScreenWidth, ScreenHeight);
        [[[UIApplication sharedApplication] windows][0] addSubview:_infoVIew];
         
@@ -607,7 +650,7 @@
     __weak typeof(self) __weakself=self;
     NSDictionary *dic=@{@"uid":[share()userUid],
                         @"token":[share()userToken]};
-    [NTAsynService requestWithHead:dropBaseUR WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+    [NTAsynService requestWithHead:dropBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
             __strong typeof(self) self=__weakself;
             _allPrice=@"0";

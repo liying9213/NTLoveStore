@@ -73,6 +73,31 @@
     dic=nil;
 }
 
+- (void)getCommentAction{
+    __weak typeof(self) __weakself=self;
+    NSDictionary *dic=@{@"goodid":[NSNumber numberWithInteger:_productID]};
+    [NTAsynService requestWithHead:getcomOrderBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+        if (success) {
+            __strong typeof(self) self=__weakself;
+            [self hideWaitingView];
+            _commentAry=[finishData allValues];
+            if (self.firCommentView) {
+                [self.firCommentView reloadTheViewWithData:_commentAry[0]];
+            }
+            if (self.secCommentView&&[_commentAry count]>=2) {
+                [self.firCommentView reloadTheViewWithData:_commentAry[1]];
+            }
+        }
+        else{
+            __strong typeof(self) self=__weakself;
+            if (!self.waitingView.hidden) {
+                [self showEndViewWithText:@"网络请求失败！"];
+            }
+        }
+    }];
+    dic=nil;
+}
+
 - (void)getTheHotListData{
     if (![share()userIsLogin]) {
         [self showEndViewWithText:@"请登录账号！"];
@@ -81,7 +106,7 @@
     __weak typeof(self) __weakself=self;
     NSDictionary *dic=@{@"uid":[share()userUid],
                         @"token":[share()userToken],
-                        @"id":[NSNumber numberWithInteger:_productID]};
+                        @"goodid":[NSNumber numberWithInteger:_productID]};
     [NTAsynService requestWithHead:hotListBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
             __strong typeof(self) self=__weakself;
@@ -153,7 +178,6 @@
         numView.backgroundColor=[UIColor clearColor];
         [_scrollView addSubview:numView];
         _selectNumLabel.text=[_detailDic objectForKey:@"stock"];
-        
     }
     
     if (_isPerson&&_isCanSelect) {
@@ -241,6 +265,7 @@
         else if ([[_detailDic objectForKey:@"comment"] intValue]>0&&i==3){
             title=@"真实评论";
             j++;
+            [self getCommentAction];
             _commentBtn=[UIButton buttonWithType:UIButtonTypeCustom];
             [_commentBtn setTitle:title forState:UIControlStateNormal];
             [_commentBtn setTitleColor:[NTColor whiteColor] forState:UIControlStateSelected];
@@ -320,21 +345,43 @@
 
 - (void)resetCalendar:(id)sender{
     UIButton *btn=(UIButton *)sender;
-    VRGCalendarView *calendar = [[VRGCalendarView alloc] init];
-    if (_selectDateLabel.text) {
-        NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
-        [inputFormatter setDateFormat:@"yyyy-MM-dd"];
-        NSDate* inputDate = [inputFormatter dateFromString:_selectDateLabel.text];
-        calendar.firstDate=inputDate;
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        return;
     }
-    calendar.delegate=self;
-    UIViewController *viewcontroller=[[UIViewController alloc] init];
-    [viewcontroller.view addSubview:calendar];
-    
-    _popoverView=[[UIPopoverController alloc] initWithContentViewController:viewcontroller];
-    _popoverView.popoverContentSize = CGSizeMake(320, 400);
-    _popoverView.delegate=self;
-    [_popoverView presentPopoverFromRect:btn.bounds inView:btn permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    __weak typeof(self) __weakself=self;
+    NSDictionary *dic=@{@"id":[NSNumber numberWithInteger:_productID]};
+    [NTAsynService requestWithHead:getDateOrderBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+        if (success) {
+            __strong typeof(self) self=__weakself;
+            [self getTheDate:finishData];
+            VRGCalendarView *calendar = [[VRGCalendarView alloc] init];
+            if (_selectDateLabel.text) {
+                NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
+                [inputFormatter setDateFormat:@"yyyy-MM-dd"];
+                NSDate* inputDate = [inputFormatter dateFromString:_selectDateLabel.text];
+                calendar.firstDate=inputDate;
+            }
+            calendar.delegate=self;
+            UIViewController *viewcontroller=[[UIViewController alloc] init];
+            [viewcontroller.view addSubview:calendar];
+            
+            _popoverView=[[UIPopoverController alloc] initWithContentViewController:viewcontroller];
+            _popoverView.popoverContentSize = CGSizeMake(320, 400);
+            _popoverView.delegate=self;
+            [_popoverView presentPopoverFromRect:btn.bounds inView:btn permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+        }
+        else{
+            __strong typeof(self) self=__weakself;
+            if (![share()userIsLogin]) {
+                [self showEndViewWithText:@"请登录账号！"];
+            }
+            else{
+                [self showEndViewWithText:@"网络请求失败！"];
+            }
+        }
+    }];
+    dic=nil;
 }
 
 - (void)resetHotListView{
@@ -523,25 +570,49 @@
         case 3:
         {
             if (!_commentInfoView) {
+                if (!_commentAry||[_commentAry count]<1) {
+                    [self showWaitingViewWithText:nil];
+                    [self getCommentAction];
+                }
                 _commentInfoView=[[UIView alloc] initWithFrame:CGRectMake(20, 500, ScreenWidth-40, 250)];
                 _commentInfoView.backgroundColor=[NTColor clearColor];
                 [_scrollView addSubview:_commentInfoView];
-                UILabel *commentLabel=[[UILabel alloc] initWithFrame:CGRectMake(0,0,ScreenWidth-40, 200)];
-                commentLabel.text=[_detailDic objectForKey:@"content"];
-                commentLabel.backgroundColor=[NTColor clearColor];
-                commentLabel.lineBreakMode=NSLineBreakByTruncatingTail;
-                commentLabel.numberOfLines=0;
-                commentLabel.font=[UIFont systemFontOfSize:15];
-                
-                UIButton *showAllBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(commentLabel.frame)-150, CGRectGetHeight(commentLabel.frame)+20, 150, 30)];
+                NSInteger value=[_commentAry count]>2?2:[_commentAry count];
+                for (int i=0; i<value; i++) {
+                    _firCommentView=[[NTCommentBodyView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(_commentInfoView.frame), 100)];
+                    [_firCommentView resetView];
+                    if (_commentAry&&_commentAry.count>=1) {
+                        [_firCommentView  reloadTheViewWithData:_commentAry[0]];
+                    }
+                    [_commentInfoView addSubview:_firCommentView];
+                    CALayer *bottomBorder = [CALayer layer];
+                    float height1=_firCommentView.frame.size.height-0.5f;
+                    float width1=_firCommentView.frame.size.width;
+                    bottomBorder.frame = CGRectMake(0.0f, height1, width1, 0.5f);
+                    bottomBorder.backgroundColor = [UIColor blackColor].CGColor;
+                    [_firCommentView.layer addSublayer:bottomBorder];
+                    if (i==1) {
+                        _secCommentView=[[NTCommentBodyView alloc] initWithFrame:CGRectMake(0, 125, CGRectGetWidth(_commentInfoView.frame), 100)];
+                        [_secCommentView resetView];
+                        if (_commentAry&&_commentAry.count>=2) {
+                          [_secCommentView  reloadTheViewWithData:_commentAry[1]];
+                        }
+                        [_commentInfoView addSubview:_secCommentView];
+                        CALayer *bottomBorder = [CALayer layer];
+                        float height1=_firCommentView.frame.size.height-0.5f;
+                        float width1=_firCommentView.frame.size.width;
+                        bottomBorder.frame = CGRectMake(0.0f, height1, width1, 0.5f);
+                        bottomBorder.backgroundColor = [UIColor blackColor].CGColor;
+                        [_secCommentView.layer addSublayer:bottomBorder];
+                    }
+                }
+                UIButton *showAllBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(_commentInfoView.frame)-150, CGRectGetHeight(_commentInfoView.frame)-40, 150, 30)];
                 [showAllBtn setTitle:@"查看更多信息 >" forState:UIControlStateNormal];
                 [showAllBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
                 showAllBtn.titleLabel.font=[UIFont systemFontOfSize:15];
                 showAllBtn.tag=2;
                 [showAllBtn addTarget:self action:@selector(showTextView:) forControlEvents:UIControlEventTouchUpInside];
                 [_commentInfoView addSubview:showAllBtn];
-
-                [_commentInfoView addSubview:commentLabel];
                 
             }
             _contenInfoView.hidden=YES;
@@ -596,13 +667,45 @@
 
 #pragma mark - calendarDelegate
 
+- (void)getTheDate:(NSArray*)dateAry{
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+    for (NSString *str in dateAry) {
+        NSArray *ary=[str componentsSeparatedByString:@"-"];
+        if ([[dic allKeys] containsObject:ary[0]]) {
+            if ([[dic[ary[0]] allKeys] containsObject:ary[1]]) {
+                NSMutableArray *iary=[[NSMutableArray alloc] initWithArray:[[dic objectForKey:ary[0]] objectForKey:ary[1]]];
+                [iary addObject:[NSNumber numberWithInt:[ary[2] intValue]]];
+                NSMutableDictionary *jdic=[[NSMutableDictionary alloc] init];
+                [jdic setObject:iary forKey:ary[1]];
+                [dic setObject:jdic forKey:ary[0]];
+                jdic=nil;
+                iary=nil;
+            }
+            else{
+                NSMutableDictionary *idic=[[NSMutableDictionary alloc] initWithDictionary:dic[ary[0]]];
+                NSArray *iary=[NSArray arrayWithObjects:[NSNumber numberWithInt:[[ary objectAtIndex:2]intValue]], nil];
+                [idic setObject:iary forKey:ary[1]];
+                [dic setObject:idic forKey:ary[0]];
+                idic=nil;
+                iary=nil;
+            }
+        }
+        else{
+            NSArray *iary=[NSArray arrayWithObjects:[NSNumber numberWithInt:[[ary objectAtIndex:2]intValue]], nil];
+            [dic setValue:@{ary[1]:iary} forKey:ary[0]];
+            iary=nil;
+        }
+        ary=nil;
+    }
+    _dateDic=dic;
+}
+
 - (void)calendarView:(VRGCalendarView *)calendarView switchedToMonth:(int)month targetHeight:(float)targetHeight animated:(BOOL)animated{
-    NSDictionary  *dic=@{@"2015":@{@"7":@[@11,@22,@25,@28],@"9":@[@03,@10,@19]},@"2016":@{@"1":@[@18,@21,@22,@27],@"2":@[@13,@13,@19]}};
     NSString *year=[NSString stringWithFormat:@"%d",[calendarView.currentMonth year]];
     NSString *imonth=[NSString stringWithFormat:@"%d",[calendarView.currentMonth month]];
-    if ([dic objectForKey:year]) {
-        if ([[dic objectForKey:year] objectForKey:imonth]) {
-            [calendarView markDates:[[dic objectForKey:year] objectForKey:imonth]];
+    if ([_dateDic objectForKey:year]) {
+        if ([[_dateDic objectForKey:year] objectForKey:imonth]) {
+            [calendarView markDates:[[_dateDic objectForKey:year] objectForKey:imonth]];
         }
     }
 }
@@ -641,7 +744,7 @@
        [detailView showLeftTextWithString:_contentStr];
     }
     else{
-        [detailView showLeftTextWithString:_contentStr];
+        [detailView showTableViewWithData:_commentAry];
     }
 }
 

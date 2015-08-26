@@ -9,6 +9,7 @@
 #import "NTParentViewController.h"
 #import "NTAsynService.h"
 #import "NTListView.h"
+#import "NTCommentView.h"
 #import "NTFollowListView.h"
 #import "NTHeadSelectView.h"
 @interface NTUserInfoViewController : NTParentViewController<UITableViewDataSource,UITableViewDelegate,UIPopoverControllerDelegate,NTHeadSelectViewDelegate>
@@ -22,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIView *rightContentView;
 
 @property (nonatomic, strong) NTListView *listView;
+
+@property (nonatomic, strong) NTCommentView *commentView;
 
 @property (nonatomic, strong) NTFollowListView *followListView;
 

@@ -38,26 +38,35 @@ static NSString * addItemBaseURL=@"http://aihunhui.kfrig.net/Home/App/addItem";
 
 static NSString * delItemBaseURL=@"http://aihunhui.kfrig.net/Home/App/reitem";
 
-static NSString * shopcartBaseUR=@"http://aihunhui.kfrig.net/Home/App/get_shopcart";
+static NSString * shopcartBaseURL=@"http://aihunhui.kfrig.net/Home/App/get_shopcart";
 
-static NSString * dropBaseUR=@"http://aihunhui.kfrig.net/Home/App/delItem";
+static NSString * dropBaseURL=@"http://aihunhui.kfrig.net/Home/App/delItem";
 
-static NSString * subOrderBaseUR=@"http://aihunhui.kfrig.net/Home/App/order";
+static NSString * subOrderBaseURL=@"http://aihunhui.kfrig.net/Home/App/order";
 
-static NSString * allOrderBaseUR=@"http://aihunhui.kfrig.net/Home/App/getorder";
+static NSString * allOrderBaseURL=@"http://aihunhui.kfrig.net/Home/App/getorder";
 
-static NSString * finOrderBaseUR=@"http://aihunhui.kfrig.net/Home/App/finishedorder";
+static NSString * finOrderBaseURL=@"http://aihunhui.kfrig.net/Home/App/finishedorder";
 
-static NSString * payOrderBaseUR=@"http://aihunhui.kfrig.net/Home/App/Payorder";
+static NSString * payOrderBaseURL=@"http://aihunhui.kfrig.net/Home/App/Payorder";
 
-static NSString * outOrderBaseUR=@"http://aihunhui.kfrig.net/Home/App/outorder";
+static NSString * outOrderBaseURL=@"http://aihunhui.kfrig.net/Home/App/outorder";
 
-static NSString * getodBaseUR=@"http://aihunhui.kfrig.net/Home/App/getod";
+static NSString * getodBaseURL=@"http://aihunhui.kfrig.net/Home/App/getod";
 
-static NSString * saveOrderBaseUR=@"http://aihunhui.kfrig.net/Home/App/gorder";
+static NSString * saveOrderBaseURL=@"http://aihunhui.kfrig.net/Home/App/gorder";
 
-static NSString * finishOrderBaseUR=@"http://aihunhui.kfrig.net/Home/App/worder";
+static NSString * finishOrderBaseURL=@"http://aihunhui.kfrig.net/Home/App/worder";
 
-static NSString * delOrderBaseUR=@"http://aihunhui.kfrig.net/Home/App/delorder";
+static NSString * delOrderBaseURL=@"http://aihunhui.kfrig.net/Home/App/delorder";
+
+static NSString * comOrderBaseURL=@"http://aihunhui.kfrig.net/home/app/comment";
+
+static NSString * getcomOrderBaseURL=@"http://aihunhui.kfrig.net/home/app/get_com";
+
+static NSString * zixunOrderBaseURL=@"http://aihunhui.kfrig.net/home/app/zixun";
+
+static NSString * getDateOrderBaseURL=@"http://aihunhui.kfrig.net/home/app/get_date";
+
 
 #endif

@@ -8,6 +8,7 @@
 
 #import "NTConsultViewController.h"
 #import "NTFInishView.h"
+#import "NTAsynService.h"
 @implementation NTConsultViewController
 
 - (IBAction)selcetDate:(id)sender {
@@ -62,11 +63,46 @@
         [self showEndViewWithText:@"请填写新娘地址"];
         return;
     }
-    NTFInishView *view=[[NTFInishView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
-    [view showTheFinishView];
-    view.closeBlock=^(){
-        [self.navigationController popViewControllerAnimated:YES];
-    };
+    
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        return;
+    }
+    [self showWaitingViewWithText:nil];
+    __weak typeof(self) __weakself=self;
+    NSDictionary *dic=@{@"uid":[share()userUid],
+                        @"token":[share()userToken],
+                        @"hq":_weddingDate.titleLabel.text,
+                        @"zs":_deskTextField.text,
+                        @"je":_budgetTextField.text,
+                        @"xl":_bridegroomNameTextField.text,
+                        @"xn":_brideNameTextField.text,
+                        @"lphone":_bridegroomTelTexField.text,
+                        @"nphone":_brideTelTextField.text,
+                        @"laddr":_bridegroomAddressTextField.text,
+                        @"naddr":_brideAddressTextField.text,
+                        @"email":_bridegroomEmailTextField.text};
+    [NTAsynService requestWithHead:zixunOrderBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+        if (success) {
+             __strong typeof(self) self=__weakself;
+            NTFInishView *view=[[NTFInishView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+            [view showTheFinishView];
+            view.closeBlock=^(){
+                [self.navigationController popViewControllerAnimated:YES];
+            };
+        }
+        else{
+            __strong typeof(self) self=__weakself;
+            if (![share()userIsLogin]) {
+                [self showEndViewWithText:@"请登录账号！"];
+            }
+            else{
+                [self showEndViewWithText:@"网络请求失败！"];
+            }
+        }
+        finishData=nil;
+    }];
+    dic=nil;
 }
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController{

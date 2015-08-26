@@ -8,7 +8,7 @@
 
 #import "NTParentViewController.h"
 #import "VRGCalendarView.h"
-
+#import "NTCommentBodyView.h"
 @interface NTContentViewController : NTParentViewController<VRGCalendarViewDelegate,UIPopoverControllerDelegate,UITextFieldDelegate>
 
 @property (nonatomic, strong)NSDictionary *contentDic;
@@ -22,6 +22,10 @@
 @property (nonatomic, strong)UIScrollView *videoInfoView;
 
 @property (nonatomic, strong)UIView *commentInfoView;
+
+@property (nonatomic, strong)NTCommentBodyView *firCommentView;
+
+@property (nonatomic, strong)NTCommentBodyView *secCommentView;
 
 @property (nonatomic, strong)UILabel *selectDateLabel;
 
@@ -50,6 +54,10 @@
 @property (nonatomic, strong)NSMutableString *contentStr;
 
 @property (nonatomic, strong)NSString *currentType;
+
+@property (nonatomic, copy) NSArray *commentAry;
+
+@property (nonatomic, copy) NSMutableDictionary *dateDic;
 
 @property (nonatomic) BOOL isPerson;
 

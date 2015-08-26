@@ -33,6 +33,7 @@
 @property (nonatomic) NSUInteger allDataCount;
 @property (nonatomic) BOOL isSelectAll;
 @property (nonatomic, strong) UIView *dateView;
+@property (nonatomic) NSInteger payType;//-1 线上 1线下
 
 - (IBAction)submitInfo:(id)sender;
 

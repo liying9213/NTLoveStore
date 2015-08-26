@@ -26,6 +26,18 @@
 
 @property (nonatomic, weak) id delegate;
 
+@property (nonatomic, copy) NSString * orderID;
+
+@property (nonatomic, strong) UITextView *textView;
+
+@property (nonatomic) NSInteger firstValue;
+
+@property (nonatomic) NSInteger secValue;
+
+@property (nonatomic) NSInteger thirdlyValue;
+
+@property (nonatomic) NSInteger fourthlyValue;
+
 - (void)resetView;
 
 @end

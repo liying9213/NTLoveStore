@@ -109,6 +109,8 @@
 #pragma mark - submitBtnAction
 
 - (void)submitAction:(id)sender{
+    [_userName resignFirstResponder];
+    [_userPassWord resignFirstResponder];
     [_scrollView setContentOffset:CGPointMake(0, 0)];
     __weak typeof(self) __weakself=self;
     if (!_userName.text||!_userName.text.length>0) {

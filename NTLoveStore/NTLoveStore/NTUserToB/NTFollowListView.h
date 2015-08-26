@@ -28,6 +28,8 @@
 
 @property (nonatomic, strong) NSMutableArray *selectAry;
 
+@property (nonatomic, copy) NSString *orderID;
+
 - (void)resetView;
 
 @end

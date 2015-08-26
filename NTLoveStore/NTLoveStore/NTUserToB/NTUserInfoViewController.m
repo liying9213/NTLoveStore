@@ -77,22 +77,22 @@
     switch (_selectType) {
         case 0:
         {
-            headStr=allOrderBaseUR;
+            headStr=allOrderBaseURL;
         }
             break;
         case 1:
         {
-            headStr=finOrderBaseUR;
+            headStr=finOrderBaseURL;
         }
             break;
         case 2:
         {
-            headStr=outOrderBaseUR;
+            headStr=outOrderBaseURL;
         }
             break;
         case 3:
         {
-            headStr=payOrderBaseUR;
+            headStr=payOrderBaseURL;
         }
             break;
             
@@ -121,7 +121,7 @@
     dic=nil;
 }
 
-- (void)saveTheOrderWithdata:(NSString*)ids{
+- (void)saveTheOrderWithdata:(NSMutableDictionary*)dic{
     if (![share()userIsLogin]) {
         [self showEndViewWithText:@"请登录账号！"];
         return;
@@ -130,13 +130,15 @@
     __weak typeof(self) __weakself=self;
 //    订单保存是gorder 参数 uid token  ids
 
-    NSDictionary *dic=@{@"uid":[share()userUid],
-                        @"token":[share()userToken],
-                        @"ids":ids};
-    [NTAsynService requestWithHead:saveOrderBaseUR WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+//    NSDictionary *dic=@{@"uid":[share()userUid],
+//                        @"token":[share()userToken],
+//                        @"ids":ids};
+    [dic setObject:[share()userUid] forKey:@"uid"];
+    [dic setObject:[share()userToken] forKey:@"token"];
+    [NTAsynService requestWithHead:saveOrderBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
             __strong typeof(self) self=__weakself;
-            [self hideWaitingView];
+            [self showEndViewWithText:@"保存成功"];
         }
         else{
             __strong typeof(self) self=__weakself;
@@ -162,11 +164,15 @@
     NSDictionary *dic=@{@"uid":[share()userUid],
                         @"token":[share()userToken],
                         @"orderid":orderID};
-    [NTAsynService requestWithHead:finishOrderBaseUR WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+    [NTAsynService requestWithHead:finishOrderBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
             __strong typeof(self) self=__weakself;
-            [self hideWaitingView];
+            [self showEndViewWithText:@"订单已完成！"];
+            _isFollow=YES;
+            _isComment=NO;
+            _selectType=2;
             [self getTheListData];
+            _normalView.hidden=YES;
         }
         else{
             __strong typeof(self) self=__weakself;
@@ -192,7 +198,7 @@
     NSDictionary *dic=@{@"uid":[share()userUid],
                         @"token":[share()userToken],
                         @"orderid":orderID};
-    [NTAsynService requestWithHead:delOrderBaseUR WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+    [NTAsynService requestWithHead:delOrderBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
             __strong typeof(self) self=__weakself;
             [self hideWaitingView];
@@ -216,6 +222,7 @@
     if (type==0||type==1||type==2||type==3) {
         if (_isFollow) {
             _listView.hidden=YES;
+            _commentView.hidden=YES;
             if (!_followListView) {
                 [self resetFollowListView];
             }
@@ -225,17 +232,19 @@
             _followListView.hidden=NO;
         }
         else if (_isComment) {
+            _listView.hidden=YES;
             _followListView.hidden=YES;
-            if (!_listView) {
-                [self resetListView];
+            if (!_commentView) {
+                [self resetCommentView];
             }
-            _listView.listAry=listData;
-            _listView.isSelect=NO;
-            [_listView.tableView reloadData];
-            _listView.hidden=NO;
+            _commentView.listAry=listData;
+            _commentView.isSelect=NO;
+            [_commentView.tableView reloadData];
+            _commentView.hidden=NO;
         }
         else if(!_isFollow&&!_isComment){
             _followListView.hidden=YES;
+            _commentView.hidden=YES;
             if (!_listView) {
                 [self resetListView];
             }
@@ -257,6 +266,19 @@
     }
     else{
         _listView.hidden=!_listView.hidden;
+    }
+}
+
+- (void)resetCommentView{
+    if (!_commentView) {
+        _commentView=[[NTCommentView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(_rightContentView.frame), CGRectGetHeight(_rightContentView.frame))];
+        _commentView.delegate=self;
+        [_commentView resetView];
+        [_rightContentView  addSubview:_commentView];
+        _commentView.hidden=NO;
+    }
+    else{
+        _commentView.hidden=!_commentView.hidden;
     }
 }
 
@@ -317,6 +339,7 @@
         switch (indexPath.row) {
             case 0:
             {
+                _selectType=0;
                 _isFollow=NO;
                 _isComment=NO;
                 [self getTheListData];
@@ -376,7 +399,7 @@
     NSDictionary *dic=@{@"uid":[share()userUid],
                         @"token":[share()userToken],
                         @"orderid":orderID};
-    [NTAsynService requestWithHead:getodBaseUR WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+    [NTAsynService requestWithHead:getodBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
         if (success) {
             __strong typeof(self) self=__weakself;
             [self reloadTheListViewWithData:[self getTheValuesWithKey:[[finishData allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] withData:finishData]];
@@ -429,6 +452,40 @@
 
 - (void)finishAction:(id)sender{
     [self finishTheOrder:sender];
+}
+
+- (void)saveCommentAction:(id)sender{
+    if (![share()userIsLogin]) {
+        [self showEndViewWithText:@"请登录账号！"];
+        return;
+    }
+    [self showWaitingViewWithText:nil];
+    __weak typeof(self) __weakself=self;
+    NSMutableDictionary *dic=(NSMutableDictionary *)sender;
+    [dic setValue:[share()userUid] forKey:@"uid"];
+    [dic setValue:[share()userToken] forKey:@"token"];
+    [NTAsynService requestWithHead:comOrderBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+        if (success) {
+            __strong typeof(self) self=__weakself;
+            self.isFollow=NO;
+            self.isComment=YES;
+            self.selectType=1;
+            [self getTheListData];
+            self.normalView.hidden=YES;
+            [self showEndViewWithText:@"评论成功！"];
+        }
+        else{
+            __strong typeof(self) self=__weakself;
+            if (![share()userIsLogin]) {
+                [self showEndViewWithText:@"请登录账号！"];
+            }
+            else{
+                [self showEndViewWithText:@"网络请求失败！"];
+            }
+        }
+        finishData=nil;
+    }];
+    dic=nil;
 }
 
 - (void)backBtnAction:(id)sender{

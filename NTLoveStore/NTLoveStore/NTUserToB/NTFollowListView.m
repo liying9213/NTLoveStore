@@ -41,7 +41,7 @@
         if ([_contentListAry count]%2>0) {
             value=value+1;
         }
-        return 78+value*30+5;
+        return 78+5+(value*30<80?80:value*30);
     }
     else{
         return 78;
@@ -70,7 +70,7 @@
         }
         CGRect rect=iCell.contentInfoView.frame;
 //        iCell.contentInfoView.frame=CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), value*30);
-        [iCell.contentInfoView addSubview:[self resetContentViewWith:CGRectMake(0, 0, CGRectGetWidth(rect), value*30)]];
+        [iCell.contentInfoView addSubview:[self resetContentViewWith:CGRectMake(0, 0, CGRectGetWidth(rect), value*30<80?80:value*30)]];
     }
     if (!_isSelect) {
 //        CGRect rect=iCell.contentInfoView.frame;
@@ -80,6 +80,11 @@
 }
 
 - (UIView *)resetContentViewWith:(CGRect)rect{
+    if (_contentView) {
+        [_contentView removeFromSuperview];
+        _contentView=nil;
+        _selectAry=nil;
+    }
     if (!_contentView) {
         _contentView = [[UIView alloc] initWithFrame:rect];
         UILabel *label=[[UILabel  alloc] initWithFrame:CGRectMake(0, 0, 150, 30)];
@@ -92,12 +97,13 @@
         for (NSDictionary *dic in _contentListAry) {
             NTButton *btn=[NTButton buttonWithType:UIButtonTypeCustom];
             btn.frame=CGRectMake(x*330+150, y*30, 30, 30);
-            btn.keyWord=_keyAry[i];
+            btn.keyWord=[dic objectForKey:@"id"];
             [btn setImage:[UIImage imageNamed:@"disSelect"] forState:UIControlStateNormal];
             [btn setImage:[UIImage imageNamed:@"select"] forState:UIControlStateSelected];
             [btn addTarget:self action:@selector(selectAction:) forControlEvents:UIControlEventTouchUpInside];
             [_contentView addSubview:btn];
-            if ([dic[@"status"] intValue]==1) {
+            if ([dic[@"status"] intValue]==2) {
+                
                 btn.selected=YES;
             }
             UILabel *infoLabel=[[UILabel alloc] initWithFrame:CGRectMake(x*330+180, y*30, 300, 30)];
@@ -145,6 +151,7 @@
     if (_selectIndex!=indexPath.row||!_isSelect) {
         _selectIndex=indexPath.row;
         _isSelect=YES;
+        _orderID=_followListAry[indexPath.row][@"orderid"];
         [self getTheContentWithOrderid:_followListAry[indexPath.row][@"orderid"]];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -163,11 +170,11 @@
     if (!_selectAry) {
         _selectAry=[[NSMutableArray alloc] init];
     }
-    if ([_selectAry containsObject:[NSNumber numberWithInteger:btn.tag]]) {
-        [_selectAry removeObject:[NSNumber numberWithInteger:btn.tag]];
+    if ([_selectAry containsObject:btn.keyWord]) {
+        [_selectAry removeObject:btn.keyWord];
     }
     else{
-        [_selectAry addObject:[NSNumber numberWithInteger:btn.tag]];
+        [_selectAry addObject:btn.keyWord];
     }
     btn.selected=!btn.selected;
 }
@@ -175,15 +182,19 @@
 - (void)saveAction:(id)sender{
     NSString *string;
     int i=0;
-    for (NSNumber *num in _selectAry){
+    for (NSString *num in _selectAry){
         if (i==0) {
             string=[NSString stringWithFormat:@"%@",num];
         }
         else{
              string=[NSString stringWithFormat:@"%@,%@",string,num];
         }
+        i++;
     }
-    [_delegate saveAction:string];
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+    [dic setObject:string forKey:@"ids"];
+    [dic setObject:_orderID forKey:@"orderid"];
+    [_delegate saveAction:dic];
 }
 
 - (void)finishAction:(id)sender{
