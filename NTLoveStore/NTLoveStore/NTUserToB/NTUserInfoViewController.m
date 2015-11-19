@@ -342,7 +342,8 @@
                 _selectType=0;
                 _isFollow=NO;
                 _isComment=NO;
-                [self getTheListData];
+//                [self getTheListData];
+                [_listView selectAction:_listView.allOrderBtn];
                 _normalView.hidden=YES;
             }
                 break;

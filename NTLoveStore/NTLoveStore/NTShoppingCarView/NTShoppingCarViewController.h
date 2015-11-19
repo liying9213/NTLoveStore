@@ -34,6 +34,7 @@
 @property (nonatomic) BOOL isSelectAll;
 @property (nonatomic, strong) UIView *dateView;
 @property (nonatomic) NSInteger payType;//-1 线上 1线下
+@property (nonatomic) CGRect infoViewFrame;
 
 - (IBAction)submitInfo:(id)sender;
 

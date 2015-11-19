@@ -441,12 +441,16 @@
         [self showEndViewWithText:@"请填写邮箱"];
         return;
     }
-    [self colseTheView:nil];
+    [self closeView:nil];
     [self subOrderAction];
     [self showWaitingViewWithText:@"正在提交..."];
 }
 
 - (IBAction)dateAction:(id)sender {
+    [_nameTextField resignFirstResponder];
+    [_telTextField resignFirstResponder];
+    [_adessTextField resignFirstResponder];
+    [_emailTextField resignFirstResponder];
     if (!_dateView) {
         UIViewController *viewcontroller=[[UIViewController alloc] init];
         [viewcontroller.view addSubview:_datePicker];
@@ -615,30 +619,41 @@
 
 - (IBAction)closeView:(id)sender {
     [self colseTheView:nil];
+    [_nameTextField resignFirstResponder];
+    [_telTextField resignFirstResponder];
+    [_adessTextField resignFirstResponder];
+    [_emailTextField resignFirstResponder];
 }
 
 - (IBAction)payAction:(id)sender {
+    if (!_selectDic||[[_selectDic allKeys] count]<1) {
+        [self showEndViewWithText:@"请选择商品后结算！"];
+        return;
+    }
     UIButton *btn=(UIButton *)sender;
     if (btn.tag==0) {
         _payType=-1;
     }
     else
         _payType=1;
+    _infoViewFrame=_infoDataView.frame;
     if(_infoVIew.hidden){
         _infoVIew.hidden=NO;
     }
     else{
-//        UITapGestureRecognizer *panGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(colseTheView:)];
-//        panGestureRecognizer.delegate=self;
-//        [_infoVIew addGestureRecognizer:panGestureRecognizer];
+        
         _infoVIew.frame=CGRectMake(0, 0, ScreenWidth, ScreenHeight);
        [[[UIApplication sharedApplication] windows][0] addSubview:_infoVIew];
-        
+        _nameTextField.delegate=self;
+        _telTextField.delegate=self;
+        _adessTextField.delegate=self;
+        _emailTextField.delegate=self;
         [_nameTextField addTarget:self action:@selector(textField:) forControlEvents:UIControlEventEditingDidBegin];
         [_telTextField addTarget:self action:@selector(textField:) forControlEvents:UIControlEventEditingDidBegin];
         [_adessTextField addTarget:self action:@selector(textField:) forControlEvents:UIControlEventEditingDidBegin];
         [_emailTextField addTarget:self action:@selector(textField:) forControlEvents:UIControlEventEditingDidBegin];
     }
+    
 }
 
 - (IBAction)delectAction:(id)sender {
@@ -680,29 +695,54 @@
 }
 
 - (void)textFieldDidBeginEditing:(NTTextField *)textField{
-    float heigh=0;
-    for (int i=0; i<=textField.section; i++) {
-        if (textField.section==i) {
-            heigh+=100*(textField.tag+1);
-        }
-        else{
-            heigh+=100*[[_shopcartData[textField.section] objectForKey:@"obj"] count];
-        }
+    if (textField==_telTextField) {
+        _infoDataView.center=CGPointMake(ScreenWidth/2, ScreenHeight/2-20);
     }
-     [_tableView setContentOffset:CGPointMake(0, heigh)];
-    float ContentHeight=_tableView.contentSize.height;
-    [_tableView setContentSize:CGSizeMake(0, ContentHeight+250)];
+    else if(textField==_adessTextField)
+    {
+        _infoDataView.center=CGPointMake(ScreenWidth/2, ScreenHeight/2-80);
+    }
+    else if(textField==_emailTextField){
+        _infoDataView.center=CGPointMake(ScreenWidth/2, ScreenHeight/2-100);
+    }
+    else if (textField!=_nameTextField){
+         _infoDataView.center=CGPointMake(ScreenWidth/2, ScreenHeight/2);
+    }
+    else if (_infoVIew.hidden){
+        float heigh=0;
+        for (int i=0; i<=textField.section; i++) {
+            if (textField.section==i) {
+                heigh+=100*(textField.tag+1);
+            }
+            else{
+                heigh+=100*[[_shopcartData[textField.section] objectForKey:@"obj"] count];
+            }
+        }
+        [_tableView setContentOffset:CGPointMake(0, heigh)];
+        float ContentHeight=_tableView.contentSize.height;
+        [_tableView setContentSize:CGSizeMake(0, ContentHeight+250)];
+    }
 }
 
 - (void)textFieldDidEndEditing:(NTTextField *)textField{
-    [_tableView setContentOffset:CGPointMake(0, 0)];
-    float ContentHeight=_tableView.contentSize.height;
-    [_tableView setContentSize:CGSizeMake(0, ContentHeight-250)];
-    textField.text=[NSString stringWithFormat:@"%d",[self changeNumWith:textField]];
+    if (textField==_telTextField||textField==_adessTextField||textField==_emailTextField||_nameTextField) {
+        _infoDataView.center=CGPointMake(ScreenWidth/2, ScreenHeight/2);
+    }
+    else if (_infoVIew.hidden){
+        [_tableView setContentOffset:CGPointMake(0, 0)];
+        float ContentHeight=_tableView.contentSize.height;
+        [_tableView setContentSize:CGSizeMake(0, ContentHeight-250)];
+        textField.text=[NSString stringWithFormat:@"%d",[self changeNumWith:textField]];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(NTTextField *)textField{
-    textField.text=[NSString stringWithFormat:@"%d",[self changeNumWith:textField]];
+    if (textField==_telTextField||textField==_adessTextField||textField==_emailTextField||_nameTextField) {
+        _infoDataView.center=CGPointMake(ScreenWidth/2, ScreenHeight/2);
+    }
+    else if (_infoVIew.hidden){
+        textField.text=[NSString stringWithFormat:@"%d",[self changeNumWith:textField]];
+    }
     [textField resignFirstResponder];
     return YES;
 }
@@ -715,7 +755,6 @@
         return value;
     }
     else{
-//        textField.text=[NSString stringWithFormat:@"%d",normal];
         return normal;
     }
     

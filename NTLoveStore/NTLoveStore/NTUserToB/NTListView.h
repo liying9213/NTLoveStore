@@ -34,4 +34,6 @@
 
 - (void)resetView;
 
+- (void)selectAction:(id)sender;
+
 @end
