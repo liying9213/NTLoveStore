@@ -89,12 +89,12 @@
 - (void)resetView{
     if (_isSelectAll) {
         _selectNumLabel.text=[NSString stringWithFormat:@"已选商品%lu件",(unsigned long)_allDataCount];
-        _totalPricesLabel.text=[NSString stringWithFormat:@"合计：%.2lf",[_allPrice floatValue]];
+        _totalPricesLabel.text=[NSString stringWithFormat:@"合计：￥%.2lf",[_allPrice floatValue]];
     }
     else{
         _selectNumLabel.text=[NSString stringWithFormat:@"已选商品%lu件",(unsigned long)[self getSelectCount]];
        NSString *price= [self getTheSelectPrice];
-        _totalPricesLabel.text=[NSString stringWithFormat:@"合计：%.2lf",[price floatValue]];
+        _totalPricesLabel.text=[NSString stringWithFormat:@"合计：￥%.2lf",[price floatValue]];
     }
     [_tableView reloadData];
 }
@@ -147,8 +147,8 @@
     }
     [iCell.leftImagView sd_setImageWithURL:[NSURL URLWithString:[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"cover_id"]] placeholderImage:[NTImage imageWithFileName:@"picple.png"]];
     iCell.commodityName.text=[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"title"];
-    iCell.price.text=[NSString stringWithFormat:@"%@/元",[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"price"]];
-    iCell.allPrice.text=[NSString stringWithFormat:@"%@元",[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"tprice"]];
+    iCell.price.text=[NSString stringWithFormat:@"%@",[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"price"]];
+    iCell.allPrice.text=[NSString stringWithFormat:@"￥%@",[[[_shopcartData[indexPath.section] objectForKey:@"obj"] objectAtIndex:indexPath.row] objectForKey:@"tprice"]];
     [iCell.selectBtn addTarget:self action:@selector(selectOne:) forControlEvents:UIControlEventTouchUpInside];
     iCell.numLabel.textAlignment = NSTextAlignmentCenter;
     iCell.numLabel.delegate=self;
@@ -201,36 +201,46 @@
         [self showEndViewWithText:@"请登录账号！"];
         return;
     }
-    NTButton *btn=(NTButton *)sender;
-    [self showWaitingViewWithText:@"正在删除..."];
-    __weak typeof(self) __weakself=self;
-    NSDictionary *dic=@{@"uid":[share()userUid],
-                        @"token":[share()userToken],
-                        @"id":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"goodid"],
-                        @"price":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"price"],
-                        @"sort":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"sort"],
-                        @"parameters":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"parameters"],
-                        @"pet":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"pet"],
-                        @"key":@"2"};
-    [NTAsynService requestWithHead:delItemBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
-        if (success) {
-            __strong typeof(self) self=__weakself;
-            [self changeData:finishData];
-            [self resetView];
-            [self hideWaitingView];
-        }
-        else{
-            __strong typeof(self) self=__weakself;
-            if (![share()userIsLogin]) {
-                [self showEndViewWithText:@"请登录账号！"];
+    _needDeleteBtn = (NTButton *)sender;
+    UIAlertView *alerview = [[UIAlertView alloc] initWithTitle:@"确定删除吗？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alerview show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        
+        NTButton *btn = _needDeleteBtn ;
+        [self showWaitingViewWithText:@"正在删除..."];
+        __weak typeof(self) __weakself=self;
+        NSDictionary *dic=@{@"uid":[share()userUid],
+                            @"token":[share()userToken],
+                            @"id":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"goodid"],
+                            @"price":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"price"],
+                            @"sort":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"sort"],
+                            @"parameters":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"parameters"],
+                            @"pet":[[[_shopcartData[btn.section]objectForKey:@"obj"] objectAtIndex:btn.tag] objectForKey:@"pet"],
+                            @"key":@"2"};
+        [NTAsynService requestWithHead:delItemBaseURL WithBody:dic completionHandler:^(BOOL success, id finishData, NSError *connectionError) {
+            if (success) {
+                __strong typeof(self) self=__weakself;
+                [self changeData:finishData];
+                [self resetView];
+                [self hideWaitingView];
             }
             else{
-                [self showEndViewWithText:@"网络请求失败！"];
+                __strong typeof(self) self=__weakself;
+                if (![share()userIsLogin]) {
+                    [self showEndViewWithText:@"请登录账号！"];
+                }
+                else{
+                    [self showEndViewWithText:@"网络请求失败！"];
+                }
             }
-        }
-        finishData=nil;
-    }];
-    dic=nil;
+            finishData=nil;
+        }];
+        dic=nil;
+    }
+    _needDeleteBtn = nil;
 }
 
 - (void)delAction:(id)sender{
@@ -422,23 +432,23 @@
 
 - (IBAction)submitInfo:(id)sender {
     if (!_dateBtn.titleLabel.text) {
-        [self showEndViewWithText:@"请选择婚期"];
+        [self showEndViewInWindownWithText:@"请选择婚期"];
         return;
     }
     if (!_nameTextField.text.length>0) {
-        [self showEndViewWithText:@"请填写姓名"];
+        [self showEndViewInWindownWithText:@"请填写姓名"];
         return;
     }
     if (!_telTextField.text.length>0) {
-        [self showEndViewWithText:@"请填写电话"];
+        [self showEndViewInWindownWithText:@"请填写电话"];
         return;
     }
     if (!_adessTextField.text.length>0) {
-        [self showEndViewWithText:@"请填写地址"];
+        [self showEndViewInWindownWithText:@"请填写地址"];
         return;
     }
     if (!_emailTextField.text.length>0) {
-        [self showEndViewWithText:@"请填写邮箱"];
+        [self showEndViewInWindownWithText:@"请填写邮箱"];
         return;
     }
     [self closeView:nil];
@@ -464,9 +474,13 @@
     if (_dateView.hidden) {
         _dateView.hidden=NO;
     }
-    else{
-        [self getTheDate];
-    }
+    UITapGestureRecognizer* singleRecognizer;
+    singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(getTheDateWith:)];
+    singleRecognizer.numberOfTapsRequired = 1; // 单击
+    [_infoVIew addGestureRecognizer:singleRecognizer];
+//    else{
+//        [self getTheDate];
+//    }
 }
 
 - (NSString *)getTheSelectPrice{
@@ -610,10 +624,10 @@
     btn.selected=!btn.selected;
     NSString *str=[_totalPricesLabel.text substringFromIndex:3];
     if (btn.selected) {
-       _totalPricesLabel.text=[NSString stringWithFormat:@"合计：%.2lf",[str floatValue]/2];
+       _totalPricesLabel.text=[NSString stringWithFormat:@"合计：￥%.2lf",[str floatValue]/2];
     }
     else{
-       _totalPricesLabel.text=[NSString stringWithFormat:@"合计：%.2lf",[str floatValue]*2];
+       _totalPricesLabel.text=[NSString stringWithFormat:@"合计：￥%.2lf",[str floatValue]*2];
     }
 }
 
@@ -772,7 +786,20 @@
     }
 }
 
+- (void)getTheDateWith:(UITapGestureRecognizer *)sender{
+    if ([_datePicker.date compare:[NSDate date]] == NSOrderedAscending) {
+        [self showEndViewInWindownWithText:@"请选择正确的时间！"];
+        return;
+    }
+    [self getTheDate];
+    [_infoVIew removeGestureRecognizer:sender];
+}
+
 - (void)getTheDate{
+    if ([_datePicker.date compare:[NSDate date]] == NSOrderedAscending) {
+        [self showEndViewInWindownWithText:@"请选择正确的时间！"];
+        return;
+    }
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     NSString *str=[formatter stringFromDate:_datePicker.date];

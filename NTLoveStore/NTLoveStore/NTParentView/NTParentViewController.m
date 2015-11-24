@@ -105,6 +105,21 @@
     [_waitingView hide:YES afterDelay:1.0];
 }
 
+- (void)showEndViewInWindownWithText:(NSString *)text{
+    _waitingView = nil;
+    if (!_waitingView)
+    {
+        _waitingView =[[MBProgressHUD alloc] initWithView:self.view];
+        [[[[UIApplication sharedApplication] windows] objectAtIndex:0] addSubview:_waitingView];
+    }
+    [[[[UIApplication sharedApplication] windows] objectAtIndex:0] bringSubviewToFront:_waitingView];
+    _waitingView.labelText = text;
+    _waitingView.mode=MBProgressHUDModeText;
+    [_waitingView show:YES];
+    [_waitingView hide:YES afterDelay:1.0];
+}
+
+
 - (void)hideWaitingView{
     [_waitingView hide:YES];
 }

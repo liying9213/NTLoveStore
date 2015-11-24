@@ -51,7 +51,7 @@
     _commentNumLabel.textAlignment=NSTextAlignmentRight;
     [self addSubview:_commentNumLabel];
     
-    _selectBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    _selectBtn=[NTButton buttonWithType:UIButtonTypeCustom];
     _selectBtn.frame=CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
     [_selectBtn addTarget:self action:@selector(memberSelectAction:) forControlEvents:UIControlEventTouchUpInside];
     _selectBtn.backgroundColor=[NTColor clearColor];
@@ -63,6 +63,7 @@
     _titleLabel.text = [dic objectForKey:@"title"];
     _priceLabel.text = [NSString stringWithFormat:@"￥%@",[dic objectForKey:@"price"]];
     _selectBtn.tag = [[dic objectForKey:@"id"] integerValue];
+    _selectBtn.keyWord = _titleLabel.text;
     NSMutableAttributedString *finishNum = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"已服务%@人",[dic objectForKey:@"sale"]]];
     [finishNum addAttribute:NSForegroundColorAttributeName value:[NTColor colorWithHexString:NTBlueColor] range:NSMakeRange(3,finishNum.length-4)];
     NSMutableAttributedString *commentNum = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"好评数%@条",[dic objectForKey:@"comment"]]];

@@ -8,7 +8,7 @@
 
 #import "NTParentViewController.h"
 
-@interface NTShoppingCarViewController : NTParentViewController <UITableViewDataSource,UITableViewDelegate,UIPopoverControllerDelegate,UIGestureRecognizerDelegate,UITextFieldDelegate>
+@interface NTShoppingCarViewController : NTParentViewController <UITableViewDataSource,UITableViewDelegate,UIPopoverControllerDelegate,UIGestureRecognizerDelegate,UITextFieldDelegate,UIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *selectAllBtn;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *selectBtn1;
@@ -35,6 +35,7 @@
 @property (nonatomic, strong) UIView *dateView;
 @property (nonatomic) NSInteger payType;//-1 线上 1线下
 @property (nonatomic) CGRect infoViewFrame;
+@property (nonatomic, strong) NTButton * needDeleteBtn;
 
 - (IBAction)submitInfo:(id)sender;
 

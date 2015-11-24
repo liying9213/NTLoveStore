@@ -22,6 +22,8 @@
 
 - (void)showEndViewWithText:(NSString *)text;
 
+- (void)showEndViewInWindownWithText:(NSString *)text;
+
 - (void)hideWaitingView;
 
 - (NSMutableArray *)getTheValuesWithKey:(NSArray *)keyAry withData:(NSMutableDictionary *)dic;

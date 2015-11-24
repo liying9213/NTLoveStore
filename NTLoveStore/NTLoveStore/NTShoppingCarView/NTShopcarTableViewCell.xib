@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="1024" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Yd-4R-fc6">
@@ -20,6 +20,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lqy-sx-Amw" customClass="NTButton">
                                 <rect key="frame" x="84" y="3" width="30" height="30"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="QbV-mw-PdZ"/>
                                     <constraint firstAttribute="height" constant="30" id="n55-X0-7gq"/>
@@ -31,6 +32,7 @@
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Wa-do-6iO" customClass="NTTextField">
                                 <rect key="frame" x="38" y="3" width="38" height="30"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="JqW-T0-08a"/>
                                     <constraint firstAttribute="width" constant="38" id="qqv-2k-2tH"/>
@@ -40,6 +42,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwx-8L-GVq" customClass="NTButton">
                                 <rect key="frame" x="0.0" y="3" width="30" height="30"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="M2E-vz-Odt"/>
                                     <constraint firstAttribute="width" constant="30" id="p3B-PS-a2J"/>
@@ -50,6 +53,7 @@
                                 </state>
                             </button>
                         </subviews>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Lqy-sx-Amw" secondAttribute="trailing" id="3nn-su-vqP"/>
                             <constraint firstAttribute="bottom" secondItem="cwx-8L-GVq" secondAttribute="bottom" constant="3" id="Blt-Pc-Cax"/>
@@ -71,46 +75,40 @@
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4000元" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gvx-Xb-SSZ">
                         <rect key="frame" x="719" y="39" width="100" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="MHT-2X-U0h"/>
                             <constraint firstAttribute="height" constant="21" id="YRn-LB-dPS"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0QM-9F-Tim" customClass="NTButton">
-                        <rect key="frame" x="909" y="35" width="30" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="glf-mF-sdq"/>
-                            <constraint firstAttribute="width" constant="30" id="ojk-Zt-lI3"/>
-                        </constraints>
-                        <state key="normal" title="删除">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000/元" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWj-SP-pdh">
                         <rect key="frame" x="355" y="39" width="100" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Agg-1A-OVU"/>
                             <constraint firstAttribute="width" constant="100" id="Ixb-tW-4yq"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEu-HD-Ldh">
                         <rect key="frame" x="516" y="32" width="114" height="36"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="114" id="Rm5-f1-1dg"/>
                             <constraint firstAttribute="height" constant="36" id="We1-lm-g9D"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZe-za-hw8" customClass="NTButton">
                         <rect key="frame" x="15" y="42" width="15" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="b4u-In-Q31"/>
                             <constraint firstAttribute="width" constant="15" id="lfF-og-Xqm"/>
@@ -122,6 +120,7 @@
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jol-V2-IXa" customClass="UIImageView">
                         <rect key="frame" x="45" y="10" width="110" height="80"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="110" id="PPT-3C-b5r"/>
                             <constraint firstAttribute="height" constant="80" id="QeP-jl-wOh"/>
@@ -129,23 +128,37 @@
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主持人" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofL-Ji-Txf">
                         <rect key="frame" x="175" y="10" width="140" height="83"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="83" id="Ek7-BD-YMa"/>
                             <constraint firstAttribute="width" constant="140" id="T0V-iI-ql0"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndN-v2-03I">
                         <rect key="frame" x="8" y="99" width="1024" height="1"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="emT-7e-naf"/>
                             <constraint firstAttribute="width" constant="1024" id="f2w-Zd-Jng"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0QM-9F-Tim" customClass="NTButton">
+                        <rect key="frame" x="909" y="35" width="30" height="30"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="glf-mF-sdq"/>
+                            <constraint firstAttribute="width" constant="30" id="ojk-Zt-lI3"/>
+                        </constraints>
+                        <state key="normal" title="删除">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="ofL-Ji-Txf" firstAttribute="leading" secondItem="jol-V2-IXa" secondAttribute="trailing" constant="20" id="0e1-M7-UQy"/>
                     <constraint firstItem="jol-V2-IXa" firstAttribute="leading" secondItem="XZe-za-hw8" secondAttribute="trailing" constant="15" id="31f-Fe-H5Y"/>
@@ -168,6 +181,7 @@
                     <constraint firstItem="XZe-za-hw8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="zfl-Kf-KeU"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="addBtn" destination="Lqy-sx-Amw" id="6Pg-Ay-bqC"/>
                 <outlet property="allPrice" destination="Gvx-Xb-SSZ" id="hqJ-FR-0VY"/>

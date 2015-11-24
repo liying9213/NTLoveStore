@@ -27,6 +27,11 @@
     _tableView.delegate=self;
     _tableView.dataSource=self;
     [self addSubview:_tableView];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(_tableView.frame), 200)];
+    label.text = @"您还未产生订单！";
+    label.textAlignment = NSTextAlignmentCenter;
+    _tableView.backgroundView = label;
 }
 
 #pragma mark - tableViewDelegate

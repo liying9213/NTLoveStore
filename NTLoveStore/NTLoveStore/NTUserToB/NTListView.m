@@ -27,6 +27,12 @@
     _tableView.delegate=self;
     _tableView.dataSource=self;
     [self addSubview:_tableView];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(_tableView.frame), 200)];
+    label.text = @"您还未产生订单！";
+    label.textAlignment = NSTextAlignmentCenter;
+    _tableView.backgroundView = label;
+    
 }
 
 - (void)resetBtnView{
@@ -36,8 +42,8 @@
     [_allOrderBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
     [_allOrderBtn setTitle:@"所有订单" forState:UIControlStateNormal];
     _allOrderBtn.titleLabel.font=[UIFont systemFontOfSize:14];
-    _allOrderBtn.layer.borderWidth=0.5;
-    _allOrderBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
+    _allOrderBtn.layer.borderWidth=1;
+    _allOrderBtn.layer.borderColor=[[NTColor colorWithHexString:@"E3E3E3"] CGColor];
     _allOrderBtn.backgroundColor=[NTColor whiteColor];
     [_allOrderBtn addTarget:self action:@selector(selectAction:) forControlEvents:UIControlEventTouchUpInside];
     _allOrderBtn.tag=0;
@@ -50,8 +56,8 @@
     [_finOrderBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
     [_finOrderBtn setTitle:@"已完成订单" forState:UIControlStateNormal];
     _finOrderBtn.titleLabel.font=[UIFont systemFontOfSize:14];
-    _finOrderBtn.layer.borderWidth=0.5;
-    _finOrderBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
+    _finOrderBtn.layer.borderWidth=1;
+    _finOrderBtn.layer.borderColor=[[NTColor colorWithHexString:@"E3E3E3"] CGColor];
     _finOrderBtn.backgroundColor=[NTColor whiteColor];
     [_finOrderBtn addTarget:self action:@selector(selectAction:) forControlEvents:UIControlEventTouchUpInside];
     _finOrderBtn.tag=1;
@@ -63,8 +69,8 @@
     [_outOrderBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
     [_outOrderBtn setTitle:@"未完成订单" forState:UIControlStateNormal];
     _outOrderBtn.titleLabel.font=[UIFont systemFontOfSize:14];
-    _outOrderBtn.layer.borderWidth=0.5;
-    _outOrderBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
+    _outOrderBtn.layer.borderWidth=1;
+    _outOrderBtn.layer.borderColor=[[NTColor colorWithHexString:@"E3E3E3"] CGColor];
     _outOrderBtn.backgroundColor=[NTColor whiteColor];
     [_outOrderBtn addTarget:self action:@selector(selectAction:) forControlEvents:UIControlEventTouchUpInside];
     _outOrderBtn.tag=2;
@@ -76,8 +82,8 @@
     [_payOrderBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
     [_payOrderBtn setTitle:@"未支付订单" forState:UIControlStateNormal];
     _payOrderBtn.titleLabel.font=[UIFont systemFontOfSize:14];
-    _payOrderBtn.layer.borderWidth=0.5;
-    _payOrderBtn.layer.borderColor=[[NTColor colorWithHexString:NTGrayColor] CGColor];
+    _payOrderBtn.layer.borderWidth=1;
+    _payOrderBtn.layer.borderColor=[[NTColor colorWithHexString:@"E3E3E3"] CGColor];
     _payOrderBtn.backgroundColor=[NTColor whiteColor];
     [_payOrderBtn addTarget:self action:@selector(selectAction:) forControlEvents:UIControlEventTouchUpInside];
     _payOrderBtn.tag=3;

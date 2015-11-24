@@ -17,7 +17,7 @@
 #define NTWhiteColor @"#FFFFFF"
 #define NTBlueColor @"#50ceff"
 #define NTPinkColor @"#FF69B4"
-#define NTGrayColor @"#F5F5F5"
+#define NTGrayColor @"#E3E3E3"
 
 
 #define thePlaceholderImage [[UIImage imageNamed:@"picple.png"] stretchableImageWithLeftCapWidth:2 topCapHeight:2]

@@ -315,8 +315,6 @@
     [minusBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
     [minusBtn addTarget:self action:@selector(minusNum) forControlEvents:UIControlEventTouchUpInside];
     minusBtn.enabled=_isCanSelect;
-    minusBtn.layer.masksToBounds=YES;
-    minusBtn.layer.cornerRadius=15;
     minusBtn.layer.borderWidth=1;
     minusBtn.layer.borderColor=[[NTColor colorWithHexString:@"#BBBBBB"] CGColor];
     [view addSubview:minusBtn];
@@ -336,8 +334,6 @@
     [addBtn setTitleColor:[NTColor blackColor] forState:UIControlStateNormal];
     [addBtn addTarget:self action:@selector(addNum) forControlEvents:UIControlEventTouchUpInside];
     addBtn.enabled=_isCanSelect;
-    addBtn.layer.masksToBounds=YES;
-    addBtn.layer.cornerRadius=16;
     addBtn.layer.borderWidth=1;
     addBtn.layer.borderColor=[[NTColor colorWithHexString:@"#BBBBBB"] CGColor];
     [view addSubview:addBtn];
@@ -408,6 +404,7 @@
         menberView.delegate=self;
         menberView.tag=i;
         [menberView resetView];
+        menberView.imageView.contentMode = UIViewContentModeScaleAspectFit;
         [menberView reloadTheViewWithData:dic];
         [hotScrollView addSubview:menberView];
         xValue+=210;
@@ -457,6 +454,7 @@
             __strong typeof(self) self=__weakself;
             btn.enabled=NO;
             [btn setBackgroundColor:[NTColor lightGrayColor]];
+            [btn setTitle:@"已预订" forState:UIControlStateNormal];
             [self hideWaitingView];
         }
         else{
@@ -487,6 +485,11 @@
                 contentLabel.lineBreakMode=NSLineBreakByTruncatingTail;
                 contentLabel.numberOfLines=0;
                 [_contenInfoView addSubview:contentLabel];
+                UIFont *dateFont = [UIFont systemFontOfSize:15];
+                CGSize dateStringSize = [_contentStr sizeWithFont:dateFont constrainedToSize:CGSizeMake(ScreenWidth-40, 1000) lineBreakMode:contentLabel.lineBreakMode];
+                CGRect dateFrame = CGRectMake(0, 0, ScreenWidth-40, dateStringSize.height);
+                contentLabel.frame = dateFrame;
+                
                 _contenInfoView.backgroundColor=[NTColor clearColor];
                 [_scrollView addSubview:_contenInfoView];
                 
@@ -670,6 +673,9 @@
 - (void)getTheDate:(NSArray*)dateAry{
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
     for (NSString *str in dateAry) {
+        if (str == [NSNull null]) {
+            return;
+        }
         NSArray *ary=[str componentsSeparatedByString:@"-"];
         if ([[dic allKeys] containsObject:ary[0]]) {
             if ([[dic[ary[0]] allKeys] containsObject:ary[1]]) {
@@ -711,6 +717,10 @@
 }
 
 - (void)calendarView:(VRGCalendarView *)calendarView dateSelected:(NSDate *)date{
+    if ([date compare:[NSDate date]] == NSOrderedAscending) {
+        [self showEndViewInWindownWithText:@"请选择正确的时间！"];
+        return;
+    }
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     _selectDateLabel.text=[formatter stringFromDate:date];
@@ -754,8 +764,9 @@
 
 #pragma mark - showHotListMember
 - (void)memberSelectAction:(id)sender{
-    UIButton *btn=(UIButton *)sender;
+    NTButton *btn=(NTButton *)sender;
     NTContentViewController *viewController=[[NTContentViewController alloc] init];
+    viewController.title = btn.keyWord;
     viewController.productID=btn.tag;
     viewController.isCanSelect=NO;
     [self.navigationController pushViewController:viewController animated:YES];

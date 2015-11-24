@@ -304,9 +304,10 @@
 }
 
 - (void)memberSelectAction:(id)sender{
-    UIButton *btn=(UIButton *)sender;
+    NTButton *btn=(NTButton *)sender;
     NTContentViewController *viewController=[[NTContentViewController alloc] init];
     viewController.productID=btn.tag;
+    viewController.title = btn.keyWord;
     viewController.isCanSelect=!_isTheme;
     viewController.currentType=_currentType;
     viewController.isPerson=[self isPerson];
@@ -427,7 +428,14 @@
 //        [self presentViewController:userInfoView animated:YES completion:nil];
     }
     else if ([(UIButton *)sender tag]==1){
+        UIAlertView *alert =[[UIAlertView alloc]initWithTitle:@"确定退出" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
          [_popoverView dismissPopoverAnimated:YES];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
         [NTUserDefaults writeTheData:@"0" ForKey:@"status"];
     }
 }

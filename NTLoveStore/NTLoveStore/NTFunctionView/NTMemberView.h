@@ -36,7 +36,7 @@
 
 @property (nonatomic, strong) UILabel *commentNumLabel;
 
-@property (nonatomic, strong) UIButton *selectBtn;
+@property (nonatomic, strong) NTButton *selectBtn;
 
 - (id)initWithFrame:(CGRect)frame;
 

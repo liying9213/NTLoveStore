@@ -227,6 +227,11 @@
                 [self resetFollowListView];
             }
             _followListView.followListAry=listData;
+            if (_followListView.followListAry&&_followListView.followListAry.count>0) {
+                _followListView.tableView.backgroundView.hidden= YES;
+            }
+            else
+                _followListView.tableView.backgroundView.hidden= NO;
             _followListView.isSelect=NO;
             [_followListView.tableView reloadData];
             _followListView.hidden=NO;
@@ -238,6 +243,11 @@
                 [self resetCommentView];
             }
             _commentView.listAry=listData;
+            if (_commentView.listAry&&_commentView.listAry.count>0) {
+                _commentView.tableView.backgroundView.hidden= YES;
+            }
+            else
+                _commentView.tableView.backgroundView.hidden= NO;
             _commentView.isSelect=NO;
             [_commentView.tableView reloadData];
             _commentView.hidden=NO;
@@ -249,6 +259,11 @@
                 [self resetListView];
             }
             _listView.listAry=listData;
+            if (_listView.listAry&&_listView.listAry.count>0) {
+                _listView.tableView.backgroundView.hidden= YES;
+            }
+            else
+                _listView.tableView.backgroundView.hidden= NO;
             _listView.isSelect=NO;
             [_listView.tableView reloadData];
             _listView.hidden=NO;
