@@ -2,8 +2,8 @@
 //  NTHeadSelectView.m
 //  NTLoveStore
 //
-//  Created by 李莹 on 15/6/10.
-//  Copyright (c) 2015年 liying. All rights reserved.
+//  Created by NTTian on 15/6/10.
+//  Copyright (c) 2015年 NTTian. All rights reserved.
 //
 
 #import "NTHeadSelectView.h"

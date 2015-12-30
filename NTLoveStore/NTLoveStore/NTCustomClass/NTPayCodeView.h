@@ -2,8 +2,8 @@
 //  NTPayCodeView.h
 //  NTLoveStore
 //
-//  Created by liying on 15/8/2.
-//  Copyright (c) 2015年 liying. All rights reserved.
+//  Created by NTTian on 15/8/2.
+//  Copyright (c) 2015年 NTTian. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

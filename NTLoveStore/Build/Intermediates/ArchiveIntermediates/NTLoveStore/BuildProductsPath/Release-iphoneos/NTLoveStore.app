@@ -1,1 +1,0 @@
-/Users/liying/GitHub/NTLoveStore/NTLoveStore/Build/Intermediates/ArchiveIntermediates/NTLoveStore/InstallationBuildProductsLocation/Applications/NTLoveStore.app
